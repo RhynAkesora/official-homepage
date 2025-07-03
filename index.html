@@ -27,7 +27,7 @@
       "sameAs": [
         "https://twitter.com/rhyn_blackroses",
         "https://www.instagram.com/r__i__nn/",
-        "YOUR_YOUTUBE_URL_HERE",
+        "https://www.youtube.com/@rhyn2094",
         "https://note.com/rhyn",
         "https://kakuyomu.jp/users/rhyn"
       ]
@@ -37,26 +37,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- (前回のCSSコードはここにそのままペースト) --- */
+        /* --- 基本スタイル --- */
         body { margin: 0; font-family: 'Noto Serif JP', serif; background-color: #fdfaf6; color: #4a3728; overflow-x: hidden; scroll-behavior: smooth; }
         .container { max-width: 500px; margin: 0 auto; padding: 0 15px; }
         a { text-decoration: none; color: inherit; }
         .section { padding: 50px 0; border-bottom: 1px solid #f0e9dd; }
+        .section:last-of-type { border-bottom: none; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 30px; color: #4a3728; display: flex; align-items: center; justify-content: center; }
         .section-title i { color: #d4af37; margin-right: 12px; }
+
+        /* --- ヘッダー & ナビゲーション --- */
         .main-header { padding: 15px 0; text-align: center; position: sticky; top: 0; background-color: rgba(253, 250, 246, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f0e9dd; }
-        nav a { margin: 0 10px; font-weight: 700; font-size: 0.9rem; transition: color 0.3s; }
+        nav a { margin: 0 6px; padding: 8px 4px; font-weight: 700; font-size: 0.85rem; transition: color 0.3s; }
         nav a:hover { color: #d4af37; }
+
+        /* --- プロフィールヘッダー --- */
         .profile-header { text-align: center; padding: 40px 0; }
         .profile-frame { width: 150px; height: 150px; margin: 0 auto 25px; border-radius: 50%; padding: 7px; background: linear-gradient(45deg, #ffd700, #f8e47b, #d4af37); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-        .profile-image { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
+        .profile-image { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #fff; background-color: #ddd; }
         .main-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: #3b2a1e; margin: 0; }
         .alias-name { font-size: 0.9rem; color: #8b7355; margin-top: 5px; }
         .tagline { font-family: 'Cinzel', serif; font-size: 1rem; color: #6a5543; letter-spacing: 1px; margin-top: 15px; font-weight: 700; }
+
+        /* --- お知らせ --- */
         .info-section { background: #fff; border: 1px solid #f0e9dd; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .info-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 0.95rem; }
         .info-item:last-child { margin-bottom: 0; }
         .info-date { background-color: #4a3728; color: #fff; font-weight: 700; padding: 4px 10px; border-radius: 50px; font-size: 0.8rem; margin-right: 12px; white-space: nowrap; }
+        
+        /* --- ColorSing カード --- */
         .main-platform-card { background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4); transition: all 0.3s ease; text-align: center; }
         .main-platform-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5); }
         .main-platform-icon { font-size: 2.2rem; margin-bottom: 12px; }
@@ -64,6 +73,8 @@
         .main-platform-desc { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
         .main-platform-button { display: inline-block; background-color: rgba(255, 255, 255, 0.2); padding: 10px 25px; border-radius: 50px; font-weight: 700; transition: background-color 0.3s; }
         .main-platform-button:hover { background-color: rgba(255, 255, 255, 0.3); }
+
+        /* --- Listen & Watch セクション --- */
         .media-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .media-item { background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #f0e9dd; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .media-title { font-weight: 700; margin-bottom: 10px; font-size: 0.9rem; text-align: center;}
@@ -71,13 +82,17 @@
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .music-embed-container { position: relative; width: 100%; height: 352px; border-radius: 12px; overflow: hidden; background-color: #eee; }
         .music-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+
+        /* --- リンクグリッド --- */
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
         .link-item { background: #fff; padding: 18px 10px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.07); transition: all 0.3s ease; border: 1px solid #f0e9dd; }
         .link-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); border-color: #d4af37; }
         .link-icon { font-size: 1.8rem; margin-bottom: 10px; color: #4a3728; }
         .link-title { font-size: 1rem; font-weight: 700; }
         .link-tagline { font-size: 0.75rem; color: #aaa; margin-top: 5px; }
-        .sanctum-card { background: white; border-radius: 20px; padding: 30px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0e9dd; text-align: center; transition: all 0.3s ease; }
+        
+        /* --- 奥の間（サロン＆仕事依頼） --- */
+        .sanctum-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0e9dd; text-align: center; transition: all 0.3s ease; }
         .sanctum-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
         .sanctum-icon { font-size: 2.5rem; margin-bottom: 15px; }
         .salon-icon { color: #8e44ad; }
@@ -86,12 +101,50 @@
         .sanctum-desc { font-size: 0.95rem; color: #666; line-height: 1.7; margin-bottom: 25px; }
         .sanctum-button { display: inline-block; padding: 12px 35px; border-radius: 50px; font-weight: 700; color: white; background: linear-gradient(45deg, #3b2a1e, #5a4538); }
         .sanctum-button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .about-section { background: #f4f0e9; padding: 30px; border-radius: 20px; }
+
+        /* --- About Me セクション --- */
+        .about-section { background: #f4f0e9; padding: 30px; border-radius: 20px; text-align: center; }
         .about-section p { font-size: 0.95rem; line-height: 2; text-align: justify; }
         .about-section strong { color: #3b2a1e; font-weight: 900;}
-        .about-section hr { border: none; border-top: 1px solid #e0d8cd; margin: 20px 0; }
-        .about-section .activity-list { text-align: center; font-size: 0.9em; color: #6a5543; }
+        .about-section hr { border: none; border-top: 1px solid #e0d8cd; margin: 25px 0; }
+        .about-section .activity-list { text-align: center; font-size: 0.9em; color: #6a5543; margin-bottom: 30px;}
+
+        /* --- フッター --- */
         .footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #aaa; }
+
+	/* --- 配信スケジュール --- */
+        .schedule-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 8px 4px;
+            text-align: center;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .schedule-table th {
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .schedule-table tr:last-child th,
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+        .schedule-table .day-saturday {
+            color: #FFFEF9; /* 胡粉色 */
+            font-weight: 700;
+        }
+        .schedule-note {
+            font-size: 0.85rem;
+            margin-top: 15px;
+            opacity: 0.9;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -101,9 +154,9 @@
             <a href="#events">Events</a>
             <a href="#explore">Explore</a>
             <a href="#media">Listen & Watch</a>
-            <a href="#sanctum-salon">Salon</a>
-            <a href="#sanctum-works">Works</a>
+            <a href="coming-soon.html">History</a>
             <a href="#about">About Me</a>
+            <a href="#sanctum">Sanctum</a>
         </nav>
     </header>
 
@@ -111,9 +164,9 @@
 
         <section class="profile-header">
             <div class="profile-frame">
-                <img src="Rhyn01.JPG" alt="Rhyn皇太子" class="profile-image">
+                <img src="YOUR_PROFILE_IMAGE_PATH_HERE" alt="Rhyn皇太子" class="profile-image">
             </div>
-            <h1 class="main-name">Rhyn皇太子 (リン)</h1>
+            <h1 class="main-name">Rhyn皇太子 -リン-</h1>
             <h2 class="alias-name">別名義: 明空凛</h2>
             <p class="tagline">歌と、言葉と、真理の探求者。</p>
         </section>
@@ -130,12 +183,40 @@
             </div>
         </section>
         
-        <a href="https://colorsing.page.link/ACGVLf592NLFN6FN9" target="_blank">
-            <section class="main-platform-card section">
+        <a href="https://colorsing.page.link/ACGVLf592NLFN6FN9" target="_blank" style="display: block; text-decoration: none;">
+            <section class="main-platform-card section" style="padding-bottom: 15px;">
                 <div class="main-platform-icon"><i class="fas fa-microphone-alt"></i></div>
                 <h3 class="main-platform-title">毎日、生放送。</h3>
                 <p class="main-platform-desc">私の「今」に触れるなら、まずはこちらへ。<br>歌と、芸人顔負けの抱腹絶倒トークでお出迎えします。</p>
-                <div class="main-platform-button">ColorSingで待っています »</div>
+
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>月</th>
+                            <th>火</th>
+                            <th>水</th>
+                            <th>木</th>
+                            <th>金</th>
+                            <th>土</th>
+                            <th>日</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20:00~</td>
+                            <td>20:00~</td>
+                            <td>18:00~</td>
+                            <td>18:00~</td>
+                            <td>20:00~</td>
+                            <td class="day-saturday">ゲリラ</td>
+                            <td>18:00~</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="schedule-note">※時々23時よりトーク配信あり。予定はX(Twitter)で告知します。</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="main-platform-button">ColorSingで待っています »</span>
+                </div>
             </section>
         </a>
 
@@ -145,12 +226,22 @@
                  <a href="https://twitter.com/rhyn_blackroses" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fab fa-twitter"></i></div>
                     <div class="link-title">X (Twitter)</div>
-                    <p class="link-tagline">思考の閃光、日常の断片</p>
+                    <p class="link-tagline">日常の断片</p>
                 </a>
                 <a href="https://www.instagram.com/r__i__nn/" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fab fa-instagram"></i></div>
                     <div class="link-title">Instagram</div>
-                    <p class="link-tagline">耽美なる虚構の世界</p>
+                    <p class="link-tagline">私が見た世界</p>
+                </a>
+                 <a href="https://www.youtube.com/@rhyn2094" class="link-item" target="_blank">
+                    <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="link-title">YouTube</div>
+                    <p class="link-tagline">革命の記録映像</p>
+                </a>
+                 <a href="coming-soon.html" class="link-item">
+                    <div class="link-icon"><i class="fas fa-podcast"></i></div>
+                    <div class="link-title">stand.fm</div>
+                    <p class="link-tagline">声で届ける、思考の裏側</p>
                 </a>
                  <a href="https://note.com/rhyn" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fas fa-feather-alt"></i></div>
@@ -160,22 +251,14 @@
                 <a href="https://kakuyomu.jp/users/rhyn" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fas fa-book-reader"></i></div>
                     <div class="link-title">カクヨム</div>
-                    <p class="link-tagline">Web小説、連載中</p>
-                </a>
-                 <a href="YOUR_YOUTUBE_CHANNEL_URL_HERE" class="link-item" target="_blank">
-                    <div class="link-icon"><i class="fab fa-youtube"></i></div>
-                    <div class="link-title">YouTube</div>
-                    <p class="link-tagline">革命の記録映像</p>
-                </a>
-                 <a href="YOUR_STAND.FM_URL_HERE" class="link-item" target="_blank">
-                    <div class="link-icon"><i class="fas fa-podcast"></i></div>
-                    <div class="link-title">stand.fm</div>
-                    <p class="link-tagline">声で届ける、思考の裏側</p>
+                    <p class="link-tagline">Web小説</p>
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B0D8Z4V9QG" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fab fa-amazon"></i></div>
                     <div class="link-title">Kindle</div>
-                    <p class="link-tagline">小説「空の器」</p>
+                    <p class="link-tagline">小説「空の器」</br>
+			Kindleランキング<br/>
+			哲学1位 心理学2位</p>
                 </a>
                 <a href="https://rhynakesora.github.io/tamashii/" class="link-item" target="_blank">
                     <div class="link-icon"><i class="fas fa-gamepad"></i></div>
@@ -202,9 +285,27 @@
                 </div>
             </div>
         </section>
-
-        <section id="sanctum-salon" class="section">
-             <a href="YOUR_YOOR_SALON_URL_HERE" target="_blank">
+        
+        <section id="about" class="about-section section">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i>私という存在について</h2>
+            <p>表の顔は、ボーカリストとして音の世界を探求するミュージシャン。</p>
+            <p>その傍ら、言葉の世界では<strong>作家</strong>として物語を紡ぎ、ロジックの世界では<strong>ゲーム開発者</strong>としてシステムを構築し、そして身体の世界では<strong>武術気功研究家</strong>として、そのメカニズムを解明してきました。</p>
+            <p>これら全ての活動は、たった一つの問いに収束します。『この世界の"真理"とは、一体何か？』と。</p>
+            <p>その長年の個人的な探求の成果を、オンラインサロン<strong>『解脱しか勝たん！』</strong>にて主催するに至りました。</p>
+            <p>私の探求の旅は、決して他者を論破したり、自らの正しさを証明したりするためのものではありません。</p>
+            <p>むしろ、難解な真理や、一見すると奇妙な現象も、<strong>笑いと共に解き明かす</strong>ことで、誰もが<strong>対等に、そして軽やかに（和）</strong>、自らの可能性に向き合える世界。</p>
+            <p>それこそが、私の目指す「革命」の姿です。</p>
+            <hr>
+            <div class="activity-list">
+                <p><strong>【活動領域】</strong></p>
+                <p>ボーカリスト / ミュージシャン / 作詞作曲家 / 小説家 / 武術気功研究家 / ライバー / ゲーム開発 / 真理探求 / 慶應義塾大学哲学徒</p>
+            </div>
+            <a href="coming-soon.html" class="sanctum-button" style="display: inline-block; margin-top: 20px;">私の歩み - Historyを見る</a>
+        </section>
+        
+        <section id="sanctum" class="section">
+            <h2 class="section-title"><i class="fas fa-key"></i>奥の間へ — For Deeper Seekers</h2>
+            <a href="coming-soon.html">
                 <div class="sanctum-card">
                     <div class="sanctum-icon salon-icon"><i class="fas fa-crown"></i></div>
                     <h3 class="sanctum-title">オンラインサロン「解脱しか勝たん！」</h3>
@@ -212,10 +313,7 @@
                     <div class="sanctum-button">作戦室への参加はこちら</div>
                 </div>
             </a>
-        </section>
-
-        <section id="sanctum-works" class="section">
-            <a href="YOUR_WORKS_PAGE_URL_HERE">
+            <a href="coming-soon.html">
                 <div class="sanctum-card">
                     <div class="sanctum-icon music-icon"><i class="fas fa-sliders-h"></i></div>
                     <h3 class="sanctum-title">楽曲制作・ミックス依頼</h3>
@@ -224,26 +322,11 @@
                 </div>
             </a>
         </section>
-        
-        <section id="about" class="about-section section">
-            <h2 class="section-title"><i class="fas fa-user-circle"></i>私について</h2>
-            <p>表の顔は、ボーカリストとして音の世界を探求するミュージシャン。</p>
-            <p>その傍ら、言葉の世界では<strong>作家</strong>として物語を紡ぎ、ロジックの世界では<strong>ゲーム開発者</strong>としてシステムを構築し、そして身体の世界では<strong>武術気功研究家</strong>として、そのメカニズムを解明してきました。</p>
-            <p>これら全ての活動は、たった一つの問いに収束します。『この世界の“真理”とは、一体何か？』と。</p>
-            <p>その長年の個人的な探求の成果を、オンラインサロン<strong>『解脱しか勝たん！』</strong>にて主催するに至りました。</p>
-            <p>私の探求の旅は、決して他者を論破したり、自らの正しさを証明したりするためのものではありません。</p>
-            <p>むしろ、難解な真理や、一見すると奇妙な現象も、<strong>笑いと共に解き明かす</strong>ことで、誰もが<strong>対等に、そして軽やかに（和）</strong>、自らの可能性に向き合える世界。</p>
-            <p>それこそが、私の目指す「革命」の姿です。</p>
-            <hr style="border: none; border-top: 1px solid #e0d8cd; margin: 20px 0;">
-            <p class="activity-list">
-                <strong>【活動領域】</strong><br>
-                ボーカリスト / ミュージシャン / 作詞作曲家 / 小説家 / 武術気功研究家 / ライバー / ゲーム開発 / 真理探求 / 慶應義塾大学哲学徒
-            </p>
-        </section>
 
         <footer class="footer">
             <p>© 2025 Rhyn皇太子. The Revolution has begun.</p>
         </footer>
+
     </div>
 </body>
 </html>
