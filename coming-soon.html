@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>準備中 - Rhyn皇太子 Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- メインページから基本スタイルを継承 --- */
+        body { margin: 0; font-family: 'Noto Serif JP', serif; background-color: #fdfaf6; color: #4a3728; overflow-x: hidden; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        .main-header { padding: 15px 0; text-align: center; position: sticky; top: 0; background-color: rgba(253, 250, 246, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f0e9dd; }
+        nav a { margin: 0 8px; font-weight: 700; font-size: 0.9rem; transition: color 0.3s; }
+        nav a:hover { color: #d4af37; }
+        .footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #aaa; border-top: 1px solid #f0e9dd; }
+        
+        /* --- Coming Soon専用スタイル --- */
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 180px); /* ヘッダーとフッターの高さを考慮 */
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .coming-soon-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #3b2a1e;
+            margin-bottom: 10px;
+        }
+        .coming-soon-text {
+            font-size: 1rem;
+            color: #6a5543;
+            margin-bottom: 40px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(45deg, #3b2a1e, #5a4538);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav>
+            <a href="index.html#events">Events</a>
+            <a href="index.html#explore">Explore</a>
+            <a href="index.html#media">Listen & Watch</a>
+            <a href="index.html#history">History</a>
+            <a href="index.html#about">About Me</a>
+            <a href="index.html#sanctum-salon">Salon</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="coming-soon-container">
+            <h1 class="coming-soon-title">Coming Soon...</h1>
+            <p class="coming-soon-text">このページは現在、革命の準備中です。<br>公開まで、今しばらくお待ちください。</p>
+            <a href="javascript:history.back()" class="back-button">前のページに戻る</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Rhyn皇太子. The Revolution has begun.</p>
+    </footer>
+
+</body>
+</html>
