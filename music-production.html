@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -9,124 +8,948 @@
     <!-- Google Search Console 認証 -->
     <meta name="google-site-verification" content="D09wmZtN0SqhAxDPPklqV6Q0fhPSVPH863PoOOGelq4" />
     
-<meta name="description" content="Rhyn皇太子による楽曲制作・ミックスマスタリングサービス。哲学と音楽を融合させた深みのある楽曲制作から、歌ってみたのプロフェッショナルミックスまで。">
-<meta property="og:title" content="楽曲制作・ミックスマスタリングサービス - Rhyn皇太子 Official">
-<meta property="og:description" content="NHK、BURRN!誌掲載の実績。哲学×音楽の独自視点で、あなたの音楽を最高の形へ。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://rhyn.jp/music-production.html">
-<meta property="og:image" content="https://rhyn.jp/Rhyn01.JPG">
-<meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Rhyn皇太子による楽曲制作・ミックスマスタリングサービス。哲学と音楽を融合させた深みのある楽曲制作から、歌ってみたのプロフェッショナルミックス、法人様向けBGM制作まで。">
+    <meta property="og:title" content="楽曲制作・ミックスマスタリングサービス - Rhyn皇太子 Official">
+    <meta property="og:description" content="NHK、BURRN!誌掲載の実績。哲学×音楽の独自視点で、あなたの音楽を最高の形へ。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rhyn.jp/music-production.html">
+    <meta property="og:image" content="https://rhyn.jp/Rhyn01.JPG">
+    <meta name="twitter:card" content="summary_large_image">
 
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-    /* --- 基本スタイル（メインサイトから継承） --- */
-    body { margin: 0; font-family: 'Noto Serif JP', serif; background-color: #fdfaf6; color: #4a3728; overflow-x: hidden; scroll-behavior: smooth; }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 15px; }
-    a { text-decoration: none; color: inherit; }
+    /* --- 基本スタイル --- */
+    body { 
+        margin: 0; 
+        font-family: 'Noto Serif JP', serif; 
+        background-color: #fdfaf6; 
+        color: #4a3728; 
+        overflow-x: hidden; 
+        scroll-behavior: smooth; 
+        line-height: 1.7;
+    }
+    .container { 
+        max-width: 1000px; 
+        margin: 0 auto; 
+        padding: 0 20px; 
+    }
+    a { 
+        text-decoration: none; 
+        color: inherit; 
+    }
     
     /* --- ヘッダー & ナビゲーション --- */
-    .main-header { padding: 15px 0; text-align: center; position: sticky; top: 0; background-color: rgba(253, 250, 246, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #f0e9dd; }
-    nav a { margin: 0 6px; padding: 8px 4px; font-weight: 700; font-size: 0.85rem; transition: color 0.3s; }
-    nav a:hover { color: #d4af37; }
+    .main-header { 
+        padding: 15px 0; 
+        text-align: center; 
+        position: sticky; 
+        top: 0; 
+        background-color: rgba(253, 250, 246, 0.95); 
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px); 
+        z-index: 100; 
+        border-bottom: 1px solid #f0e9dd; 
+    }
+    nav a { 
+        margin: 0 8px; 
+        padding: 8px 6px; 
+        font-weight: 700; 
+        font-size: 0.85rem; 
+        transition: color 0.3s; 
+    }
+    nav a:hover { 
+        color: #d4af37; 
+    }
 
     /* --- ページヘッダー --- */
-    .page-header { text-align: center; padding: 60px 0 40px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(253, 250, 246, 0)); }
-    .page-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #3b2a1e; margin: 0 0 20px 0; }
-    .page-subtitle { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #6a5543; letter-spacing: 2px; margin-bottom: 20px; }
-    .page-lead { font-size: 0.95rem; line-height: 1.8; color: #666; max-width: 600px; margin: 0 auto; }
+    .page-header { 
+        text-align: center; 
+        padding: 80px 0 60px; 
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(253, 250, 246, 0)); 
+    }
+    .page-title { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 2.8rem; 
+        font-weight: 900; 
+        color: #3b2a1e; 
+        margin: 0 0 20px 0; 
+        letter-spacing: -1px;
+    }
+    .page-subtitle { 
+        font-family: 'Cinzel', serif; 
+        font-size: 1.3rem; 
+        color: #d4af37; 
+        letter-spacing: 3px; 
+        margin-bottom: 30px; 
+        font-weight: 700;
+    }
+    .page-lead { 
+        font-size: 1rem; 
+        line-height: 1.8; 
+        color: #666; 
+        max-width: 700px; 
+        margin: 0 auto; 
+    }
 
     /* --- 初回限定バナー --- */
-    .first-time-banner { background: linear-gradient(45deg, #d4af37, #f8e47b); color: #3b2a1e; padding: 15px; text-align: center; margin: 30px 0; border-radius: 50px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3); font-weight: 700; font-size: 1.1rem; animation: glow 2s ease-in-out infinite; }
-    @keyframes glow { 0%, 100% { box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3); } 50% { box-shadow: 0 5px 30px rgba(212, 175, 55, 0.5); } }
+    .first-time-banner { 
+        background: linear-gradient(45deg, #d4af37, #f8e47b); 
+        color: #3b2a1e; 
+        padding: 20px; 
+        text-align: center; 
+        margin: 40px 0; 
+        border-radius: 50px; 
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); 
+        font-weight: 700; 
+        font-size: 1.2rem; 
+        animation: glow 3s ease-in-out infinite; 
+    }
+    @keyframes glow { 
+        0%, 100% { box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); } 
+        50% { box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5); } 
+    }
 
     /* --- サービス概要 --- */
-    .service-overview { margin: 50px 0; }
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-    .service-card { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; transition: all 0.3s ease; border: 1px solid #f0e9dd; }
-    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-    .service-icon { font-size: 2.5rem; color: #d4af37; margin-bottom: 15px; }
-    .service-title { font-weight: 900; font-size: 1.1rem; margin-bottom: 10px; }
-    .service-desc { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    .service-overview { 
+        margin: 80px 0; 
+    }
+    .service-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px; 
+        margin-top: 50px; 
+    }
+    .service-card { 
+        background: #fff; 
+        padding: 40px 30px; 
+        border-radius: 20px; 
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06); 
+        text-align: center; 
+        transition: all 0.4s ease; 
+        border: 1px solid #f0e9dd;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+    .service-card:hover::before {
+        left: 100%;
+    }
+    .service-card:hover { 
+        transform: translateY(-8px); 
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12); 
+    }
+    .service-icon { 
+        font-size: 3rem; 
+        color: #d4af37; 
+        margin-bottom: 20px; 
+    }
+    .service-title { 
+        font-weight: 900; 
+        font-size: 1.3rem; 
+        margin-bottom: 15px; 
+        color: #3b2a1e;
+    }
+    .service-desc { 
+        font-size: 0.95rem; 
+        color: #666; 
+        line-height: 1.7; 
+    }
 
     /* --- セクションスタイル --- */
-    .section { margin: 80px 0; }
-    .section-header { text-align: center; margin-bottom: 50px; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: #3b2a1e; margin-bottom: 15px; position: relative; display: inline-block; }
-    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: #d4af37; }
-    .section-subtitle { font-size: 0.95rem; color: #666; margin-top: 25px; }
+    .section { 
+        margin: 100px 0; 
+    }
+    .section-header { 
+        text-align: center; 
+        margin-bottom: 60px; 
+    }
+    .section-title { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 2.2rem; 
+        color: #3b2a1e; 
+        margin-bottom: 20px; 
+        position: relative; 
+        display: inline-block; 
+    }
+    .section-title::after { 
+        content: ''; 
+        position: absolute; 
+        bottom: -15px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 3px; 
+        background: linear-gradient(90deg, #d4af37, #f8e47b);
+        border-radius: 2px;
+    }
+    .section-subtitle { 
+        font-size: 1rem; 
+        color: #666; 
+        margin-top: 30px; 
+        max-width: 800px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        line-height: 1.8; 
+    }
 
     /* --- 料金プラン --- */
-    .plan-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0; }
-    .plan-card { background: #fff; border: 2px solid #f0e9dd; border-radius: 20px; padding: 30px; text-align: center; position: relative; transition: all 0.3s ease; }
-    .plan-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .plan-card.featured { border-color: #d4af37; transform: scale(1.05); }
-    .plan-card.featured::before { content: 'おすすめ'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: #fff; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
-    .plan-icon { font-size: 2rem; margin-bottom: 10px; }
-    .plan-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
-    .plan-price { font-size: 2rem; color: #d4af37; font-weight: 900; margin-bottom: 20px; }
-    .plan-features { list-style: none; padding: 0; margin: 20px 0; text-align: left; }
-    .plan-features li { padding: 8px 0; border-bottom: 1px solid #f0e9dd; font-size: 0.9rem; }
-    .plan-features li:last-child { border-bottom: none; }
-    .plan-features li:before { content: '✓'; color: #d4af37; font-weight: 700; margin-right: 8px; }
-
+    .plan-container { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 30px; 
+        margin: 50px 0;
+        align-items: stretch;
+    }
+    .plan-card { 
+        background: #fff; 
+        border: 2px solid #f0e9dd; 
+        border-radius: 25px; 
+        padding: 40px 30px; 
+        text-align: center; 
+        position: relative; 
+        transition: all 0.4s ease; 
+        display: flex; 
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .plan-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #d4af37, #f8e47b);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .plan-card:hover::before {
+        opacity: 1;
+    }
+    .plan-card:hover { 
+        transform: translateY(-10px); 
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+        border-color: #d4af37;
+    }
+    .plan-card.featured { 
+        border-color: #d4af37; 
+        transform: scale(1.05); 
+        z-index: 10;
+        background: linear-gradient(135deg, #fff, #fefdf9);
+    }
+    .plan-card.featured::before {
+        opacity: 1;
+    }
+    .plan-card.featured::after { 
+        content: 'おすすめ'; 
+        position: absolute; 
+        top: -15px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        background: linear-gradient(45deg, #d4af37, #f8e47b); 
+        color: #3b2a1e; 
+        padding: 8px 25px; 
+        border-radius: 25px; 
+        font-size: 0.85rem; 
+        font-weight: 900; 
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    }
+    .plan-icon { 
+        font-size: 2.5rem; 
+        margin-bottom: 15px; 
+    }
+    .plan-name { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 1.5rem; 
+        font-weight: 900; 
+        margin-bottom: 15px; 
+        color: #3b2a1e;
+    }
+    .plan-concept { 
+        font-size: 0.95rem; 
+        font-weight: 700; 
+        color: #d4af37; 
+        margin-bottom: 20px; 
+        min-height: 50px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        font-style: italic;
+    }
+    .plan-price { 
+        font-size: 2.5rem; 
+        color: #3b2a1e; 
+        font-weight: 900; 
+        margin-bottom: 25px; 
+        font-family: 'Playfair Display', serif;
+        position: relative;
+    }
+    .plan-price span { 
+        font-size: 1rem; 
+        font-weight: normal; 
+        color: #666; 
+        font-family: 'Noto Serif JP', serif;
+    }
+    .plan-features { 
+        list-style: none; 
+        padding: 0; 
+        margin: 25px 0; 
+        text-align: left; 
+        flex-grow: 1; 
+    }
+    .plan-features li { 
+        padding: 12px 0; 
+        border-bottom: 1px solid #f5f5f5; 
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+    .plan-features li:hover {
+        padding-left: 5px;
+        color: #3b2a1e;
+    }
+    .plan-features li:last-child { 
+        border-bottom: none; 
+    }
+    .plan-features li:before { 
+        content: '✓'; 
+        color: #d4af37; 
+        font-weight: 900; 
+        margin-right: 10px; 
+        font-size: 1.1rem;
+    }
+    .plan-features strong {
+        color: #3b2a1e;
+    }
+    .plan-desc { 
+        font-size: 0.9rem; 
+        color: #666; 
+        margin-top: auto; 
+        padding-top: 20px; 
+        line-height: 1.6;
+        border-top: 1px solid #f5f5f5;
+    }
+    
     /* --- オプション表 --- */
-    .option-table { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin: 30px 0; }
-    .option-table table { width: 100%; border-collapse: collapse; }
-    .option-table th { background: #f8f4ee; padding: 15px; text-align: left; font-weight: 700; color: #3b2a1e; }
-    .option-table td { padding: 15px; border-bottom: 1px solid #f0e9dd; }
-    .option-table tr:last-child td { border-bottom: none; }
-    .option-price { color: #d4af37; font-weight: 700; }
+    .option-table-container { 
+        margin-top: 60px; 
+    }
+    .option-table { 
+        background: #fff; 
+        border-radius: 20px; 
+        overflow: hidden; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+        margin: 40px 0; 
+    }
+    .option-table table { 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+    .option-table th, .option-table td { 
+        padding: 20px; 
+        border-bottom: 1px solid #f0e9dd; 
+        text-align: left; 
+    }
+    .option-table th { 
+        background: linear-gradient(135deg, #f8f4ee, #fefdf9); 
+        font-weight: 900; 
+        color: #3b2a1e; 
+        font-size: 1.1rem;
+    }
+    .option-table tr:hover {
+        background: #fefdf9;
+    }
+    .option-table tr:last-child td { 
+        border-bottom: none; 
+    }
+    .option-price { 
+        color: #d4af37; 
+        font-weight: 900; 
+        white-space: nowrap; 
+        font-size: 1.1rem;
+    }
+    .option-desc { 
+        font-size: 0.9rem; 
+        color: #666; 
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+
+    /* --- カスタマイズ案内 --- */
+    .customization-note { 
+        background: linear-gradient(135deg, #f8f4ee, #fefdf9); 
+        border-radius: 25px; 
+        padding: 40px; 
+        margin: 80px auto 0; 
+        text-align: center; 
+        max-width: 800px; 
+        border: 2px solid #f0e9dd;
+    }
+    .customization-note h3 { 
+        font-family: 'Playfair Display', serif; 
+        margin-top: 0; 
+        color: #3b2a1e;
+        font-size: 1.4rem;
+    }
+    .customization-note p { 
+        line-height: 1.8; 
+        color: #666;
+    }
 
     /* --- 制作の流れ --- */
-    .flow-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; margin: 40px 0; }
-    .flow-step { flex: 1; min-width: 200px; text-align: center; position: relative; }
-    .flow-step:not(:last-child)::after { content: '→'; position: absolute; right: -20px; top: 40px; font-size: 1.5rem; color: #d4af37; }
-    .flow-number { width: 80px; height: 80px; background: #d4af37; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 15px; }
-    .flow-title { font-weight: 700; margin-bottom: 10px; }
-    .flow-desc { font-size: 0.85rem; color: #666; }
+    .flow-container { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        gap: 30px; 
+        margin: 60px 0; 
+    }
+    .flow-step { 
+        flex: 1; 
+        min-width: 180px; 
+        text-align: center; 
+        position: relative; 
+    }
+    .flow-step:not(:last-child)::after { 
+        content: '→'; 
+        position: absolute; 
+        right: -30px; 
+        top: 35px; 
+        font-size: 2.5rem; 
+        color: #d4af37; 
+        font-weight: bold; 
+    }
+    .flow-number { 
+        width: 70px; 
+        height: 70px; 
+        background: linear-gradient(45deg, #d4af37, #f8e47b); 
+        color: #3b2a1e; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 1.8rem; 
+        font-weight: 900; 
+        margin: 0 auto 20px; 
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        transition: transform 0.3s ease;
+    }
+    .flow-number:hover {
+        transform: scale(1.1);
+    }
+    .flow-title { 
+        font-weight: 900; 
+        margin-bottom: 15px; 
+        color: #3b2a1e;
+        font-size: 1.1rem;
+    }
+    .flow-desc { 
+        font-size: 0.9rem; 
+        color: #666; 
+        line-height: 1.6;
+    }
 
     /* --- サンプル・実績 --- */
-    .sample-box { background: linear-gradient(135deg, #f8f4ee, #fff); border-radius: 20px; padding: 30px; text-align: center; margin: 40px 0; }
-    .sample-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; }
-    .sample-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-    .sample-button { display: inline-block; padding: 12px 30px; background: #3b2a1e; color: #fff; border-radius: 50px; font-weight: 700; transition: all 0.3s ease; }
-    .sample-button:hover { background: #d4af37; transform: scale(1.05); }
+    .sample-box { 
+        background: linear-gradient(135deg, #f8f4ee, #fff); 
+        border-radius: 25px; 
+        padding: 50px; 
+        text-align: center; 
+        margin: 60px 0; 
+        border: 2px solid #f0e9dd;
+    }
+    .sample-box h3 { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 1.8rem; 
+        margin-bottom: 25px; 
+        color: #3b2a1e;
+    }
+    .sample-buttons { 
+        display: flex; 
+        gap: 20px; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        margin-top: 30px;
+    }
+    .sample-button { 
+        display: inline-block; 
+        padding: 15px 35px; 
+        background: linear-gradient(45deg, #3b2a1e, #5a4538); 
+        color: #fff; 
+        border-radius: 50px; 
+        font-weight: 700; 
+        transition: all 0.4s ease; 
+        box-shadow: 0 5px 15px rgba(59, 42, 30, 0.3);
+    }
+    .sample-button:hover { 
+        background: linear-gradient(45deg, #d4af37, #f8e47b); 
+        color: #3b2a1e;
+        transform: translateY(-3px); 
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    }
 
     /* --- FAQ --- */
-    .faq-container { max-width: 700px; margin: 0 auto; }
-    .faq-item { background: #fff; margin-bottom: 15px; border-radius: 15px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-    .faq-question { padding: 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
-    .faq-question:hover { background: #f8f4ee; }
-    .faq-answer { padding: 0 20px 20px; display: none; }
-    .faq-answer.active { display: block; }
-    .faq-icon { color: #d4af37; transition: transform 0.3s ease; }
-    .faq-icon.active { transform: rotate(180deg); }
+    .faq-container { 
+        max-width: 800px; 
+        margin: 0 auto; 
+    }
+    .faq-item { 
+        background: #fff; 
+        margin-bottom: 20px; 
+        border-radius: 20px; 
+        overflow: hidden; 
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06); 
+        border: 1px solid #f0e9dd;
+    }
+    .faq-question { 
+        padding: 25px; 
+        font-weight: 700; 
+        cursor: pointer; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        transition: background 0.3s ease; 
+        color: #3b2a1e;
+    }
+    .faq-question:hover { 
+        background: linear-gradient(135deg, #f8f4ee, #fefdf9); 
+    }
+    .faq-answer { 
+        padding: 0 25px 25px; 
+        display: none; 
+        line-height: 1.8; 
+        color: #666;
+    }
+    .faq-answer.active { 
+        display: block; 
+    }
+    .faq-icon { 
+        color: #d4af37; 
+        transition: transform 0.3s ease; 
+        font-size: 1.2rem;
+    }
+    .faq-icon.active { 
+        transform: rotate(180deg); 
+    }
 
     /* --- CTA --- */
-    .cta-section { background: linear-gradient(135deg, #3b2a1e, #5a4538); color: #fff; padding: 60px 20px; border-radius: 30px; text-align: center; margin: 60px 0; }
-    .cta-title { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; }
-    .cta-text { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
-    .cta-button { display: inline-block; padding: 15px 40px; background: #d4af37; color: #3b2a1e; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; }
-    .cta-button:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5); }
+    .cta-section { 
+        background: linear-gradient(135deg, #3b2a1e, #5a4538); 
+        color: #fff; 
+        padding: 80px 30px; 
+        border-radius: 30px; 
+        text-align: center; 
+        margin: 80px 0; 
+        box-shadow: 0 15px 40px rgba(59, 42, 30, 0.3);
+    }
+    .cta-title { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 2.5rem; 
+        margin-bottom: 25px; 
+    }
+    .cta-text { 
+        font-size: 1.2rem; 
+        margin-bottom: 40px; 
+        opacity: 0.9; 
+        line-height: 1.7;
+    }
+    .cta-button { 
+        display: inline-block; 
+        padding: 18px 50px; 
+        background: linear-gradient(45deg, #d4af37, #f8e47b); 
+        color: #3b2a1e; 
+        border-radius: 50px; 
+        font-weight: 900; 
+        font-size: 1.2rem; 
+        transition: all 0.4s ease; 
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    }
+    .cta-button:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6); 
+    }
 
     /* --- フッター --- */
-    .footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #aaa; border-top: 1px solid #f0e9dd; }
+    .footer { 
+        text-align: center; 
+        padding: 50px 20px; 
+        font-size: 0.9rem; 
+        color: #aaa; 
+        border-top: 1px solid #f0e9dd; 
+    }
 
-    /* --- レスポンシブ --- */
+    /* --- セクション区切り線 --- */
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        margin: 80px 0;
+        opacity: 0.3;
+    }
+
+    /* --- 価格強調 --- */
+    .price-highlight {
+        position: relative;
+    }
+    .price-highlight::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    /* --- ステップアニメーション --- */
+    .flow-step {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .flow-step:nth-child(1) { animation-delay: 0.1s; }
+    .flow-step:nth-child(2) { animation-delay: 0.2s; }
+    .flow-step:nth-child(3) { animation-delay: 0.3s; }
+    .flow-step:nth-child(4) { animation-delay: 0.4s; }
+    .flow-step:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* --- 読み込み時アニメーション --- */
+    .service-card {
+        animation: slideInFromBottom 0.8s ease forwards;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes slideInFromBottom {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @media (max-width: 1024px) {
+        .plan-container { 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        }
+        .plan-card.featured { 
+            transform: none; 
+        }
+    }
     @media (max-width: 768px) {
-        .page-title { font-size: 2rem; }
-        .plan-container { grid-template-columns: 1fr; }
-        .plan-card.featured { transform: none; }
-        .flow-step:not(:last-child)::after { display: none; }
-        .flow-container { flex-direction: column; }
+        body {
+            overflow-x: hidden;
+        }
+        .container {
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+        .page-title { 
+            font-size: 1.8rem; 
+            line-height: 1.3;
+            padding: 0 15px;
+        }
+        .page-subtitle {
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 0 15px;
+        }
+        .page-lead {
+            font-size: 0.85rem;
+            padding: 0 15px;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            line-height: 1.3;
+            padding: 0 15px;
+        }
+        .section-subtitle {
+            font-size: 0.85rem;
+            padding: 0 15px;
+        }
+        .flow-step:not(:last-child)::after { 
+            display: none; 
+        }
+        .flow-container { 
+            flex-direction: column; 
+            gap: 40px; 
+            padding: 0 15px;
+        }
+        .service-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .service-card {
+            padding: 25px 20px;
+        }
+        .plan-container {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .plan-card {
+            padding: 25px 20px;
+        }
+        .plan-name {
+            font-size: 1.3rem;
+        }
+        .plan-price {
+            font-size: 2rem;
+        }
+        .sample-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 0 15px;
+        }
+        .sample-button {
+            width: 100%;
+            max-width: 280px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* オプション表のモバイル対応を徹底修正 */
+        .option-table-container {
+            padding: 0 15px;
+            margin-top: 40px;
+        }
+        .option-table {
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: none;
+            width: 100%;
+            overflow: hidden;
+        }
+        .option-table table, 
+        .option-table tbody, 
+        .option-table tr, 
+        .option-table td { 
+            display: block; 
+            width: 100%; 
+            box-sizing: border-box;
+        }
+        .option-table thead { 
+            display: none; 
+        }
+        .option-table tr { 
+            background: #fff;
+            border: 1px solid #f0e9dd;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .option-table tr:last-child { 
+            margin-bottom: 0; 
+        }
+        .option-table td {
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        
+        /* オプション名の表示 */
+        .option-table strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #3b2a1e;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            word-wrap: break-word;
+        }
+        
+        /* おすすめバッジのモバイル対応 */
+        .option-table strong span {
+            display: block;
+            margin-top: 5px;
+            margin-left: 0;
+            width: fit-content;
+        }
+        
+        /* 説明文の表示 */
+        .option-table .option-desc {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #666;
+            margin: 8px 0 12px 0;
+            word-wrap: break-word;
+        }
+        
+        /* 料金の表示 */
+        .option-table .option-price {
+            font-size: 1.2rem;
+            color: #d4af37;
+            font-weight: 900;
+            display: block;
+            text-align: left;
+            margin-top: 8px;
+        }
+        
+        /* BGM特別パッケージのモバイル対応 */
+        .bgm-package {
+            padding: 20px 15px !important;
+            margin: 30px 0 !important;
+        }
+        .bgm-package h3 {
+            font-size: 1.2rem !important;
+            padding: 0 !important;
+            margin-bottom: 15px !important;
+        }
+        .bgm-package .package-item {
+            margin-bottom: 20px !important;
+            padding: 20px 15px !important;
+        }
+        .bgm-package .package-item > div {
+            flex-direction: column !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
+        .bgm-package .package-item > div > div {
+            min-width: 100% !important;
+            text-align: center !important;
+        }
+        .bgm-package h4 {
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+        }
+        .bgm-package p {
+            margin: 3px 0 !important;
+        }
+        
+        /* カスタマイズ案内のモバイル対応 */
+        .customization-note {
+            padding: 20px 15px;
+            margin: 40px 0 0;
+        }
+        .customization-note h3 {
+            font-size: 1.1rem;
+        }
+        .customization-note p {
+            font-size: 0.85rem;
+        }
+        
+        /* お得なプラン案内のモバイル対応 */
+        .special-plans {
+            padding: 30px 15px !important;
+            margin: 50px 0 !important;
+        }
+        .special-plans .section-header {
+            padding: 0 !important;
+        }
+        .special-plans h2 {
+            font-size: 1.5rem !important;
+            padding: 0 !important;
+        }
+        .special-plans > div {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+        }
+        .special-plans .plan-item {
+            padding: 20px 15px !important;
+        }
+        .special-plans h3 {
+            font-size: 1rem !important;
+        }
+        
+        /* FAQのモバイル対応 */
+        .faq-container {
+            padding: 0 15px;
+        }
+        .faq-question {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+        .faq-answer {
+            padding: 0 15px 15px;
+            font-size: 0.85rem;
+        }
+        
+        /* CTAセクションのモバイル対応 */
+        .cta-section {
+            padding: 40px 15px;
+            margin: 50px 0;
+        }
+        .cta-title {
+            font-size: 1.6rem;
+        }
+        .cta-text {
+            font-size: 0.95rem;
+        }
+        .cta-button {
+            padding: 12px 25px;
+            font-size: 0.95rem;
+        }
+        
+        /* 制作者プロフィールのモバイル対応 */
+        .profile-section {
+            padding: 25px 15px !important;
+            margin: 0 15px !important;
+        }
+        .profile-section h3 {
+            font-size: 1.4rem !important;
+        }
+        .profile-section ul {
+            font-size: 0.85rem !important;
+        }
+        .profile-section p {
+            font-size: 0.95rem !important;
+        }
+        
+        /* 制作環境・ジャンル表示のモバイル対応 */
+        .genre-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .genre-item {
+            padding: 12px 8px !important;
+            font-size: 0.8rem !important;
+        }
+        .genre-item div:first-child {
+            font-size: 1.2rem !important;
+        }
+        .section {
+            margin: 60px 0;
+        }
+        
+        /* 初回限定バナー */
+        .first-time-banner {
+            margin: 30px 15px;
+            padding: 15px;
+            font-size: 1rem;
+        }
     }
 </style>
 
@@ -170,7 +993,7 @@
 
     <!-- 初回限定特典 -->
     <div class="first-time-banner">
-        <i class="fas fa-star"></i> 初回ご依頼限定20%OFF！今がチャンス <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i> <strong>初回ご依頼限定20%OFF！</strong> この機会をお見逃しなく <i class="fas fa-star"></i>
     </div>
 
     <!-- サービス概要 -->
@@ -182,23 +1005,23 @@
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-music"></i></div>
                 <h3 class="service-title">オリジナル楽曲制作</h3>
-                <p class="service-desc">作曲・編曲からミックス・マスタリングまで、完全オーダーメイドの楽曲制作</p>
+                <p class="service-desc">作曲・編曲から配信まで。あなたの想いを形にする完全オーダーメイドの楽曲制作。</p>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-microphone"></i></div>
+                <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
                 <h3 class="service-title">歌ってみたミックス</h3>
-                <p class="service-desc">あなたの歌声を最高の形で表現する、プロフェッショナルミックス</p>
+                <p class="service-desc">あなたの歌声を最高の形で表現する、プロフェッショナルなミキシングを提供します。</p>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-globe"></i></div>
-                <h3 class="service-title">音楽配信・カラオケ登録</h3>
-                <p class="service-desc">世界中の配信プラットフォームやJOYSOUNDへの登録代行</p>
+                <div class="service-icon"><i class="fas fa-compact-disc"></i></div>
+                <h3 class="service-title">BGM・ゲーム音楽制作</h3>
+                <p class="service-desc">法人・クリエイター様向け。著作権譲渡込みで、プロジェクトを彩る高品質なBGMを制作。</p>
             </div>
         </div>
     </section>
 
-    <!-- オリジナル楽曲制作 -->
-    <section class="section">
+    <!-- オリジナル楽曲制作サービス -->
+    <section class="section" id="original">
         <div class="section-header">
             <h2 class="section-title">【1】オリジナル楽曲制作サービス</h2>
             <p class="section-subtitle">
@@ -207,251 +1030,309 @@
             </p>
         </div>
 
-        <!-- 制作の流れ -->
-        <div class="flow-container">
-            <div class="flow-step">
-                <div class="flow-number">1</div>
-                <h4 class="flow-title">ヒアリング</h4>
-                <p class="flow-desc">あなたの想いや世界観を深く理解</p>
-            </div>
-            <div class="flow-step">
-                <div class="flow-number">2</div>
-                <h4 class="flow-title">楽曲制作</h4>
-                <p class="flow-desc">作曲・編曲を行い、デモ音源として提供</p>
-            </div>
-            <div class="flow-step">
-                <div class="flow-number">3</div>
-                <h4 class="flow-title">ボーカル録音</h4>
-                <p class="flow-desc">あなたのボーカルテイクを受領</p>
-            </div>
-            <div class="flow-step">
-                <div class="flow-number">4</div>
-                <h4 class="flow-title">完成</h4>
-                <p class="flow-desc">プロクオリティに仕上げて納品</p>
-            </div>
-        </div>
-
-        <!-- 料金プラン -->
-        <h3 style="text-align: center; margin: 50px 0 30px; font-family: 'Playfair Display', serif;">料金プラン</h3>
         <div class="plan-container">
+            <!-- クリエイタープラン -->
             <div class="plan-card">
-                <div class="plan-icon">🥉</div>
-                <h4 class="plan-name">ベーシックプラン</h4>
-                <div class="plan-price">8万円</div>
+                <div class="plan-icon">🎼</div>
+                <h4 class="plan-name">クリエイタープラン</h4>
+                <p class="plan-concept">「最高の楽曲素材」を提供する</p>
+                <div class="plan-price">¥80,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>オリジナル楽曲制作（作曲・編曲）</li>
+                    <li>作曲・編曲</li>
                     <li>プロ品質のミックス・マスタリング</li>
-                    <li>基本リビジョン（2回まで）</li>
+                    <li>カラオケ音源として完成</li>
+                    <li>修正対応2回まで</li>
+                    <li style="color: #d4af37; font-weight: 700;">+ 作詞オプション（+¥10,000）</li>
                 </ul>
+                <p class="plan-desc">歌い手やVTuberなど、ご自身で歌唱される方向け。最高品質のカラオケ音源を制作します。<br><small style="color: #d4af37;">※Kindle文学ランキング1位の作詞も追加可能</small></p>
             </div>
+            <!-- シンガープラン -->
             <div class="plan-card featured">
-                <div class="plan-icon">🥈</div>
-                <h4 class="plan-name">スタンダードプラン</h4>
-                <div class="plan-price">10万円</div>
+                <div class="plan-icon">🎙️</div>
+                <h4 class="plan-name">シンガープラン</h4>
+                <p class="plan-concept">「最高の歌唱体験」を提供する</p>
+                <div class="plan-price">¥110,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>ベーシックプラン全内容</li>
-                    <li>ボーカル修正（ピッチ・タイミング調整）</li>
-                    <li>ハモリ作成（メインボーカルから生成）</li>
-                    <li>リビジョン回数増加（3回まで）</li>
+                    <li>クリエイタープランの全内容</li>
+                    <li><strong>ボーカルミックス</strong></li>
+                    <li><strong>詳細なボーカル修正（ピッチ・タイミング）</strong></li>
+                    <li><strong>ハモリパート作成</strong></li>
+                    <li><strong>作詞（楽曲の魅力を最大化）</strong></li>
+                    <li>修正対応3回まで</li>
                 </ul>
+                <p class="plan-desc">ご自身の歌声でオリジナル曲を完成させたい方に。レコーディングから丁寧にサポートします。<br><small style="color: #d4af37;">※作詞不要の場合は¥5,000割引</small></p>
             </div>
+            <!-- コンプリートプラン -->
             <div class="plan-card">
-                <div class="plan-icon">🥇</div>
-                <h4 class="plan-name">プレミアムプラン</h4>
-                <div class="plan-price">12万円</div>
+                <div class="plan-icon">🏆</div>
+                <h4 class="plan-name">コンプリートプラン</h4>
+                <p class="plan-concept">「完璧な作品」を追求する</p>
+                <div class="plan-price">¥130,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>スタンダードプラン全内容</li>
-                    <li>世界配信登録（Spotify、Apple Music等）</li>
-                    <li>プロモーション用ショートver.制作</li>
-                    <li>リビジョン無制限</li>
+                    <li>シンガープランの全内容</li>
+                    <li>プロモーション用ショートバージョン楽曲制作</li>
+                    <li>インスト版・アカペラ版納品</li>
+                    <li><strong>世界配信登録代行（無料）</strong></li>
+                    <li><strong>納得いくまで修正対応</strong></li>
                 </ul>
-            </div>
-            <div class="plan-card">
-                <div class="plan-icon">👑</div>
-                <h4 class="plan-name">ドリームプラン</h4>
-                <div class="plan-price">14万円</div>
-                <ul class="plan-features">
-                    <li>プレミアムプラン全内容</li>
-                    <li>JOYSOUNDカラオケ登録</li>
-                    <li>インスト版・カラオケ版納品</li>
-                    <li>優先制作対応</li>
-                </ul>
+                <p class="plan-desc">細部までこだわり抜き、最高の作品を創り上げたい方に。世界配信登録も無料で含まれる最上位プラン。<br><small style="color: #d4af37;">※作詞不要の場合は¥5,000割引</small></p>
             </div>
         </div>
-
-        <!-- オプション -->
-        <div class="option-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>オプション料金（単品追加）</th>
-                        <th>料金</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>作詞（Kindle文学ランキング1位の実力）</td>
-                        <td class="option-price">+2万円〜</td>
-                    </tr>
-                    <tr>
-                        <td>ボーカル修正</td>
-                        <td class="option-price">+8,000円</td>
-                    </tr>
-                    <tr>
-                        <td>ハモリ作成</td>
-                        <td class="option-price">+1万円</td>
-                    </tr>
-                    <tr>
-                        <td>世界配信登録</td>
-                        <td class="option-price">+1.5万円</td>
-                    </tr>
-                    <tr>
-                        <td>カラオケ登録</td>
-                        <td class="option-price">+2万円</td>
-                    </tr>
-                    <tr>
-                        <td>追加リビジョン</td>
-                        <td class="option-price">+5,000円/回</td>
-                    </tr>
-                </tbody>
-            </table>
+        
+        <!-- カスタマイズ・オプション -->
+        <div class="option-table-container">
+             <div class="section-header" style="margin-bottom: 30px;">
+                <h3 class="section-title" style="font-size: 1.6rem;">カスタマイズ・オプション</h3>
+                 <p class="section-subtitle" style="font-size: 0.95rem; margin-top: 15px;">
+                     各プランに以下のオプションを追加可能です。ご希望に合わせて自由に組み合わせ、あなただけのプランを作成できます。
+                 </p>
+            </div>
+            <div class="option-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>オプション内容</th>
+                            <th>料金（税込）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>世界配信登録代行 <span style="background: #d4af37; color: #fff; padding: 3px 10px; border-radius: 15px; font-size: 0.75rem; margin-left: 5px; display: inline-block; margin-top: 3px;">おすすめ</span></strong>
+                                <div class="option-desc">Spotify, Apple Musicなど、世界中のプラットフォームへ配信登録を代行いたします。<br><small style="color: #d4af37; font-weight: 700;">※コンプリートプランでは無料で含まれます</small></div>
+                                <div class="option-price">¥3,000〜</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>JOYSOUNDカラオケ登録申請 <span style="background: #3b2a1e; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 5px;">楽曲制作専用</span></strong>
+                                <div class="option-desc">全国のJOYSOUNDであなたの歌が歌えるように。ファンが喜ぶ最高の体験を。</div>
+                                <div class="option-price">+ ¥20,000</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>追加ハモリパート <span style="background: #6a5543; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 5px;">全コース対応</span></strong>
+                                <div class="option-desc">楽曲をより豪華にするハモリパートを追加で作成します。（1パートあたり）</div>
+                                <div class="option-price">+ ¥8,000</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>出張レコーディング <span style="background: #6a5543; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 5px;">全コース対応</span></strong>
+                                <div class="option-desc">プロ機材持参でボーカル録音を行います。名古屋市内は交通費無料、市外は別途交通費。</div>
+                                <div class="option-price">¥15,000 + 交通費</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <!-- 歌ってみたミックス -->
-    <section class="section">
+    <!-- セクション区切り線 -->
+    <div class="section-divider"></div>
+
+    <!-- 歌ってみたミックスサービス -->
+    <section class="section" id="mix">
         <div class="section-header">
             <h2 class="section-title">【2】歌ってみたミックスサービス</h2>
             <p class="section-subtitle">
-                「歌ってみた」をプロクオリティへ。<br>
-                現役アーティストだからこそ分かる、ボーカルを最大限に活かすミックスを提供します。
+                「歌ってみた」を、プロクオリティの「作品」へ。<br>
+                現役アーティストだからこそ分かる、ボーカルを最大限に活かすミックスで、あなたの歌声の魅力を引き出します。
             </p>
         </div>
 
-        <!-- こんな方におすすめ -->
-        <div style="background: #f8f4ee; padding: 30px; border-radius: 20px; margin-bottom: 40px;">
-            <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-check-circle" style="color: #d4af37;"></i> こんな方におすすめ</h4>
-            <ul style="list-style: none; padding: 0;">
-                <li style="padding: 5px 0;">✓ カラオケ音源と声が馴染まない</li>
-                <li style="padding: 5px 0;">✓ ミックスの仕方が分からない</li>
-                <li style="padding: 5px 0;">✓ ハモリを入れたいけど歌えない</li>
-                <li style="padding: 5px 0;">✓ プロのような仕上がりにしたい</li>
-            </ul>
-        </div>
-
-        <!-- 料金プラン -->
-        <h3 style="text-align: center; margin: 50px 0 30px; font-family: 'Playfair Display', serif;">料金プラン</h3>
         <div class="plan-container">
+            <!-- スタンダードミックス -->
             <div class="plan-card">
                 <div class="plan-icon">🎤</div>
-                <h4 class="plan-name">ライトプラン</h4>
-                <div class="plan-price">2万円</div>
+                <h4 class="plan-name">スタンダードミックス</h4>
+                <div class="plan-price">¥18,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>基本ミックス・マスタリング</li>
-                    <li>音量・音質調整</li>
-                    <li>リビジョン1回</li>
+                    <li>基本ミックス＆マスタリング</li>
+                    <li>ノイズ除去・音量・音質調整</li>
+                    <li><strong>詳細なピッチ・タイミング修正</strong></li>
+                    <li>リバーブ・ディレイ等エフェクト処理</li>
+                    <li>修正対応2回まで</li>
                 </ul>
+                <p class="plan-desc">まずはプロのミックスを体験したい方に。基本的な補正でクオリティを格段に向上させます。</p>
             </div>
-            <div class="plan-card">
-                <div class="plan-icon">🎵</div>
-                <h4 class="plan-name">ベーシックプラン</h4>
-                <div class="plan-price">3万円</div>
-                <ul class="plan-features">
-                    <li>ライトプラン全内容</li>
-                    <li>エフェクト処理（リバーブ・ディレイ等）</li>
-                    <li>簡易ボーカル修正</li>
-                    <li>リビジョン2回</li>
-                </ul>
-            </div>
+            <!-- プロフェッショナルミックス -->
             <div class="plan-card featured">
                 <div class="plan-icon">🌟</div>
-                <h4 class="plan-name">プロプラン</h4>
-                <div class="plan-price">4万円</div>
+                <h4 class="plan-name">プロフェッショナルミックス</h4>
+                <div class="plan-price">¥30,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>ベーシックプラン全内容</li>
-                    <li>詳細ボーカル修正（ピッチ・タイミング）</li>
-                    <li>ハモリ作成（1パート）</li>
-                    <li>リビジョン3回</li>
+                    <li>スタンダードミックスの全内容</li>
+                    <li><strong>ハモリパート作成（1パート）</strong></li>
+                    <li>ケロケロなどボーカル加工</li>
+                    <li>修正対応3回まで</li>
                 </ul>
+                 <p class="plan-desc">ハモリ作成で楽曲のクオリティを飛躍的に高める、最も人気のプランです。</p>
             </div>
+            <!-- プレミアムミックス -->
             <div class="plan-card">
                 <div class="plan-icon">💎</div>
-                <h4 class="plan-name">プレミアムプラン</h4>
-                <div class="plan-price">5万円</div>
+                <h4 class="plan-name">プレミアムミックス</h4>
+                <div class="plan-price">¥45,000<span>（税込）</span></div>
                 <ul class="plan-features">
-                    <li>プロプラン全内容</li>
-                    <li>複数ハモリ作成（最大3パート）</li>
-                    <li>特殊エフェクト（ボコーダー等）</li>
-                    <li>別ミックス版（カラオケ練習用等）</li>
-                    <li>リビジョン無制限</li>
+                    <li>プロフェッショナルミックスの全内容</li>
+                    <li><strong>複数ハモリパート作成（3パートまで）</strong></li>
+                    <li>ラジオボイス等の特殊効果</li>
+                    <li><strong>納得いくまで修正対応</strong></li>
                 </ul>
+                <p class="plan-desc">細部まで徹底的にこだわりたい方に。納得いくまで修正可能な最上位プラン。</p>
             </div>
-        </div>
-
-        <!-- オプション -->
-        <div class="option-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>オプション料金（単品追加）</th>
-                        <th>料金</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ボーカル修正</td>
-                        <td class="option-price">+8,000円</td>
-                    </tr>
-                    <tr>
-                        <td>ハモリ作成（1パート）</td>
-                        <td class="option-price">+8,000円</td>
-                    </tr>
-                    <tr>
-                        <td>追加ハモリ（2パート目以降）</td>
-                        <td class="option-price">+5,000円/パート</td>
-                    </tr>
-                    <tr>
-                        <td>ラップパート処理</td>
-                        <td class="option-price">+5,000円</td>
-                    </tr>
-                    <tr>
-                        <td>歌詞タイミング調整</td>
-                        <td class="option-price">+5,000円</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </section>
 
-    <!-- お得なセットプラン -->
-    <section class="section" style="background: #f8f4ee; padding: 50px 20px; border-radius: 30px;">
+    <!-- セクション区切り線 -->
+    <div class="section-divider"></div>
+
+    <!-- BGM・ゲーム音楽制作 -->
+    <section class="section" id="bgm">
         <div class="section-header">
-            <h2 class="section-title">お得なセットプラン</h2>
+            <h2 class="section-title">【3】BGM・ゲーム音楽制作</h2>
+            <p class="section-subtitle">
+                法人・クリエイター様向け。あなたのプロジェクトの世界観を決定づける、高品質なサウンドロゴ、効果音、BGMを制作します。<br>
+                <strong>全プラン著作権譲渡（買い切り）対応</strong>で、安心してご利用いただけます。
+            </p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 600px; margin: 0 auto;">
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 10px;">📦</div>
-                <h3 style="font-weight: 700; margin-bottom: 10px;">連続依頼割引</h3>
-                <p>2曲目: 10%OFF<br>3曲目以降: 15%OFF</p>
+
+        <div class="plan-container">
+            <!-- サウンドロゴ / SEプラン -->
+            <div class="plan-card">
+                <div class="plan-icon"><i class="fas fa-signature"></i></div>
+                <h4 class="plan-name">サウンドロゴ / SEプラン</h4>
+                <div class="plan-price">¥8,000<span>（税込）</span></div>
+                <ul class="plan-features">
+                    <li>5〜15秒程度の短いサウンド</li>
+                    <li>企業のロゴアニメーションに</li>
+                    <li>ゲーム内の効果音（SE）に</li>
+                    <li>著作権譲渡（買い切り）</li>
+                </ul>
+                <p style="text-align: center; margin-top: 15px; padding: 10px; background: #f8f4ee; border-radius: 10px; font-size: 0.85rem;">
+                    <strong style="color: #d4af37;">使用権のみプラン: ¥5,600</strong><br>
+                    <span style="color: #666;">音楽配信権は制作者が留保</span>
+                </p>
             </div>
-            <div style="text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 10px;">🎪</div>
-                <h3 style="font-weight: 700; margin-bottom: 10px;">アルバム制作プラン</h3>
-                <p>5曲セット: 20%OFF<br>10曲セット: 25%OFF</p>
+            <!-- ショートBGMプラン -->
+            <div class="plan-card">
+                <div class="plan-icon"><i class="fas fa-film"></i></div>
+                <h4 class="plan-name">ショートBGMプラン</h4>
+                <div class="plan-price">¥18,000<span>（税込）</span></div>
+                <ul class="plan-features">
+                    <li>30秒〜2分程度のBGM</li>
+                    <li>動画のOP/ED、広告に最適</li>
+                    <li>ループ処理対応可</li>
+                    <li>著作権譲渡（買い切り）</li>
+                </ul>
+                <p style="text-align: center; margin-top: 15px; padding: 10px; background: #f8f4ee; border-radius: 10px; font-size: 0.85rem;">
+                    <strong style="color: #d4af37;">使用権のみプラン: ¥12,600</strong><br>
+                    <span style="color: #666;">音楽配信権は制作者が留保</span>
+                </p>
             </div>
+            <!-- ゲーム楽曲プラン -->
+            <div class="plan-card featured">
+                <div class="plan-icon"><i class="fas fa-gamepad"></i></div>
+                <h4 class="plan-name">ゲーム楽曲プラン</h4>
+                <div class="plan-price">¥25,000<span>（税込）</span></div>
+                <ul class="plan-features">
+                    <li>2分〜4分の本格的な楽曲</li>
+                    <li>ゲームのステージBGMに最適</li>
+                    <li>完全ループ処理対応</li>
+                    <li>著作権譲渡（買い切り）</li>
+                </ul>
+                <p style="text-align: center; margin-top: 15px; padding: 10px; background: #f8f4ee; border-radius: 10px; font-size: 0.85rem;">
+                    <strong style="color: #d4af37;">使用権のみプラン: ¥17,500</strong><br>
+                    <span style="color: #666;">音楽配信権は制作者が留保</span>
+                </p>
+                <p class="plan-desc">ゲームの世界観を演出する本格的なBGM。5曲以上のご依頼で大幅割引あり。</p>
+            </div>
+        </div>
+
+        <!-- BGMプラン選択の理念 -->
+        <div style="background: linear-gradient(135deg, #f8f4ee, #fefdf9); border-radius: 25px; padding: 40px; margin: 50px 0; text-align: center; border: 2px solid #f0e9dd;">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; color: #3b2a1e;">
+                <i class="fas fa-palette" style="color: #d4af37; margin-right: 10px;"></i>
+                アーティストとしての想い
+            </h3>
+            <p style="color: #666; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                私は制作する一つ一つの楽曲を、単なる「BGM」ではなく「アート作品」として捉えています。<br>
+                ゲームや映像のために生まれた音楽も、独立した芸術作品として多くの方に聴いていただきたい。<br><br>
+                <strong style="color: #d4af37;">「使用権のみプラン」</strong>は、そんな想いから生まれました。<br>
+                お客様にはお得にご利用いただきながら、制作者としては自身の作品を音楽として世に送り出せる。<br><br>
+                <em style="color: #3b2a1e;">音楽が、より多くの人の心に届くことを願って。</em>
+            </p>
+        </div>
+        <div class="bgm-package" style="background: linear-gradient(135deg, #f8f4ee, #fefdf9); border-radius: 25px; padding: 40px; margin: 50px 0; text-align: center; border: 2px solid #f0e9dd;">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; color: #3b2a1e;">ゲーム開発者様向け特別パッケージ</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div>
+                    <h4 style="color: #d4af37; font-weight: 900;">5曲パック</h4>
+                    <p style="font-size: 1.8rem; font-weight: 900; color: #3b2a1e; margin: 10px 0;">¥100,000</p>
+                    <p style="font-size: 0.9rem; color: #666;">通常¥125,000 → <strong style="color: #d4af37;">20%OFF</strong></p>
+                </div>
+                <div>
+                    <h4 style="color: #d4af37; font-weight: 900;">10曲パック</h4>
+                    <p style="font-size: 1.8rem; font-weight: 900; color: #3b2a1e; margin: 10px 0;">¥180,000</p>
+                    <p style="font-size: 0.9rem; color: #666;">通常¥250,000 → <strong style="color: #d4af37;">28%OFF</strong></p>
+                </div>
+                <div>
+                    <h4 style="color: #d4af37; font-weight: 900;">15曲以上</h4>
+                    <p style="font-size: 1.8rem; font-weight: 900; color: #3b2a1e; margin: 10px 0;">要相談</p>
+                    <p style="font-size: 0.9rem; color: #666;"><strong style="color: #d4af37;">更なる特別価格</strong>をご提案</p>
+                </div>
+            </div>
+            <p style="margin-top: 30px; color: #666; line-height: 1.7;">
+                ゲーム開発プロジェクトに必要な楽曲数に応じて、最適なパッケージをご提案いたします。<br>
+                <strong>世界観統一のため、全楽曲を通して一貫したクオリティとテイストで制作いたします。</strong>
+            </p>
         </div>
     </section>
 
-    <!-- 制作実績サンプル -->
+    <!-- お得なプラン案内 -->
+    <section class="special-plans" style="background: linear-gradient(135deg, #f8f4ee, #fefdf9); padding: 60px 30px; border-radius: 30px; margin: 80px 0;">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #3b2a1e;">お得なプラン・オプション</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌍</div>
+                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">世界配信を身近に</h3>
+                <p style="color: #666; line-height: 1.7;">わずか¥2,000から世界中に音楽を届けられます。多くの方に配信体験をしていただきたいという想いから実現した特別価格です。</p>
+            </div>
+            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎙️</div>
+                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">出張レコーディング</h3>
+                <p style="color: #666; line-height: 1.7;">プロ機材を持参してボーカル録音。名古屋市内なら出張費無料でお伺いします。</p>
+            </div>
+            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎵</div>
+                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">複数楽曲割引</h3>
+                <p style="color: #666; line-height: 1.7;">2曲目以降は10%OFF、アルバム制作なら更にお得な料金をご提案いたします。</p>
+            </div>
+        </div>
+    </section>
     <section class="sample-box">
         <h3><i class="fas fa-headphones"></i> 制作実績を聴く</h3>
         <p style="margin-bottom: 30px;">実際の制作サンプルや、Before/Afterをお聴きいただけます</p>
         <div class="sample-buttons">
-            <a href="#" class="sample-button" onclick="alert('準備中です'); return false;">楽曲制作サンプル</a>
-            <a href="#" class="sample-button" onclick="alert('準備中です'); return false;">歌ってみたBefore/After</a>
-            <a href="#" class="sample-button" onclick="alert('準備中です'); return false;">各ジャンルサンプル</a>
+            <a href="#" class="sample-button" onclick="showModal('準備中です'); return false;">楽曲制作サンプル</a>
+            <a href="#" class="sample-button" onclick="showModal('準備中です'); return false;">歌ってみたBefore/After</a>
+            <a href="#" class="sample-button" onclick="showModal('準備中です'); return false;">BGMサンプル</a>
         </div>
     </section>
+    
+    <!-- カスタマイズ・割引案内 -->
+    <div class="customization-note">
+        <h3>プランのカスタマイズ・ご予算について</h3>
+        <p>
+            ここに掲載しているプランは一例です。お客様のご希望に応じて、不要なサービスを外したり、オプションを組み合わせたりと、柔軟に内容を調整いたします。<br>
+            作詞の有無、楽曲の長さ、修正回数など、ご予算に応じた料金のご提案も可能ですので、まずはお気軽にお問い合わせください。
+        </p>
+    </div>
 
     <!-- 制作環境・品質保証 -->
     <section class="section">
@@ -467,9 +1348,35 @@
                 <li style="padding: 8px 0;">✓ <strong>モニター環境</strong>: 正確な音響判断が可能な環境</li>
             </ul>
             <h3 style="margin-bottom: 20px;"><i class="fas fa-award" style="color: #d4af37;"></i> 品質へのこだわり</h3>
-            <p>NHK、東海ラジオ、中日新聞、BURRN!誌など、数々のメディアに取り上げられた実績が証明する確かな品質。4枚のCDリリース経験と連続ソールドアウトの実績。技術だけでなく、音楽の本質を理解した上での制作を心がけています。</p>
+            <p style="margin-bottom: 30px;">業界標準機材を使用したプロフェッショナルな制作環境で、数々のメディア掲載実績が証明する確かな品質をお約束します。技術だけでなく、音楽の本質を理解した上での制作を心がけ、お客様の想いを最高の形で表現いたします。</p>
             <h3 style="margin: 30px 0 20px;"><i class="fas fa-music" style="color: #d4af37;"></i> 対応ジャンル</h3>
-            <p>ロック、メタル、アイドルソング、ポップス、バラード等、幅広く対応可能です。</p>
+            <div class="genre-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center;">
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎸</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">ロック</div>
+                </div>
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">⚡</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">メタル</div>
+                </div>
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">✨</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">アイドルソング</div>
+                </div>
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎵</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">ポップス</div>
+                </div>
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">💝</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">バラード</div>
+                </div>
+                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
+                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎯</div>
+                    <div style="font-weight: 700; color: #3b2a1e;">その他</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">その他のジャンルもお気軽にご相談ください</p>
         </div>
     </section>
 
@@ -519,25 +1426,25 @@
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    楽曲制作は2〜4週間、歌ってみたミックスは3〜7日が目安です。お急ぎの場合はご相談ください。
+                    オリジナル楽曲制作は3〜5週間、歌ってみたミックスは5〜10日、BGM制作は1〜3週間が目安です。お急ぎの場合はご相談ください。
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>どんなジャンルでも対応できますか？</span>
+                    <span>BGMの著作権はどうなりますか？</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    ロック、メタル、アイドルソング、ポップス、バラード等、幅広く対応可能です。まずはご希望をお聞かせください。
+                    <strong>完全買い切りプラン</strong>では著作権を完全に譲渡いたします。<strong>使用権のみプラン</strong>では、BGMとしてのご利用に関する権利は譲渡しますが、音楽配信での収益化権のみ制作者が留保いたします。いずれのプランでも、ゲームや動画、Webサイトでの使用に制限はございません。
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>修正は何回まで可能ですか？</span>
+                    <span>修正はどの範囲まで可能ですか？</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    プランにより異なります。ベーシックプランは2回、スタンダードプランは3回、プレミアムプラン以上は無制限です。詳細は各プランをご確認ください。
+                    プランにより回数が異なります。「納得いくまで修正対応」のプランでは、ボーカルの再録音に伴う再調整や、ミックスの微調整など、常識の範囲内で柔軟に対応させていただきます。ただし、大幅なアレンジ変更などは別途料金が発生する場合がございます。
                 </div>
             </div>
             <div class="faq-item">
@@ -546,16 +1453,25 @@
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    現在は楽曲制作とミックスサービスのみとなります。作詞は楽曲制作のオプションとしてご利用いただけます。
+                    はい、可能です。作詞はオプションとしてご用意しております。作曲のみをご希望の場合なども柔軟に対応いたしますので、まずはお問い合わせください。
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>支払い方法は？</span>
+                    <span>コンプリートプランの世界配信登録が無料なのはなぜですか？</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    各種決済方法対応予定です。詳細はお見積り時にご案内いたします。
+                    コンプリートプランでは、楽曲制作から配信まで一貫したサービスを提供したいという想いから、世界配信登録を無料で含めております。最高品質の楽曲制作と併せて、より多くの方に音楽をお届けできるよう配慮したプランです。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>シンガープラン以上で作詞が不要な場合は？</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    シンガープラン以上では作詞を標準で含んでおりますが、作詞不要の場合は¥5,000割引いたします。ただし、Kindle文学ランキング1位の実績を活かした作詞で、楽曲の世界観がより深く表現されますので、ぜひご検討ください。
                 </div>
             </div>
         </div>
@@ -566,15 +1482,15 @@
         <div class="section-header">
             <h2 class="section-title">制作者プロフィール</h2>
         </div>
-        <div style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px;">Rhyn皇太子（リン）</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
+        <div class="profile-section" style="background: #fff; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; border: 2px solid #f0e9dd;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 25px; color: #3b2a1e;">Rhyn皇太子（リン）</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2.2; color: #666;">
                 <li>✓ NHK、東海ラジオ、BURRN!誌等メディア出演・掲載多数</li>
                 <li>✓ 川崎Club Citta'やCLUB QUATTROをはじめ各地でライブ活動</li>
                 <li>✓ 複数バンドで4枚のCDリリース</li>
                 <li>✓ Kindle小説で哲学1位・心理学2位獲得</li>
             </ul>
-            <p style="margin-top: 30px; font-style: italic;">
+            <p style="margin-top: 40px; font-style: italic; font-size: 1.1rem; color: #3b2a1e; line-height: 1.8;">
                 音楽と哲学、理論と感性を融合させた独自の視点で、<br>
                 あなたの音楽を最高の形へと導きます。
             </p>
@@ -588,18 +1504,17 @@
             ご依頼・ご相談は下記よりお気軽にどうぞ。<br>
             まずはあなたの音楽への想いをお聞かせください。
         </p>
-        <!-- メールフォームをここに組み込む -->
         <div id="contact-form-container">
-            <a href="#" class="cta-button" onclick="alert('メールフォームは準備中です'); return false;">お問い合わせフォームへ</a>
+            <a href="#" class="cta-button" onclick="showModal('メールフォームは準備中です'); return false;">お問い合わせフォームへ</a>
         </div>
     </section>
 
     <!-- 締めの言葉 -->
-    <div style="text-align: center; margin: 60px 0; padding: 40px 20px;">
-        <p style="font-style: italic; font-size: 1.1rem; color: #6a5543; line-height: 1.8;">
+    <div style="text-align: center; margin: 80px 0; padding: 50px 30px;">
+        <p style="font-style: italic; font-size: 1.2rem; color: #6a5543; line-height: 1.8; font-family: 'Playfair Display', serif;">
             音楽制作は、単なる「音の組み合わせ」ではありません。<br>
             あなたの想いを、世界に響く「作品」へ。<br>
-            革命は、ここから始まります。
+            <span style="color: #d4af37; font-weight: 700;">革命は、ここから始まります。</span>
         </p>
     </div>
 
@@ -615,24 +1530,119 @@
         const answer = element.nextElementSibling;
         const icon = element.querySelector('.faq-icon');
         
-        if (answer.classList.contains('active')) {
-            answer.classList.remove('active');
-            icon.classList.remove('active');
-        } else {
-            // 他のFAQを閉じる
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelectorAll('.faq-icon').forEach(item => {
-                item.classList.remove('active');
-            });
-            
+        const isActive = answer.classList.contains('active');
+
+        // すべての回答を非表示にし、アクティブクラスを削除
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.style.display = 'none';
+            item.classList.remove('active');
+        });
+        document.querySelectorAll('.faq-icon').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // クリックされたものが非アクティブだった場合、表示してアクティブにする
+        if (!isActive) {
+            answer.style.display = 'block';
             answer.classList.add('active');
             icon.classList.add('active');
         }
     }
+
+    // モーダル表示機能（alertの代替）
+    function showModal(message) {
+        // 既存のモーダルがあれば削除
+        const existingModal = document.getElementById('alert-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        // モーダル要素を作成
+        const modal = document.createElement('div');
+        modal.id = 'alert-modal';
+        modal.style.position = 'fixed';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = '1000';
+
+        const modalContent = document.createElement('div');
+        modalContent.style.backgroundColor = '#fff';
+        modalContent.style.padding = '40px';
+        modalContent.style.borderRadius = '20px';
+        modalContent.style.textAlign = 'center';
+        modalContent.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+        modalContent.style.fontFamily = "'Noto Serif JP', serif";
+        modalContent.style.maxWidth = '400px';
+        modalContent.style.margin = '20px';
+
+        const messageP = document.createElement('p');
+        messageP.textContent = message;
+        messageP.style.margin = '0 0 25px 0';
+        messageP.style.fontSize = '1.1rem';
+        messageP.style.color = '#3b2a1e';
+
+        const closeButton = document.createElement('button');
+        closeButton.textContent = '閉じる';
+        closeButton.style.padding = '12px 30px';
+        closeButton.style.border = 'none';
+        closeButton.style.borderRadius = '50px';
+        closeButton.style.background = 'linear-gradient(45deg, #3b2a1e, #5a4538)';
+        closeButton.style.color = '#fff';
+        closeButton.style.cursor = 'pointer';
+        closeButton.style.fontWeight = '700';
+        closeButton.style.fontSize = '1rem';
+        closeButton.style.transition = 'all 0.3s ease';
+
+        closeButton.onmouseover = () => {
+            closeButton.style.background = 'linear-gradient(45deg, #d4af37, #f8e47b)';
+            closeButton.style.color = '#3b2a1e';
+        };
+        closeButton.onmouseout = () => {
+            closeButton.style.background = 'linear-gradient(45deg, #3b2a1e, #5a4538)';
+            closeButton.style.color = '#fff';
+        };
+
+        modalContent.appendChild(messageP);
+        modalContent.appendChild(closeButton);
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+
+        // 閉じるイベント
+        closeButton.onclick = () => modal.remove();
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        };
+    }
+
+    // 初期状態でFAQを閉じておく
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.style.display = 'none';
+        });
+    });
+
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 </script>
-```
 
 </body>
 </html>
