@@ -92,19 +92,21 @@
         .profile-header { text-align: center; padding: 60px 0; }
         .profile-frame { width: 180px; height: 180px; margin: 0 auto 30px; border-radius: 50%; padding: 8px; background: linear-gradient(45deg, #ffd700, #f8e47b, #d4af37); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
         .profile-image { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #fff; background-color: #ddd; }
-        .main-name { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #3b2a1e; margin: 0; line-height: 1.1; }
-        .main-name ruby { line-height: 1; }
-        .main-name rt { font-size: 0.5em; line-height: 1; transform: translateY(-0.5em); }
+        .main-name { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #3b2a1e; margin: 0; line-height: 1.2; }
+        .main-name ruby { ruby-align: center; }
+        .main-name rt { font-size: 0.5em; }
         .alias-name { font-size: 1rem; color: #8b7355; margin-top: 8px; }
-        .alias-name ruby { line-height: 1; }
-        .alias-name rt { font-size: 0.5em; line-height: 1; transform: translateY(-0.5em); }
+        .alias-name ruby { ruby-align: center; }
+        .alias-name rt { font-size: 0.5em; }
         .tagline { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #6a5543; letter-spacing: 1.5px; margin-top: 20px; font-weight: 700; }
 
         /* --- お知らせ --- */
         .info-section { background: #fff; border: 1px solid #f0e9dd; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .info-item { display: flex; align-items: center; margin-bottom: 15px; font-size: 1rem; }
+        .info-item { display: flex; align-items: flex-start; margin-bottom: 20px; font-size: 1rem; padding: 15px; border-radius: 12px; transition: all 0.3s ease; }
         .info-item:last-child { margin-bottom: 0; }
-        .info-date { background-color: #4a3728; color: #fff; font-weight: 700; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem; margin-right: 15px; white-space: nowrap; }
+        .info-item:hover { background-color: #fefdf9; transform: translateX(5px); }
+        .info-date { background: linear-gradient(45deg, #4a3728, #6a5543); color: #fff; font-weight: 700; padding: 8px 15px; border-radius: 50px; font-size: 0.85rem; margin-right: 18px; white-space: nowrap; min-width: 85px; text-align: center; box-shadow: 0 3px 10px rgba(74, 55, 40, 0.3); }
+        .info-text { flex: 1; line-height: 1.6; color: #4a3728; padding-top: 2px; }
         
         /* --- ColorSing カード --- */
         .main-platform-card { background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4); transition: all 0.3s ease; text-align: center; }
@@ -347,9 +349,15 @@
             
             .profile-header { padding: 40px 0; }
             .profile-frame { width: 150px; height: 150px; }
-            .main-name { font-size: 2rem; line-height: 1.1; }
-            .main-name rt { font-size: 0.4em; transform: translateY(-0.5em); }
-            .alias-name rt { font-size: 0.4em; transform: translateY(-0.5em); }
+            .main-name { font-size: 2rem; line-height: 1.3; }
+            .main-name rt { font-size: 0.4em; }
+            .alias-name rt { font-size: 0.4em; }
+            
+            /* Information & Events モバイル調整 */
+            .info-section { padding: 25px 20px; margin: 0 5px; }
+            .info-item { flex-direction: column; align-items: flex-start; padding: 15px 12px; margin-bottom: 15px; }
+            .info-date { margin-right: 0; margin-bottom: 8px; font-size: 0.8rem; padding: 6px 12px; min-width: auto; }
+            .info-text { padding-top: 0; font-size: 0.95rem; }
             
             .links-grid { 
                 grid-template-columns: repeat(2, 1fr); 
@@ -385,10 +393,16 @@
         @media (max-width: 480px) {
             .container { padding: 0 15px; } /* スマホ用のパディング */
             
-            .main-name { font-size: 1.8rem; line-height: 1.1; }
-            .main-name rt { font-size: 0.35em; transform: translateY(-0.5em); }
-            .alias-name rt { font-size: 0.35em; transform: translateY(-0.5em); }
+            .main-name { font-size: 1.8rem; line-height: 1.4; }
+            .main-name rt { font-size: 0.35em; }
+            .alias-name rt { font-size: 0.35em; }
             .tagline { font-size: 0.95rem; }
+            
+            /* Information & Events 小画面調整 */
+            .info-section { padding: 20px 15px; margin: 0 2px; }
+            .info-item { padding: 12px 10px; margin-bottom: 12px; }
+            .info-date { font-size: 0.75rem; padding: 5px 10px; }
+            .info-text { font-size: 0.9rem; }
             .links-grid { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
