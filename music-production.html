@@ -548,6 +548,84 @@
         transform: rotate(180deg); 
     }
 
+    /* --- お問い合わせフォーム --- */
+    .contact-form {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border: 2px solid #f0e9dd;
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: left;
+    }
+    .form-group {
+        margin-bottom: 25px;
+    }
+    .form-label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #3b2a1e;
+        font-size: 0.95rem;
+    }
+    .form-label .required {
+        color: #e74c3c;
+        margin-left: 3px;
+    }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #f0e9dd;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: 'Noto Serif JP', serif;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: #d4af37;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+    .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    .form-submit {
+        background: linear-gradient(45deg, #d4af37, #f8e47b);
+        color: #3b2a1e;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 900;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 30px auto 0;
+        font-family: 'Noto Serif JP', serif;
+    }
+    .form-submit:hover {
+        background: linear-gradient(45deg, #3b2a1e, #5a4538);
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    }
+    .form-submit:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+    .form-note {
+        font-size: 0.85rem;
+        color: #666;
+        text-align: center;
+        margin-top: 20px;
+        line-height: 1.6;
+    }
+
     /* --- CTA --- */
     .cta-section { 
         background: linear-gradient(135deg, #3b2a1e, #5a4538); 
@@ -569,21 +647,6 @@
         opacity: 0.9; 
         line-height: 1.7;
     }
-    .cta-button { 
-        display: inline-block; 
-        padding: 18px 50px; 
-        background: linear-gradient(45deg, #d4af37, #f8e47b); 
-        color: #3b2a1e; 
-        border-radius: 50px; 
-        font-weight: 900; 
-        font-size: 1.2rem; 
-        transition: all 0.4s ease; 
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-    }
-    .cta-button:hover { 
-        transform: translateY(-5px); 
-        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6); 
-    }
 
     /* --- フッター --- */
     .footer { 
@@ -602,58 +665,38 @@
         opacity: 0.3;
     }
 
-    /* --- 価格強調 --- */
-    .price-highlight {
-        position: relative;
+    /* --- BGMパッケージ --- */
+    .bgm-package { 
+        background: linear-gradient(135deg, #f8f4ee, #fefdf9); 
+        border-radius: 25px; 
+        padding: 40px; 
+        margin: 50px 0; 
+        text-align: center; 
+        border: 2px solid #f0e9dd;
     }
-    .price-highlight::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent);
-        border-radius: 50%;
-        z-index: -1;
+    .bgm-package h3 { 
+        font-family: 'Playfair Display', serif; 
+        margin-bottom: 20px; 
+        color: #3b2a1e;
     }
 
-    /* --- ステップアニメーション --- */
-    .flow-step {
-        animation: fadeInUp 0.6s ease forwards;
-        opacity: 0;
-        transform: translateY(20px);
+    /* --- プロフィールセクション --- */
+    .profile-section { 
+        background: #fff; 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+        text-align: center; 
+        border: 2px solid #f0e9dd;
     }
-    .flow-step:nth-child(1) { animation-delay: 0.1s; }
-    .flow-step:nth-child(2) { animation-delay: 0.2s; }
-    .flow-step:nth-child(3) { animation-delay: 0.3s; }
-    .flow-step:nth-child(4) { animation-delay: 0.4s; }
-    .flow-step:nth-child(5) { animation-delay: 0.5s; }
-
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .profile-section h3 { 
+        font-family: 'Playfair Display', serif; 
+        font-size: 2rem; 
+        margin-bottom: 25px; 
+        color: #3b2a1e;
     }
 
-    /* --- 読み込み時アニメーション --- */
-    .service-card {
-        animation: slideInFromBottom 0.8s ease forwards;
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    .service-card:nth-child(1) { animation-delay: 0.1s; }
-    .service-card:nth-child(2) { animation-delay: 0.2s; }
-    .service-card:nth-child(3) { animation-delay: 0.3s; }
-
-    @keyframes slideInFromBottom {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+    /* --- レスポンシブ対応 --- */
     @media (max-width: 1024px) {
         .plan-container { 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -736,8 +779,6 @@
             padding: 12px 20px;
             font-size: 0.9rem;
         }
-        
-        /* オプション表のモバイル対応を徹底修正 */
         .option-table-container {
             padding: 0 15px;
             margin-top: 40px;
@@ -779,8 +820,6 @@
             margin: 0;
             width: 100%;
         }
-        
-        /* オプション名の表示 */
         .option-table strong {
             display: block;
             font-size: 1rem;
@@ -790,16 +829,12 @@
             line-height: 1.3;
             word-wrap: break-word;
         }
-        
-        /* おすすめバッジのモバイル対応 */
         .option-table strong span {
             display: block;
             margin-top: 5px;
             margin-left: 0;
             width: fit-content;
         }
-        
-        /* 説明文の表示 */
         .option-table .option-desc {
             font-size: 0.85rem;
             line-height: 1.5;
@@ -807,8 +842,6 @@
             margin: 8px 0 12px 0;
             word-wrap: break-word;
         }
-        
-        /* 料金の表示 */
         .option-table .option-price {
             font-size: 1.2rem;
             color: #d4af37;
@@ -817,8 +850,6 @@
             text-align: left;
             margin-top: 8px;
         }
-        
-        /* BGM特別パッケージのモバイル対応 */
         .bgm-package {
             padding: 20px 15px !important;
             margin: 30px 0 !important;
@@ -828,28 +859,6 @@
             padding: 0 !important;
             margin-bottom: 15px !important;
         }
-        .bgm-package .package-item {
-            margin-bottom: 20px !important;
-            padding: 20px 15px !important;
-        }
-        .bgm-package .package-item > div {
-            flex-direction: column !important;
-            gap: 15px !important;
-            align-items: center !important;
-        }
-        .bgm-package .package-item > div > div {
-            min-width: 100% !important;
-            text-align: center !important;
-        }
-        .bgm-package h4 {
-            font-size: 1.1rem !important;
-            margin-bottom: 10px !important;
-        }
-        .bgm-package p {
-            margin: 3px 0 !important;
-        }
-        
-        /* カスタマイズ案内のモバイル対応 */
         .customization-note {
             padding: 20px 15px;
             margin: 40px 0 0;
@@ -860,31 +869,6 @@
         .customization-note p {
             font-size: 0.85rem;
         }
-        
-        /* お得なプラン案内のモバイル対応 */
-        .special-plans {
-            padding: 30px 15px !important;
-            margin: 50px 0 !important;
-        }
-        .special-plans .section-header {
-            padding: 0 !important;
-        }
-        .special-plans h2 {
-            font-size: 1.5rem !important;
-            padding: 0 !important;
-        }
-        .special-plans > div {
-            grid-template-columns: 1fr !important;
-            gap: 15px !important;
-        }
-        .special-plans .plan-item {
-            padding: 20px 15px !important;
-        }
-        .special-plans h3 {
-            font-size: 1rem !important;
-        }
-        
-        /* FAQのモバイル対応 */
         .faq-container {
             padding: 0 15px;
         }
@@ -896,8 +880,6 @@
             padding: 0 15px 15px;
             font-size: 0.85rem;
         }
-        
-        /* CTAセクションのモバイル対応 */
         .cta-section {
             padding: 40px 15px;
             margin: 50px 0;
@@ -908,12 +890,6 @@
         .cta-text {
             font-size: 0.95rem;
         }
-        .cta-button {
-            padding: 12px 25px;
-            font-size: 0.95rem;
-        }
-        
-        /* 制作者プロフィールのモバイル対応 */
         .profile-section {
             padding: 25px 15px !important;
             margin: 0 15px !important;
@@ -927,28 +903,34 @@
         .profile-section p {
             font-size: 0.95rem !important;
         }
-        
-        /* 制作環境・ジャンル表示のモバイル対応 */
-        .genre-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 10px !important;
-        }
-        .genre-item {
-            padding: 12px 8px !important;
-            font-size: 0.8rem !important;
-        }
-        .genre-item div:first-child {
-            font-size: 1.2rem !important;
-        }
         .section {
             margin: 60px 0;
         }
-        
-        /* 初回限定バナー */
         .first-time-banner {
             margin: 30px 15px;
             padding: 15px;
             font-size: 1rem;
+        }
+        .contact-form {
+            padding: 25px 15px;
+            margin: 30px 15px;
+        }
+        .contact-form h3 {
+            font-size: 1.4rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-input, .form-select, .form-textarea {
+            font-size: 0.9rem;
+            padding: 10px 12px;
+        }
+        .form-submit {
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+        .form-note {
+            font-size: 0.8rem;
         }
     }
 </style>
@@ -983,8 +965,7 @@
         <h1 class="page-title">楽曲制作・ミックスマスタリングサービス</h1>
         <p class="page-subtitle">音楽に、真理を宿す。</p>
         <p class="page-lead">
-            哲学と音楽、理論と感性、伝統と革新——<br>
-            すべてを融合させた、唯一無二の音楽制作を。<br><br>
+            哲学と音楽を融合させた深みのある楽曲制作から、歌ってみたのプロフェッショナルミックス、法人様向けBGM制作まで。<br><br>
             川崎Club Citta'でのライブパフォーマンスや、NHKや東海ラジオ、BURRN!誌への出演・掲載実績。<br>
             そして、Kindleランキング哲学1位・心理学2位を獲得した文筆家としての言葉への洞察力。<br><br>
             これらすべての経験を、あなたの音楽のために注ぎ込みます。
@@ -1309,32 +1290,6 @@
         </div>
     </section>
 
-
-
-    <!-- お得なプラン案内 -->
-    <section class="special-plans" style="background: linear-gradient(135deg, #f8f4ee, #fefdf9); padding: 60px 30px; border-radius: 30px; margin: 80px 0;">
-        <div class="section-header">
-            <h2 class="section-title" style="color: #3b2a1e;">お得なプラン・オプション</h2>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
-            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌍</div>
-                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">世界配信を身近に</h3>
-                <p style="color: #666; line-height: 1.7;">わずか¥3,000から世界中に音楽を届けられます。多くの方に配信体験をしていただきたいという想いから実現した特別価格です。</p>
-            </div>
-            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎙️</div>
-                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">出張レコーディング</h3>
-                <p style="color: #666; line-height: 1.7;">プロ機材を持参してボーカル録音。名古屋市内なら出張費無料でお伺いします。</p>
-            </div>
-            <div class="plan-item" style="text-align: center; padding: 30px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎵</div>
-                <h3 style="font-weight: 900; margin-bottom: 15px; color: #3b2a1e;">複数楽曲割引</h3>
-                <p style="color: #666; line-height: 1.7;">2曲目以降は10%OFF、アルバム制作なら更にお得な料金をご提案いたします。</p>
-            </div>
-        </div>
-    </section>
-    
     <section class="sample-box">
         <h3><i class="fas fa-headphones"></i> 制作実績を聴く</h3>
         <p style="margin-bottom: 30px;">実際の制作サンプルや、Before/Afterをお聴きいただけます</p>
@@ -1354,53 +1309,7 @@
         </p>
     </div>
 
-    <!-- 制作環境・品質保証 -->
-    <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">制作環境・品質保証</h2>
-        </div>
-        <div style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-            <h3 style="margin-bottom: 20px;"><i class="fas fa-cogs" style="color: #d4af37;"></i> 使用環境</h3>
-            <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                <li style="padding: 8px 0;">✓ <strong>DAW</strong>: Cubase（業界標準）</li>
-                <li style="padding: 8px 0;">✓ <strong>プラグイン</strong>: 業界標準の各種プロフェッショナルツール</li>
-                <li style="padding: 8px 0;">✓ <strong>オーディオI/F</strong>: プロ仕様機材（RME等）</li>
-                <li style="padding: 8px 0;">✓ <strong>モニター環境</strong>: 正確な音響判断が可能な環境</li>
-            </ul>
-            <h3 style="margin-bottom: 20px;"><i class="fas fa-award" style="color: #d4af37;"></i> 品質へのこだわり</h3>
-            <p style="margin-bottom: 30px;">業界標準機材を使用したプロフェッショナルな制作環境で、数々のメディア掲載実績が証明する確かな品質をお約束します。技術だけでなく、音楽の本質を理解した上での制作を心がけ、お客様の想いを最高の形で表現いたします。</p>
-            <h3 style="margin: 30px 0 20px;"><i class="fas fa-music" style="color: #d4af37;"></i> 対応ジャンル</h3>
-            <div class="genre-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center;">
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎸</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">ロック</div>
-                </div>
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">⚡</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">メタル</div>
-                </div>
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">✨</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">アイドルソング</div>
-                </div>
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎵</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">ポップス</div>
-                </div>
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">💝</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">バラード</div>
-                </div>
-                <div class="genre-item" style="background: linear-gradient(135deg, #f8f4ee, #fff); padding: 15px; border-radius: 10px; border: 1px solid #f0e9dd;">
-                    <div style="font-size: 1.5rem; margin-bottom: 5px;">🎯</div>
-                    <div style="font-weight: 700; color: #3b2a1e;">その他</div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">その他のジャンルもお気軽にご相談ください</p>
-        </div>
-    </section>
-
-    <!-- ご依頼の流れ -->
+    <!-- 制作の流れ -->
     <section class="section">
         <div class="section-header">
             <h2 class="section-title">ご依頼の流れ</h2>
@@ -1519,14 +1428,115 @@
 
     <!-- CTA -->
     <section class="cta-section">
-        <h2 class="cta-title">お問い合わせ</h2>
+        <h2 class="cta-title">あなたの音楽を、最高の作品に。</h2>
         <p class="cta-text">
-            ご依頼・ご相談は下記よりお気軽にどうぞ。<br>
-            まずはあなたの音楽への想いをお聞かせください。
+            まずはあなたの音楽への想いをお聞かせください。<br>
+            哲学と音楽、理論と感性——<br>
+            すべてを融合させた唯一無二の楽曲制作を。
         </p>
-        <div id="contact-form-container">
-            <a href="#" class="cta-button" onclick="showModal('メールフォームは準備中です'); return false;">お問い合わせフォームへ</a>
-        </div>
+    </section>
+
+    <!-- お問い合わせフォーム -->
+    <section class="contact-form">
+        <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 30px; color: #3b2a1e;">楽曲制作・ミックス依頼</h3>
+        
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label class="form-label" for="name">お名前<span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">メールアドレス<span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="service">ご希望のサービス<span class="required">*</span></label>
+                <select id="service" name="service" class="form-select" required onchange="updatePlanOptions()">
+                    <option value="">選択してください</option>
+                    <option value="オリジナル楽曲制作">オリジナル楽曲制作</option>
+                    <option value="歌ってみたミックス">歌ってみたミックス</option>
+                    <option value="BGM・ゲーム音楽制作">BGM・ゲーム音楽制作</option>
+                    <option value="その他">その他・相談</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="planGroup" style="display: none;">
+                <label class="form-label" for="plan">プラン選択</label>
+                <select id="plan" name="plan" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="genre">楽曲ジャンル・イメージ</label>
+                <select id="genre" name="genre" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="ロック">ロック</option>
+                    <option value="メタル">メタル</option>
+                    <option value="ポップス">ポップス</option>
+                    <option value="バラード">バラード</option>
+                    <option value="EDM・エレクトロニック">EDM・エレクトロニック</option>
+                    <option value="アコースティック">アコースティック</option>
+                    <option value="ゲーム音楽">ゲーム音楽</option>
+                    <option value="アンビエント・環境音楽">アンビエント・環境音楽</option>
+                    <option value="その他">その他</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="reference">参考楽曲・アーティスト</label>
+                <input type="text" id="reference" name="reference" class="form-input" placeholder="例：◯◯の「△△」のような雰囲気で">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="budget">ご予算</label>
+                <select id="budget" name="budget" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="〜5万円">〜5万円</option>
+                    <option value="5万円〜10万円">5万円〜10万円</option>
+                    <option value="10万円〜20万円">10万円〜20万円</option>
+                    <option value="20万円〜30万円">20万円〜30万円</option>
+                    <option value="30万円以上">30万円以上</option>
+                    <option value="相談">相談して決めたい</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="timeline">希望納期</label>
+                <select id="timeline" name="timeline" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="急ぎ（1〜2週間）">急ぎ（1〜2週間）</option>
+                    <option value="通常（3〜5週間）">通常（3〜5週間）</option>
+                    <option value="ゆっくり（1ヶ月以上）">ゆっくり（1ヶ月以上）</option>
+                    <option value="相談">相談して決めたい</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="lyrics">作詞について</label>
+                <select id="lyrics" name="lyrics" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="作詞も依頼したい">作詞も依頼したい</option>
+                    <option value="歌詞は自分で用意">歌詞は自分で用意</option>
+                    <option value="インストのみ">インストのみ（歌なし）</option>
+                    <option value="相談">相談して決めたい</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="message">詳細・特別な要望<span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="楽曲の使用目的、こだわりたいポイント、イメージ、歌詞のテーマ、初回限定20%OFFについてなど、何でもお聞かせください。" required></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">お問い合わせを送信</button>
+        </form>
+        
+        <p class="form-note">
+            送信ボタンを押すと、お使いのメールアプリが起動します。<br>
+            メールアプリがない場合は、内容をコピーして blackroses0120@gmail.com へご連絡ください。
+        </p>
     </section>
 
     <!-- 締めの言葉 -->
@@ -1545,6 +1555,100 @@
 </footer>
 
 <script>
+    // プラン選択肢を動的に変更
+    function updatePlanOptions() {
+        const service = document.getElementById('service').value;
+        const planGroup = document.getElementById('planGroup');
+        const planSelect = document.getElementById('plan');
+        
+        // 既存のオプションをクリア
+        planSelect.innerHTML = '<option value="">選択してください（任意）</option>';
+        
+        if (service === 'オリジナル楽曲制作') {
+            planGroup.style.display = 'block';
+            planSelect.innerHTML += '<option value="クリエイタープラン（¥80,000）">クリエイタープラン（¥80,000）</option>';
+            planSelect.innerHTML += '<option value="シンガープラン（¥110,000）">シンガープラン（¥110,000）</option>';
+            planSelect.innerHTML += '<option value="コンプリートプラン（¥130,000）">コンプリートプラン（¥130,000）</option>';
+        } else if (service === '歌ってみたミックス') {
+            planGroup.style.display = 'block';
+            planSelect.innerHTML += '<option value="スタンダードミックス（¥18,000）">スタンダードミックス（¥18,000）</option>';
+            planSelect.innerHTML += '<option value="プロフェッショナルミックス（¥30,000）">プロフェッショナルミックス（¥30,000）</option>';
+            planSelect.innerHTML += '<option value="プレミアムミックス（¥45,000）">プレミアムミックス（¥45,000）</option>';
+        } else if (service === 'BGM・ゲーム音楽制作') {
+            planGroup.style.display = 'block';
+            planSelect.innerHTML += '<option value="サウンドロゴ/SEプラン（¥8,000）">サウンドロゴ/SEプラン（¥8,000）</option>';
+            planSelect.innerHTML += '<option value="ショートBGMプラン（¥18,000）">ショートBGMプラン（¥18,000）</option>';
+            planSelect.innerHTML += '<option value="ゲーム楽曲プラン（¥25,000）">ゲーム楽曲プラン（¥25,000）</option>';
+            planSelect.innerHTML += '<option value="複数楽曲パッケージ">複数楽曲パッケージ</option>';
+        } else {
+            planGroup.style.display = 'none';
+        }
+    }
+
+    // フォーム送信処理
+    function submitForm(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+        
+        // フォームデータを取得
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const service = formData.get('service');
+        const plan = formData.get('plan') || '未選択';
+        const genre = formData.get('genre') || '未選択';
+        const reference = formData.get('reference') || '特になし';
+        const budget = formData.get('budget') || '未選択';
+        const timeline = formData.get('timeline') || '未選択';
+        const lyrics = formData.get('lyrics') || '未選択';
+        const message = formData.get('message');
+        
+        // メール件名
+        const subject = `【楽曲制作・ミックス依頼】${service} - ${name}様`;
+        
+        // メール本文
+        const body = `
+Rhyn皇太子様
+
+お忙しい中恐れ入ります。
+楽曲制作・ミックスサービスにつきまして、下記の通りお問い合わせいたします。
+
+■ お客様情報
+お名前: ${name}
+メールアドレス: ${email}
+
+■ ご希望内容
+サービス: ${service}
+プラン: ${plan}
+楽曲ジャンル: ${genre}
+参考楽曲・アーティスト: ${reference}
+ご予算: ${budget}
+希望納期: ${timeline}
+作詞について: ${lyrics}
+
+■ 詳細・ご要望
+${message}
+
+■ その他
+初回限定20%OFF、各種オプションについても教えていただければ幸いです。
+
+お忙しいとは存じますが、素晴らしい音楽を一緒に創り上げられることを楽しみにしております。
+ご検討のほどよろしくお願いいたします。
+
+${name}
+        `;
+        
+        // mailto リンクを生成
+        const mailtoLink = `mailto:blackroses0120@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // メールクライアントを起動
+        window.location.href = mailtoLink;
+        
+        // 成功メッセージを表示
+        showModal('メールアプリが起動しました。\n\nメールアプリが起動しない場合は、\n以下にメールでご連絡ください：\nblackroses0120@gmail.com');
+    }
+
     // FAQトグル機能
     function toggleFAQ(element) {
         const answer = element.nextElementSibling;
