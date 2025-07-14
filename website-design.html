@@ -581,7 +581,83 @@
         border-top: 1px solid #f0e9dd; 
     }
 
-    /* --- セクション区切り線 --- */
+    /* --- お問い合わせフォーム --- */
+    .contact-form {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border: 2px solid #f0e9dd;
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: left;
+    }
+    .form-group {
+        margin-bottom: 25px;
+    }
+    .form-label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #3b2a1e;
+        font-size: 0.95rem;
+    }
+    .form-label .required {
+        color: #e74c3c;
+        margin-left: 3px;
+    }
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #f0e9dd;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: 'Noto Serif JP', serif;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: #2c3e50;
+        box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    }
+    .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    .form-submit {
+        background: linear-gradient(45deg, #2c3e50, #34495e);
+        color: #fff;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 900;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 30px auto 0;
+        font-family: 'Noto Serif JP', serif;
+    }
+    .form-submit:hover {
+        background: linear-gradient(45deg, #d4af37, #f8e47b);
+        color: #3b2a1e;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+    }
+    .form-submit:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+    .form-note {
+        font-size: 0.85rem;
+        color: #666;
+        text-align: center;
+        margin-top: 20px;
+        line-height: 1.6;
+    }
     .section-divider {
         height: 1px;
         background: linear-gradient(90deg, transparent, #2c3e50, transparent);
@@ -725,6 +801,27 @@
             margin: 30px 15px;
             padding: 15px;
             font-size: 1rem;
+        }
+        .contact-form {
+            padding: 25px 15px;
+            margin: 30px 15px;
+        }
+        .contact-form h3 {
+            font-size: 1.4rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-input, .form-select, .form-textarea {
+            font-size: 0.9rem;
+            padding: 10px 12px;
+        }
+        .form-submit {
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+        .form-note {
+            font-size: 0.8rem;
         }
     }
 </style>
@@ -1073,9 +1170,71 @@
             技術と芸術、論理と感性——<br>
             すべてを融合させた革命的なサイト制作を。
         </p>
-        <div id="contact-form-container">
-            <a href="#" class="cta-button" onclick="showModal('お問い合わせフォームは準備中です'); return false;">お問い合わせ・ご相談はこちら</a>
-        </div>
+    </section>
+
+    <!-- お問い合わせフォーム -->
+    <section class="contact-form">
+        <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 30px; color: #3b2a1e;">お問い合わせ・ご相談</h3>
+        
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label class="form-label" for="name">お名前<span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">メールアドレス<span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="service">ご希望のサービス<span class="required">*</span></label>
+                <select id="service" name="service" class="form-select" required>
+                    <option value="">選択してください</option>
+                    <option value="クリエイターLP制作">クリエイターLP制作（¥150,000〜）</option>
+                    <option value="アーティストサイト制作">アーティストサイト制作（¥400,000〜）</option>
+                    <option value="CMS対応サイト制作">CMS対応サイト制作（¥580,000〜）</option>
+                    <option value="楽曲制作セット">楽曲制作セット（15%OFF）</option>
+                    <option value="継続保守">継続保守プラン</option>
+                    <option value="その他">その他・相談</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="budget">ご予算</label>
+                <select id="budget" name="budget" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="〜30万円">〜30万円</option>
+                    <option value="30万円〜50万円">30万円〜50万円</option>
+                    <option value="50万円〜80万円">50万円〜80万円</option>
+                    <option value="80万円以上">80万円以上</option>
+                    <option value="相談">相談して決めたい</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="timeline">希望納期</label>
+                <select id="timeline" name="timeline" class="form-select">
+                    <option value="">選択してください（任意）</option>
+                    <option value="急ぎ（1ヶ月以内）">急ぎ（1ヶ月以内）</option>
+                    <option value="通常（1〜2ヶ月）">通常（1〜2ヶ月）</option>
+                    <option value="ゆっくり（2ヶ月以上）">ゆっくり（2ヶ月以上）</option>
+                    <option value="相談">相談して決めたい</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="message">ご相談内容<span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="プロジェクトの詳細、参考サイト、特別な要望など、何でもお聞かせください。" required></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">お問い合わせを送信</button>
+        </form>
+        
+        <p class="form-note">
+            送信ボタンを押すと、お使いのメールアプリが起動します。<br>
+            メールアプリがない場合は、内容をコピーして直接メールでご連絡ください。
+        </p>
     </section>
 
     <!-- 締めの言葉 -->
@@ -1094,6 +1253,61 @@
 </footer>
 
 <script>
+    // フォーム送信処理
+    function submitForm(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+        
+        // フォームデータを取得
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const service = formData.get('service');
+        const budget = formData.get('budget') || '未選択';
+        const timeline = formData.get('timeline') || '未選択';
+        const message = formData.get('message');
+        
+        // メール件名
+        const subject = `【ウェブサイト制作お問い合わせ】${service} - ${name}様`;
+        
+        // メール本文
+        const body = `
+Rhyn皇太子様
+
+お忙しい中恐れ入ります。
+ウェブサイト制作につきまして、下記の通りお問い合わせいたします。
+
+■ お客様情報
+お名前: ${name}
+メールアドレス: ${email}
+
+■ ご希望内容
+サービス: ${service}
+ご予算: ${budget}
+希望納期: ${timeline}
+
+■ ご相談内容
+${message}
+
+■ その他
+初回限定20%OFF、楽曲制作セット15%OFFについても教えていただければ幸いです。
+
+お忙しいとは存じますが、ご検討のほどよろしくお願いいたします。
+
+${name}
+        `;
+        
+        // mailto リンクを生成
+        const mailtoLink = `mailto:blackroses0120@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // メールクライアントを起動
+        window.location.href = mailtoLink;
+        
+        // 成功メッセージを表示
+        showModal('メールアプリが起動しました。\n\nメールアプリが起動しない場合は、\n以下にメールでご連絡ください：\nblackroses0120@gmail.com');
+    }
+
     // FAQトグル機能
     function toggleFAQ(element) {
         const answer = element.nextElementSibling;
