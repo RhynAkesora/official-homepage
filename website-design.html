@@ -1253,6 +1253,13 @@
 </footer>
 
 <script>
+    // メールアドレス保護関数
+    function getProtectedEmail() {
+        // メールアドレスを分割して保存（ボット対策）
+        const parts = ['blackroses', '0120', 'gmail', 'com'];
+        return parts[0] + parts[1] + '@' + parts[2] + '.' + parts[3];
+    }
+
     // フォーム送信処理
     function submitForm(event) {
         event.preventDefault();
@@ -1298,14 +1305,14 @@ ${message}
 ${name}
         `;
         
-        // mailto リンクを生成
-        const mailtoLink = `mailto:blackroses0120@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // 保護されたメールアドレスでmailto リンクを生成
+        const mailtoLink = `mailto:${getProtectedEmail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         
         // メールクライアントを起動
         window.location.href = mailtoLink;
         
-        // 成功メッセージを表示
-        showModal('メールアプリが起動しました。\n\nメールアプリが起動しない場合は、\n以下にメールでご連絡ください：\nblackroses0120@gmail.com');
+        // 成功メッセージを表示（保護されたメールアドレスを使用）
+        showModal('メールアプリが起動しました。\n\nメールアプリが起動しない場合は、\n以下にメールでご連絡ください：\n' + getProtectedEmail());
     }
 
     // FAQトグル機能
@@ -1405,10 +1412,23 @@ ${name}
         };
     }
 
-    // 初期状態でFAQを閉じておく
+    // ページ読み込み時の初期化処理
     document.addEventListener('DOMContentLoaded', function() {
+        // 初期状態でFAQを閉じておく
         document.querySelectorAll('.faq-answer').forEach(item => {
             item.style.display = 'none';
+        });
+
+        // フォーム説明文のメールアドレスを動的に更新（ボット対策）
+        const noteElements = document.querySelectorAll('.form-note');
+        noteElements.forEach(note => {
+            // プレーンテキストのメールアドレスがある場合は保護されたものに置き換え
+            if (note.innerHTML.includes('blackroses0120@gmail.com')) {
+                note.innerHTML = note.innerHTML.replace(
+                    'blackroses0120@gmail.com', 
+                    getProtectedEmail()
+                );
+            }
         });
     });
 
