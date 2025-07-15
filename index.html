@@ -11,7 +11,6 @@
     <meta name="description" content="Rhyn皇太子（リン）／明空凛（あけそら りん）公式HP。耽美派ボーカリスト、ミュージシャン、作家、武術気功研究家、ウェブデザイナー。オンラインサロン『解脱しか勝たん！』主宰。音楽、哲学、そして革命。">
     <meta property="og:title" content="Rhyn皇太子 Official - 歌と、言葉と、真理の探求者。">
     <meta property="og:description" content="Rhyn皇太子（リン）／明空凛（あけそら りん）公式HP。耽美派ボーカリスト、ミュージシャン、作家、武術気功研究家、ウェブデザイナー。オンラインサロン『解脱しか勝たん！』主宰。音楽、哲学、そして革命。">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rhyn.jp">
     <meta property="og:image" content="https://rhyn.jp/Rhyn01.JPG">
@@ -80,6 +79,7 @@
     <style>
         /* --- 基本スタイル --- */
         body { margin: 0; font-family: 'Noto Serif JP', serif; background-color: #fdfaf6; color: #4a3728; overflow-x: hidden; scroll-behavior: smooth; }
+        /* <<< 修正: コンテンツ幅を他のページと統一 */
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         a { text-decoration: none; color: inherit; }
         a:focus, button:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
@@ -127,31 +127,29 @@
         .colorsing-link { display: block; text-decoration: none; }
         @media (min-width: 769px) {
             .colorsing-link { 
-                display: block; /* flexではなくblockのまま */
+                display: block; 
                 text-decoration: none;
             }
             .colorsing-link .main-platform-card {
                 max-width: 600px;
-                margin: 0 auto; /* カード自体をセンタリング */
+                margin: 0 auto; 
             }
             
-            /* 他のセクションのセンタリング */
             .links-grid {
                 max-width: 100%;
                 margin: 0 auto;
             }
-            /* media-gridのセンタリングは上で設定済み */
         }
 
         /* --- Listen & Watch セクション --- */
         .media-section { 
-            padding: 80px 0; /* 通常のセクションパディング */
+            padding: 80px 0;
         }
         .media-grid { 
             display: grid; 
             grid-template-columns: 1fr; 
-            gap: 40px; /* ギャップを少し増やす */
-            padding: 0 20px; /* デフォルトパディング */
+            gap: 40px;
+            padding: 0 20px;
         }
         .media-item { 
             background: #fff; 
@@ -167,16 +165,15 @@
         .music-embed-container { position: relative; width: 100%; height: 352px; border-radius: 15px; overflow: hidden; background-color: #eee; }
         .music-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         
-        /* PC表示でのメディア最適化 */
         @media (min-width: 769px) {
             .media-grid {
-                max-width: 100%; /* 最大幅を100%に変更 */
+                max-width: 100%; 
                 margin: 0 auto;
-                padding: 0 50px; /* 左右にパディングを追加 */
-                gap: 50px; /* PC表示では間隔を広く */
+                padding: 0 50px; 
+                gap: 50px; 
             }
             .media-item {
-                padding: 40px; /* パディングをさらに増加 */
+                padding: 40px; 
                 box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             }
             .media-item:hover {
@@ -185,26 +182,25 @@
                 transition: all 0.3s ease;
             }
             .media-title {
-                font-size: 1.5rem; /* タイトルをさらに大きく */
+                font-size: 1.5rem; 
                 margin-bottom: 25px;
             }
             .music-embed-container {
-                height: 450px; /* 音楽プレイヤーも大きく */
+                height: 450px; 
             }
         }
         
-        /* 大画面用の追加設定 */
         @media (min-width: 1200px) {
             .media-grid {
-                max-width: 1000px; /* 大画面では最大1000px */
-                padding: 0; /* パディング不要 */
-                gap: 60px; /* さらに間隔を広く */
+                max-width: 1000px; 
+                padding: 0; 
+                gap: 60px; 
             }
             .media-item {
                 padding: 50px;
             }
             .music-embed-container {
-                height: 500px; /* さらに大きく */
+                height: 500px; 
             }
         }
 
@@ -229,7 +225,6 @@
         .sanctum-button { display: inline-block; padding: 15px 40px; border-radius: 50px; font-weight: 700; color: white; background: linear-gradient(45deg, #3b2a1e, #5a4538); transition: all 0.3s; }
         .sanctum-button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         
-        /* PC表示でのセンタリング調整 */
         @media (min-width: 769px) {
             .sanctum-grid {
                 max-width: 800px;
@@ -240,14 +235,12 @@
                 margin: 0 auto;
             }
             
-            /* セクション全体のセンタリング強化（フッター除く） */
             .section:not(.footer) {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
             
-            /* ColorSingリンクを確実にセンタリング */
             .colorsing-link .section {
                 width: 100%;
                 max-width: 700px;
@@ -256,20 +249,27 @@
         }
 
         /* --- About Me セクション --- */
-        .about-section { background: #f4f0e9; padding: 40px; border-radius: 25px; text-align: center; }
+        /* <<< 修正: 幅が広くなりすぎないように最大幅を設定 */
+        .about-section { 
+            background: #f4f0e9; 
+            padding: 40px; 
+            border-radius: 25px; 
+            text-align: center; 
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
         .about-section p { font-size: 1.05rem; line-height: 2.2; text-align: justify; margin-bottom: 20px; }
         .about-section strong { color: #3b2a1e; font-weight: 900;}
         .about-section hr { border: none; border-top: 1px solid #e0d8cd; margin: 35px 0; }
         .about-section .activity-list { text-align: center; font-size: 0.95rem; color: #6a5543; margin-bottom: 35px;}
         
-        /* スマホでのAbout Me調整 */
         @media (max-width: 768px) {
             .about-section { 
                 padding: 35px 30px; 
-                margin: 0 15px; /* 左右マージンを増加 */
-                border-radius: 20px; /* 角丸を少し小さく */
+                margin: 0 15px;
+                border-radius: 20px;
             }
-            /* 活動領域リストの調整 */
             .about-section .activity-list {
                 padding: 0 10px;
                 font-size: 0.85rem;
@@ -277,23 +277,22 @@
             .about-section p { 
                 font-size: 0.95rem; 
                 line-height: 2.1; 
-                padding: 0 15px; /* 内側パディングも増加 */
-                text-align: left; /* スマホでは左揃えに */
+                padding: 0 15px;
+                text-align: left;
             }
         }
         
         @media (max-width: 480px) {
             .about-section { 
                 padding: 30px 25px; 
-                margin: 0 12px; /* スマホでも十分な外側マージン */
+                margin: 0 12px;
                 border-radius: 18px;
             }
             .about-section p { 
                 font-size: 0.9rem; 
-                padding: 0 10px; /* 内側パディングも確保 */
+                padding: 0 10px;
                 line-height: 2;
             }
-            /* 中央の引用部分は余白を少なく */
             .about-section p[style*="text-align: center"] {
                 padding: 0 5px;
             }
@@ -342,7 +341,6 @@
             text-align: center;
         }
         
-        /* スマホ用の配信スケジュール調整 */
         @media (max-width: 480px) {
             .schedule-table th, .schedule-table td {
                 padding: 6px 2px;
@@ -356,7 +354,7 @@
 
         /* --- レスポンシブ対応 --- */
         @media (max-width: 768px) {
-            .container { padding: 0 20px; } /* 15px → 20px に増加 */
+            .container { padding: 0 20px; }
             .section { padding: 50px 0; }
             .section-title { font-size: 1.5rem; }
             
@@ -366,7 +364,6 @@
             .main-name rt { font-size: 0.4em; }
             .alias-name rt { font-size: 0.4em; }
             
-            /* Information & Events モバイル調整 */
             .info-section { padding: 25px; margin: 0 5px; max-width: 100%; }
             .info-section .section-title { text-align: center; justify-content: center; }
             .info-item { padding: 12px; margin-bottom: 10px; }
@@ -376,12 +373,11 @@
             .links-grid { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 15px; 
-                padding: 0 10px; /* リンクグリッドにもパディング追加 */
+                padding: 0 10px;
             }
             .link-icon { font-size: 1.8rem; }
             .link-title { font-size: 1rem; }
             
-            /* media-gridはすでに1カラムなので削除 */
             .sanctum-grid { grid-template-columns: 1fr; }
             
             nav a { margin: 0 5px; font-size: 0.8rem; padding: 6px 8px; }
@@ -389,29 +385,25 @@
             .main-platform-title { font-size: 1.5rem; }
             .sanctum-title { font-size: 1.6rem; }
             
-            /* ColorSingカードのスマホ調整 */
             .main-platform-card { 
                 padding: 25px 20px; 
-                margin: 0 12px; /* スマホでもマージン追加 */
+                margin: 0 12px;
             }
             .main-platform-desc { font-size: 0.9rem; }
             
-            /* その他のカードのスマホ調整 */
             .sanctum-card { padding: 30px 25px; }
             
-            /* メディアセクションのスマホ調整 */
             .media-section { padding: 50px 0; }
         }
 
         @media (max-width: 480px) {
-            .container { padding: 0 15px; } /* スマホ用のパディング */
+            .container { padding: 0 15px; }
             
             .main-name { font-size: 1.8rem; line-height: 1.4; }
             .main-name rt { font-size: 0.35em; }
             .alias-name rt { font-size: 0.35em; }
             .tagline { font-size: 0.95rem; }
             
-            /* Information & Events 小画面調整 */
             .info-section { padding: 20px; margin: 0 2px; }
             .info-item { padding: 10px; margin-bottom: 8px; }
             .info-date { font-size: 0.75rem; padding: 6px 12px; margin-right: 12px; }
@@ -419,31 +411,28 @@
             .links-grid { 
                 grid-template-columns: repeat(2, 1fr); 
                 gap: 12px; 
-                padding: 0 8px; /* スマホでもパディング追加 */
+                padding: 0 8px;
             }
             .link-item { padding: 20px 10px; }
             
-            /* さらに細かい調整 */
             .info-section { 
-                margin: 0 12px; /* 余白を増加 */
+                margin: 0 12px;
             }
             .sanctum-card { 
                 padding: 30px 25px; 
-                margin: 0 12px; /* 余白を増加 */
+                margin: 0 12px;
             }
             .main-platform-card { 
                 padding: 25px 20px; 
-                margin: 0 12px; /* 余白を増加 */
+                margin: 0 12px;
             }
             
-            /* セクション全体の調整 */
             .section { 
-                padding: 40px 0; /* 上下の余白を少し減らす */
+                padding: 40px 0;
             }
             
-            /* メディアグリッドの調整 */
             .media-item {
-                margin: 0 12px; /* 左右マージン追加 */
+                margin: 0 12px;
             }
         }
     </style>
