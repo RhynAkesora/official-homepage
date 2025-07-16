@@ -58,8 +58,8 @@
     
     body { 
         font-family: 'Noto Serif JP', serif; 
-        background-color: #0a0a0a; 
-        color: #fff; 
+        background-color: #fdfaf6; 
+        color: #4a3728; 
         overflow-x: hidden; 
         scroll-behavior: smooth; 
         line-height: 1.6;
@@ -82,24 +82,6 @@
         height: auto;
         loading: lazy;
     }
-    
-    /* --- 背景画像の最適化 --- */
-    .fullscreen-section,
-    .story-chapter {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        will-change: transform;
-    }
-    
-    @media (max-width: 768px) {
-        .fullscreen-section,
-        .story-chapter {
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-    }
 
     /* --- ヘッダー & ナビゲーション --- */
     .main-header { 
@@ -108,11 +90,11 @@
         position: fixed; 
         top: 0; 
         width: 100%;
-        background-color: rgba(10, 10, 10, 0.95); 
+        background-color: rgba(253, 250, 246, 0.95); 
         backdrop-filter: blur(20px); 
         -webkit-backdrop-filter: blur(20px); 
         z-index: 1000; 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        border-bottom: 1px solid #f0e9dd; 
     }
     nav a { 
         margin: 0 15px; 
@@ -121,7 +103,7 @@
         font-size: 0.9rem; 
         transition: all 0.3s; 
         border-radius: 20px; 
-        color: rgba(255, 255, 255, 0.7);
+        color: #4a3728;
     }
     nav a:hover { 
         color: #d4af37; 
@@ -129,50 +111,9 @@
         transform: translateY(-2px);
     }
 
-    /* --- フルスクリーンセクション基本 --- */
-    .fullscreen-section {
-        min-height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: center;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-    
-    .fullscreen-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-    }
-    
-    .fullscreen-content {
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        padding: 80px 0;
-    }
-
-    /* --- モバイル最適化 --- */
-    @media (max-width: 768px) {
-        .fullscreen-section {
-            background-attachment: scroll;
-            min-height: auto;
-            padding: 60px 0;
-        }
-        .fullscreen-section::before {
-            background: rgba(0, 0, 0, 0.8);
-        }
-    }
-
     /* --- 緊急告白ヘッダー --- */
     .urgent-header {
-        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        background: linear-gradient(135deg, #2c3e50, #34495e);
         color: #fff;
         text-align: center;
         padding: 80px 0 20px;
@@ -215,298 +156,173 @@
         margin-right: auto;
     }
 
-    /* --- ヒーローセクション --- */
-    .hero-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('salon01.PNG');
-        background-size: cover;
-        background-position: center;
-        min-height: 90vh;
-    }
-    .hero-section::before {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 0, 0, 0.3));
-    }
-    .hero-content {
-        text-align: center;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    .hero-lead {
-        font-size: 1.6rem;
-        line-height: 1.8;
-        margin-bottom: 40px;
-        opacity: 0.95;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    }
-    .hero-strong {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        font-weight: 900;
-        color: #d4af37;
-        margin: 40px 0;
-        display: block;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        animation: glow 3s ease-in-out infinite alternate;
-    }
-    @keyframes glow {
-        from { text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(212, 175, 55, 0.5); }
-        to { text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.8); }
-    }
-
-    /* --- プロローグセクション --- */
-    .prologue-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('salon03.PNG');
-        background-size: cover;
-        background-position: center;
-    }
-    .prologue-section::before {
-        background: linear-gradient(45deg, rgba(108, 117, 125, 0.2), rgba(0, 0, 0, 0.4));
-    }
-    .split-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
-        min-height: 80vh;
-    }
-    .text-content {
-        padding: 40px;
-    }
-    .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        color: #fff;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        line-height: 1.2;
-    }
-    .greeting {
-        font-size: 1.4rem;
-        color: #d4af37;
-        margin-bottom: 30px;
-        font-weight: 700;
-    }
-    .condition-list {
-        background: rgba(0, 0, 0, 0.6);
-        padding: 40px;
-        border-radius: 20px;
-        border-left: 5px solid #d4af37;
-        margin: 40px 0;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-    .condition-list p {
-        margin: 20px 0;
-        font-size: 1.2rem;
-        color: #fff;
-    }
-    .congratulations {
-        background: linear-gradient(45deg, #d4af37, #f8e47b);
-        color: #000;
-        padding: 30px;
-        border-radius: 20px;
-        text-align: center;
-        font-weight: 900;
-        font-size: 1.4rem;
-        margin: 40px 0;
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.02); }
-    }
-    .chapter-content {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 25px;
-    }
-    .chapter-content p {
-        margin-bottom: 20px;
-    }
-    .chapter-content strong {
-        color: #d4af37;
-        font-weight: 900;
-    }
-
-    /* --- ストーリーセクション（交互レイアウト） --- */
-    .story-section {
-        padding: 0;
-    }
-    .story-chapter {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
+    /* --- 共通セクションスタイル --- */
+    .section {
+        padding: 100px 0;
         position: relative;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+        overflow: hidden;
     }
-    .story-chapter::before {
+    
+    .section::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: -2;
+        opacity: 0.3;
     }
-    .story-chapter.chapter1 {
+    
+    .section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    /* --- 各セクションの背景設定 --- */
+    .hero-section::before {
+        background-image: url('salon01.PNG');
+    }
+    .hero-section::after {
+        background: linear-gradient(rgba(253, 250, 246, 0.8), rgba(253, 250, 246, 0.9));
+    }
+
+    .prologue-section::before {
         background-image: url('salon03.PNG');
     }
-    .story-chapter.chapter1::before {
-        background: linear-gradient(45deg, rgba(108, 117, 125, 0.7), rgba(0, 0, 0, 0.5));
+    .prologue-section::after {
+        background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(253, 250, 246, 0.9));
     }
-    .story-chapter.chapter2 {
+
+    .chapter1-section::before {
+        background-image: url('salon08.PNG');
+    }
+    .chapter1-section::after {
+        background: linear-gradient(135deg, rgba(44, 62, 80, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .chapter2-section::before {
         background-image: url('salon02.PNG');
     }
-    .story-chapter.chapter2::before {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.3), rgba(192, 57, 43, 0.6));
+    .chapter2-section::after {
+        background: linear-gradient(135deg, rgba(231, 76, 60, 0.2), rgba(253, 250, 246, 0.9));
     }
-    .story-chapter.chapter3 {
-        background-image: url('salon02.PNG');
-    }
-    .story-chapter.chapter3::before {
-        background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(44, 62, 80, 0.5));
-    }
-    .story-chapter.chapter4 {
+
+    .chapter3-section::before {
         background-image: url('salon07.JPG');
-        background-size: cover;
-        background-position: center;
     }
-    .story-chapter.chapter4::before {
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(44, 62, 80, 0.6));
+    .chapter3-section::after {
+        background: linear-gradient(45deg, rgba(52, 73, 94, 0.2), rgba(253, 250, 246, 0.9));
     }
-    .story-chapter.chapter5 {
+
+    .chapter4-section::before {
+        background-image: url('additional8.jpg');
+    }
+    .chapter4-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(253, 250, 246, 0.9));
+    }
+
+    .chapter5-section::before {
+        background-image: url('additional7.jpg');
+    }
+    .chapter5-section::after {
+        background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .author-section::before {
+        background-image: url('salon06.JPG');
+    }
+    .author-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .chapter6-section::before {
         background-image: url('salon05.PNG');
     }
-    .story-chapter.chapter5::before {
-        background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(248, 228, 123, 0.3));
-    }
-    .story-content {
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        padding: 80px 0;
-    }
-    .story-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
-    }
-    .story-split.reverse {
-        grid-template-columns: 1fr 1fr;
-    }
-    .story-text {
-        padding: 60px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 25px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .chapter-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        color: #d4af37;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-    .story-visual {
-        position: relative;
-        min-height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .chapter6-section::after {
+        background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(253, 250, 246, 0.9));
     }
 
-    /* --- 体験談セクション --- */
-    .experience-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('salon05.PNG');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
+    .chapter7-section::before {
+        background-image: url('additional1.jpg');
     }
-    .experience-section::before {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(248, 228, 123, 0.2));
+    .chapter7-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(253, 250, 246, 0.9));
     }
-    .experience-content {
-        text-align: center;
+
+    .column-section::before {
+        background-image: url('additional6.jpg');
+    }
+    .column-section::after {
+        background: linear-gradient(135deg, rgba(44, 62, 80, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .chapter8-section::before {
+        background-image: url('additional5.jpg');
+    }
+    .chapter8-section::after {
+        background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .salon-intro-section::before {
+        background-image: url('additional4.jpg');
+    }
+    .salon-intro-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(253, 250, 246, 0.9));
+    }
+
+    .pricing-section::before {
+        background-image: url('salon04.PNG');
+    }
+    .pricing-section::after {
+        background: linear-gradient(135deg, rgba(44, 62, 80, 0.1), rgba(253, 250, 246, 0.9));
+    }
+
+    .faq-section::before {
+        background-image: url('additional3.jpg');
+    }
+    .faq-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(253, 250, 246, 0.95));
+    }
+
+    .action-section::before {
+        background-image: url('additional2.jpg');
+    }
+    .action-section::after {
+        background: linear-gradient(45deg, rgba(44, 62, 80, 0.2), rgba(253, 250, 246, 0.9));
+    }
+
+    .cta-section::before {
+        background-image: url('salon01.PNG');
+    }
+    .cta-section::after {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(253, 250, 246, 0.9));
+    }
+
+    /* --- コンテンツスタイル --- */
+    .content-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: 60px;
+        margin: 40px auto;
         max-width: 1000px;
-        margin: 0 auto;
-        padding: 80px 40px;
-    }
-    .experience-quote {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        font-style: italic;
-        color: #fff;
-        line-height: 1.6;
-        margin-bottom: 40px;
-        position: relative;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        background: rgba(0, 0, 0, 0.6);
-        padding: 60px;
-        border-radius: 25px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-    }
-    .experience-quote::before,
-    .experience-quote::after {
-        content: '"';
-        font-size: 4rem;
-        color: #d4af37;
-        position: absolute;
-        opacity: 0.7;
-    }
-    .experience-quote::before {
-        top: 10px;
-        left: 20px;
-    }
-    .experience-quote::after {
-        bottom: 10px;
-        right: 20px;
-    }
-    .experience-author {
-        font-size: 1.2rem;
-        color: #d4af37;
-        margin-top: 30px;
-        font-weight: 700;
-    }
-
-    /* --- 真実発見セクション --- */
-    .truth-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('salon04.PNG');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-    .truth-section::before {
-        background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.3));
-    }
-    .method-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
-    .method-card {
-        background: rgba(0, 0, 0, 0.8);
-        padding: 50px 40px;
-        border-radius: 25px;
-        text-align: center;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 2px solid rgba(212, 175, 55, 0.3);
-        transition: all 0.4s ease;
+        border: 2px solid #f0e9dd;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    .method-card::before {
+
+    .content-card::before {
         content: '';
         position: absolute;
         top: 0;
@@ -516,97 +332,212 @@
         background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
         transition: left 0.5s ease;
     }
-    .method-card:hover::before {
+
+    .content-card:hover::before {
         left: 100%;
     }
-    .method-card:hover {
-        transform: translateY(-10px);
-        border-color: #d4af37;
-        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
-    }
-    .method-number {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, #d4af37, #f8e47b);
-        color: #000;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        font-weight: 900;
-        margin: 0 auto 30px;
-        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-    }
-    .method-card h3 {
+
+    .section-title {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: #d4af37;
-        margin-bottom: 20px;
-    }
-    .method-card p {
-        font-size: 1rem;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.9);
+        font-size: 3rem;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        line-height: 1.2;
+        text-align: center;
     }
 
-    /* --- 主宰者紹介セクション --- */
-    .author-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('salon06.JPG');
-        background-size: cover;
-        background-position: center;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
+    .chapter-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        width: 100%;
     }
-    .author-section::before {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.6));
+
+    .chapter-title::after { 
+        content: ''; 
+        position: absolute; 
+        bottom: -15px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 3px; 
+        background: linear-gradient(90deg, #2c3e50, #d4af37);
+        border-radius: 2px;
     }
-    .author-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
+
+    .chapter-content {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #4a3728;
+        margin-bottom: 25px;
+        text-align: left;
     }
-    .author-text {
-        padding: 60px;
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 25px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+
+    .chapter-content p {
+        margin-bottom: 20px;
     }
-    .author-text h3 {
+
+    .chapter-content strong {
+        color: #2c3e50;
+        font-weight: 900;
+    }
+
+    /* --- ヒーロースタイル --- */
+    .hero-content {
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 100px 40px;
+    }
+
+    .hero-lead {
+        font-size: 1.6rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        opacity: 0.95;
+        color: #4a3728;
+    }
+
+    .hero-strong {
         font-family: 'Playfair Display', serif;
         font-size: 2.2rem;
+        font-weight: 900;
+        color: #d4af37;
+        margin: 40px 0;
+        display: block;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 10px rgba(212, 175, 55, 0.3); }
+        to { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(212, 175, 55, 0.5); }
+    }
+
+    /* --- 特別コンテンツスタイル --- */
+    .greeting {
+        font-size: 1.4rem;
         color: #d4af37;
         margin-bottom: 30px;
+        font-weight: 700;
+        text-align: center;
     }
+
+    .condition-list {
+        background: rgba(44, 62, 80, 0.1);
+        padding: 40px;
+        border-radius: 20px;
+        border-left: 5px solid #d4af37;
+        margin: 40px 0;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        text-align: left;
+    }
+
+    .condition-list p {
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: #4a3728;
+    }
+
+    .congratulations {
+        background: linear-gradient(45deg, #d4af37, #f8e47b);
+        color: #2c3e50;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        font-weight: 900;
+        font-size: 1.4rem;
+        margin: 40px 0;
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+    }
+
+    /* --- 体験談スタイル --- */
+    .experience-quote {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        font-style: italic;
+        color: #2c3e50;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        position: relative;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+        background: rgba(212, 175, 55, 0.1);
+        padding: 60px;
+        border-radius: 25px;
+    }
+
+    .experience-quote::before,
+    .experience-quote::after {
+        content: '"';
+        font-size: 4rem;
+        color: #d4af37;
+        position: absolute;
+        opacity: 0.7;
+    }
+
+    .experience-quote::before {
+        top: 10px;
+        left: 20px;
+    }
+
+    .experience-quote::after {
+        bottom: 10px;
+        right: 20px;
+    }
+
+    .experience-author {
+        font-size: 1.2rem;
+        color: #2c3e50;
+        margin-top: 30px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    /* --- 主宰者紹介スタイル --- */
     .author-credentials {
         background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(248, 228, 123, 0.05));
         padding: 30px;
         border-radius: 15px;
         border-left: 5px solid #d4af37;
         margin: 30px 0;
+        text-align: left;
     }
+
     .author-credentials h4 {
-        color: #d4af37;
+        color: #2c3e50;
         margin-bottom: 15px;
         font-weight: 900;
         font-size: 1.1rem;
     }
+
     .author-credentials ul {
         list-style: none;
         padding: 0;
         margin: 10px 0;
     }
+
     .author-credentials li {
         padding: 8px 0;
         font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.8);
+        color: #4a3728;
         position: relative;
         padding-left: 25px;
     }
+
     .author-credentials li::before {
         content: '◆';
         color: #d4af37;
@@ -615,41 +546,35 @@
         top: 8px;
     }
 
-    /* --- 料金プランセクション --- */
-    .pricing-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('salon04.PNG');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding: 120px 0;
-    }
-    .pricing-section::before {
-        background: linear-gradient(135deg, rgba(44, 62, 80, 0.3), rgba(52, 73, 94, 0.5));
-    }
+    /* --- 料金プランスタイル --- */
     .pricing-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 40px;
         margin-top: 80px;
     }
+
     .pricing-card {
-        background: rgba(0, 0, 0, 0.9);
-        color: #fff;
+        background: rgba(255, 255, 255, 0.95);
+        color: #4a3728;
         padding: 50px 40px;
         border-radius: 25px;
         text-align: center;
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-        border: 2px solid rgba(255, 255, 255, 0.1);
+        border: 2px solid #f0e9dd;
         transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
+
     .pricing-card.featured {
         transform: scale(1.05);
         border-color: #d4af37;
         background: rgba(212, 175, 55, 0.1);
     }
+
     .pricing-card.featured::before {
         content: 'おすすめ';
         position: absolute;
@@ -657,65 +582,76 @@
         left: 50%;
         transform: translateX(-50%);
         background: linear-gradient(45deg, #d4af37, #f8e47b);
-        color: #000;
+        color: #2c3e50;
         padding: 8px 25px;
         border-radius: 25px;
         font-size: 0.85rem;
         font-weight: 900;
         box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
     }
+
     .pricing-card:hover {
         transform: translateY(-10px);
         border-color: #d4af37;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
+
     .pricing-card.featured:hover {
         transform: scale(1.05) translateY(-10px);
     }
+
     .pricing-icon {
         font-size: 3rem;
-        color: #d4af37;
+        color: #2c3e50;
         margin-bottom: 20px;
     }
+
     .pricing-title {
         font-family: 'Playfair Display', serif;
         font-size: 1.8rem;
         font-weight: 900;
         margin-bottom: 15px;
-        color: #fff;
+        color: #2c3e50;
     }
+
     .pricing-subtitle {
         font-size: 1rem;
         color: #d4af37;
         margin-bottom: 30px;
         font-style: italic;
     }
+
     .pricing-price {
         font-size: 3rem;
         font-weight: 900;
-        color: #d4af37;
+        color: #2c3e50;
         margin-bottom: 30px;
         font-family: 'Playfair Display', serif;
     }
+
     .pricing-price span {
         font-size: 1rem;
         font-weight: normal;
-        color: rgba(255, 255, 255, 0.7);
+        color: #666;
+        font-family: 'Noto Serif JP', serif;
     }
+
     .pricing-features {
         list-style: none;
         padding: 0;
         margin: 30px 0;
         text-align: left;
     }
+
     .pricing-features li {
         padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         font-size: 0.95rem;
         position: relative;
         padding-left: 25px;
-        color: rgba(255, 255, 255, 0.9);
+        color: #4a3728;
     }
+
     .pricing-features li::before {
         content: '✓';
         color: #d4af37;
@@ -724,47 +660,83 @@
         left: 0;
         top: 10px;
     }
+
     .pricing-features li:last-child {
         border-bottom: none;
     }
 
-    /* --- CTAセクション --- */
-    .cta-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('salon08.PNG');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
+    /* --- FAQ --- */
+    .faq-container { 
+        max-width: 800px; 
+        margin: 0 auto; 
     }
-    .cta-section::before {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(248, 228, 123, 0.1));
+    .faq-item { 
+        background: rgba(255, 255, 255, 0.95); 
+        margin-bottom: 20px; 
+        border-radius: 20px; 
+        overflow: hidden; 
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06); 
+        border: 2px solid #f0e9dd;
     }
+    .faq-question { 
+        padding: 25px; 
+        font-weight: 700; 
+        cursor: pointer; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        transition: background 0.3s ease; 
+        color: #2c3e50;
+    }
+    .faq-question:hover { 
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(248, 228, 123, 0.1)); 
+    }
+    .faq-answer { 
+        padding: 0 25px 25px; 
+        display: none; 
+        line-height: 1.8; 
+        color: #4a3728;
+    }
+    .faq-answer.active { 
+        display: block; 
+    }
+    .faq-icon { 
+        color: #2c3e50; 
+        transition: transform 0.3s ease; 
+        font-size: 1.2rem;
+    }
+    .faq-icon.active { 
+        transform: rotate(180deg); 
+    }
+
+    /* --- CTAスタイル --- */
     .cta-content {
+        text-align: center;
         max-width: 800px;
         margin: 0 auto;
         padding: 80px 40px;
     }
+
     .cta-title {
         font-family: 'Playfair Display', serif;
         font-size: 3.5rem;
         margin-bottom: 30px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        color: #2c3e50;
     }
+
     .cta-subtitle {
         font-size: 1.3rem;
         opacity: 0.9;
         margin-bottom: 50px;
-        color: #d4af37;
+        color: #4a3728;
     }
+
     .cta-button-primary {
         display: inline-block;
         padding: 25px 60px;
         background: linear-gradient(45deg, #d4af37, #f8e47b);
-        color: #000;
+        color: #2c3e50;
         border-radius: 50px;
         font-weight: 900;
         font-size: 1.4rem;
@@ -773,16 +745,18 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
+
     .cta-button-primary:hover {
         transform: translateY(-8px);
         box-shadow: 0 25px 60px rgba(212, 175, 55, 0.6);
     }
+
     .cta-note {
         margin-top: 40px;
         font-size: 1rem;
         opacity: 0.8;
         font-style: italic;
-        color: rgba(255, 255, 255, 0.8);
+        color: #4a3728;
     }
 
     /* --- レスポンシブ --- */
@@ -816,58 +790,45 @@
             line-height: 1.4;
             margin: 30px 20px;
         }
-        .split-content,
-        .story-split,
-        .author-content {
-            grid-template-columns: 1fr;
-            gap: 40px;
+        .section {
+            padding: 60px 0;
+        }
+        .section::before {
+            background-attachment: scroll;
+        }
+        .content-card {
+            padding: 40px 30px;
+            margin: 20px;
         }
         .section-title {
             font-size: 2.5rem;
             line-height: 1.3;
-            text-align: center;
         }
         .chapter-title {
             font-size: 2.2rem;
             line-height: 1.3;
-            text-align: center;
-        }
-        .text-content,
-        .story-text,
-        .author-text {
-            padding: 40px 30px;
-            margin: 20px;
-            background: rgba(0, 0, 0, 0.95) !important;
-            border: 2px solid rgba(212, 175, 55, 0.5) !important;
         }
         .chapter-content {
             font-size: 1.1rem;
             line-height: 1.8;
         }
-        .chapter-content p {
-            margin-bottom: 20px;
-        }
         .experience-quote {
             font-size: 1.6rem;
             padding: 40px 30px;
-            margin: 20px;
-            background: rgba(0, 0, 0, 0.95) !important;
         }
-        .method-grid,
         .pricing-grid {
             grid-template-columns: 1fr;
             gap: 30px;
             padding: 0 20px;
         }
-        .method-card,
         .pricing-card {
-            background: rgba(0, 0, 0, 0.95) !important;
-            border: 2px solid rgba(212, 175, 55, 0.3) !important;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(212, 175, 55, 0.3);
             margin: 10px;
         }
         .pricing-card.featured {
             transform: none;
-            border-color: #d4af37 !important;
+            border-color: #d4af37;
         }
         .cta-title {
             font-size: 2.8rem;
@@ -881,30 +842,19 @@
             font-size: 1.2rem;
             margin: 20px;
         }
-        .cta-content {
-            padding: 60px 20px;
+        .faq-container {
+            padding: 0 20px;
         }
-        .fullscreen-section {
-            background-attachment: scroll;
-            min-height: auto;
-            padding: 60px 0;
+        .faq-question {
+            padding: 20px;
+            font-size: 0.9rem;
         }
-        .story-chapter {
-            background-attachment: scroll;
-            min-height: auto;
-            padding: 60px 0;
-        }
-        .story-chapter::before {
-            background: rgba(0, 0, 0, 0.85) !important;
-        }
-        .experience-section::before,
-        .truth-section::before,
-        .pricing-section::before,
-        .cta-section::before {
-            background: rgba(0, 0, 0, 0.8) !important;
+        .faq-answer {
+            padding: 0 20px 20px;
+            font-size: 0.9rem;
         }
         .condition-list {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(44, 62, 80, 0.15);
             padding: 30px 25px;
             margin: 30px 10px;
         }
@@ -950,13 +900,10 @@
         .cta-title {
             font-size: 2.4rem;
         }
-        .text-content,
-        .story-text,
-        .author-text {
+        .content-card {
             padding: 30px 20px;
             margin: 15px;
         }
-        .method-card,
         .pricing-card {
             padding: 30px 20px;
             margin: 15px 5px;
@@ -1024,373 +971,102 @@
 </section>
 
 <!-- ヒーローセクション -->
-<section class="hero-section fullscreen-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-lead">
-                    もしあなたが今、部屋のどこかに「使わなくなったパワーストーン」が転がっているなら──<br>
-                    もし、本棚に「引き寄せの法則」関連の本が3冊以上あるなら──<br>
-                    もし、「ありがとう」を1000回言っても、現実が1ミリも変わらなかった経験があるなら──
-                </div>
-                <span class="hero-strong">おめでとうございます。あなたは、私の大切な"戦友"です。</span>
-                <div class="hero-lead">
-                    なぜなら私も、まったく同じ沼にいたからです。<br>
-                    今からお話しするのは、その沼から這い出した私が見つけてしまった、「世界の裏側」の物語です。
-                </div>
+<section class="section hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-lead">
+                もしあなたが今、部屋のどこかに「使わなくなったパワーストーン」が転がっているなら──<br>
+                もし、本棚に「引き寄せの法則」関連の本が3冊以上あるなら──<br>
+                もし、「ありがとう」を1000回言っても、現実が1ミリも変わらなかった経験があるなら──
+            </div>
+            <span class="hero-strong">おめでとうございます。あなたは、私の大切な"戦友"です。</span>
+            <div class="hero-lead">
+                なぜなら私も、まったく同じ沼にいたからです。<br>
+                今からお話しするのは、その沼から這い出した私が見つけてしまった、「世界の裏側」の物語です。
             </div>
         </div>
     </div>
 </section>
 
-<!-- プロローグセクション -->
-<section class="prologue-section fullscreen-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="split-content">
-                <div class="text-content">
-                    <h2 class="section-title">プロローグ：私たちは、同じ沼にいた</h2>
-                    
-                    <p class="greeting">初めまして。Rhyn皇太子（リン）です。</p>
-                    
-                    <div class="condition-list">
-                        <p>もしあなたが今、部屋のどこかに「使わなくなったパワーストーン」が転がっているなら──</p>
-                        <p>もし、本棚に「引き寄せの法則」関連の本が3冊以上あるなら──</p>
-                        <p>もし、「ありがとう」を1000回言っても、現実が1ミリも変わらなかった経験があるなら──</p>
-                    </div>
-                    
-                    <div class="congratulations">
-                        おめでとうございます。あなたは、私の大切な"戦友"です。
-                    </div>
-                </div>
-                <div class="story-visual">
-                    <div class="chapter-content">
-                        <p>なぜなら私も、まったく同じ沼にいたからです。</p>
-                        <p>今からお話しするのは、その沼から這い出した私が見つけてしまった、「世界の裏側」の物語です。</p>
-                        <p>信じなくても構いません。</p>
-                        <p>ただ、最後まで読んでくれたら、きっとあなたも──</p>
-                        <p><strong>「なんで誰も、これを教えてくれなかったんだ！」</strong></p>
-                        <p>と、叫びたくなるはずです。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ストーリーセクション -->
-<section class="story-section">
-    <!-- 第1章 -->
-    <div class="story-chapter chapter1">
-        <div class="story-content">
-            <div class="container">
-                <div class="story-split">
-                    <div class="story-text">
-                        <h3 class="chapter-title">第1章：奇跡の始まりと、法則の発見</h3>
-                        <div class="chapter-content">
-                            <p>駆け出しのミュージシャンだった頃。何のコネも、実績もない私は、ただ漠然とこう思っていました。</p>
-                            <p>「いつか、憧れのあの人たちと同じステージに立つ」</p>
-                            <p>それは「引き寄せよう！」という力みではなく、ただの純粋な、子供じみた妄想でした。</p>
-                            <p><strong>──しかし、事件は起きます。</strong></p>
-                            <p>ある日、本当に、何の前触れもなく、天文学的な偶然が重なって、私の元に信じがたい話が舞い込んだのです。憧れのミュージシャンから、関係者席のパスを用意してもらえるという連絡でした。</p>
-                        </div>
-                    </div>
-                    <div class="story-visual">
-                        <div class="chapter-content">
-                            <p>「え、なんで！？」</p>
-                            <p>嬉しさよりも、あまりの不可解さに鳥肌が立ちました。</p>
-                            <p>そして、その"奇跡"は一度では終わりませんでした。数ヶ月の間に立て続けに、夢にまで見たミュージシャンたちと関係者として会う機会が訪れたのです。</p>
-                            <p>「これは、偶然じゃない！この世界には、俺が知らない"法則"がある！」</p>
-                            <p>そう確信した私は、答えを求めて本を読み漁り、ついにその名前に出会います。</p>
-                            <p><strong>『引き寄せの法則』</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 第2章 -->
-    <div class="story-chapter chapter2">
-        <div class="story-content">
-            <div class="container">
-                <div class="story-split reverse">
-                    <div class="story-visual">
-                        <div class="chapter-content">
-                            <p>しかし、現実は非情でした。</p>
-                            <p>私がその法則を"理解"し、"意識的"に活用しようと努力すればするほど。</p>
-                            <p>「感謝しよう」「ポジティブでいよう」「強く願おう」と、頑張れば頑張るほど、</p>
-                            <p><strong>あの奇跡は、パタリと、二度と起きなくなってしまったのです。</strong></p>
-                        </div>
-                    </div>
-                    <div class="story-text">
-                        <h3 class="chapter-title">第2章：法則の逆襲 ──奇跡が"止まった"日</h3>
-                        <div class="chapter-content">
-                            <p>なぜ？ どうして？</p>
-                            <p>あんなに強力だった法則が、なぜ急に効かなくなったんだ？</p>
-                            <p>俺の信じ方が足りないのか？</p>
-                            <p>やり方が間違っているのか？</p>
-                            <p>私は混乱し、やがて気づきました。</p>
-                            <p>頑張って「引き寄せ」ようとしている時の私は、かつて奇跡が起きていた時の、あのリラックスした自然体の私とは、<strong>まったくの別人</strong>であることに。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 第3章 -->
-    <div class="story-chapter chapter3">
-        <div class="story-content">
-            <div class="container">
-                <div class="story-split">
-                    <div class="story-text">
-                        <h3 class="chapter-title">第3章：どん底からの、まさかの体験</h3>
-                        <div class="chapter-content">
-                            <p>引き寄せの法則を「正しく」学び始めてから、私の人生は見事に崩壊していきました。</p>
-                            <p><strong>まず起きたのが、自動車事故。</strong></p>
-                            <p>「ポジティブシンキングで安全運転♪」なんて考えながら運転していたら、見事にありえない形で激突。車は廃車、そして免許も取り消しになりました。</p>
-                            <p><strong>さらに追い打ちをかけるように、順調だったバンドが突然、活動休止。</strong></p>
-                            <p>メンバー間の不協和音が急に表面化し、修復不可能な亀裂が入ったのです。</p>
-                            <p>「なぜだ！？俺は宇宙の法則に従っているはずなのに！」</p>
-                        </div>
-                    </div>
-                    <div class="story-visual">
-                        <div class="chapter-content">
-                            <p>焦った私は、さらに「正しいやり方」を探し求めました。</p>
-                            <p><strong>トイレ掃除で金運アップ！</strong> → 自宅のトイレを1日3回磨き、果てはコンビニに寄るたび、そこのトイレまで掃除する始末。</p>
-                            <p><strong>「ありがとう」を唱え続ける！</strong> → 朝起きてから寝るまで「ありがとうありがとうありがとう」とブツブツ。</p>
-                            <p>そして、ついに情報商材にまで手を出します。「たった3クリックで月収◯◯万円！」→ 結果：3クリックで4万円が消えただけ。</p>
-                            <p>気づけば、私の部屋は自己啓発本と掃除用具で埋まり、口からは「ありがとう」しか出てこない、<strong>完全におかしな人間</strong>になっていました。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 第4章 -->
-    <div class="story-chapter chapter4">
-        <div class="story-content">
-            <div class="container">
-                <div class="story-split reverse">
-                    <div class="story-visual">
-                        <div class="chapter-content">
-                            <p>そんなある日、空海の著作『即身成仏義』を電子書籍で購入し、まさに読もうと座った、その時──<strong>突然、身体の感覚が消えました。</strong></p>
-                            <p>いや、正確には「身体」と「それ以外」の境界が消えたんです。</p>
-                            <p>私の意識は、空間に広がったかと思えば、瞬時にして宇宙全体に広がりました。</p>
-                            <p>そして、気づいたんです。</p>
-                            <p><strong>「え、俺って宇宙なんだ」</strong></p>
-                        </div>
-                    </div>
-                    <div class="story-text">
-                        <h3 class="chapter-title">第4章：手から「何か」が出ている</h3>
-                        <div class="chapter-content">
-                            <p>ワンネス体験から覚めた僕は、呆然としていました。</p>
-                            <p><strong>ふと、いつもの癖で、凝っていた肩に手を置きました。</strong></p>
-                            <p>すると──</p>
-                            <p><strong>肩の凝りが、どんどん消えていく。</strong></p>
-                            <p>手のひらは、特に熱くもない。でも、確実に「何か」が起きている。</p>
-                            <p>「気功…？」</p>
-                            <p><strong>音楽しかやってこなかったロックミュージシャンが、なぜ、こんなことができるのか？</strong></p>
-                            <p>でも、事実は事実。僕の手は、確実に「気」を扱えるようになっていたのです。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 第5章 -->
-    <div class="story-chapter chapter5">
-        <div class="story-content">
-            <div class="container">
-                <div class="story-split">
-                    <div class="story-text">
-                        <h3 class="chapter-title">第5章：ついに見つけた「真実」</h3>
-                        <div class="chapter-content">
-                            <p>さらに数年の歳月をかけて、私はついに答えにたどり着きました。</p>
-                            <p><strong>それは、驚くほどシンプルでした。</strong></p>
-                            <p><strong>私たちは全員、最初から「自動運転車」に乗っている。</strong></p>
-                            <p>自動運転車 = 宇宙の法則と完全に同期した、私たちの本質</p>
-                            <p>ハンドル = 自我（エゴ）による"コントロール欲求"</p>
-                            <p><strong>引き寄せの法則の最大の間違いは、「ハンドルの正しい切り方」を教えていたこと。</strong></p>
-                        </div>
-                    </div>
-                    <div class="story-visual">
-                        <div class="chapter-content">
-                            <p>でも、そもそも私たちが握っているハンドルは、車とつながっていない「偽物」だったんです。</p>
-                            <p>だから、いくら回しても、車は思い通りに動かない。</p>
-                            <p>むしろ、必死に回せば回すほど、自動運転システムが「おや、この人は手動で運転したいのだな」と判断し、かえって最適なルートから外れていくのです。</p>
-                            <p><strong>じゃあ、どうすればいいのか？</strong></p>
-                            <p>答えは「ハンドルから手を離す」こと。</p>
-                            <p>そして、そのための具体的な方法こそが──<strong>「気功」</strong>だったんです。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 体験談セクション -->
-<section class="experience-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="experience-content">
-                <div class="experience-quote">
-                    私の意識は、空間に広がったかと思えば、瞬時にして宇宙全体に広がりました。そして気づいたんです。「え、俺って宇宙なんだ」——探し求めていた答えは、最初から自分の中にあったのです。
-                </div>
-                <div class="experience-author">— Rhyn皇太子　ワンネス体験時</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 真実発見セクション -->
-<section class="truth-section fullscreen-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="text-content">
-                <h2 class="section-title">なぜ気功が「鍵」なのか</h2>
-                <div class="method-grid">
-                    <div class="method-card">
-                        <div class="method-number">1</div>
-                        <h3>自動運転システムの理解</h3>
-                        <p>あなたの本質は、宇宙の法則と完全に同期した自動運転車。ハンドルは自我による「偽物のコントロール」だったのです。</p>
-                    </div>
-                    <div class="method-card">
-                        <div class="method-number">2</div>
-                        <h3>ハンドルから手を離す技術</h3>
-                        <p>頭で「手放そう」と思っても無理。身体が「掴む」状態なら手放せない。気功は「手放せる身体」に変える技術です。</p>
-                    </div>
-                    <div class="method-card">
-                        <div class="method-number">3</div>
-                        <h3>宇宙の自動運転に委ねる</h3>
-                        <p>正常な自動運転が始まると、「頑張らない」のに「うまくいく」という、既存スピリチュアルでは説明できない現象が起きます。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 主宰者紹介セクション -->
-<section class="author-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="author-content">
-                <div class="story-visual"></div>
-                <div class="author-text">
-                    <h3>なぜ私が「真理」を語れるのか</h3>
-                    <div class="chapter-content">
-                        <p>「ただのスピリチュアル沼の住人が、偉そうに語るな」——ごもっともです。</p>
-                        <p>僕が他の誰にも語れないこの真実を語れるのは、私が<strong>「感性の世界の住人」であり、同時に「論理の世界の住人」</strong>でもある、稀有な経歴を持つからです。</p>
-                    </div>
-                    
-                    <div class="author-credentials">
-                        <h4>感性の証明:</h4>
-                        <ul>
-                            <li>ミュージシャン: 川崎Club Citta'のステージに立ち、NHKやBURRN!誌に掲載。音楽で人の心を動かすアーティストです。</li>
-                        </ul>
-                        
-                        <h4>論理の証明:</h4>
-                        <ul>
-                            <li>作家: Kindle小説で哲学・心理学ランキング1位を獲得。複雑な概念を言語化する小説家です。</li>
-                            <li>ウェブデベロッパー: このウェブサイトが証明するように、複雑なシステムを構築する論理的思考を得意としています。</li>
-                            <li>慶應義塾大学哲学徒：厳密な思考訓練を積んだ研究者</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="chapter-content">
-                        <p>この両方の視点から「真理」をクロスレビューした結果、私は「世界のバグ」を発見してしまったのです。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 料金プランセクション -->
-<section class="pricing-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="text-content">
-                <h2 class="section-title" style="text-align: center; color: #d4af37;">3つのコース（あなたの「握力」に合わせて選べます）</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: rgba(255,255,255,0.8);">どのコースも、笑いながら学べる革命的なアプローチです。</p>
+<!-- 今すぐ行動する理由 -->
+<section class="section action-section">
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title">今すぐ行動する、たった一つの理由</h2>
+            <div class="chapter-content">
+                <p>正直に言います。</p>
+                <p>このサロン、特に10000円のコースは、近いうちに大幅な値上げ、もしくは新規募集を停止します。</p>
+                <p>なぜなら、私の身体は一つしかなく、本気で参加してくださるメンバー一人ひとりにマンツーマンに近い形で向き合うには、お受けできる人数に限界があるからです。</p>
                 
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-book-reader"></i></div>
-                        <h3 class="pricing-title">ペーパードライバー講習</h3>
-                        <p class="pricing-subtitle">「宇宙の交通ルール座学」</p>
-                        <div class="pricing-price">¥500<span>/月</span></div>
-                        <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center;">まずは頭で理解したいあなたへ。</p>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>週1配信「こうやって僕らは騙されてきた」シリーズ</li>
-                            <li>引き寄せ業界の「不都合な真実」暴露</li>
-                            <li>メンバー限定「スピリチュアル失敗談」爆笑シェア会</li>
-                            <li>質問箱「これって詐欺ですか？」判定サービス</li>
-                        </ul>
-                    </div>
-
-                    <div class="pricing-card featured">
-                        <div class="pricing-icon"><i class="fas fa-hands"></i></div>
-                        <h3 class="pricing-title">仮免許講習</h3>
-                        <p class="pricing-subtitle">「ハンドルの離し方・実践編」</p>
-                        <div class="pricing-price">¥2,000<span>/月</span></div>
-                        <div style="background: rgba(212,175,55,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p style="font-size: 0.9rem; color: #fff; text-align: center; font-weight: 700;">実際に身体で体感したいあなたへ。</p>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>月2回のオンライン気功レッスン（録画あり）</li>
-                            <li>「気」を10分で体感できる秘密のワーク</li>
-                            <li>僕の「やらかし体験」から学ぶ反面教師講座</li>
-                            <li>ライブ配信で直接質問し放題</li>
-                        </ul>
-                    </div>
-
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-crown"></i></div>
-                        <h3 class="pricing-title">F1ライセンス講習</h3>
-                        <p class="pricing-subtitle">「もう二度と掴まない身体作り」</p>
-                        <div class="pricing-price">¥10,000<span>/月</span></div>
-                        <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center;">本気で人生を変えたいあなたへ。</p>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>ガチの気功伝授（数百万円相当の内容）</li>
-                            <li>個別セッション月1回（あなただけの処方箋）</li>
-                            <li>「二度と力まない身体」の作り方</li>
-                            <li>人生が勝手に好転する「自動運転」完全マスター</li>
-                            <li>誓約書・守秘義務契約必須（本物すぎるため）</li>
-                        </ul>
-                    </div>
+                <div style="background: rgba(212, 175, 55, 0.2); padding: 40px; border-radius: 20px; margin: 40px 0; text-align: center;">
+                    <p style="font-size: 1.4rem; font-weight: 900; color: #2c3e50; margin-bottom: 20px;">この価格と「初月無料」という条件は、私の革命に最初に賛同してくれた「第1期創設メンバー」だけの、特別なものです。</p>
                 </div>
+                
+                <p>あなたが今、このタイミングでこの手紙を読んでいる。</p>
+                <p>それが、もしかしたら、あなたの自動運転システムからの最後のメッセージかもしれません。</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTAセクション -->
-<section class="cta-section">
-    <div class="fullscreen-content">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">さあ、ハンドルから手を離そう</h2>
-                <p class="cta-subtitle">あなたが本当に乗るべき席は、運転席じゃない</p>
-                
-                <div style="font-size: 1.4rem; margin: 40px 0; opacity: 0.95;">
-                    快適な後部座席へ、今すぐ移動する
-                </div>
-                
-                <a href="mailto:blackroses0120@gmail.com?subject=【解脱しか勝たん！】参加希望&body=お名前：%0D%0A希望コース：%0D%0A・ペーパードライバー講習（500円/月）%0D%0A・仮免許講習（2000円/月）%0D%0A・F1ライセンス講習（10000円/月）%0D%0A%0D%0Aご質問・ご要望：" class="cta-button-primary">初月無料体験・9月末まで限定</a>
-                
-                <p class="cta-note">
-                    クリックして30秒で登録完了。面倒な手続きは一切なし。<br>
-                    ※ 初月無料は第1期創設メンバー限定の特典です
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">さあ、ハンドルから手を離そう</h2>
+            <p class="cta-subtitle">あなたが本当に乗るべき席は、運転席じゃない</p>
+            
+            <div style="font-size: 1.4rem; margin: 40px 0; opacity: 0.95; color: #2c3e50;">
+                快適な後部座席へ、今すぐ移動する
+            </div>
+            
+            <a href="mailto:blackroses0120@gmail.com?subject=【解脱しか勝たん！】参加希望&body=お名前：%0D%0A希望コース：%0D%0A・ペーパードライバー講習（500円/月）%0D%0A・仮免許講習（2000円/月）%0D%0A・F1ライセンス講習（10000円/月）%0D%0A%0D%0Aご質問・ご要望：" class="cta-button-primary">初月無料体験・9月末まで限定</a>
+            
+            <p class="cta-note">
+                クリックして30秒で登録完了。面倒な手続きは一切なし。<br>
+                ※ 初月無料は第1期創設メンバー限定の特典です
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 追伸セクション -->
+<section style="padding: 100px 0; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(248, 228, 123, 0.05));">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px; background: rgba(255, 255, 255, 0.9); border-radius: 25px; border: 2px solid #d4af37; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2c3e50; margin-bottom: 40px; text-align: center;">追伸</h2>
+            
+            <div style="margin-bottom: 40px; padding: 30px; background: rgba(212, 175, 55, 0.1); border-radius: 15px; border-left: 5px solid #d4af37;">
+                <h3 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">追伸1：</h3>
+                <p style="font-size: 1.1rem; color: #4a3728; line-height: 1.8;">
+                    ここまで読んでくれて、ありがとうございます。<br>
+                    実は、この長い文章を最後まで読めたこと自体が、あなたの「自動運転」が正常に作動している証拠なんです。<br>
+                    （ダメな人は、最初の3行で離脱します）
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 40px; padding: 30px; background: rgba(46, 204, 113, 0.1); border-radius: 15px; border-left: 5px solid #2ecc71;">
+                <h3 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">追伸2：</h3>
+                <p style="font-size: 1.1rem; color: #4a3728; line-height: 1.8;">
+                    もし、あなたが今「でも、やっぱり…」と迷っているなら、それは「偽物のハンドル」を握っている証拠。<br>
+                    その手を、ほんの少しだけ、緩めてみませんか？
+                </p>
+            </div>
+            
+            <div style="padding: 30px; background: rgba(155, 89, 182, 0.1); border-radius: 15px; border-left: 5px solid #9b59b6;">
+                <h3 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">追伸3：</h3>
+                <p style="font-size: 1.1rem; color: #4a3728; line-height: 1.8; margin-bottom: 20px;">
+                    最後に、私からのささやかなプレゼントです。<br>
+                    今、両手を見てください。<br>
+                    その手のひらを、お腹に当ててください。<br>
+                    深呼吸を3回。
+                </p>
+                <p style="font-size: 1.3rem; color: #2c3e50; font-weight: 900; text-align: center; margin-bottom: 15px;">
+                    ……ほら、もう「気」を感じ始めているでしょ？
+                </p>
+                <p style="font-size: 1.1rem; color: #4a3728; line-height: 1.8;">
+                    それが、あなたの中に眠っている「本当の力」です。<br>
+                    一緒に、その力を解放しましょう。
                 </p>
             </div>
         </div>
@@ -1398,14 +1074,14 @@
 </section>
 
 <!-- 最終メッセージ -->
-<section style="background: linear-gradient(135deg, #0a0a0a, #1a1a1a); padding: 100px 0; text-align: center;">
+<section style="background: linear-gradient(135deg, #2c3e50, #34495e); padding: 100px 0; text-align: center; color: #fff;">
     <div class="container">
-        <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px; background: rgba(212, 175, 55, 0.1); border-radius: 25px; border: 2px solid #d4af37;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px; background: rgba(255, 255, 255, 0.1); border-radius: 25px; border: 2px solid #d4af37; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d4af37; margin-bottom: 30px;">「解脱しか勝たん！」</h2>
-            <p style="font-size: 1.3rem; color: rgba(255,255,255,0.8); margin-bottom: 20px;">── 信仰を理性で上書きする、革命の気功教室。</p>
+            <p style="font-size: 1.3rem; color: #fff; margin-bottom: 20px; opacity: 0.9;">── 信仰を理性で上書きする、革命の気功教室。</p>
             <p style="font-size: 1.1rem; color: #d4af37;">主宰：Rhyn皇太子（リン）</p>
             
-            <div style="margin-top: 60px; padding: 40px; background: rgba(0, 0, 0, 0.5); border-radius: 15px;">
+            <div style="margin-top: 60px; padding: 40px; background: rgba(0, 0, 0, 0.3); border-radius: 15px;">
                 <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; line-height: 1.8; font-style: italic;">
                     ここまで読んでくれて、ありがとうございます。<br><br>
                     実は、この長い文章を最後まで読めたこと自体が、<br>
@@ -1417,7 +1093,7 @@
     </div>
 </section>
 
-<footer style="background: #000; color: #666; text-align: center; padding: 50px 20px; font-size: 0.9rem;">
+<footer style="background: #4a3728; color: #f0e9dd; text-align: center; padding: 50px 20px; font-size: 0.9rem;">
     <p>© 2025 Rhyn皇太子. 解脱しか勝たん！ - 信仰を理性で上書きする、革命の気功教室。</p>
 </footer>
 
@@ -1444,6 +1120,30 @@
         images.forEach(img => imageObserver.observe(img));
     }
 
+    // FAQトグル機能
+    function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('.faq-icon');
+        
+        const isActive = answer.classList.contains('active');
+
+        // すべての回答を非表示にし、アクティブクラスを削除
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.style.display = 'none';
+            item.classList.remove('active');
+        });
+        document.querySelectorAll('.faq-icon').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // クリックされたものが非アクティブだった場合、表示してアクティブにする
+        if (!isActive) {
+            answer.style.display = 'block';
+            answer.classList.add('active');
+            icon.classList.add('active');
+        }
+    }
+
     // スムーススクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -1460,7 +1160,7 @@
 
     // パフォーマンス最適化: モバイルではパララックス無効
     if (window.innerWidth <= 768) {
-        const parallaxElements = document.querySelectorAll('.fullscreen-section, .story-chapter');
+        const parallaxElements = document.querySelectorAll('.section::before');
         parallaxElements.forEach(element => {
             element.style.backgroundAttachment = 'scroll';
         });
@@ -1482,8 +1182,16 @@
     }, observerOptions);
 
     // 重要なセクションのみ監視
-    document.querySelectorAll('.text-content, .story-text, .method-card, .pricing-card').forEach(section => {
+    document.querySelectorAll('.content-card, .pricing-card, .faq-item').forEach(section => {
         observer.observe(section);
+    });
+
+    // ページ読み込み時の初期化処理
+    document.addEventListener('DOMContentLoaded', function() {
+        // 初期状態でFAQを閉じておく
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.style.display = 'none';
+        });
     });
 
     // メモリリークを防ぐ
@@ -1494,3 +1202,579 @@
 
 </body>
 </html>
+    </div>
+</section>
+
+<!-- プロローグセクション -->
+<section class="section prologue-section">
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title">プロローグ：私たちは、同じ沼にいた</h2>
+            
+            <p class="greeting">初めまして。Rhyn皇太子（リン）です。</p>
+            
+            <div class="condition-list">
+                <p>もしあなたが今、部屋のどこかに「使わなくなったパワーストーン」が転がっているなら──</p>
+                <p>もし、本棚に「引き寄せの法則」関連の本が3冊以上あるなら──</p>
+                <p>もし、「ありがとう」を1000回言っても、現実が1ミリも変わらなかった経験があるなら──</p>
+            </div>
+            
+            <div class="congratulations">
+                おめでとうございます。あなたは、私の大切な"戦友"です。
+            </div>
+            
+            <div class="chapter-content">
+                <p>なぜなら私も、まったく同じ沼にいたからです。</p>
+                <p>今からお話しするのは、その沼から這い出した私が見つけてしまった、「世界の裏側」の物語です。</p>
+                <p>信じなくても構いません。</p>
+                <p>ただ、最後まで読んでくれたら、きっとあなたも──</p>
+                <p><strong>「なんで誰も、これを教えてくれなかったんだ！」</strong></p>
+                <p>と、叫びたくなるはずです。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第1章 -->
+<section class="section chapter1-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第1章：奇跡の始まりと、法則の発見</h3>
+            <div class="chapter-content">
+                <p>駆け出しのミュージシャンだった頃。何のコネも、実績もない私は、ただ漠然とこう思っていました。</p>
+                <p>「いつか、憧れのあの人たちと同じステージに立つ」</p>
+                <p>それは「引き寄せよう！」という力みではなく、ただの純粋な、子供じみた妄想でした。</p>
+                <p><strong>──しかし、事件は起きます。</strong></p>
+                <p>ある日、本当に、何の前触れもなく、天文学的な偶然が重なって、私の元に信じがたい話が舞い込んだのです。憧れのミュージシャンから、関係者席のパスを用意してもらえるという連絡でした。</p>
+                <p>「え、なんで！？」</p>
+                <p>嬉しさよりも、あまりの不可解さに鳥肌が立ちました。</p>
+                <p>そして、その"奇跡"は一度では終わりませんでした。数ヶ月の間に立て続けに、夢にまで見たミュージシャンたちと関係者として会う機会が訪れたのです。</p>
+                <p>「これは、偶然じゃない！この世界には、俺が知らない"法則"がある！」</p>
+                <p>そう確信した私は、答えを求めて本を読み漁り、ついにその名前に出会います。</p>
+                <p><strong>『引き寄せの法則』</strong></p>
+                <p>これだ！と思いました。</p>
+                <p>「俺は知らず知らずのうちに、この宇宙最強の法則をマスターしていたんだ！」と。</p>
+                <p>私は有頂天になり、その法則をさらに使いこなそうと、関連書籍を買い込み、セミナー動画をむさぼるように見始めました。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第2章 -->
+<section class="section chapter2-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第2章：法則の逆襲 ──奇跡が"止まった"日</h3>
+            <div class="chapter-content">
+                <p>しかし、現実は非情でした。</p>
+                <p>私がその法則を"理解"し、"意識的"に活用しようと努力すればするほど。</p>
+                <p>「感謝しよう」「ポジティブでいよう」「強く願おう」と、頑張れば頑張るほど、</p>
+                <p><strong>あの奇跡は、パタリと、二度と起きなくなってしまったのです。</strong></p>
+                <p>なぜ？ どうして？</p>
+                <p>あんなに強力だった法則が、なぜ急に効かなくなったんだ？</p>
+                <p>俺の信じ方が足りないのか？</p>
+                <p>やり方が間違っているのか？</p>
+                <p>私は混乱し、やがて気づきました。</p>
+                <p>頑張って「引き寄せ」ようとしている時の私は、かつて奇跡が起きていた時の、あのリラックスした自然体の私とは、<strong>まったくの別人</strong>であることに。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第3章 -->
+<section class="section chapter3-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第3章：どん底からの、まさかの体験</h3>
+            <div class="chapter-content">
+                <p>引き寄せの法則を「正しく」学び始めてから、私の人生は見事に崩壊していきました。</p>
+                <p><strong>まず起きたのが、自動車事故。</strong></p>
+                <p>「ポジティブシンキングで安全運転♪」なんて考えながら運転していたら、見事にありえない形で激突。</p>
+                <p>車は廃車、そして免許も取り消しになりました。</p>
+                <p><strong>さらに追い打ちをかけるように、順調だったバンドが突然、活動休止。</strong></p>
+                <p>メンバー間の不協和音が急に表面化し、修復不可能な亀裂が入ったのです。</p>
+                <p>「なぜだ！？俺は宇宙の法則に従っているはずなのに！」</p>
+                <p>焦った私は、さらに「正しいやり方」を探し求めました。</p>
+                <p><strong>トイレ掃除で金運アップ！</strong> → 自宅のトイレを1日3回磨き、果てはコンビニに寄るたび、そこのトイレまで掃除する始末。きっと店員からは「トイレが長い客だ」と思われていたことでしょう。「これは宇宙への奉仕だ」と自分に言い聞かせる日々。</p>
+                <p><strong>「ありがとう」を唱え続ける！</strong> → 朝起きてから寝るまで「ありがとうありがとうありがとう」とブツブツ。友人からは「え？何か言った？」と二度見され、家族からは心配される有様でした。</p>
+                <p><strong>成功者の本を読み漁る！</strong> → 後に詐欺で逮捕される某スピリチュアル起業家の本を全巻購入。「宇宙の富は無限だ！」と書いてあるのに、なぜか読者には「このセミナーに30万円払え」と要求する矛盾に気づかず。</p>
+                <p>そして、ついに情報商材にまで手を出します。</p>
+                <p>「たった3クリックで月収◯◯万円！宇宙の法則を使った錬金術！」</p>
+                <p>→ 結果：3クリックで4万円が消えただけ。</p>
+                <p>気づけば、私の部屋は自己啓発本と掃除用具で埋まり、口からは「ありがとう」しか出てこない、<strong>完全におかしな人間</strong>になっていました。</p>
+                <p>そんなある日。</p>
+                <p>もう、本当に、心の底から、全てが嫌になって。</p>
+                <p>「もうあの引き寄せの再現は、俺には無理なのかな」</p>
+                <p>ついには、そんな思いに至ってしまいました。</p>
+                <p>そこからは今までの失敗や間違いを修正するかのごとく、極めて現実的かつ実践的なものを重視するように。</p>
+                <p>ビジネス書どころか、お釈迦さまの思想や空海の本まで読み漁るようになりました。</p>
+                <p>そんなある日、空海の著作『即身成仏義』を電子書籍で購入し、まさに読もうと座った、その時──突然、身体の感覚が消えました。</p>
+                <p>いや、正確には「身体」と「それ以外」の境界が消えたんです。</p>
+                <p>私の意識は、空間に広がったかと思えば、瞬時にして宇宙全体に広がりました。</p>
+                <p>そして、気づいたんです。</p>
+                <p><strong>「え、俺って宇宙なんだ」</strong></p>
+                <p>なぜかそれを「思い出した」という感覚、そして、それが「真実だ」と知っている感覚が芽生えていました。</p>
+                <p>分離なんて、最初から幻想だった。</p>
+                <p>探し求めていた答えは、最初から自分の中にあったのです。</p>
+                <p>そして──</p>
+                <p>次の瞬間、もっと信じられないことが起きました。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第4章 -->
+<section class="section chapter4-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第4章：手から「何か」が出ている</h3>
+            <div class="chapter-content">
+                <p>ワンネス体験から覚めた僕は、呆然としていました。</p>
+                <p>胡坐をかいて座っていた姿勢のまま、ただただ放心状態。</p>
+                <p>「今の、なんだったんだ…？」</p>
+                <p>あまりの強烈さに、現実感覚が戻ってこない。</p>
+                <p>しばらくして、ようやく一息ついた時でした。</p>
+                <p><strong>ふと、いつもの癖で、凝っていた肩に手を置きました。</strong></p>
+                <p>すると──</p>
+                <p><strong>肩の凝りが、どんどん消えていく。</strong></p>
+                <p>「え？」</p>
+                <p>手を離して、また置く。</p>
+                <p>やっぱり、凝りが解けていく。</p>
+                <p>まるで、固まっていた筋肉が、内側から柔らかくなっていくような感覚。</p>
+                <p>「これって、まさか…」</p>
+                <p>試しに、反対の肩にも手を置いてみる。</p>
+                <p>同じように、みるみる軽くなっていく。</p>
+                <p>手のひらは、特に熱くもない。でも、確実に「何か」が起きている。</p>
+                <p>「気功…？」</p>
+                <p><strong>音楽しかやってこなかったロックミュージシャンが、なぜ、こんなことができるのか？</strong></p>
+                <p>でも、事実は事実。僕の手は、確実に「気」を扱えるようになっていたのです。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第5章 -->
+<section class="section chapter5-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第5章：達人たちとの出会い、そして探究</h3>
+            <div class="chapter-content">
+                <p>この謎を解明したくて、僕は答えを求めて旅に出ました。</p>
+                <p>日本各地に点在する達人たち──</p>
+                <p>何十年も修行を積んだ気功師、伝説的な技を持つ武術家、一部では「超能力者」とまで囁かれる老人、その分野の研究では世界的権威とも呼べる科学者まで…</p>
+                <p>ありとあらゆる「本物」と呼ばれる人々を訪ね歩きました。</p>
+                <p>しかし、彼らは一様に首をかしげました。</p>
+                <p>「君は、どこで修行したんだい？」</p>
+                <p>「いえ、どこでも…」</p>
+                <p>「じゃあ、誰に気功を習った？」</p>
+                <p>「誰にも…」</p>
+                <p>「………は？」</p>
+                <p>彼らの理論では、何年も修行してやっと身につくはずの「気」を、ド素人の僕が使えることが、説明できなかったのです。</p>
+                <p>興味深いことに、達人と呼ばれる人々も二つのタイプに分かれました。</p>
+                <p>確かに凄腕の技を持ちながらも、なぜそれが可能なのかを矛盾なく説明できない人たち。彼らは「とにかく修行あるのみ」「心を無にして」といった曖昧な言葉を繰り返すばかり。</p>
+                <p>しかし、その達人たちの中にも、私の探究に大きなヒントを与えてくれる人々がいました。それが、私を大きく前進させるきっかけとなったのです。</p>
+                <p>そして逆に、謎めいていて多くを語らなかった一人の老人からは、違う何かを感じました。</p>
+                <p>彼は私の話を聞いて、ただ静かに微笑んでいた。</p>
+                <p>もしかしたら、彼こそが真理を知っていたのかもしれない──そんな気がしてなりませんでした。</p>
+                <p>ある高名な気功師は、こう言いました。</p>
+                <p>「君は、特別な才能があるんだろう。でも、それは例外中の例外だ。普通の人には無理だよ」</p>
+                <p>違う、と私は思いました。</p>
+                <p>自分は特別じゃない。むしろ、引き寄せに囚われて失敗した落伍者だ。</p>
+                <p>それなのに「できてしまった」ということは──</p>
+                <p>これまでの理論が、根本的に間違っているのではないか？</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 主宰者紹介セクション -->
+<section class="section author-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">──私は何者なのか──</h3>
+            <div class="chapter-content">
+                <p>「ただのスピリチュアル沼の住人が、偉そうに語るな」と思いますよね。ごもっともです。</p>
+                <p>僕が他の誰にも語れないこの真実を語れるのは、私が<strong>「感性の世界の住人」であり、同時に「論理の世界の住人」</strong>でもある、稀有な経歴を持つからです。</p>
+            </div>
+            
+            <div class="author-credentials">
+                <h4>感性の証明:</h4>
+                <ul>
+                    <li>ミュージシャン: 川崎Club Citta'のステージに立ち、NHKやBURRN!誌に掲載。音楽で人の心を動かすアーティストです。</li>
+                </ul>
+                
+                <h4>論理の証明:</h4>
+                <ul>
+                    <li>作家: Kindle小説で哲学・心理学ランキング1位を獲得。複雑な概念を言語化する小説家です。</li>
+                    <li>ウェブデベロッパー: このウェブサイトが証明するように、複雑なシステムを構築する論理的思考を得意としています。</li>
+                    <li>慶應義塾大学哲学徒：厳密な思考訓練を積んだ研究者</li>
+                </ul>
+            </div>
+            
+            <div class="chapter-content">
+                <p>この両方の視点から「真理」をクロスレビューした結果、私は「世界のバグ」を発見してしまったのです。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第6章 -->
+<section class="section chapter6-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第6章：ついに見つけた「真実」</h3>
+            <div class="chapter-content">
+                <p>さらに数年の歳月をかけて、私はついに答えにたどり着きました。</p>
+                <p><strong>それは、驚くほどシンプルでした。</strong></p>
+                <p><strong>私たちは全員、最初から「自動運転車」に乗っている。</strong></p>
+                <ul style="margin: 30px 0; list-style: none; padding-left: 20px;">
+                    <li style="margin-bottom: 15px;"><strong>自動運転車</strong> = 宇宙の法則と完全に同期した、私たちの本質</li>
+                    <li style="margin-bottom: 15px;"><strong>ハンドル</strong> = 自我（エゴ）による"コントロール欲求"</li>
+                </ul>
+                <p><strong>引き寄せの法則の最大の間違いは、「ハンドルの正しい切り方」を教えていたこと。</strong></p>
+                <p>でも、そもそも私たちが握っているハンドルは、車とつながっていない「偽物」だったんです。</p>
+                <p>だから、いくら回しても、車は思い通りに動かない。</p>
+                <p>むしろ、必死に回せば回すほど、自動運転システムが「おや、この人は手動で運転したいのだな」と判断し、かえって最適なルートから外れていくのです。</p>
+                <p><strong>じゃあ、どうすればいいのか？</strong></p>
+                <p>答えは「ハンドルから手を離す」こと。</p>
+                <p>そして、そのための具体的な方法こそが──<strong>「気功」</strong>だったんです。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第7章 -->
+<section class="section chapter7-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第7章：なぜ気功が「鍵」なのか</h3>
+            <div class="chapter-content">
+                <p>多くの人は気功を「神秘的な東洋の秘術」だと思っています。</p>
+                <p>違います。</p>
+                <p><strong>気功とは、自動運転システムを正常に作動させるための「身体からのアプローチ」です。</strong></p>
+                <p>考えてみてください。</p>
+                <p>頭で「リラックスしよう」と思っても、身体が緊張していたら、リラックスできませんよね？</p>
+                <p>同じように、いくら「手放そう」と思っても、身体が「掴む」状態になっていたら、手放せない。</p>
+                <p><strong>気功は、この「掴んでいる身体」を、「手放せる身体」に変えていく技術なんです。</strong></p>
+                <p>私がワンネス体験で得た「気功」は、まさにこの「身体の在り方」そのものでした。</p>
+                <p>そして気づいたんです。</p>
+                <p><strong>これは、誰にでもできる。</strong></p>
+                <p>なぜなら、車（身体）の構造は、みんな同じだから。</p>
+                <p>必要なのは、正しい身体の使い方を知ることだけ。</p>
+                <p>問題は、今まで誰も、この「本質」を言語化できなかったこと。</p>
+                <p>だから私は決めました。</p>
+                <p><strong>この真実を、誰にでも分かる言葉で伝えよう、と。</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- コラムセクション -->
+<section class="section column-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">【コラム】天動説と地動説 ──既存スピリチュアルとの違い</h3>
+            <div class="chapter-content">
+                <p>ここで少し、既存のスピリチュアルとの違いを説明させてください。</p>
+                <p>昔、人々は「太陽が地球の周りを回っている」と信じていました。これが天動説です。</p>
+                <p>でも実際は、地球が太陽の周りを回っていた。これが地動説です。</p>
+                <p><strong>スピリチュアルの世界でも、同じことが起きています。</strong></p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                    <div style="background: rgba(231, 76, 60, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #e74c3c;">
+                        <h4 style="color: #e74c3c; font-weight: 900; margin-bottom: 20px;">【天動説的スピリチュアル】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• 自分を中心に、宇宙を動かそうとする</li>
+                            <li style="margin-bottom: 10px;">• 「引き寄せる」「願いを叶える」「現実を創造する」</li>
+                            <li style="margin-bottom: 10px;">• 主人公は「自我」</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(46, 204, 113, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid #2ecc71;">
+                        <h4 style="color: #2ecc71; font-weight: 900; margin-bottom: 20px;">【地動説的アプローチ】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• 宇宙の流れに、自分を同期させる</li>
+                            <li style="margin-bottom: 10px;">• 「委ねる」「流れに乗る」「本来の姿に戻る」</li>
+                            <li style="margin-bottom: 10px;">• 主人公は「宇宙」</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>既存のスピリチュアルは、決して「間違い」ではありません。ただ、視点が違うだけ。</p>
+                <p>天動説でも、ある程度は天体の動きを予測できました。でも、地動説の方がシンプルで、正確で、美しい。</p>
+                <p>同じように、既存のスピリチュアルでも、時々はうまくいくことがあります。</p>
+                <p>でも、本質を理解すれば、<strong>もっとシンプルに、確実に、楽に生きられるんです。</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 第8章 -->
+<section class="section chapter8-section">
+    <div class="container">
+        <div class="content-card">
+            <h3 class="chapter-title">第8章：実際に起きた「ありえない変化」</h3>
+            <div class="chapter-content">
+                <p>気功で自動運転を再起動してから、私の人生はこう変わりました：</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0;">
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 30px; border-radius: 15px;">
+                        <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【生き方の変化】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">• 常に好きなことだけをして生きている</li>
+                            <li style="margin-bottom: 8px;">• 「やらなきゃ」が消えて「やりたい」だけになった</li>
+                            <li style="margin-bottom: 8px;">• 毎日が冒険みたいに楽しい</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(46, 204, 113, 0.1); padding: 30px; border-radius: 15px;">
+                        <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【行動の変化】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">• 次々に新しく興味を持ったことにチャレンジ</li>
+                            <li style="margin-bottom: 8px;">• 失敗が怖くなくなり、むしろ面白いとさえ感じるようになった</li>
+                            <li style="margin-bottom: 8px;">• 「頑張る」必要が完全になくなった</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(52, 152, 219, 0.1); padding: 30px; border-radius: 15px;">
+                        <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【人間関係の奇跡】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">• 嫌いな人が、なぜか自然と周りからいなくなる</li>
+                            <li style="margin-bottom: 8px;">• 不思議な縁で自分にとって必要な人脈と繋がる</li>
+                            <li style="margin-bottom: 8px;">• 応援してくれる仲間が激増</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(155, 89, 182, 0.1); padding: 30px; border-radius: 15px;">
+                        <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【現実の変化】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">• 再び「引き寄せ」のようなことが起き始める</li>
+                            <li style="margin-bottom: 8px;">• でも今度は「引き寄せよう」としていない</li>
+                            <li style="margin-bottom: 8px;">• ただ楽しんでいたら、勝手に良いことが起きる</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(241, 196, 15, 0.1); padding: 30px; border-radius: 15px;">
+                        <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【内面の変化】</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;">• 不安や恐怖とは完全に無縁になった</li>
+                            <li style="margin-bottom: 8px;">• 「こうあるべき」という縛りが消えた</li>
+                            <li style="margin-bottom: 8px;">• ただ「在る」ことが心地よい</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>これ、全部本当の話です。</p>
+                <p>しかも、私だけじゃない。</p>
+                <p>この方法を伝えた人たちからも、続々と「ありえない報告」が届いています。</p>
+                
+                <div style="background: rgba(212, 175, 55, 0.1); padding: 40px; border-radius: 20px; margin: 40px 0;">
+                    <p style="font-style: italic; margin-bottom: 15px;">「会社を辞め、昔から就きたかった職業へと転職できました」</p>
+                    <p style="font-style: italic; margin-bottom: 15px;">「苦手だった人が、なぜか転勤していきました」</p>
+                    <p style="font-style: italic; margin-bottom: 20px;">「やりたかったことが、向こうからやってきました」</p>
+                    <p>みんな口を揃えて言います。</p>
+                    <p style="text-align: center; font-size: 1.3rem; font-weight: 900; color: #2c3e50;">「頑張ってないのに、うまくいくんです」と。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- オンラインサロン紹介 -->
+<section class="section salon-intro-section">
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title">そして生まれた、オンラインサロン「解脱しか勝たん！」</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #2c3e50; margin-bottom: 30px; font-style: italic;">「スピリチュアル難民」のための、避難所＆訓練場</p>
+            
+            <div class="chapter-content">
+                <p>このサロンは、かつての私のような「スピリチュアル沼」で溺れかけている人のための、救命ボートであり、リハビリ施設です。</p>
+                
+                <div style="text-align: center; margin: 40px 0; padding: 40px; background: rgba(44, 62, 80, 0.1); border-radius: 20px;">
+                    <p style="font-size: 1.5rem; font-weight: 900; color: #2c3e50; margin-bottom: 10px;"><strong>解脱</strong> = ハンドルから手を離すこと</p>
+                    <p style="font-size: 1.5rem; font-weight: 900; color: #2c3e50;"><strong>勝たん</strong> = それ以外に勝利の道はない</p>
+                </div>
+                
+                <p>つまり、</p>
+                <p style="text-align: center; font-size: 1.4rem; font-weight: 900; color: #d4af37; margin: 30px 0;">「コントロールを手放すことでしか、本当の自由は手に入らない」</p>
+                
+                <p>でも、ただ「手放せ」と言われても、できないですよね。</p>
+                <p>10年以上握りしめてきたハンドルは、もはや手と一体化している。</p>
+                
+                <p>だから、このサロンでは──</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
+                    <div style="background: rgba(231, 76, 60, 0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="color: #e74c3c; font-weight: 900; margin-bottom: 15px;">なぜ手放す必要があるのか</h4>
+                        <p style="font-size: 1.1rem; color: #2c3e50;">（理論）</p>
+                    </div>
+                    <div style="background: rgba(46, 204, 113, 0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="color: #2ecc71; font-weight: 900; margin-bottom: 15px;">どうやって手放すのか</h4>
+                        <p style="font-size: 1.1rem; color: #2c3e50;">（方法）</p>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="color: #d4af37; font-weight: 900; margin-bottom: 15px;">手放したらどうなるのか</h4>
+                        <p style="font-size: 1.1rem; color: #2c3e50;">（体験）</p>
+                    </div>
+                </div>
+                
+                <p>この3つを、<strong>笑いながら学んでいきます。</strong></p>
+                <p>そう、笑いながら。</p>
+                <p>だって、深刻になったら、また力んじゃうでしょ？</p>
+                
+                <div style="background: rgba(212, 175, 55, 0.1); padding: 40px; border-radius: 20px; margin: 40px 0;">
+                    <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 20px; text-align: center;">こんな人におすすめ</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #d4af37; font-weight: 900;">✓</span>
+                            <strong>今まで気功や引き寄せを実践したが、なかなか実感ができず上手くいかなかった人</strong> → それは、あなたのせいじゃありません。方法が間違っていただけです。
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #d4af37; font-weight: 900;">✓</span>
+                            <strong>「やらせ」にしか見えない不思議な武術の技に興味がある人</strong> → あれ、本当にできます。でも原理を知れば、誰でもできるんです。
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #d4af37; font-weight: 900;">✓</span>
+                            <strong>悟りの視点からものごとを判断し、迷いを断ち切りたい人</strong> → 悟りは特別なものじゃない。ただ「本来の状態」に戻るだけです。
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #d4af37; font-weight: 900;">✓</span>
+                            <strong>スピリチュアルに疲れたけど、でも諦めきれない人</strong> → その直感は正しい。ただ、アプローチを変える時が来ただけです。
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #d4af37; font-weight: 900;">✓</span>
+                            <strong>人生を「頑張って」生きることに限界を感じている人</strong> → もう頑張らなくていい。楽に生きる方法、教えます。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 料金プランセクション -->
+<section class="section pricing-section">
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title">3つのコース（あなたの「握力」に合わせて選べます）</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #4a3728;">どのコースも、笑いながら学べる革命的なアプローチです。</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-book-reader"></i></div>
+                    <h3 class="pricing-title">ペーパードライバー講習</h3>
+                    <p class="pricing-subtitle">「宇宙の交通ルール座学」</p>
+                    <div class="pricing-price">¥500<span>/月</span></div>
+                    <div style="background: rgba(44, 62, 80, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p style="font-size: 0.9rem; color: #4a3728; text-align: center;">まずは頭で理解したいあなたへ。</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>週1配信「こうやって僕らは騙されてきた」シリーズ</li>
+                        <li>引き寄せ業界の「不都合な真実」暴露</li>
+                        <li>メンバー限定「スピリチュアル失敗談」爆笑シェア会</li>
+                        <li>質問箱「これって詐欺ですか？」判定サービス</li>
+                    </ul>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 0.9rem; color: #4a3728;">
+                        <strong>こんな人におすすめ：</strong>「理屈が分からないと動けない」「まずは様子を見たい」「500円なら、まあいいか」
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-icon"><i class="fas fa-hands"></i></div>
+                    <h3 class="pricing-title">仮免許講習</h3>
+                    <p class="pricing-subtitle">「ハンドルの離し方・実践編」</p>
+                    <div class="pricing-price">¥2,000<span>/月</span></div>
+                    <div style="background: rgba(212,175,55,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p style="font-size: 0.9rem; color: #2c3e50; text-align: center; font-weight: 700;">実際に身体で体感したいあなたへ。</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>月2回のオンライン気功レッスン（録画あり）</li>
+                        <li>「気」を10分で体感できる秘密のワーク</li>
+                        <li>僕の「やらかし体験」から学ぶ反面教師講座</li>
+                        <li>ライブ配信で直接質問し放題</li>
+                    </ul>
+                    <div style="background: rgba(212, 175, 55, 0.2); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 0.9rem; color: #2c3e50;">
+                        <strong>こんな人におすすめ：</strong>「もう理屈はいいから、早く体感したい」「でも、いきなり高額は怖い」「仲間と一緒に練習したい」
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-crown"></i></div>
+                    <h3 class="pricing-title">F1ライセンス講習</h3>
+                    <p class="pricing-subtitle">「もう二度と掴まない身体作り」</p>
+                    <div class="pricing-price">¥10,000<span>/月</span></div>
+                    <div style="background: rgba(44, 62, 80, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p style="font-size: 0.9rem; color: #4a3728; text-align: center;">本気で人生を変えたいあなたへ。</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>ガチの気功伝授（私が数年間、数百万円かけ習得した内容）</li>
+                        <li>個別セッション月1回（あなただけの処方箋）</li>
+                        <li>「二度と力まない身体」の作り方</li>
+                        <li>人生が勝手に好転する「自動運転」完全マスター</li>
+                        <li>誓約書・守秘義務契約必須（本物すぎるため）</li>
+                    </ul>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 0.9rem; color: #4a3728;">
+                        <strong>こんな人におすすめ：</strong>「もう後がない。本気で変わりたい」「最短最速で結果を出したい」「投資する価値があるなら、惜しまない」
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; color: #e74c3c; font-weight: 700;">
+                ※重要： 10000円コースは強力すぎるため、参加には「誓約書」及び「守秘義務」へのサインが必要です。（悪用厳禁。でも、悪用できるほど本物ってことです）
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title">よくある質問（本音でお答えします）</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>これって宗教ですか？</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        真逆です。「信じるな、体感しろ」がモットーです。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>返金保証はありますか？</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ありません。でも500円から始められます。ランチ1回分です。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>本当に誰でもできますか？</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        はい、できます。ただし「本当かな？」と疑いながらで構いません。むしろ、そのくらいの客観的な視点がある方が健全です。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>なんでこんなに安いんですか？</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        高額にして、また私が「頑張って」お金を稼ごうとしたら本末転倒だからです。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>気功って危険じゃないですか？</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        切れ味のいい刃物と同じです。正しく使えば便利、間違えれば危険。だからこそ、正しく教えます。
+                    </div>
+                </div>
+            </div>
