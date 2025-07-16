@@ -263,13 +263,25 @@
         right: 0;
         bottom: 0;
         background: url('salon02.PNG') center/cover;
-        opacity: 0.1;
+        opacity: 0.03;
+    }
+    .dark-section .content-section {
+        background: #ffffff !important;
+        color: #3b2a1e !important;
+        border: 2px solid #d4af37 !important;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+        position: relative;
+        z-index: 10;
     }
     .dark-section .section-title {
-        color: #fff;
+        color: #2c3e50 !important;
     }
     .dark-section .chapter-content {
-        color: rgba(255,255,255,0.9);
+        color: #555 !important;
+    }
+    .dark-section .chapter-title {
+        color: #2c3e50 !important;
+        background: linear-gradient(135deg, #f8f4ee, #fefdf9) !important;
     }
 
     /* --- プロローグセクション --- */
@@ -327,8 +339,17 @@
     }
     .story-image {
         max-width: 100%;
+        height: auto;
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .story-image.large {
+        max-width: 600px;
+        width: 100%;
+    }
+    .story-image.medium {
+        max-width: 450px;
+        width: 100%;
     }
     .quote-box {
         background: linear-gradient(135deg, #2c3e50, #34495e);
@@ -667,6 +688,7 @@
     .author-image {
         width: 100%;
         max-width: 350px;
+        height: auto;
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     }
@@ -679,6 +701,7 @@
         border-radius: 50%;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         border: 5px solid #fff;
+        object-fit: cover;
     }
     .author-text h3 {
         font-family: 'Playfair Display', serif;
@@ -965,11 +988,19 @@
             grid-template-columns: 1fr;
             gap: 40px;
         }
+        .author-image {
+            max-width: 280px;
+        }
         .author-qigong {
             position: static;
             margin-top: 20px;
             width: 120px;
-            height: 120px;
+        }
+        .story-image.large {
+            max-width: 450px;
+        }
+        .story-image.medium {
+            max-width: 350px;
         }
         .pricing-grid {
             grid-template-columns: 1fr;
@@ -1029,6 +1060,15 @@
         }
         .postscript-section {
             padding: 40px 25px;
+        }
+        .story-image.large {
+            max-width: 350px;
+        }
+        .story-image.medium {
+            max-width: 280px;
+        }
+        .author-image {
+            max-width: 250px;
         }
     }
 </style>
@@ -1126,7 +1166,7 @@
             <h3 class="chapter-title">第1章：奇跡の始まりと、法則の発見</h3>
             
             <div class="story-image-container">
-                <img src="salon03.PNG" alt="霧がかった山々" class="story-image" width="600" height="400">
+                <img src="salon03.PNG" alt="霧がかった山々" class="story-image large">
             </div>
             
             <div class="chapter-content">
@@ -1164,11 +1204,11 @@
 <!-- 第2章 -->
 <section class="section dark-section">
     <div class="container">
-        <div class="content-section" style="background: rgba(255,255,255,0.95); color: #3b2a1e;">
+        <div class="content-section">
             <h3 class="chapter-title">第2章：法則の逆襲 ──奇跡が"止まった"日</h3>
             
             <div class="story-image-container">
-                <img src="salon02.PNG" alt="考え込む男性のシルエット" class="story-image" width="600" height="400">
+                <img src="salon02.PNG" alt="考え込む男性のシルエット" class="story-image large">
             </div>
             
             <div class="chapter-content">
@@ -1269,7 +1309,7 @@
             <h3 class="chapter-title">第4章：手から「何か」が出ている</h3>
             
             <div class="story-image-container">
-                <img src="salon07.JPG" alt="気功を実践するRhyn皇太子" class="story-image" width="400" height="400">
+                <img src="salon07.JPG" alt="気功を実践するRhyn皇太子" class="story-image medium">
             </div>
             
             <div class="chapter-content">
@@ -1369,8 +1409,8 @@
             
             <div class="author-content">
                 <div class="author-image-container">
-                    <img src="salon06.JPG" alt="Rhyn皇太子のプロフィール写真" class="author-image" width="350" height="460">
-                    <img src="salon07.JPG" alt="気功を実践するRhyn皇太子" class="author-qigong" width="150" height="150">
+                    <img src="salon06.JPG" alt="Rhyn皇太子のプロフィール写真" class="author-image">
+                    <img src="salon07.JPG" alt="気功を実践するRhyn皇太子" class="author-qigong">
                 </div>
                 <div class="author-text">
                     <h3>なぜ私が「真理」を語れるのか</h3>
@@ -1409,7 +1449,7 @@
             <h3 class="chapter-title">第6章：ついに見つけた「真実」</h3>
             
             <div class="story-image-container">
-                <img src="salon04.PNG" alt="アルプスの美しく雄大な山々" class="story-image" width="600" height="400">
+                <img src="salon04.PNG" alt="アルプスの美しく雄大な山々" class="story-image large">
             </div>
             
             <div class="chapter-content">
@@ -1453,7 +1493,7 @@
             <h3 class="chapter-title">第7章：なぜ気功が「鍵」なのか</h3>
             
             <div class="story-image-container">
-                <img src="salon05.PNG" alt="木陰の中に差し込む眩しい太陽の光" class="story-image" width="600" height="400">
+                <img src="salon05.PNG" alt="木陰の中に差し込む眩しい太陽の光" class="story-image large">
             </div>
             
             <div class="chapter-content">
