@@ -75,6 +75,31 @@
         text-decoration: none; 
         color: inherit; 
     }
+    
+    /* --- 画像最適化 --- */
+    img {
+        max-width: 100%;
+        height: auto;
+        loading: lazy;
+    }
+    
+    /* --- 背景画像の最適化 --- */
+    .fullscreen-section,
+    .story-chapter {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        will-change: transform;
+    }
+    
+    @media (max-width: 768px) {
+        .fullscreen-section,
+        .story-chapter {
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+    }
 
     /* --- ヘッダー & ナビゲーション --- */
     .main-header { 
@@ -122,6 +147,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        background: rgba(0, 0, 0, 0.4);
         z-index: 1;
     }
     
@@ -130,6 +156,18 @@
         z-index: 10;
         width: 100%;
         padding: 80px 0;
+    }
+
+    /* --- モバイル最適化 --- */
+    @media (max-width: 768px) {
+        .fullscreen-section {
+            background-attachment: scroll;
+            min-height: auto;
+            padding: 60px 0;
+        }
+        .fullscreen-section::before {
+            background: rgba(0, 0, 0, 0.8);
+        }
     }
 
     /* --- 緊急告白ヘッダー --- */
@@ -755,18 +793,28 @@
         nav a {
             margin: 0 8px;
             font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        .urgent-header {
+            padding: 100px 20px 40px;
         }
         .urgent-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            line-height: 1.3;
         }
         .urgent-subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         .hero-lead {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            padding: 0 20px;
         }
         .hero-strong {
-            font-size: 1.8rem;
+            font-size: 2rem;
+            line-height: 1.4;
+            margin: 30px 20px;
         }
         .split-content,
         .story-split,
@@ -775,69 +823,155 @@
             gap: 40px;
         }
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            line-height: 1.3;
+            text-align: center;
         }
         .chapter-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            text-align: center;
         }
         .text-content,
         .story-text,
         .author-text {
             padding: 40px 30px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.95) !important;
+            border: 2px solid rgba(212, 175, 55, 0.5) !important;
+        }
+        .chapter-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .chapter-content p {
+            margin-bottom: 20px;
         }
         .experience-quote {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             padding: 40px 30px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.95) !important;
         }
         .method-grid,
         .pricing-grid {
             grid-template-columns: 1fr;
             gap: 30px;
+            padding: 0 20px;
+        }
+        .method-card,
+        .pricing-card {
+            background: rgba(0, 0, 0, 0.95) !important;
+            border: 2px solid rgba(212, 175, 55, 0.3) !important;
+            margin: 10px;
         }
         .pricing-card.featured {
             transform: none;
+            border-color: #d4af37 !important;
         }
         .cta-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            line-height: 1.3;
+        }
+        .cta-subtitle {
+            font-size: 1.2rem;
         }
         .cta-button-primary {
             padding: 20px 40px;
             font-size: 1.2rem;
+            margin: 20px;
+        }
+        .cta-content {
+            padding: 60px 20px;
         }
         .fullscreen-section {
             background-attachment: scroll;
+            min-height: auto;
+            padding: 60px 0;
         }
         .story-chapter {
             background-attachment: scroll;
+            min-height: auto;
+            padding: 60px 0;
+        }
+        .story-chapter::before {
+            background: rgba(0, 0, 0, 0.85) !important;
+        }
+        .experience-section::before,
+        .truth-section::before,
+        .pricing-section::before,
+        .cta-section::before {
+            background: rgba(0, 0, 0, 0.8) !important;
+        }
+        .condition-list {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px 25px;
+            margin: 30px 10px;
+        }
+        .congratulations {
+            margin: 30px 10px;
+            padding: 25px 20px;
+            font-size: 1.2rem;
+        }
+        .author-credentials {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 25px 20px;
         }
     }
 
     @media (max-width: 480px) {
         .urgent-title {
-            font-size: 1.6rem;
-        }
-        .hero-lead {
-            font-size: 1.1rem;
-        }
-        .hero-strong {
-            font-size: 1.5rem;
-        }
-        .section-title {
             font-size: 1.8rem;
         }
+        .urgent-subtitle {
+            font-size: 1rem;
+        }
+        .hero-lead {
+            font-size: 1.2rem;
+            padding: 0 15px;
+        }
+        .hero-strong {
+            font-size: 1.7rem;
+            margin: 25px 15px;
+        }
+        .section-title {
+            font-size: 2.2rem;
+        }
         .chapter-title {
-            font-size: 1.6rem;
+            font-size: 1.9rem;
+        }
+        .chapter-content {
+            font-size: 1rem;
         }
         .experience-quote {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            padding: 30px 20px;
         }
         .cta-title {
-            font-size: 2rem;
+            font-size: 2.4rem;
         }
         .text-content,
         .story-text,
         .author-text {
             padding: 30px 20px;
+            margin: 15px;
+        }
+        .method-card,
+        .pricing-card {
+            padding: 30px 20px;
+            margin: 15px 5px;
+        }
+        .pricing-price {
+            font-size: 2.5rem;
+        }
+        .condition-list {
+            padding: 25px 20px;
+            margin: 25px 5px;
+        }
+        .congratulations {
+            margin: 25px 5px;
+            padding: 20px 15px;
+            font-size: 1.1rem;
         }
     }
 
@@ -1191,6 +1325,9 @@
                         <h3 class="pricing-title">ペーパードライバー講習</h3>
                         <p class="pricing-subtitle">「宇宙の交通ルール座学」</p>
                         <div class="pricing-price">¥500<span>/月</span></div>
+                        <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center;">まずは頭で理解したいあなたへ。</p>
+                        </div>
                         <ul class="pricing-features">
                             <li>週1配信「こうやって僕らは騙されてきた」シリーズ</li>
                             <li>引き寄せ業界の「不都合な真実」暴露</li>
@@ -1204,6 +1341,9 @@
                         <h3 class="pricing-title">仮免許講習</h3>
                         <p class="pricing-subtitle">「ハンドルの離し方・実践編」</p>
                         <div class="pricing-price">¥2,000<span>/月</span></div>
+                        <div style="background: rgba(212,175,55,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <p style="font-size: 0.9rem; color: #fff; text-align: center; font-weight: 700;">実際に身体で体感したいあなたへ。</p>
+                        </div>
                         <ul class="pricing-features">
                             <li>月2回のオンライン気功レッスン（録画あり）</li>
                             <li>「気」を10分で体感できる秘密のワーク</li>
@@ -1217,6 +1357,9 @@
                         <h3 class="pricing-title">F1ライセンス講習</h3>
                         <p class="pricing-subtitle">「もう二度と掴まない身体作り」</p>
                         <div class="pricing-price">¥10,000<span>/月</span></div>
+                        <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center;">本気で人生を変えたいあなたへ。</p>
+                        </div>
                         <ul class="pricing-features">
                             <li>ガチの気功伝授（数百万円相当の内容）</li>
                             <li>個別セッション月1回（あなただけの処方箋）</li>
@@ -1279,6 +1422,28 @@
 </footer>
 
 <script>
+    // 画像の遅延読み込み最適化
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.src = img.src;
+        });
+    } else {
+        // Intersection Observer for older browsers
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        const images = document.querySelectorAll('img[data-src]');
+        images.forEach(img => imageObserver.observe(img));
+    }
+
     // スムーススクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -1293,7 +1458,15 @@
         });
     });
 
-    // スクロールアニメーション
+    // パフォーマンス最適化: モバイルではパララックス無効
+    if (window.innerWidth <= 768) {
+        const parallaxElements = document.querySelectorAll('.fullscreen-section, .story-chapter');
+        parallaxElements.forEach(element => {
+            element.style.backgroundAttachment = 'scroll';
+        });
+    }
+
+    // スクロールアニメーション（軽量版）
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -1303,13 +1476,19 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target); // 一度だけ実行
             }
         });
     }, observerOptions);
 
-    // 全てのセクションを監視
-    document.querySelectorAll('section').forEach(section => {
+    // 重要なセクションのみ監視
+    document.querySelectorAll('.text-content, .story-text, .method-card, .pricing-card').forEach(section => {
         observer.observe(section);
+    });
+
+    // メモリリークを防ぐ
+    window.addEventListener('beforeunload', () => {
+        observer.disconnect();
     });
 </script>
 
