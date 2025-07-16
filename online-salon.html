@@ -304,6 +304,26 @@
         background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(253, 250, 246, 0.5));
     }
 
+    /* --- グリッドレイアウト用共通スタイル --- */
+    .comparison-grid,
+    .changes-grid,
+    .approach-grid {
+        display: grid;
+        gap: 30px;
+        margin: 40px 0;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+    .changes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+    
+    .approach-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
     /* --- コンテンツスタイル --- */
     .content-card {
         background: rgba(255, 255, 255, 0.65);
@@ -850,6 +870,50 @@
             padding: 0 20px 20px;
             font-size: 0.9rem;
         }
+        .approach-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 10px !important;
+        }
+        .approach-grid > div {
+            padding: 25px 20px !important;
+        }
+        .approach-grid h4 {
+            font-size: 1.1rem !important;
+        }
+        .changes-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 10px !important;
+        }
+        .changes-grid > div {
+            padding: 25px 20px !important;
+        }
+        .changes-grid h4 {
+            font-size: 1.1rem !important;
+        }
+        .changes-grid li {
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+        }
+        .comparison-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            margin: 30px 10px !important;
+        }
+        .comparison-grid > div {
+            padding: 25px 20px !important;
+            font-size: 0.95rem;
+        }
+        .comparison-grid h4 {
+            font-size: 1.1rem !important;
+            margin-bottom: 15px !important;
+        }
+        .comparison-grid li {
+            margin-bottom: 8px !important;
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+        }
         .condition-list {
             background: rgba(44, 62, 80, 0.25);
             padding: 30px 25px;
@@ -917,6 +981,50 @@
         }
         .pricing-price {
             font-size: 2.5rem;
+        }
+        .approach-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            margin: 25px 5px !important;
+        }
+        .approach-grid > div {
+            padding: 20px 15px !important;
+        }
+        .approach-grid h4 {
+            font-size: 1rem !important;
+        }
+        .changes-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            margin: 25px 5px !important;
+        }
+        .changes-grid > div {
+            padding: 20px 15px !important;
+        }
+        .changes-grid h4 {
+            font-size: 1rem !important;
+        }
+        .changes-grid li {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+        }
+        .comparison-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            margin: 25px 5px !important;
+        }
+        .comparison-grid > div {
+            padding: 20px 15px !important;
+            font-size: 0.9rem;
+        }
+        .comparison-grid h4 {
+            font-size: 1rem !important;
+            margin-bottom: 12px !important;
+        }
+        .comparison-grid li {
+            margin-bottom: 6px !important;
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
         }
         .condition-list {
             padding: 25px 20px;
@@ -1302,7 +1410,7 @@
                 <p>でも実際は、地球が太陽の周りを回っていた。これが地動説です。</p>
                 <p><strong>スピリチュアルの世界でも、同じことが起きています。</strong></p>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;" class="comparison-grid">
                     <div style="background: rgba(231, 76, 60, 0.2); padding: 30px; border-radius: 15px; border-left: 5px solid #e74c3c;">
                         <h4 style="color: #e74c3c; font-weight: 900; margin-bottom: 20px;">【天動説的スピリチュアル】</h4>
                         <ul style="list-style: none; padding: 0;">
@@ -1339,7 +1447,7 @@
             <div class="chapter-content">
                 <p>気功で自動運転を再起動してから、私の人生はこう変わりました：</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0;" class="changes-grid">
                     <div style="background: rgba(212, 175, 55, 0.2); padding: 30px; border-radius: 15px;">
                         <h4 style="color: #2c3e50; font-weight: 900; margin-bottom: 15px;">【生き方の変化】</h4>
                         <ul style="list-style: none; padding: 0;">
@@ -1425,7 +1533,7 @@
                 
                 <p>だから、このサロンでは──</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;" class="approach-grid">
                     <div style="background: rgba(231, 76, 60, 0.2); padding: 30px; border-radius: 15px; text-align: center;">
                         <h4 style="color: #e74c3c; font-weight: 900; margin-bottom: 15px;">なぜ手放す必要があるのか</h4>
                         <p style="font-size: 1.1rem; color: #2c3e50;">（理論）</p>
