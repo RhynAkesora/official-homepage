@@ -328,8 +328,14 @@
             width: 100%;
             max-width: 800px;
             box-sizing: border-box;
+            margin: 0 auto;
         }
-        .about-section p { font-size: 1.05rem; line-height: 2.2; text-align: justify; margin-bottom: 20px; }
+        .about-section p { 
+            font-size: 1.05rem; 
+            line-height: 2.2; 
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
         .about-section strong { color: #3b2a1e; font-weight: 900;}
         .about-section hr { border: none; border-top: 1px solid #e0d8cd; margin: 35px 0; }
         .about-section .activity-list { text-align: center; font-size: 0.95rem; color: #6a5543; margin-bottom: 35px;}
@@ -337,8 +343,9 @@
         @media (max-width: 768px) {
             .about-section { 
                 padding: 35px 30px; 
-                margin: 0 15px;
+                margin: 0 auto;
                 border-radius: 20px;
+                max-width: calc(100% - 30px);
             }
             .about-section .activity-list {
                 padding: 0 10px;
@@ -348,20 +355,22 @@
                 font-size: 0.95rem; 
                 line-height: 2.1; 
                 padding: 0 15px;
-                text-align: left;
+                text-align: center;
             }
         }
         
         @media (max-width: 480px) {
             .about-section { 
                 padding: 30px 25px; 
-                margin: 0 12px;
+                margin: 0 auto;
                 border-radius: 18px;
+                max-width: calc(100% - 24px);
             }
             .about-section p { 
                 font-size: 0.9rem; 
                 padding: 0 10px;
                 line-height: 2;
+                text-align: center;
             }
             .about-section p[style*="text-align: center"] {
                 padding: 0 5px;
