@@ -377,6 +377,151 @@
             }
         }
 
+        /* --- クロージングメッセージ --- */
+        .closing-message {
+            position: relative;
+            background: linear-gradient(135deg, #f4f0e9 0%, #fdfaf6 50%, #f4f0e9 100%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .closing-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        
+        .closing-message::after {
+            content: '✦';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d4af37;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+        
+        .closing-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #3b2a1e;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .closing-text:first-child {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #3b2a1e, #6a5543, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .closing-text:last-child {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.85;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .closing-text:last-child::before {
+            content: '"';
+            font-size: 2.5rem;
+            color: #d4af37;
+            opacity: 0.3;
+            position: absolute;
+            left: -30px;
+            top: -10px;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .closing-text:last-child::after {
+            content: '"';
+            font-size: 2.5rem;
+            color: #d4af37;
+            opacity: 0.3;
+            position: absolute;
+            right: -30px;
+            bottom: -20px;
+            font-family: 'Cinzel', serif;
+        }
+        
+        @media (max-width: 768px) {
+            .closing-message {
+                padding: 40px 30px;
+                margin: 30px 15px;
+                border-radius: 25px;
+            }
+            
+            .closing-text {
+                font-size: 1.2rem;
+            }
+            
+            .closing-text:first-child {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+            
+            .closing-text:last-child {
+                font-size: 1.1rem;
+            }
+            
+            .closing-text:last-child::before,
+            .closing-text:last-child::after {
+                font-size: 2rem;
+            }
+            
+            .closing-text:last-child::before {
+                left: -20px;
+            }
+            
+            .closing-text:last-child::after {
+                right: -20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .closing-message {
+                padding: 35px 25px;
+                margin: 25px 12px;
+            }
+            
+            .closing-text {
+                font-size: 1.1rem;
+            }
+            
+            .closing-text:first-child {
+                font-size: 1.3rem;
+            }
+            
+            .closing-text:last-child {
+                font-size: 1rem;
+            }
+            
+            .closing-text:last-child::before,
+            .closing-text:last-child::after {
+                display: none;
+            }
+        }
+
         /* --- フッター --- */
         .footer { 
             padding: 50px 20px;
@@ -734,10 +879,8 @@
         </section>
 
         <section class="closing-message section">
-            <div style="text-align: center; padding: 30px 0; font-style: italic; color: #6a5543; font-size: 1.1rem;">
-                <p>真理の探求者よ、この邂逅に感謝を。</p>
-                <p style="margin-top: 15px; font-size: 0.95rem;">あなたの魂が、革命の炎に点火される瞬間を祈って。</p>
-            </div>
+            <p class="closing-text">真理の探求者よ、この邂逅に感謝を。</p>
+            <p class="closing-text">あなたの魂が、革命の炎に点火される瞬間を祈って。</p>
         </section>
 
     </main>
