@@ -405,177 +405,145 @@
         }
 
         /* --- Featured Work セクション --- */
-        .featured-book-link {
+        .featured-work-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .featured-book-link-new {
             display: block;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
         }
         
-        .featured-book-card {
-            background: linear-gradient(135deg, #fff 0%, #fdfaf6 100%);
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            border: 1px solid #f0e9dd;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-            overflow: hidden;
+        .book-promo-card {
             position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
         
-        .featured-book-card::before {
+        .book-promo-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, #d4af37, #f8e47b, #d4af37);
+            z-index: 2;
         }
         
-        .featured-book-link:hover .featured-book-card {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-            border-color: #d4af37;
+        .featured-book-link-new:hover .book-promo-card {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.18);
         }
         
-        .book-image-container {
-            flex-shrink: 0;
-            width: 200px;
-            height: 280px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .book-promo-image {
+            width: 100%;
+            height: auto;
+            display: block;
             transition: all 0.3s ease;
         }
         
-        .featured-book-link:hover .book-image-container {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        .book-cover {
+        .book-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-        
-        .book-info {
-            flex: 1;
-            text-align: left;
+            background: rgba(0,0,0,0.7);
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
         }
         
-        .book-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #3b2a1e;
-            margin: 0;
-            line-height: 1.3;
-            background: linear-gradient(135deg, #3b2a1e, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .featured-book-link-new:hover .book-overlay {
+            opacity: 1;
         }
         
-        .book-subtitle {
-            font-family: 'Cinzel', serif;
+        .book-hover-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
             font-size: 1.3rem;
-            color: #6a5543;
-            margin: 0;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            background: rgba(212, 175, 55, 0.9);
+            padding: 15px 30px;
+            border-radius: 50px;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
         
-        .book-description {
+        .featured-book-link-new:hover .book-hover-text {
+            transform: translateY(0);
+        }
+        
+        .book-hover-text i {
+            font-size: 1.1rem;
+        }
+        
+        .book-supplementary-info {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .book-note {
+            font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
             color: #4a3728;
             line-height: 1.8;
-            margin: 0;
+            margin-bottom: 25px;
+            position: relative;
+            font-style: italic;
+            padding: 0 30px;
         }
         
-        .book-achievements {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .achievement-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #d4af37, #f8e47b);
-            color: #3b2a1e;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            width: fit-content;
-        }
-        
-        .achievement-badge i {
+        .book-note .fa-quote-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #d4af37;
+            opacity: 0.6;
             font-size: 1.2rem;
         }
         
-        .ranking-details {
+        .book-note .fa-quote-right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #d4af37;
+            opacity: 0.6;
+            font-size: 1.2rem;
+        }
+        
+        .book-details {
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            gap: 30px;
             flex-wrap: wrap;
         }
         
-        .ranking-item {
-            background: rgba(212, 175, 55, 0.1);
-            color: #d4af37;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .book-cta {
+        .detail-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            color: #6a5543;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .detail-item i {
             color: #d4af37;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .featured-book-link:hover .book-cta {
-            color: #3b2a1e;
-            transform: translateX(5px);
-        }
-        
-        .cta-text {
-            position: relative;
-        }
-        
-        .cta-text::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d4af37;
-            transition: width 0.3s ease;
-        }
-        
-        .featured-book-link:hover .cta-text::after {
-            width: 100%;
+            font-size: 1rem;
         }
         .about-section p { 
             font-size: 1.05rem; 
@@ -867,56 +835,32 @@
             .media-section { padding: 50px 0; }
             
             /* Featured Work モバイル対応 */
-            .featured-book-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 25px;
-                gap: 25px;
-                margin: 0 12px;
+            .featured-work-container {
+                padding: 0 10px;
             }
             
-            .book-image-container {
-                width: 160px;
-                height: 220px;
-                align-self: center;
+            .book-promo-card {
+                margin-bottom: 25px;
+                border-radius: 20px;
             }
             
-            .book-info {
-                text-align: center;
-                gap: 12px;
-            }
-            
-            .book-title {
-                font-size: 1.8rem;
-            }
-            
-            .book-subtitle {
+            .book-hover-text {
                 font-size: 1.1rem;
+                padding: 12px 25px;
             }
             
-            .book-description {
+            .book-note {
                 font-size: 1rem;
+                padding: 0 25px;
+                margin-bottom: 20px;
             }
             
-            .achievement-badge {
-                align-self: center;
+            .book-details {
+                gap: 20px;
+            }
+            
+            .detail-item {
                 font-size: 0.9rem;
-                padding: 10px 18px;
-            }
-            
-            .ranking-details {
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .ranking-item {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
-            
-            .book-cta {
-                justify-content: center;
-                font-size: 1rem;
             }
         }
 
@@ -960,41 +904,34 @@
             }
             
             /* Featured Work 480px以下対応 */
-            .featured-book-card {
-                padding: 25px 20px;
-                gap: 20px;
-                margin: 0 12px;
+            .featured-work-container {
+                padding: 0 8px;
             }
             
-            .book-image-container {
-                width: 140px;
-                height: 190px;
+            .book-promo-card {
+                border-radius: 18px;
+                margin-bottom: 20px;
             }
             
-            .book-title {
-                font-size: 1.6rem;
-            }
-            
-            .book-subtitle {
+            .book-hover-text {
                 font-size: 1rem;
+                padding: 10px 20px;
             }
             
-            .book-description {
+            .book-note {
                 font-size: 0.95rem;
+                padding: 0 20px;
+                margin-bottom: 18px;
             }
             
-            .achievement-badge {
+            .book-details {
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .detail-item {
                 font-size: 0.85rem;
-                padding: 8px 16px;
-            }
-            
-            .ranking-item {
-                font-size: 0.75rem;
-                padding: 5px 10px;
-            }
-            
-            .book-cta {
-                font-size: 0.95rem;
             }
         }
     </style>
@@ -1191,32 +1128,31 @@
         <section id="featured-work" class="section">
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-crown"></i>Featured Work</h2>
-                <a href="https://www.amazon.co.jp/dp/B0D8Z4V9QG" target="_blank" rel="noopener noreferrer" class="featured-book-link">
-                    <div class="featured-book-card">
-                        <div class="book-image-container">
-                            <img src="kunoutsuwa.JPG" alt="空の器 〜内なる光の旅路〜 表紙" class="book-cover" loading="lazy">
+                <div class="featured-work-container">
+                    <a href="https://www.amazon.co.jp/dp/B0D8Z4V9QG" target="_blank" rel="noopener noreferrer" class="featured-book-link-new">
+                        <div class="book-promo-card">
+                            <img src="kunoutsuwa.JPG" alt="空の器 〜内なる光の旅路〜 - Kindleストア哲学部門1位・心理学部門2位獲得作品" class="book-promo-image" loading="lazy">
+                            <div class="book-overlay">
+                                <div class="book-hover-text">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Amazonで購入する</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="book-info">
-                            <h3 class="book-title">空の器 〜内なる光の旅路〜</h3>
-                            <p class="book-subtitle">笑いと涙で綴る、人生の真理</p>
-                            <p class="book-description">あなたの中の空の器と魂を満たす物語<br>東洋思想×現代生活 自己探求への誘い</p>
-                            <div class="book-achievements">
-                                <div class="achievement-badge">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Kindleストア最高順位獲得</span>
-                                </div>
-                                <div class="ranking-details">
-                                    <span class="ranking-item">哲学・思想部門 1位</span>
-                                    <span class="ranking-item">心理学部門 2位</span>
-                                </div>
-                            </div>
-                            <div class="book-cta">
-                                <span class="cta-text">Amazonで詳細を見る</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </div>
+                    </a>
+                    <div class="book-supplementary-info">
+                        <p class="book-note">
+                            <i class="fas fa-quote-left"></i>
+                            現代を生きる私たちが抱える「空虚感」を、東洋の古典的な智慧と現代心理学の知見で解き明かす、新感覚の自己探求小説。
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        <div class="book-details">
+                            <span class="detail-item"><i class="fas fa-calendar-alt"></i> 2024年発売</span>
+                            <span class="detail-item"><i class="fas fa-book-open"></i> Kindle Unlimited 対応</span>
+                            <span class="detail-item"><i class="fas fa-star"></i> 高評価レビュー多数</span>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
         
