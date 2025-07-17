@@ -219,6 +219,13 @@
     .chapter3-section::before {
         background-image: url('salon07_flipped.JPG');
     }
+    
+    /* モバイルで左側（金髪の技をかけている人物）にフォーカス */
+    @media (max-width: 768px) {
+        .chapter3-section::before {
+            background-position: left center;
+        }
+    }
     .chapter3-section::after {
         background: linear-gradient(45deg, rgba(52, 73, 94, 0.2), rgba(253, 250, 246, 0.5));
     }
