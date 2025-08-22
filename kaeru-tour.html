@@ -33,7 +33,9 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 400px;
-            width: 100%;
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         .frog-icon {
@@ -66,6 +68,7 @@
 
         .password-input {
             width: 100%;
+            max-width: 300px;
             padding: 15px;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
@@ -74,6 +77,7 @@
             letter-spacing: 3px;
             margin-bottom: 20px;
             transition: border-color 0.3s;
+            box-sizing: border-box;
         }
 
         .password-input:focus {
@@ -372,7 +376,20 @@
         @media (max-width: 768px) {
             .password-card {
                 padding: 30px 20px;
-                margin: 0 10px;
+                margin: 0 auto;
+                width: 85%;
+                max-width: 350px;
+            }
+
+            .password-input {
+                max-width: 280px;
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .password-button {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
 
             .header-title {
@@ -448,6 +465,20 @@
         @media (max-width: 480px) {
             .password-card {
                 padding: 25px 15px;
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .password-input {
+                max-width: 250px;
+                padding: 10px;
+                font-size: 0.95rem;
+                letter-spacing: 2px;
+            }
+
+            .password-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
 
             .frog-icon {
@@ -456,6 +487,10 @@
 
             .password-title {
                 font-size: 1.5rem;
+            }
+
+            .password-subtitle {
+                font-size: 0.9rem;
             }
 
             .header-title {
@@ -696,7 +731,7 @@
                     </h3>
                     <p class="posts-description">最新の投稿が上部に表示されます。文字が途切れる場合は、表内の列境界線をドラッグして列幅を調整できます。新しい投稿を確認したい場合は手動でページを更新してください。</p>
                     <div class="posts-container">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSnE6eFwjkBkW4Rv734OA5rO0E2zBpdRS5IUVCdMCCqtOiRzLTVI2NA5PCEH4kI7_avrnIJcxUoqE4N/pubhtml?widget=true&headers=false&chrome=false&gid=0&single=true&range=A1:C100" 
+                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSnE6eFwjkBkW4Rv734OA5rO0E2zBpdRS5IUVCdMCCqtOiRzLTVI2NA5PCEH4kI7_avrnIJcxUoqE4N/pubhtml?widget=true&headers=false" 
                                 width="100%" 
                                 height="600" 
                                 frameborder="0"
