@@ -104,6 +104,36 @@
             box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
         }
 
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .main-page-button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #17a2b8;
+            color: white;
+        }
+
+        .main-page-button:hover {
+            background: #138496;
+            transform: translateY(-1px);
+            color: white;
+        }
+
         .error-message {
             color: #f44336;
             font-size: 0.9rem;
@@ -405,6 +435,16 @@
                 font-size: 1rem;
             }
 
+            .navigation-buttons {
+                margin-top: 20px;
+                gap: 8px;
+            }
+
+            .main-page-button {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+
             .header-title {
                 font-size: 2rem;
             }
@@ -495,6 +535,17 @@
                 font-size: 0.9rem;
             }
 
+            .navigation-buttons {
+                margin-top: 18px;
+                gap: 6px;
+            }
+
+            .main-page-button {
+                padding: 7px 12px;
+                font-size: 0.75rem;
+                gap: 4px;
+            }
+
             .header-title {
                 font-size: 1.8rem;
             }
@@ -539,6 +590,13 @@
             </button>
             <div class="error-message" id="errorMessage">
                 パスワードが正しくありません。もう一度お試しください。
+            </div>
+            
+            <!-- 戻るボタンを追加 -->
+            <div class="navigation-buttons">
+                <a href="../index.html" class="main-page-button">
+                    <i class="fas fa-home"></i> メインページに戻る
+                </a>
             </div>
         </div>
     </div>
