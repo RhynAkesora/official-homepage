@@ -211,6 +211,38 @@
             font-size: 1rem;
         }
         
+        /* --- Past Events リンクボタン --- */
+        .past-events-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #6a5543, #8b7355);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(106, 85, 67, 0.3);
+            text-decoration: none;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .past-events-link:hover {
+            background: linear-gradient(135deg, #8b7355, #a08876);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(106, 85, 67, 0.4);
+            color: #fff;
+        }
+        
+        .past-events-link i {
+            font-size: 1rem;
+        }
+        
         /* --- ColorSing カード --- */
         .main-platform-card { background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4); transition: all 0.3s ease; text-align: center; }
         .main-platform-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5); }
@@ -819,6 +851,12 @@
                 font-size: 0.8rem;
                 margin-top: 15px;
             }
+            
+            .past-events-link {
+                padding: 12px 25px;
+                font-size: 0.85rem;
+                max-width: 260px;
+            }
         }
 
         /* --- レスポンシブ対応 --- */
@@ -843,6 +881,13 @@
                 padding: 10px 16px;
                 font-size: 0.8rem;
                 margin-top: 10px;
+            }
+            
+            .past-events-link {
+                padding: 12px 25px;
+                font-size: 0.85rem;
+                max-width: 260px;
+                margin-top: 25px;
             }
             
             .links-grid { 
@@ -1014,18 +1059,6 @@
         <section id="events" class="info-section section">
             <h2 class="section-title"><i class="fas fa-bullhorn"></i>Information & Events</h2>
             <div class="info-item">
-                <span class="info-date">6.19 (木)</span>
-                <div class="info-text">名古屋 HeartFM「HEARTFUL SHUFFLE」（14:00〜）ゲスト出演</div>
-            </div>
-            <div class="info-item">
-                <span class="info-date">7.12 (土)</span>
-                <div class="info-text">HR/HM FESTIVAL SHOCK WAVE VOL.3 @ ColorSing</div>
-            </div>
-            <div class="info-item">
-                <span class="info-date">8.22 (金)</span>
-                <div class="info-text">祭りだ！真夏のアニソンリレー @ ColorSing</div>
-            </div>
-            <div class="info-item">
                 <span class="info-date">8.31 (日)</span>
                 <div class="info-text">milk&ぱれっと れんしゃん生誕祭 @ 名古屋FJ theatre<br/>
                 ゲスト出演 （16:00開演 / 入場料 2,000円+1ドリンク）</div>
@@ -1042,6 +1075,11 @@
                     <i class="fas fa-gem"></i> ツアー詳細・参加者専用ページ
                 </a>
             </div>
+            
+            <a href="past-events.html" class="past-events-link">
+                <i class="fas fa-history"></i>
+                <span>これまでの記録を見る</span>
+            </a>
         </section>
         
         <a href="https://colorsing.page.link/ACGVLf592NLFN6FN9" target="_blank" rel="noopener noreferrer" class="colorsing-link">
