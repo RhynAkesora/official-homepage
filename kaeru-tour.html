@@ -349,6 +349,19 @@
             line-height: 1.6;
         }
 
+        .disqus-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
+
+        #disqus_thread {
+            min-height: 400px;
+        }
+
         .back-button {
             position: fixed;
             top: 20px;
@@ -444,21 +457,10 @@
                 border-radius: 15px;
             }
 
-            .form-container, .posts-container {
-                padding: 2px;
-                margin: 0 -5px;
-            }
-
-            .form-container iframe {
-                height: 500px;
-                width: calc(100% + 10px);
-                margin-left: -5px;
-            }
-
-            .posts-container iframe {
-                height: 500px;
-                width: calc(100% + 10px);
-                margin-left: -5px;
+            .disqus-container {
+                padding: 15px;
+                margin: 15px -5px;
+                border-radius: 10px;
             }
         }
 
@@ -511,22 +513,10 @@
                 border-radius: 12px;
             }
 
-            .form-container, .posts-container {
-                padding: 1px;
-                margin: 0 -7px;
+            .disqus-container {
+                padding: 10px;
+                margin: 10px -2px;
                 border-radius: 8px;
-            }
-
-            .form-container iframe {
-                height: 450px;
-                width: calc(100% + 14px);
-                margin-left: -7px;
-            }
-
-            .posts-container iframe {
-                height: 450px;
-                width: calc(100% + 14px);
-                margin-left: -7px;
             }
 
             .posts-description {
@@ -701,45 +691,28 @@
                 </h2>
                 <p class="board-description">
                     ツアーに関する質問や情報共有、当日の連絡事項などはこちらでやり取りしましょう。<br>
-                    下のフォームから投稿すると、投稿一覧にリアルタイムで表示されます。
+                    X(Twitter)、Facebook、Google等のアカウントでログインして投稿できます。リアルタイムで更新されます。
                 </p>
                 
-                <!-- 投稿フォーム -->
-                <div class="form-section">
-                    <h3 class="form-title">
-                        <i class="fas fa-edit"></i>
-                        新規投稿
-                    </h3>
-                    <div class="form-container">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfixOLRpHcb95zmyxq-0pbA51Aotf2mWj7qKub8mh-lvaX2Mg/viewform?embedded=true" 
-                                width="100%" 
-                                height="600" 
-                                frameborder="0" 
-                                marginheight="0" 
-                                marginwidth="0"
-                                loading="lazy">
-                            読み込んでいます…
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- 投稿一覧 -->
-                <div class="posts-section">
-                    <h3 class="posts-title">
-                        <i class="fas fa-list"></i>
-                        投稿一覧
-                    </h3>
-                    <p class="posts-description">最新の投稿が上部に表示されます。文字が途切れる場合は、表内の列境界線をドラッグして列幅を調整できます。新しい投稿を確認したい場合は手動でページを更新してください。</p>
-                    <div class="posts-container">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSnE6eFwjkBkW4Rv734OA5rO0E2zBpdRS5IUVCdMCCqtOiRzLTVI2NA5PCEH4kI7_avrnIJcxUoqE4N/pubhtml?widget=true&headers=false" 
-                                width="100%" 
-                                height="600" 
-                                frameborder="0"
-                                loading="lazy"
-                                scrolling="auto">
-                            読み込んでいます…
-                        </iframe>
-                    </div>
+                <!-- Disqus掲示板 -->
+                <div class="disqus-container">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                        this.page.url = 'https://rhyn.jp/kaeru-tour';
+                        this.page.identifier = 'kaeru-tour-participants';
+                        };
+                        (function() {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://rhyn.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>
+                        JavaScript を有効にしてください。
+                        <a href="https://disqus.com/?ref_noscript">Disqus による掲示板</a>
+                    </noscript>
                 </div>
             </div>
         </div>
