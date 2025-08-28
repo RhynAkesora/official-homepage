@@ -211,7 +211,7 @@
             font-size: 1rem;
         }
 
-        /* --- フライヤー画像表示用 --- */
+        /* --- フライヤー画像モーダル表示用 --- */
         .flyer-button {
             display: inline-block;
             background: linear-gradient(135deg, #ff6b6b, #ff8e53);
@@ -225,6 +225,8 @@
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
             text-decoration: none;
             cursor: pointer;
+            border: none;
+            background-color: transparent;
         }
         
         .flyer-button:hover {
@@ -237,6 +239,64 @@
         .flyer-button i {
             margin-right: 8px;
             font-size: 1rem;
+        }
+
+        /* --- モーダル表示 --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            cursor: default;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
 
         /* --- 開運エキスポリンク --- */
@@ -296,6 +356,76 @@
         
         .past-events-link i {
             font-size: 1rem;
+        }
+
+        /* --- 最近ハマっているものセクション --- */
+        .recent-interest-section {
+            background: linear-gradient(135deg, #f8f4e6 0%, #fff 50%, #f8f4e6 100%);
+            border: 1px solid #e8dcc6;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recent-interest-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .recent-interest-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #3b2a1e;
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .recent-interest-title i {
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .interest-item {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #f0e9dd;
+            border-radius: 15px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .interest-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #3b2a1e;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .interest-description {
+            font-size: 0.95rem;
+            color: #6a5543;
+            line-height: 1.6;
+            font-style: italic;
         }
         
         /* --- ColorSing カード --- */
@@ -912,6 +1042,23 @@
                 font-size: 0.85rem;
                 max-width: 260px;
             }
+
+            .recent-interest-section {
+                margin: 30px auto;
+                padding: 20px;
+            }
+            
+            .recent-interest-title {
+                font-size: 1.1rem;
+            }
+            
+            .interest-name {
+                font-size: 1.2rem;
+            }
+            
+            .interest-description {
+                font-size: 0.9rem;
+            }
         }
 
         /* --- レスポンシブ対応 --- */
@@ -943,6 +1090,19 @@
                 font-size: 0.85rem;
                 max-width: 260px;
                 margin-top: 25px;
+            }
+
+            .recent-interest-section {
+                margin: 35px auto;
+                padding: 22px;
+            }
+            
+            .recent-interest-title {
+                font-size: 1.2rem;
+            }
+            
+            .interest-name {
+                font-size: 1.3rem;
             }
             
             .links-grid { 
@@ -1117,9 +1277,9 @@
                 <span class="info-date">8.31 (日)</span>
                 <div class="info-text">milk&ぱれっと れんしゃん生誕祭 @ 名古屋FJ theatre<br/>
                 ゲスト出演 （16:00開演 / 入場料 2,000円+1ドリンク）</div>
-                <a href="250831.jpg" target="_blank" rel="noopener noreferrer" class="flyer-button">
+                <button onclick="openModal('250831.jpg')" class="flyer-button">
                     <i class="fas fa-image"></i> イベントフライヤーを見る
-                </a>
+                </button>
             </div>
             <div class="info-item">
                 <span class="info-date">9.27-28 (土日)</span>
@@ -1142,6 +1302,20 @@
                 <span>これまでの記録を見る</span>
             </a>
         </section>
+
+        <div class="recent-interest-section">
+            <h3 class="recent-interest-title">
+                <i class="fas fa-heart"></i>
+                最近ハマっているもの
+            </h3>
+            <div class="interest-item">
+                <div class="interest-name">維摩経</div>
+                <div class="interest-description">
+                    病気を患った在家の維摩居士が、文殊菩薩らとの問答を通じて<br/>
+                    「不二の真理」を明かす大乗仏教経典。煩悩即菩提の思想に魅了されています。
+                </div>
+            </div>
+        </div>
         
         <a href="https://colorsing.page.link/ACGVLf592NLFN6FN9" target="_blank" rel="noopener noreferrer" class="colorsing-link">
             <section class="main-platform-card section" style="padding-bottom: 15px;">
@@ -1347,9 +1521,42 @@
 
     </main>
 
+    <!-- モーダルオーバーレイ -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" class="modal-image" src="" alt="フライヤー画像">
+        </div>
+    </div>
+
     <footer class="footer">
         <p>© 2025 Rhyn皇太子. The Revolution has begun.</p>
     </footer>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('modalOverlay');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ESCキーでモーダルを閉じる
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
