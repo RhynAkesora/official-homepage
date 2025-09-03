@@ -363,6 +363,33 @@
             }
         }
 
+        /* --- ラジオ出演ボタン --- */
+        .radio-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            text-decoration: none;
+        }
+        
+        .radio-button:hover {
+            background: linear-gradient(135deg, #5dade2, #85c1e9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            color: white;
+        }
+        
+        .radio-button i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
         /* --- 開運エキスポリンク --- */
         .expo-link {
             display: inline-block;
@@ -1144,7 +1171,7 @@
             .info-date { font-size: 0.8rem; padding: 8px 14px; margin-bottom: 10px; }
             .info-text { font-size: 0.95rem; }
             
-            .tour-detail-button, .flyer-button, .expo-link {
+            .tour-detail-button, .flyer-button, .expo-link, .radio-button {
                 padding: 10px 16px;
                 font-size: 0.8rem;
                 margin-top: 10px;
@@ -1238,7 +1265,7 @@
             .info-date { font-size: 0.75rem; padding: 6px 12px; margin-bottom: 8px; }
             .info-text { font-size: 0.9rem; }
             
-            .tour-detail-button, .flyer-button, .expo-link {
+            .tour-detail-button, .flyer-button, .expo-link, .radio-button {
                 padding: 8px 14px;
                 font-size: 0.75rem;
                 margin-top: 8px;
@@ -1339,12 +1366,13 @@
         <section id="events" class="info-section section">
             <h2 class="section-title"><i class="fas fa-bullhorn"></i>Information & Events</h2>
             <div class="info-item">
-                <span class="info-date">8.31 (日)</span>
-                <div class="info-text">milk&ぱれっと れんしゃん生誕祭 @ 名古屋FJ theatre<br/>
-                ゲスト出演 （16:00開演 / 入場料 2,000円+1ドリンク）</div>
-                <button onclick="openModal('250831.jpg')" class="flyer-button">
-                    <i class="fas fa-image"></i> イベントフライヤーを見る
-                </button>
+                <span class="info-date">9.5 (金)</span>
+                <div class="info-text">United North 84.2 「きんようびのアニマルランチタイム」<br/>
+                ゲスト出演 (12:00〜13:00 生放送)<br/>
+                <small style="color: #6a5543; margin-top: 8px; display: block;">皆様からのメッセージ・リクエストもお待ちしています</small></div>
+                <a href="https://842fm.jp/?page_id=2083" target="_blank" rel="noopener noreferrer" class="radio-button">
+                    <i class="fas fa-radio"></i> 番組ページ・メール送信
+                </a>
             </div>
             <div class="info-item">
                 <span class="info-date">9.27-28 (土日)</span>
@@ -1554,6 +1582,14 @@
                         <h3 class="sanctum-title">オンラインサロン<br/>「解脱しか勝たん！」</h3>
                         <p class="sanctum-desc">「信仰」を「理性」で上書きする、革命の気功教室。<br>真理を探求する、本気の仲間だけを歓迎します。<br><small style="color: #8e44ad; font-weight: 700; margin-top: 10px; display: block;">2025年9月開始予定</small></p>
                         <div class="sanctum-button">事前登録・詳細はこちら</div>
+                    </div>
+                </a>
+                <a href="store.html" style="text-decoration: none;">
+                    <div class="sanctum-card">
+                        <div class="sanctum-icon" style="color: #e67e22;"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="sanctum-title">商品販売</h3>
+                        <p class="sanctum-desc">CD、お守りなどの商品を取り扱っています。<br>今後さらに商品を増やしていく予定です。</p>
+                        <div class="sanctum-button">詳細・ご購入はこちら</div>
                     </div>
                 </a>
                 <a href="music-production.html" style="text-decoration: none;">
