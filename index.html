@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -640,6 +639,52 @@
         .link-title { font-size: 1.1rem; font-weight: 700; }
         .link-tagline { font-size: 0.8rem; color: #999; margin-top: 8px; line-height: 1.4; }
         
+        /* --- オンラインサロン特別スタイル --- */
+        .salon-link-item {
+            background: linear-gradient(135deg, #8e44ad, #c471ed);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .salon-link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .salon-link-item:hover::before {
+            left: 100%;
+        }
+        
+        .salon-link-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.4);
+            border-color: #c471ed;
+        }
+        
+        .salon-link-item .link-icon {
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .salon-link-item .link-title {
+            color: #fff;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            font-size: 1.15rem;
+        }
+        
+        .salon-link-item .link-tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
         /* --- History ボタン（特別スタイル） --- */
         .history-button {
             display: inline-block;
@@ -711,6 +756,117 @@
                 letter-spacing: 0.5px;
                 margin-top: 25px;
             }
+        }
+
+        /* --- Contact & コンタクトセクション --- */
+        .contact-section {
+            background: linear-gradient(135deg, #f8f4e6 0%, #fff 50%, #f8f4e6 100%);
+            border: 1px solid #e8dcc6;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4af37, #d4af37, transparent);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #f0e9dd;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #d4af37;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #d4af37;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3b2a1e;
+            margin-bottom: 12px;
+        }
+        
+        .contact-description {
+            font-size: 0.95rem;
+            color: #6a5543;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b2a1e, #6a5543);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 42, 30, 0.3);
+            text-decoration: none;
+        }
+        
+        .contact-button:hover {
+            background: linear-gradient(135deg, #6a5543, #8b7355);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 42, 30, 0.4);
+            color: white;
+        }
+        
+        .contact-button i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* コンタクト項目別の特別スタイル */
+        .email-contact {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.8));
+        }
+        
+        .business-contact {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(255, 255, 255, 0.8));
+        }
+        
+        .collaboration-contact {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(255, 255, 255, 0.8));
+        }
+        
+        .general-contact {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(255, 255, 255, 0.8));
         }
 
         /* --- 奥の間（サロン＆仕事依頼） --- */
@@ -1382,6 +1538,7 @@
             <a href="#media">Media</a>
             <a href="#about">About Me</a>
             <a href="history.html">History</a>
+            <a href="contact.html">Contact</a>
             <a href="#advanced">Advanced</a>
         </nav>
     </header>
@@ -1512,6 +1669,11 @@
                     <h3 class="link-title">魂の共鳴</h3>
                     <p class="link-tagline">ブロック崩しゲーム<br/>趣味で創った、世界の断片</p>
                 </a>
+                <a href="https://yoor.jp/door/rhyn" class="link-item salon-link-item">
+                    <div class="link-icon"><i class="fas fa-crown"></i></div>
+                    <h3 class="link-title">オンラインサロン</h3>
+                    <p class="link-tagline">解脱しか勝たん！<br/>革命の気功教室</p>
+                </a>
             </div>
         </section>
 
@@ -1606,7 +1768,7 @@
                     <div class="sanctum-card">
                         <div class="sanctum-icon salon-icon"><i class="fas fa-crown"></i></div>
                         <h3 class="sanctum-title">オンラインサロン<br/>「解脱しか勝たん！」</h3>
-                        <p class="sanctum-desc">「信仰」を「理性」で上書きする、革命の気功教室。<br>真理を探求する、本気の仲間だけを歓迎します。<br><small style="color: #8e44ad; font-weight: 700; margin-top: 10px; display: block;">2025年9月開始予定</small></p>
+                        <p class="sanctum-desc">「信仰」を「理性」で上書きする、革命の気功教室。<br>真理を探求する、本気の仲間だけを歓迎します。<br></p>
                         <div class="sanctum-button">事前登録・詳細はこちら</div>
                     </div>
                 </a>
@@ -1637,11 +1799,18 @@
             </div>
         </section>
 
+        <section class="section">
+            <div class="container" style="text-align: center;">
+                <a href="contact.html" class="history-button" style="background: linear-gradient(135deg, #e67e22, #f39c12); border-color: #e67e22; color: white;">
+                    <i class="fas fa-envelope"></i>お問い合わせ・Contact
+                </a>
+            </div>
+        </section>
+        
         <section class="closing-message section">
             <p class="closing-text">真理の探求者よ、この邂逅に感謝を。</p>
             <p class="closing-text">あなたの魂が、革命の炎に点火される瞬間を祈って。</p>
         </section>
-
     </main>
 
     <!-- モーダルオーバーレイ -->
@@ -1683,5 +1852,3 @@
 
 </body>
 </html>
-
-
