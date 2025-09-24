@@ -554,9 +554,59 @@ nav a.active {
     .event-card { padding: 20px 18px; }
 }
 
-/* --- contact.html グリッド崩れ 緊急修正コード --- */
+/* --- contact.html グリッド崩れ 緊急修正コード（完全版） --- */
 #contact-methods .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+}
+#contact-methods .contact-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #f0e9dd;
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+#contact-methods .contact-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-color: #d4af37;
+}
+#contact-methods .contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #d4af37;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+#contact-methods .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3b2a1e;
+    margin-bottom: 15px;
+}
+#contact-methods .contact-description {
+    font-size: 0.95rem;
+    color: #6a5543;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+#contact-methods .contact-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b2a1e, #6a5543);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(59, 42, 30, 0.3);
+    text-decoration: none;
+}
+#contact-methods .contact-button:hover {
+    background: linear-gradient(135deg, #6a5543, #8b7355);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 42, 30, 0.4);
+    color: white;
 }
