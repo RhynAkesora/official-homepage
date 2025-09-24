@@ -1,0 +1,348 @@
+/* --- 共通外部CSS (style.css) --- */
+
+/* --- 基本スタイル --- */
+body { 
+    margin: 0; 
+    font-family: 'Noto Serif JP', serif; 
+    background-color: #fdfaf6; 
+    color: #4a3728; 
+    overflow-x: hidden; 
+    scroll-behavior: smooth; 
+    line-height: 1.7;
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+a:focus, button:focus { 
+    outline: 2px solid #d4af37; 
+    outline-offset: 2px; 
+}
+
+/* --- ヘッダー & ナビゲーション --- */
+.main-header { 
+    padding: 15px 0; 
+    text-align: center; 
+    position: sticky; 
+    top: 0; 
+    background-color: rgba(253, 250, 246, 0.95); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    z-index: 100; 
+    border-bottom: 1px solid #f0e9dd; 
+}
+
+nav a { 
+    margin: 0 10px; 
+    padding: 8px 12px; 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    transition: all 0.3s; 
+    border-radius: 5px; 
+}
+
+nav a:hover { 
+    color: #d4af37; 
+    background-color: rgba(212, 175, 55, 0.1); 
+}
+
+nav a.active {
+    color: #d4af37;
+    background-color: rgba(212, 175, 55, 0.15);
+}
+
+/* --- パンくずリスト --- */
+.breadcrumb {
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #d4af37;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #3b2a1e;
+}
+
+.breadcrumb span {
+    margin: 0 8px;
+    color: #999;
+}
+
+/* --- ページヘッダー共通 --- */
+.page-header { 
+    text-align: center; 
+    padding: 80px 0 60px; 
+}
+.page-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.8rem; 
+    font-weight: 900; 
+    color: #3b2a1e; 
+    margin: 0 0 20px 0; 
+    letter-spacing: -1px;
+}
+.page-subtitle { 
+    font-family: 'Cinzel', serif; 
+    font-size: 1.3rem; 
+    color: #d4af37; 
+    letter-spacing: 3px; 
+    margin-bottom: 30px; 
+    font-weight: 700;
+}
+.page-lead { 
+    font-size: 1rem; 
+    line-height: 1.8; 
+    color: #666; 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+
+/* --- セクション共通 --- */
+.section { 
+    margin: 100px 0; 
+}
+.section-header { 
+    text-align: center; 
+    margin-bottom: 60px; 
+}
+.section-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.2rem; 
+    color: #3b2a1e; 
+    margin-bottom: 20px; 
+    position: relative; 
+    display: inline-block; 
+}
+.section-title::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -15px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 60px; 
+    height: 3px; 
+    background: linear-gradient(90deg, #d4af37, #f8e47b);
+    border-radius: 2px;
+}
+.section-subtitle { 
+    font-size: 1rem; 
+    color: #666; 
+    margin-top: 30px; 
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    line-height: 1.8; 
+}
+
+
+/* --- FAQ共通 --- */
+.faq-container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.faq-item { 
+    background: #fff; 
+    margin-bottom: 20px; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06); 
+    border: 1px solid #f0e9dd;
+}
+.faq-question { 
+    padding: 25px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    transition: background 0.3s ease; 
+    color: #3b2a1e;
+}
+.faq-question:hover { 
+    background: linear-gradient(135deg, #f8f4ee, #fefdf9); 
+}
+.faq-answer { 
+    padding: 0 25px 25px; 
+    display: none; 
+    line-height: 1.8; 
+    color: #666;
+}
+.faq-answer.active { 
+    display: block; 
+}
+.faq-icon { 
+    color: #d4af37; 
+    transition: transform 0.3s ease; 
+    font-size: 1.2rem;
+}
+.faq-icon.active { 
+    transform: rotate(180deg); 
+}
+
+/* --- お問い合わせフォーム共通 --- */
+.contact-form {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 2px solid #f0e9dd;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #3b2a1e;
+    font-size: 0.95rem;
+}
+.form-label .required {
+    color: #e74c3c;
+    margin-left: 3px;
+}
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #f0e9dd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Noto Serif JP', serif;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.form-submit {
+    background: linear-gradient(45deg, #d4af37, #f8e47b);
+    color: #3b2a1e;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 30px auto 0;
+    font-family: 'Noto Serif JP', serif;
+}
+.form-submit:hover {
+    background: linear-gradient(45deg, #3b2a1e, #5a4538);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+.form-submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.form-note {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* --- フッター共通 --- */
+.footer { 
+    text-align: center; 
+    padding: 50px 20px; 
+    font-size: 0.9rem; 
+    color: #aaa; 
+    border-top: 1px solid #f0e9dd; 
+}
+
+
+/* --- レスポンシブ対応 (768px以下) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    .page-title { 
+        font-size: 1.8rem; 
+        line-height: 1.3;
+        padding: 0 15px;
+    }
+    .page-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        padding: 0 15px;
+    }
+    .page-lead {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+    .section-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        padding: 0 15px;
+    }
+    .section-subtitle {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+    .section {
+        margin: 60px 0;
+    }
+    .faq-container {
+        padding: 0 15px;
+    }
+    .faq-question {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    .faq-answer {
+        padding: 0 15px 15px;
+        font-size: 0.85rem;
+    }
+    .contact-form {
+        padding: 25px 15px;
+        margin: 30px 15px;
+    }
+    .contact-form h3 {
+        font-size: 1.4rem;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-input, .form-select, .form-textarea {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+    .form-submit {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+    .form-note {
+        font-size: 0.8rem;
+    }
+}
