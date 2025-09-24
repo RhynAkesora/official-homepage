@@ -553,3 +553,10 @@ nav a.active {
     .year-title::before, .year-title::after { display: none; }
     .event-card { padding: 20px 18px; }
 }
+
+/* --- contact.html グリッド崩れ 緊急修正コード --- */
+#contact-methods .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
