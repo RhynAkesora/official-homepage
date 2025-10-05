@@ -354,6 +354,31 @@
             color: #b8941f;
         }
 
+        .expo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .expo-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+        
+        .expo-link i {
+            font-size: 0.85rem;
+        }
+
         /* --- 画像表示エリア --- */
         .event-image-container {
             margin: 20px 0;
@@ -504,6 +529,14 @@
             background: linear-gradient(135deg, #16a085, #48c9b0);
         }
 
+        .event-card.expo {
+            border-left: 4px solid #3498db;
+        }
+        
+        .event-card.expo::before {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+        }
+
         /* --- 空の状態 --- */
         .empty-state {
             text-align: center;
@@ -587,6 +620,11 @@
             
             .event-venue {
                 font-size: 0.85rem;
+            }
+            
+            .expo-link {
+                font-size: 0.85rem;
+                padding: 9px 16px;
             }
             
             .event-image {
@@ -673,6 +711,11 @@
             .event-status {
                 font-size: 0.75rem;
                 padding: 5px 10px;
+            }
+            
+            .expo-link {
+                font-size: 0.8rem;
+                padding: 8px 14px;
             }
             
             .event-image {
@@ -768,11 +811,11 @@
             </h2>
             
             <div class="events-container">
-
+                
                 <div class="event-card expo">
                     <div class="event-date">9.27-28 (土日)</div>
                     <h3 class="event-title">開運エキスポ2025 出店</h3>
-                    <p class="event-description">武術気功ヒーラーとして開運エキスポに出店。音楽活動とは異なる、癒しと気功と武術の世界を、2日間にわたりお届けしました。</p>
+                    <p class="event-description">武術気功ヒーラーとして開運エキスポに出店。音楽活動とは異なる、癒しと気功の世界をお届けします。2日間にわたり、皆様の健康と開運をサポートいたします。</p>
                     
                     <div class="event-details">
                         <h4>イベント詳細</h4>
@@ -784,6 +827,16 @@
                             <span>開運エキスポ公式サイト</span>
                         </a>
                     </div>
+                    
+                    <div class="event-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>クラシティ半田</span>
+                    </div>
+                    <div class="event-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span>終了</span>
+                    </div>
+                </div>
                 
                 <div class="event-card media-appearance">
                     <div class="event-date">9.5 (木)</div>
@@ -793,7 +846,7 @@
                     <div class="event-details">
                         <h4>番組詳細</h4>
                         <p><strong>放送時間:</strong> 12:00-13:00</p>
-                        <p><strong>番組:</strong>アニマルランチタイム</p>
+                        <p><strong>番組:</strong> アニマルランチタイム</p>
                     </div>
                     
                     <div class="event-venue">
@@ -832,7 +885,7 @@
                 <div class="event-card festival">
                     <div class="event-date">8.22 (金)</div>
                     <h3 class="event-title">祭りだ！真夏のアニソンリレー</h3>
-                    <p class="event-description">真夏の夜を彩るアニメソングの祭典。懐かしの名曲から通好みの楽曲まで、アニソンの魅力を存分に届けました</p>
+                    <p class="event-description">真夏の夜を彩るアニメソングの祭典。懐かしの名曲から通好みの楽曲まで、アニソンの魅力を存分に届けました。</p>
                     <div class="event-venue">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>ColorSing</span>
@@ -846,7 +899,7 @@
                 <div class="event-card live-performance">
                     <div class="event-date">7.12 (土)</div>
                     <h3 class="event-title">HR/HM FESTIVAL SHOCK WAVE VOL.3</h3>
-                    <p class="event-description">ヘビーロック・ヘビーメタルの祭典にて熱狂的なパフォーマンスを披露</p>
+                    <p class="event-description">ヘビーロック・ヘビーメタルの祭典にて熱狂的なパフォーマンスを披露。</p>
                     <div class="event-venue">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>ColorSing</span>
@@ -860,7 +913,7 @@
                 <div class="event-card media-appearance">
                     <div class="event-date">6.19 (木)</div>
                     <h3 class="event-title">HeartFM「HEARTFUL SHUFFLE」ゲスト出演</h3>
-                    <p class="event-description">名古屋のラジオ番組にゲスト出演。音楽とそれ以外の独自のスタンスについて語り尽くしました</p>
+                    <p class="event-description">名古屋のラジオ番組にゲスト出演。音楽とそれ以外の独自のスタンスについて語り尽くしました。</p>
                     <div class="event-venue">
                         <i class="fas fa-radio"></i>
                         <span>名古屋 HeartFM（14:00〜）</span>
