@@ -1804,8 +1804,8 @@
     // メールアドレス保護関数
     function getProtectedEmail() {
         // メールアドレスを分割して保存（ボット対策）
-        const parts = ['blackroses', '0120', 'gmail', 'com'];
-        return parts[0] + parts[1] + '@' + parts[2] + '.' + parts[3];
+        const parts = ['info', 'rhyn', 'jp'];
+        return parts[0] + '@' + parts[1] + '.' + parts[2];
     }
 
     // プラン選択肢を動的に変更
@@ -2010,9 +2010,9 @@ ${name}
         const noteElements = document.querySelectorAll('.form-note');
         noteElements.forEach(note => {
             // プレーンテキストのメールアドレスがある場合は保護されたものに置き換え
-            if (note.innerHTML.includes('blackroses0120@gmail.com')) {
+            if (note.innerHTML.includes('info@rhyn.jp')) {
                 note.innerHTML = note.innerHTML.replace(
-                    'blackroses0120@gmail.com', 
+                    'info@rhyn.jp', 
                     getProtectedEmail()
                 );
             }
