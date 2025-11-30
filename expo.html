@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 修正箇所：拡大操作（ピンチアウト）を許可する設定に変更 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>開運エキスポ メニュー</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Yuji+Syuku&display=swap');
@@ -72,6 +73,7 @@
             display: flex;
             flex-direction: column;
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* スクロールを滑らかに */
         }
 
         .items-section {
@@ -207,18 +209,18 @@
             font-weight: 600;
         }
 
-        /* --- ★修正：完全収縮版 特大縦書きエリア --- */
+        /* --- 特大縦書きエリア --- */
         .wonder-experience-section {
             writing-mode: vertical-rl;
             text-orientation: upright;
             
-            margin: 150px auto 0 auto; /* 中央揃え */
-            width: 98%; /* 画面幅に対して少し余裕を持たせる */
+            margin: 150px auto 0 auto;
+            width: 98%;
             height: 85vh;
             
             background: radial-gradient(circle at center, #fffbf0 0%, #fff0f5 100%);
             border-radius: 20px 20px 0 0;
-            border: 5px solid #ff7e5f; /* 枠線を少し細くしてスペース確保 */
+            border: 5px solid #ff7e5f;
             border-bottom: none;
             box-shadow: inset 0 0 30px rgba(255, 126, 95, 0.2);
             
@@ -230,7 +232,7 @@
             overflow: hidden;
             
             font-family: 'Yuji Syuku', serif;
-            padding: 20px 2px; /* 左右パディングを極小に */
+            padding: 20px 2px;
         }
 
         .bg-decoration {
@@ -252,10 +254,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            
-            /* 重要：行間をゼロにする */
             gap: 0px; 
-            
             height: 100%;
             justify-content: center;
             width: 100%;
@@ -263,7 +262,6 @@
 
         /* キャッチコピー（右） */
         .wonder-text-sub {
-            /* フォントサイズを少し控えめに */
             font-size: clamp(0.9rem, 3.5vw, 1.2rem);
             color: #2c3e50;
             font-weight: 700;
@@ -276,7 +274,6 @@
 
         /* メインテキスト（中央） */
         .wonder-text-main {
-            /* 最大サイズを少し抑える */
             font-size: clamp(2.5rem, 12vw, 4.5rem);
             font-weight: 900;
             line-height: 1.1;
@@ -293,13 +290,11 @@
 
         /* 返金保証（左） */
         .refund-guarantee {
-            /* フォントサイズを調整 */
             font-size: clamp(0.9rem, 4vw, 1.2rem);
             color: #e74c3c;
             font-weight: 900;
             line-height: 1.3;
             
-            /* 余白を削る */
             padding: 8px 5px;
             margin-right: 2px;
             
@@ -323,7 +318,7 @@
                 grid-template-columns: 1fr;
             }
             .wonder-experience-section {
-                padding: 15px 0px; /* スマホではパディングほぼなし */
+                padding: 15px 0px;
             }
         }
     </style>
@@ -388,7 +383,7 @@
                 </div>
             </div>
 
-            <!-- ★ここから完全収縮版・特大縦書きエリア -->
+            <!-- 特大縦書きエリア -->
             <div class="wonder-experience-section">
                 <div class="bg-decoration">WONDER</div>
                 <div class="wonder-content">
