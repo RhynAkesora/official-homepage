@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>開運エキスポ メニュー</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Yuji+Syuku&display=swap');
 
         * {
             margin: 0;
@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* 本体スクロール防止 */
+            overflow: hidden;
         }
 
         .merchandise-card {
@@ -31,13 +31,13 @@
             border: 2px solid #667eea;
             width: 100%;
             max-width: 600px;
-            height: 98vh; /* 画面いっぱいに使う */
+            height: 98vh;
             display: flex;
             flex-direction: column;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden; /* 内部スクロールのため */
+            overflow: hidden;
         }
 
         .merchandise-card::before {
@@ -65,11 +65,11 @@
             color: #2c3e50;
         }
 
-        /* 全体をラップしてスクロールさせるコンテナ */
         .scroll-content {
             flex-grow: 1;
             overflow-y: auto;
-            padding: 0 20px 40px 20px; /* 下部余白を多めに */
+            /* パディングを調整して最下部までスクロールできるようにする */
+            padding: 0 20px 0 20px; 
             display: flex;
             flex-direction: column;
             scroll-behavior: smooth;
@@ -80,6 +80,7 @@
             flex-direction: column;
             gap: 10px;
             margin-bottom: 15px;
+            flex-shrink: 0;
         }
 
         .item {
@@ -153,7 +154,6 @@
             display: inline-block;
         }
 
-        /* フッターエリア */
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -208,72 +208,102 @@
             font-weight: 600;
         }
 
-        /* --- ★修正箇所：隠し要素（特大サイズ） --- */
+        /* --- ★特大縦書きエリア --- */
         .wonder-experience-section {
-            text-align: center;
-            /* 意図的に大きく距離を空けて、スクロールしないと見えないようにする */
-            margin-top: 250px; 
-            margin-bottom: 50px;
-            padding: 50px 20px;
-            background: radial-gradient(circle, #fffbf0 0%, #fff0f5 100%);
-            border-radius: 20px;
-            border: 6px dashed #ff7e5f; /* 枠線を太く */
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
-            transform: rotate(-1deg);
+            /* 縦書きモードに設定 */
+            writing-mode: vertical-rl;
+            text-orientation: upright; /* 文字を正立させる */
+            
+            /* レイアウトと余白 */
+            margin-top: 150px;
+            margin-bottom: 0;
+            width: 100%;
+            height: 80vh; /* 画面の8割を占有する高さ */
+            
+            /* デザイン */
+            background: radial-gradient(circle at center, #fffbf0 0%, #fff0f5 100%);
+            border-radius: 20px 20px 0 0;
+            border: 8px solid #ff7e5f;
+            border-bottom: none; /* 下は画面外に続くイメージ */
+            box-shadow: inset 0 0 30px rgba(255, 126, 95, 0.2);
+            
+            /* 中身の配置 */
+            display: flex;
+            align-items: center; /* 縦書きなので横方向の中央揃えになる */
+            justify-content: center; /* 縦書きなので縦方向の中央揃えになる */
+            flex-shrink: 0;
             position: relative;
+            overflow: hidden;
+            
+            /* フォント */
+            font-family: 'Yuji Syuku', serif; /* 筆文字っぽいフォントを使用 */
         }
 
-        /* 装飾的な要素 */
-        .wonder-experience-section::before {
-            content: '★';
+        /* 背景の装飾（薄い文字） */
+        .bg-decoration {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 2rem;
-            color: #feb47b;
-            transform: rotate(-15deg);
-        }
-        .wonder-experience-section::after {
-            content: '★';
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 2rem;
-            color: #feb47b;
-            transform: rotate(15deg);
+            font-size: 15rem;
+            opacity: 0.05;
+            color: #ff416c;
+            z-index: 0;
+            pointer-events: none;
+            writing-mode: horizontal-tb; /* 装飾は横書きで配置 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            white-space: nowrap;
         }
 
-        .wonder-text-main {
-            font-size: 3.2rem; /* さらに巨大化 */
-            font-weight: 900;
-            /* インパクトのあるグラデーション */
-            background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff9f43);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            filter: drop-shadow(3px 3px 0px rgba(255,255,255,0.8));
-            padding-bottom: 15px;
+        .wonder-content {
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* 縦書きモード内では行が右から左へ並ぶ */
+            align-items: center;
+            gap: 20px; /* 行間の隙間 */
+            height: 100%;
+            justify-content: center;
+            padding: 20px;
         }
 
+        /* キャッチコピー（右側の行） */
         .wonder-text-sub {
             font-size: 1.4rem;
             color: #2c3e50;
             font-weight: 700;
-            line-height: 1.5;
-            padding: 10px;
-            background: rgba(255,255,255,0.6);
-            border-radius: 10px;
-            display: inline-block;
+            line-height: 1.8;
+            letter-spacing: 0.1em;
+            border-left: 2px solid #ff7e5f; /* 縦書きなので線は左側に来る */
+            padding-left: 15px;
         }
-        
-        .wonder-text-keyword {
-            color: #e74c3c;
-            font-size: 1.6rem;
-            border-bottom: 3px solid #feca57;
+
+        /* 強調キーワード（左側の行） */
+        .wonder-text-main {
+            font-size: 5rem; /* 超特大 */
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0.05em;
+            
+            /* ド派手なグラデーション */
+            background: linear-gradient(to bottom, #ff416c, #ff4b2b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+            animation: pulse 2s infinite ease-in-out;
         }
-        /* -------------------------------------------------- */
+
+        .wonder-mark {
+            font-size: 3rem;
+            color: #feca57;
+            text-shadow: 2px 2px 0 #ff4b2b;
+            margin-bottom: 20px; /* 縦書きなので上方向のマージン */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
 
         /* 小さい画面での調整 */
         @media (max-width: 420px) {
@@ -281,28 +311,25 @@
                 grid-template-columns: 1fr;
             }
             .wonder-text-main {
-                font-size: 2.5rem;
+                font-size: 3.5rem;
             }
             .wonder-text-sub {
                 font-size: 1.1rem;
-            }
-            .wonder-text-keyword {
-                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="merchandise-card">
-        <!-- ヘッダー（固定気味） -->
+        <!-- ヘッダー -->
         <div class="header-area">
             <h1 class="title">ヒーリング処 凛</h1>
         </div>
         
-        <!-- ここからスクロールエリア -->
+        <!-- スクロールエリア -->
         <div class="scroll-content">
             
-            <!-- メニューリスト -->
+            <!-- メニュー -->
             <div class="items-section">
                 <div class="item">
                     <span class="item-name">◆ 心身を整える【合氣活法】体験<br><span style="font-size:0.85em; color:#666;">（お守り付）</span></span>
@@ -337,7 +364,7 @@
                 </div>
             </div>
 
-            <!-- フッターエリア -->
+            <!-- フッター -->
             <div class="footer-grid">
                 <div class="payment-section">
                     <div class="section-title">💳 お支払い</div>
@@ -356,16 +383,31 @@
                 </div>
             </div>
 
-            <!-- ★ここから隠し要素（スクロールしないと見えない） -->
+            <!-- ★ここから超特大・縦書きエリア -->
+            <!-- 距離を空けて、スクロールしないと見えない位置に配置 -->
             <div class="wonder-experience-section">
-                <p class="wonder-text-main">✨不思議体験！✨</p>
-                <p class="wonder-text-sub">
-                    <span class="wonder-text-keyword">武術気功</span>の<br>
-                    不思議な世界を楽しめる！
-                </p>
+                <div class="bg-decoration">WONDER</div>
+                <div class="wonder-content">
+                    <!-- 縦書きモードなので、DOM順序が右行→左行になることが多いが、
+                         vertical-rl の場合、コンテンツは上から下へ、行は右から左へ並びます -->
+                    
+                    <!-- キャッチコピー（右行） -->
+                    <p class="wonder-text-sub">
+                        武術気功の<br>
+                        不思議な世界を楽しめる！
+                    </p>
+                    
+                    <!-- メインテキスト（左行） -->
+                    <p class="wonder-text-main">
+                        <span style="font-size: 0.6em; display:inline-block; margin-bottom:10px;">✨</span><br>
+                        不思議体験<br>
+                        <span style="font-size: 0.6em; display:inline-block; margin-top:10px;">✨</span>
+                    </p>
+                </div>
             </div>
 
         </div>
     </div>
 </body>
 </html>
+
