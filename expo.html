@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>開運エキスポ メニュー</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap');
 
         * {
             margin: 0;
@@ -22,22 +22,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* スクロール防止 */
+            overflow: hidden; /* 本体スクロール防止 */
         }
 
         .merchandise-card {
             background: white;
             border-radius: 12px;
             border: 2px solid #667eea;
-            padding: 15px 20px;
             width: 100%;
-            max-width: 600px; /* タブレット向けに調整 */
+            max-width: 600px;
             height: 98vh; /* 画面いっぱいに使う */
             display: flex;
             flex-direction: column;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden; /* 内部スクロールのため */
         }
 
         .merchandise-card::before {
@@ -48,7 +48,14 @@
             right: 0;
             height: 5px;
             background: linear-gradient(90deg, #84fab0, #8fd3f4, #a1c4fd, #fbc2eb);
-            border-radius: 10px 10px 0 0;
+            z-index: 10;
+        }
+
+        .header-area {
+            padding: 15px 20px 0 20px;
+            flex-shrink: 0;
+            background: white;
+            z-index: 5;
         }
 
         .title {
@@ -56,18 +63,23 @@
             font-weight: 700;
             margin: 10px 0 15px 0;
             color: #2c3e50;
-            flex-shrink: 0;
         }
 
-        /* メニューリスト部分を伸縮させて隙間を埋める */
-        .items-section {
+        /* 全体をラップしてスクロールさせるコンテナ */
+        .scroll-content {
             flex-grow: 1;
+            overflow-y: auto;
+            padding: 0 20px 40px 20px; /* 下部余白を多めに */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            scroll-behavior: smooth;
+        }
+
+        .items-section {
+            display: flex;
+            flex-direction: column;
             gap: 10px;
             margin-bottom: 15px;
-            overflow-y: auto;
         }
 
         .item {
@@ -79,6 +91,7 @@
             border-radius: 10px;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .item:hover {
@@ -95,7 +108,6 @@
             line-height: 1.4;
         }
 
-        /* 価格表示の共通スタイル */
         .price-container {
             display: flex;
             flex-direction: column;
@@ -111,7 +123,6 @@
             color: #2c3e50;
         }
 
-        /* 特別価格のスタイル */
         .special-price-group {
             display: flex;
             flex-direction: column;
@@ -142,13 +153,13 @@
             display: inline-block;
         }
 
-        /* 下部エリア（支払い・QR）を2列にして省スペース化 */
+        /* フッターエリア */
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             flex-shrink: 0;
-            height: auto;
+            margin-bottom: 20px;
         }
 
         .payment-section, .qr-section {
@@ -158,7 +169,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
         }
 
         .payment-section {
@@ -169,7 +179,6 @@
         .qr-section {
             background: linear-gradient(135deg, #fff5f5, #f0f8ff);
             border-left: 4px solid #667eea;
-            margin-top: 0; /* 元のCSSのマージンをリセット */
         }
 
         .section-title {
@@ -199,74 +208,163 @@
             font-weight: 600;
         }
 
+        /* --- ★修正箇所：隠し要素（特大サイズ） --- */
+        .wonder-experience-section {
+            text-align: center;
+            /* 意図的に大きく距離を空けて、スクロールしないと見えないようにする */
+            margin-top: 250px; 
+            margin-bottom: 50px;
+            padding: 50px 20px;
+            background: radial-gradient(circle, #fffbf0 0%, #fff0f5 100%);
+            border-radius: 20px;
+            border: 6px dashed #ff7e5f; /* 枠線を太く */
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
+            transform: rotate(-1deg);
+            position: relative;
+        }
+
+        /* 装飾的な要素 */
+        .wonder-experience-section::before {
+            content: '★';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2rem;
+            color: #feb47b;
+            transform: rotate(-15deg);
+        }
+        .wonder-experience-section::after {
+            content: '★';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: #feb47b;
+            transform: rotate(15deg);
+        }
+
+        .wonder-text-main {
+            font-size: 3.2rem; /* さらに巨大化 */
+            font-weight: 900;
+            /* インパクトのあるグラデーション */
+            background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff9f43);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            filter: drop-shadow(3px 3px 0px rgba(255,255,255,0.8));
+            padding-bottom: 15px;
+        }
+
+        .wonder-text-sub {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            font-weight: 700;
+            line-height: 1.5;
+            padding: 10px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .wonder-text-keyword {
+            color: #e74c3c;
+            font-size: 1.6rem;
+            border-bottom: 3px solid #feca57;
+        }
+        /* -------------------------------------------------- */
+
         /* 小さい画面での調整 */
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
             .footer-grid {
-                grid-template-columns: 1fr; /* スマホなど極端に幅が狭い場合は縦並びに戻す */
+                grid-template-columns: 1fr;
             }
-            .item-name {
-                font-size: 0.9rem;
+            .wonder-text-main {
+                font-size: 2.5rem;
+            }
+            .wonder-text-sub {
+                font-size: 1.1rem;
+            }
+            .wonder-text-keyword {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="merchandise-card">
-        <h1 class="title">ヒーリング処 凛</h1>
+        <!-- ヘッダー（固定気味） -->
+        <div class="header-area">
+            <h1 class="title">ヒーリング処 凛</h1>
+        </div>
         
-        <div class="items-section">
-            <div class="item">
-                <span class="item-name">◆ 心身を整える【合氣活法】体験<br><span style="font-size:0.85em; color:#666;">（お守り付）</span></span>
-                <div class="price-container">
-                    <div class="special-price-group">
-                        <span class="discount-badge">特別価格</span>
-                        <span class="original-price">¥2,000</span>
-                        <span class="discount-price">¥1,000</span>
+        <!-- ここからスクロールエリア -->
+        <div class="scroll-content">
+            
+            <!-- メニューリスト -->
+            <div class="items-section">
+                <div class="item">
+                    <span class="item-name">◆ 心身を整える【合氣活法】体験<br><span style="font-size:0.85em; color:#666;">（お守り付）</span></span>
+                    <div class="price-container">
+                        <div class="special-price-group">
+                            <span class="discount-badge">特別価格</span>
+                            <span class="original-price">¥2,000</span>
+                            <span class="discount-price">¥1,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <span class="item-name">◆【氣の調整】<br>認知科学氣功ヒーリング (10分)</span>
+                    <div class="price-container">
+                        <span class="item-price">¥1,000</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <span class="item-name">◆【思考の整理】<br>ブッダの実践知セッション<br>＋心の浄化ヒーリング (20分)</span>
+                    <div class="price-container">
+                        <span class="item-price">¥3,000</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <span class="item-name">◆ その他、お任せコース</span>
+                    <div class="price-container">
+                        <span class="item-price" style="font-size: 1rem; font-weight: 600; white-space: nowrap;">お尋ねください</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="item">
-                <span class="item-name">◆【氣の調整】<br>認知科学氣功ヒーリング (10分)</span>
-                <div class="price-container">
-                    <span class="item-price">¥1,000</span>
+
+            <!-- フッターエリア -->
+            <div class="footer-grid">
+                <div class="payment-section">
+                    <div class="section-title">💳 お支払い</div>
+                    <div class="payment-info">
+                        <strong>現金 / PayPay</strong><br>
+                        ご利用いただけます
+                    </div>
                 </div>
-            </div>
-            
-            <div class="item">
-                <span class="item-name">◆【思考の整理】<br>ブッダの実践知セッション<br>＋心の浄化ヒーリング (20分)</span>
-                <div class="price-container">
-                    <span class="item-price">¥3,000</span>
+
+                <div class="qr-section">
+                    <div class="section-title">🌐 公式サイト</div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rhyn.jp/" alt="QR Code for https://rhyn.jp">
+                    </div>
+                    <div class="website-url">rhyn.jp</div>
                 </div>
             </div>
 
-            <!-- 追加項目：その他、お任せコース -->
-            <div class="item">
-                <span class="item-name">◆ その他 お任せコース</span>
-                <div class="price-container">
-                    <span class="item-price" style="font-size: 1rem; font-weight: 600; white-space: nowrap;">お尋ねください</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 下部エリア：グリッドレイアウトで左右配置 -->
-        <div class="footer-grid">
-            <div class="payment-section">
-                <div class="section-title">💳 お支払い</div>
-                <div class="payment-info">
-                    <strong>現金 / PayPay</strong><br>
-                    ご利用いただけます
-                </div>
+            <!-- ★ここから隠し要素（スクロールしないと見えない） -->
+            <div class="wonder-experience-section">
+                <p class="wonder-text-main">✨不思議体験！✨</p>
+                <p class="wonder-text-sub">
+                    <span class="wonder-text-keyword">武術気功</span>の<br>
+                    不思議な世界を楽しめる！
+                </p>
             </div>
 
-            <div class="qr-section">
-                <div class="section-title">🌐 公式サイト</div>
-                <div class="qr-code">
-                    <!-- QRコード生成APIを使用して自動表示 -->
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rhyn.jp/" alt="QR Code for https://rhyn.jp">
-                </div>
-                <div class="website-url">rhyn.jp</div>
-            </div>
         </div>
     </div>
 </body>
