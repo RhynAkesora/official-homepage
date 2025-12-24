@@ -636,6 +636,9 @@
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         border-color: #2c3e50;
     }
+    .portfolio-item[data-url]:hover {
+        background: linear-gradient(135deg, #f0e9dd, #f8f4ee);
+    }
     .portfolio-item h3 {
         font-family: 'Playfair Display', serif;
         font-size: 1.4rem;
@@ -1183,7 +1186,7 @@
                     アーティストの多面性を、デジタル空間で表現しています。</em>
                 </p>
             </div>
-            <div class="portfolio-item">
+            <div class="portfolio-item" data-url="https://aichi-ass.com/" style="cursor: pointer;">
                 <span class="category">企業サイト | エッセンシャルサイトプラン</span>
                 <h3><a href="https://aichi-ass.com/" target="_blank" rel="noopener noreferrer" style="color: #3b2a1e; text-decoration: none; border-bottom: 2px solid #2c3e50; transition: border-color 0.3s ease;">愛和援（介護・福祉サービス）</a><br><span style="font-size: 0.9rem; font-weight: normal; color: #666;">合同会社愛知活動支援サービス様</span></h3>
                 <p>
@@ -1726,6 +1729,21 @@ ${name}
                     getProtectedEmail()
                 );
             }
+        });
+
+        // ポートフォリオカード全体をクリック可能に
+        document.querySelectorAll('.portfolio-item[data-url]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // リンク自体がクリックされた場合は何もしない（既存の動作を優先）
+                if (e.target.tagName === 'A') {
+                    return;
+                }
+                // カード全体がクリックされた場合
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
         });
     });
 
