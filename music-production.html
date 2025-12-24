@@ -730,6 +730,46 @@
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     }
 
+    /* カスタムツールチップ */
+    .sample-button {
+        position: relative;
+    }
+    .sample-button::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: #3b2a1e;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
+    }
+    .sample-button::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(5px);
+        border: 6px solid transparent;
+        border-top-color: #3b2a1e;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
+    }
+    .sample-button:hover::after,
+    .sample-button:hover::before {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
     /* --- YouTube埋め込み --- */
     .video-container {
         position: relative;
@@ -1428,8 +1468,8 @@
         </p>
 
         <div class="sample-buttons" style="margin-top: 40px;">
-            <a href="#" class="sample-button" onclick="showModal('準備中です'); return false;">楽曲制作 その他実績</a>
-            <a href="#" class="sample-button" onclick="showModal('準備中です'); return false;">BGM制作 その他実績</a>
+            <a href="#" class="sample-button" data-tooltip="準備中です">楽曲制作 その他実績</a>
+            <a href="#" class="sample-button" data-tooltip="準備中です">BGM制作 その他実績</a>
         </div>
     </section>
 
@@ -2075,6 +2115,15 @@ ${name}
                     getProtectedEmail()
                 );
             }
+        });
+
+        // サンプルボタンのクリックを無効化
+        const sampleButtons = document.querySelectorAll('.sample-button[data-tooltip]');
+        sampleButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                return false;
+            });
         });
     });
 
