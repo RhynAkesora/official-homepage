@@ -730,46 +730,6 @@
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     }
 
-    /* カスタムツールチップ */
-    .sample-button {
-        position: relative;
-    }
-    .sample-button::after {
-        content: attr(data-tooltip);
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-        background: #3b2a1e;
-        color: #fff;
-        padding: 8px 15px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1000;
-    }
-    .sample-button::before {
-        content: '';
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(5px);
-        border: 6px solid transparent;
-        border-top-color: #3b2a1e;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1000;
-    }
-    .sample-button:hover::after,
-    .sample-button:hover::before {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-
     /* --- YouTube埋め込み --- */
     .video-container {
         position: relative;
@@ -1270,6 +1230,13 @@
         .soundcloud-container {
             box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
         }
+        /* 歌ってみたミックス実績セクション */
+        .mix-sample-section {
+            margin: 30px auto 0 !important;
+        }
+        .mix-sample-section h4 {
+            font-size: 1.3rem !important;
+        }
     }
 </style>
 
@@ -1648,25 +1615,28 @@
     <!-- 制作実績を聴く（YouTube埋め込み） -->
     <section class="sample-box">
         <h3><i class="fas fa-headphones"></i> 制作実績 一例</h3>
-        <p style="margin-bottom: 30px;">実際のミックス作品をご視聴いただけます</p>
+        <p style="margin-bottom: 30px;">実際の作品をご視聴いただけます</p>
         
-        <!-- YouTube動画埋め込み -->
-        <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/OcrNZ-2QR-k?si=Y-6nvFW4MO8p9iGF" 
-                title="歌ってみたミックスサンプル"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        <p class="video-caption">
-            <strong style="color: #3b2a1e; font-size: 1.05rem;">砂糖うい様　ご依頼作品</strong><br>
-            歌ってみたミックスサービス　プレミアムミックス<br>
-            <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
-        </p>
-
-        <div class="sample-buttons" style="margin-top: 40px;">
-            <a href="#" class="sample-button" data-tooltip="準備中です">楽曲制作 その他実績</a>
+        <!-- 歌ってみたミックス実績 -->
+        <div class="mix-sample-section" style="margin: 40px auto 0; max-width: 800px;">
+            <h4 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
+                <i class="fas fa-microphone-alt" style="color: #d4af37; margin-right: 10px;"></i>
+                歌ってみたミックス実績
+            </h4>
+            <!-- YouTube動画埋め込み -->
+            <div class="video-container" style="margin: 20px auto;">
+                <iframe 
+                    src="https://www.youtube.com/embed/OcrNZ-2QR-k?si=Y-6nvFW4MO8p9iGF" 
+                    title="歌ってみたミックスサンプル"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
+                <strong style="color: #3b2a1e; font-size: 1.05rem;">砂糖うい様　ご依頼作品</strong><br>
+                歌ってみたミックスサービス　プレミアムミックス<br>
+                <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
+            </p>
         </div>
 
         <!-- SoundCloud BGM埋め込み -->
@@ -1675,11 +1645,11 @@
                 <i class="fas fa-compact-disc" style="color: #d4af37; margin-right: 10px;"></i>
                 BGM制作実績
             </h4>
-            <div class="soundcloud-container" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin: 0 15px;">
+            <div class="soundcloud-container" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin: 20px 15px;">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2235902225%3Fsecret_token%3Ds-BBWGcrJxKFV&color=%23d4af37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
             </div>
             <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
-                <strong style="color: #3b2a1e; font-size: 1.05rem;">和っと安らぎ</strong><br>
+                <strong style="color: #3b2a1e; font-size: 1.05rem;">和と安らぎ</strong><br>
                 配信BGM・環境音楽制作<br>
                 <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
             </p>
@@ -2156,15 +2126,6 @@ ${name}
                     getProtectedEmail()
                 );
             }
-        });
-
-        // サンプルボタンのクリックを無効化
-        const sampleButtons = document.querySelectorAll('.sample-button[data-tooltip]');
-        sampleButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                return false;
-            });
         });
     });
 
