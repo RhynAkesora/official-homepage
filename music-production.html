@@ -730,7 +730,7 @@
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     }
 
-    /* --- YouTube埋め込み --- */
+    /* --- YouTube・Spotify埋め込み --- */
     .video-container {
         position: relative;
         width: 100%;
@@ -757,6 +757,20 @@
         font-size: 0.95rem;
         color: #666;
         font-style: italic;
+    }
+
+    /* --- Spotify埋め込み専用 --- */
+    .spotify-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 40px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .spotify-container iframe {
+        display: block;
+        border-radius: 20px;
     }
 
     /* --- SoundCloud埋め込み --- */
@@ -1200,7 +1214,7 @@
         .form-note {
             font-size: 0.8rem;
         }
-        .video-container {
+        .video-container, .spotify-container {
             margin: 30px auto;
             max-width: calc(100% - 30px);
         }
@@ -1612,13 +1626,30 @@
     </section>
     
 
-    <!-- 制作実績を聴く（YouTube埋め込み） -->
+    <!-- 制作実績を聴く -->
     <section class="sample-box">
         <h3><i class="fas fa-headphones"></i> 制作実績 一例</h3>
         <p style="margin-bottom: 30px;">実際の作品をご視聴いただけます</p>
         
+        <!-- 楽曲制作実績（Spotify） -->
+        <div class="music-sample-section" style="margin: 40px auto 0; max-width: 800px;">
+            <h4 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
+                <i class="fas fa-music" style="color: #d4af37; margin-right: 10px;"></i>
+                楽曲制作実績
+            </h4>
+            <!-- Spotify埋め込み -->
+            <div class="spotify-container" style="margin: 20px auto;">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5dPXUjh82JZnqLFUEoAKs7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
+                <strong style="color: #3b2a1e; font-size: 1.05rem;">ノスタルジア / Rhyn's Luminous Path</strong><br>
+                オリジナル楽曲制作　コンプリートプラン相当<br>
+                作詞・作曲・編曲・ミックス・マスタリング・世界配信登録
+            </p>
+        </div>
+
         <!-- 歌ってみたミックス実績 -->
-        <div class="mix-sample-section" style="margin: 40px auto 0; max-width: 800px;">
+        <div class="mix-sample-section" style="margin: 60px auto 0; max-width: 800px;">
             <h4 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
                 <i class="fas fa-microphone-alt" style="color: #d4af37; margin-right: 10px;"></i>
                 歌ってみたミックス実績
@@ -1634,12 +1665,11 @@
             </div>
             <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
                 <strong style="color: #3b2a1e; font-size: 1.05rem;">砂糖うい様　ご依頼作品</strong><br>
-                歌ってみたミックスサービス　プレミアムミックス<br>
-                <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
+                歌ってみたミックスサービス　プレミアムミックス
             </p>
         </div>
 
-        <!-- SoundCloud BGM埋め込み -->
+        <!-- BGM制作実績 -->
         <div class="bgm-sample-section" style="margin: 60px auto 0; max-width: 800px;">
             <h4 class="bgm-sample-title" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
                 <i class="fas fa-compact-disc" style="color: #d4af37; margin-right: 10px;"></i>
@@ -1650,16 +1680,15 @@
             </div>
             <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
                 <strong style="color: #3b2a1e; font-size: 1.05rem;">和と安らぎ</strong><br>
-                配信BGM・環境音楽制作<br>
-                <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
+                配信BGM・環境音楽制作
             </p>
         </div>
 
-        <!-- 楽曲制作実績 -->
-        <div class="bgm-sample-section" style="margin: 60px auto 0; max-width: 800px;">
-            <h4 class="bgm-sample-title" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
-                <i class="fas fa-music" style="color: #d4af37; margin-right: 10px;"></i>
-                楽曲制作実績
+        <!-- ゲーム楽曲実績 -->
+        <div class="game-sample-section" style="margin: 60px auto 0; max-width: 800px;">
+            <h4 class="game-sample-title" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
+                <i class="fas fa-gamepad" style="color: #d4af37; margin-right: 10px;"></i>
+                ゲーム楽曲実績
             </h4>
             <div class="soundcloud-container" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin: 20px 15px;">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2236006742%3Fsecret_token%3Ds-00Qn7gLwzbE&color=%23d4af37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
@@ -1667,7 +1696,7 @@
             <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
                 <strong style="color: #3b2a1e; font-size: 1.05rem;">Soul-Stage</strong><br>
                 自作ゲーム「魂の共鳴～私を信じて～」ステージBGM<br>
-                <small style="color: #999; margin-top: 8px; display: block;">※ご紹介している制作実績は一例です</small>
+                ゲーム楽曲プラン　完全ループ処理対応
             </p>
         </div>
     </section>
@@ -1723,7 +1752,7 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>納期はどのくらいですか？</span>
+                    <span>納期はどのくらいですか?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1732,7 +1761,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>BGMの著作権はどうなりますか？</span>
+                    <span>BGMの著作権はどうなりますか?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1741,7 +1770,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>修正はどの範囲まで可能ですか？</span>
+                    <span>修正はどの範囲まで可能ですか?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1750,7 +1779,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>作詞だけ、作曲だけの依頼も可能ですか？</span>
+                    <span>作詞だけ、作曲だけの依頼も可能ですか?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1759,7 +1788,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>コンプリートプランの世界配信登録が無料なのはなぜですか？</span>
+                    <span>コンプリートプランの世界配信登録が無料なのはなぜですか?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1768,7 +1797,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>シンガープラン以上で作詞が不要な場合は？</span>
+                    <span>シンガープラン以上で作詞が不要な場合は?</span>
                     <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
@@ -1859,7 +1888,7 @@
 
             <div class="form-group">
                 <label class="form-label" for="reference">参考楽曲・アーティスト</label>
-                <input type="text" id="reference" name="reference" class="form-input" placeholder="例：◯◯の「△△」のような雰囲気で">
+                <input type="text" id="reference" name="reference" class="form-input" placeholder="例:◯◯の「△△」のような雰囲気で">
             </div>
             
             <div class="form-group">
