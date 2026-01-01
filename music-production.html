@@ -730,7 +730,7 @@
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     }
 
-    /* --- YouTube・Spotify埋め込み --- */
+    /* --- YouTube埋め込み --- */
     .video-container {
         position: relative;
         width: 100%;
@@ -759,18 +759,20 @@
         font-style: italic;
     }
 
-    /* --- Spotify埋め込み専用 --- */
-    .spotify-container {
+    /* --- Apple Music埋め込み専用 --- */
+    .apple-music-container {
         width: 100%;
-        max-width: 800px;
+        max-width: 660px; /* 公式埋め込みの推奨最大幅 */
         margin: 40px auto;
-        border-radius: 20px;
+        border-radius: 12px; /* Apple Musicのコーナー半径 */
         overflow: hidden;
         box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        background: transparent;
     }
-    .spotify-container iframe {
+    .apple-music-container iframe {
         display: block;
-        border-radius: 20px;
+        width: 100%;
+        border: none;
     }
 
     /* --- SoundCloud埋め込み --- */
@@ -887,7 +889,7 @@
     .form-submit:hover {
         background: linear-gradient(45deg, #3b2a1e, #5a4538);
         color: #fff;
-        transform: translateY(-3px);
+        transform: translateY(-3px); 
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
     }
     .form-submit:disabled {
@@ -1214,7 +1216,7 @@
         .form-note {
             font-size: 0.8rem;
         }
-        .video-container, .spotify-container {
+        .video-container, .apple-music-container {
             margin: 30px auto;
             max-width: calc(100% - 30px);
         }
@@ -1631,15 +1633,15 @@
         <h3><i class="fas fa-headphones"></i> 制作実績 一例</h3>
         <p style="margin-bottom: 30px;">実際の作品をご視聴いただけます</p>
         
-        <!-- 楽曲制作実績（Spotify） -->
+        <!-- 楽曲制作実績（Apple Music） -->
         <div class="music-sample-section" style="margin: 40px auto 0; max-width: 800px;">
             <h4 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #3b2a1e; margin-bottom: 20px; padding: 0 15px;">
                 <i class="fas fa-music" style="color: #d4af37; margin-right: 10px;"></i>
                 楽曲制作実績
             </h4>
-            <!-- Spotify埋め込み -->
-            <div class="spotify-container" style="margin: 20px auto;">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5dPXUjh82JZnqLFUEoAKs7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- Apple Music埋め込み -->
+            <div class="apple-music-container">
+               <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/nostalgia-single/1863646127"></iframe>
             </div>
             <p class="video-caption" style="margin-top: 20px; padding: 0 15px;">
                 <strong style="color: #3b2a1e; font-size: 1.05rem;">ノスタルジア / Rhyn's Luminous Path</strong><br>
