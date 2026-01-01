@@ -1146,6 +1146,22 @@
             color: #d4af37;
             font-size: 1rem;
         }
+
+        /* --- Writings (note) セクション用スタイル --- */
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* note埋め込み用調整 */
+        .note-embed-wrapper {
+            width: 100%;
+        }
+
         .about-section p { 
             font-size: 1.05rem; 
             line-height: 2.2; 
@@ -1880,6 +1896,50 @@
             <a href="history.html" class="history-button">
                 <i class="fas fa-scroll"></i>私の歩み - Historyを見る
             </a>
+        </section>
+
+        <!-- 新規追加: note記事表示セクション (Words & Philosophy) -->
+        <section id="words" class="section">
+            <h2 class="section-title"><i class="fas fa-pen-nib"></i>Words & Philosophy</h2>
+            <p class="media-subtitle">note / 思考の断片と哲学的考察</p>
+            
+            <div class="note-grid">
+                <!-- 記事カード 1 -->
+                <a href="https://note.com/rhyn/n/n381926ab80cc" target="_blank" rel="noopener noreferrer" class="note-card">
+                    <div class="note-content">
+                        <span class="note-date">Neuroscience & Martial Arts</span>
+                        <h3 class="note-title">反応する自動機械と意識的制御――脳科学と武術が明かす、洗脳・魔境・解脱への道</h3>
+                        <p class="note-excerpt">私たちが信じて疑わない「確固たる自己」や「自由意志」。しかし現代の脳科学が突きつける事実は、それらが脳の作り出した幻想に過ぎないことを示唆している。事実への拒絶反応こそが、人間が「環境からの入力に対し自動的に出力するだけの機械」であることの何よりの証明なのだ。</p>
+                        <span class="note-read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- 記事カード 2 -->
+                <a href="https://note.com/rhyn/n/n7c492956709c" target="_blank" rel="noopener noreferrer" class="note-card">
+                    <div class="note-content">
+                        <span class="note-date">Philosophy of Mind</span>
+                        <h3 class="note-title">霊視の正体 クオリアの誤謬と魔境への転落</h3>
+                        <p class="note-excerpt">不思議な現象を非科学的だと切り捨てるのではない。なぜ起きるのかというメカニズムを、認知科学と哲学の視点から解明するのだ。現象の存在は肯定しつつ正体を暴く。霊能者の多くが犯す致命的な過ちは、脳内の内部表現と外部の物理的実在の境界線を喪失している点にある。</p>
+                        <span class="note-read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- 記事カード 3 -->
+                <a href="https://note.com/rhyn/n/n3753964c9482" target="_blank" rel="noopener noreferrer" class="note-card">
+                    <div class="note-content">
+                        <span class="note-date">Social Commentary</span>
+                        <h3 class="note-title">9.スピリチュアルの罠：『性善説』があなたを食い物にする</h3>
+                        <p class="note-excerpt">スピリチュアルな探求をしているのに、なぜか心が晴れない。その原因は、あなたが無意識に抱く「発信者は善い人に違いない」という根拠のない性善説にあるのかもしれない。純粋な探求心を踏みにじられ、搾取されるのを防ぐための、極めて重要な「コンパス」について話そう。</p>
+                        <span class="note-read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://note.com/rhyn" target="_blank" rel="noopener noreferrer" class="store-link-button">
+                    <i class="fas fa-book-open"></i> noteで全ての記事を読む
+                </a>
+            </div>
         </section>
 
         <section id="featured-work" class="section">
