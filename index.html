@@ -608,6 +608,14 @@
             grid-template-columns: 1fr;
             gap: 30px;
         }
+        
+        /* YouTube統合表示用 - 常に縦並び */
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px; /* 縦並びの際の間隔を少し広めに調整 */
+        }
+
         .media-subtitle {
             text-align: center;
             color: #8b7355;
@@ -617,6 +625,15 @@
             font-weight: 600;
         }
         
+        /* 個別動画タイトル */
+        .video-item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #4a3728;
+        }
+
         /* ストアリンクボタン用 */
         .store-links {
             margin-top: 20px;
@@ -678,7 +695,7 @@
                 height: 450px; /* PC版もApple Music用に調整 */
             }
             
-            /* Apple Music PC 2カラム */
+            /* Apple MusicのみPCで2カラムにする (YouTubeは縦並び維持) */
             .apple-music-grid {
                 grid-template-columns: 1fr 1fr; 
             }
@@ -1778,19 +1795,30 @@
                 <h2 class="section-title"><i class="fas fa-play-circle"></i>Media</h2>
             </div>
             <div class="media-grid">
+                <!-- YouTube セクション (統合) -->
                 <div class="media-item">
-                    <h3 class="media-title">黒薔薇王国 2017.05.14 @ Kawasaki CLUB CITTA', Kanagawa</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/QrdOVVmjFrk" width="100%" height="100%" title="Rhyn皇太子(リン皇太子)Live Performance at CLUB CITTA'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <h3 class="media-title">黒薔薇王国 / Black Roses</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/tqENBB516-0?si=78D-yFG55KdwG-vt" width="100%" height="100%" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                    <h3 class="media-title"><i class="fab fa-youtube" style="margin-right: 8px;"></i>Featured Videos</h3>
+                    <p class="media-subtitle">黒薔薇王国 / Live & MV</p>
+                    
+                    <div class="youtube-grid">
+                        <!-- Video 1 -->
+                        <div>
+                            <h4 class="video-item-title">2017.05.14 @ Kawasaki CLUB CITTA', Kanagawa</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/QrdOVVmjFrk" width="100%" height="100%" title="Rhyn皇太子(リン皇太子)Live Performance at CLUB CITTA'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <!-- Video 2 -->
+                        <div>
+                            <h4 class="video-item-title">黒薔薇王国 / Black Roses</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/tqENBB516-0?si=78D-yFG55KdwG-vt" width="100%" height="100%" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Apple Music セクション -->
                 <div class="media-item apple-music-section">
                     <!-- タイトルを変更: Apple Music限定感をなくす -->
                     <h3 class="media-title"><i class="fas fa-headphones" style="margin-right: 8px;"></i>Digital Streaming</h3>
