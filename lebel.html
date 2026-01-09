@@ -461,14 +461,31 @@
             font-size: 0.7rem;
         }
 
-        /* --- Apple Music Embed Style --- */
+        /* --- Apple Music Embed Style (Modified) --- */
         .apple-music-embed {
-            margin: 15px 0 10px 0; /* マージン調整 */
+            margin: 10px 0 20px 0;
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            background: #fafafa;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15); /* ゴールドの薄い影を追加 */
+            border: 1px solid rgba(212, 175, 55, 0.2); /* 薄いゴールドの枠線 */
+            background: #fff;
+        }
+
+        .preview-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .preview-label i {
+            font-size: 0.9rem;
         }
         
         /* --- 年区切り --- */
@@ -575,6 +592,8 @@
             }
             .apple-music-embed {
                 margin: 10px 0;
+                box-shadow: none;
+                border: none;
             }
             .coming-soon-overlay {
                 font-size: 1.2rem;
@@ -708,9 +727,14 @@
                             <h3 class="release-title">白紙の文</h3>
                             <p class="release-artist">柚蘭</p>
                             
-                            <!-- Apple Music Embed (位置変更: 上へ) -->
-                            <div class="apple-music-embed">
-                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1867145042"></iframe>
+                            <!-- Apple Music Embed (Label Added) -->
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1867145042"></iframe>
+                                </div>
                             </div>
 
                             <p class="release-catchphrase">
@@ -760,9 +784,14 @@
                             <h3 class="release-title">ノスタルジア</h3>
                             <p class="release-artist">Rhyn's Luminous Path</p>
 
-                            <!-- Apple Music Embed (位置変更: 上へ) -->
-                            <div class="apple-music-embed">
-                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1863646127"></iframe>
+                            <!-- Apple Music Embed (Label Added) -->
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1863646127"></iframe>
+                                </div>
                             </div>
 
                             <p class="release-catchphrase">
@@ -812,9 +841,14 @@
                             <h3 class="release-title">風 吹く限り</h3>
                             <p class="release-artist">黒薔薇王国</p>
 
-                            <!-- Apple Music Embed (位置変更: 上へ) -->
-                            <div class="apple-music-embed">
-                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1632010697"></iframe>
+                            <!-- Apple Music Embed (Label Added) -->
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1632010697"></iframe>
+                                </div>
                             </div>
 
                             <p class="release-catchphrase">
