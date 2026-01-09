@@ -398,7 +398,8 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-top: auto;
+            margin-top: 10px; /* プレーヤーとの距離 */
+            margin-bottom: 20px; /* キャッチコピーとの距離 */
         }
         
         .release-link-button {
@@ -463,7 +464,7 @@
 
         /* --- Apple Music Embed Style --- */
         .apple-music-embed {
-            margin: 10px 0 20px 0;
+            margin: 10px 0 10px 0;
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
@@ -576,7 +577,7 @@
             .release-info.has-player .release-artist { grid-area: artist; }
             .release-info.has-player .release-catchphrase { grid-area: desc; }
             .release-info.has-player .release-meta { grid-area: meta; margin-top: auto; }
-            .release-info.has-player .release-actions { grid-area: action; }
+            .release-info.has-player .release-actions { grid-area: action; margin: 0; }
             
             .release-info.has-player .preview-section { 
                 grid-area: player; 
@@ -630,9 +631,11 @@
             }
             .release-actions {
                 flex-wrap: wrap;
+                margin-top: 10px;
+                margin-bottom: 15px;
             }
             .apple-music-embed {
-                margin: 10px 0;
+                margin: 10px 0 5px 0;
                 box-shadow: none;
                 border: none;
             }
@@ -779,6 +782,14 @@
                                 </div>
                             </div>
 
+                            <!-- ボタンをここへ移動 (スマホ対応) -->
+                            <div class="release-actions">
+                                <a href="#" onclick="alert('Coming Soon'); return false;" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
+                            </div>
+
                             <p class="release-catchphrase">
                                 何も書かれていない白紙の手紙が、最も多くを語る。<br>
                                 言葉にできない想いを、音に託した祈りの歌。
@@ -797,12 +808,6 @@
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2026/01/10</span>
                                 </div>
-                            </div>
-                            <div class="release-actions">
-                                <a href="#" onclick="alert('Coming Soon'); return false;" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
                             </div>
                         </div>
                     </article>
@@ -837,6 +842,14 @@
                                 </div>
                             </div>
 
+                            <!-- ボタンをここへ移動 (スマホ対応) -->
+                            <div class="release-actions">
+                                <a href="https://linkco.re/Mu1qNh6C" target="_blank" rel="noopener noreferrer" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
+                            </div>
+
                             <p class="release-catchphrase">
                                 失われた時を求めて。記憶の彼方に響く、哀愁のメタル叙情詩。<br>
                                 Veriquest Records記念すべき第一弾リリース。
@@ -855,12 +868,6 @@
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2025/12/24</span>
                                 </div>
-                            </div>
-                            <div class="release-actions">
-                                <a href="https://linkco.re/Mu1qNh6C" target="_blank" rel="noopener noreferrer" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
                             </div>
                         </div>
                     </article>
@@ -895,6 +902,18 @@
                                 </div>
                             </div>
 
+                            <!-- ボタンをここへ移動 (スマホ対応) -->
+                            <div class="release-actions">
+                                <a href="https://linkco.re/dPZxEv3M" target="_blank" rel="noopener noreferrer" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
+                                <div class="release-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>Pre-Label Era</span>
+                                </div>
+                            </div>
+
                             <p class="release-catchphrase">
                                 終わりなき旅路の果てに。風が吹き続ける限り、我々は歩み続ける。<br>
                                 レーベル設立以前から響き続ける、原点にして伝説。
@@ -912,16 +931,6 @@
                                 <div class="meta-item">
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2022/07/02</span>
-                                </div>
-                            </div>
-                            <div class="release-actions">
-                                <a href="https://linkco.re/dPZxEv3M" target="_blank" rel="noopener noreferrer" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
-                                <div class="release-badge">
-                                    <i class="fas fa-star"></i>
-                                    <span>Pre-Label Era</span>
                                 </div>
                             </div>
                         </div>
