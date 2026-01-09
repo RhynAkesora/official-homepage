@@ -587,6 +587,11 @@
                 margin: 0;
                 box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
             }
+
+            /* 追加: PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
+            .release-info.has-player .apple-music-embed iframe {
+                height: 450px !important;
+            }
         }
 
         @media (max-width: 768px) {
