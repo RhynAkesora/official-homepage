@@ -231,7 +231,6 @@
         .release-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             margin-bottom: 12px;
         }
         
@@ -246,13 +245,6 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .release-year {
-            font-size: 0.85rem;
-            color: #8b7355;
-            font-weight: 700;
-            letter-spacing: 0.5px;
         }
         
         .release-title {
@@ -348,6 +340,37 @@
         .release-badge i {
             font-size: 0.7rem;
         }
+        
+        /* --- 年区切り --- */
+        .year-divider {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .year-divider-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .year-divider-line::before,
+        .year-divider-line::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        
+        .year-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
 
         /* --- フッター --- */
         .footer { 
@@ -380,6 +403,10 @@
             
             .release-meta {
                 gap: 20px;
+            }
+            
+            .year-text {
+                font-size: 1.4rem;
             }
         }
         
@@ -456,6 +483,15 @@
                 font-size: 0.75rem;
                 padding: 5px 7px;
             }
+            
+            .year-divider {
+                padding: 15px 0;
+            }
+            
+            .year-text {
+                font-size: 1.3rem;
+                letter-spacing: 2px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -491,9 +527,9 @@
             }
             
             .release-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
+                flex-direction: row;
+                align-items: center;
+                gap: 0;
                 margin-bottom: 10px;
             }
             
@@ -513,10 +549,6 @@
             .catalog-number {
                 font-size: 0.65rem;
                 padding: 5px 12px;
-            }
-            
-            .release-year {
-                font-size: 0.8rem;
             }
             
             .release-meta {
@@ -542,6 +574,15 @@
             .release-badge {
                 font-size: 0.6rem;
                 padding: 5px 12px;
+            }
+            
+            .year-divider {
+                padding: 15px 0;
+            }
+            
+            .year-text {
+                font-size: 1.2rem;
+                letter-spacing: 2px;
             }
         }
     </style>
@@ -603,6 +644,13 @@
                 
                 <div class="releases-grid">
                     
+                    <!-- 2026年 -->
+                    <div class="year-divider">
+                        <div class="year-divider-line">
+                            <span class="year-text">2026</span>
+                        </div>
+                    </div>
+                    
                     <!-- VQR-002: 白紙の文 -->
                     <article class="release-card">
                         <div class="release-jacket">
@@ -611,7 +659,6 @@
                         <div class="release-info">
                             <div class="release-header">
                                 <span class="catalog-number">VQR-002</span>
-                                <span class="release-year">2026</span>
                             </div>
                             <h3 class="release-title">白紙の文</h3>
                             <p class="release-artist">柚蘭</p>
@@ -638,6 +685,13 @@
                         </div>
                     </article>
 
+                    <!-- 2025年 -->
+                    <div class="year-divider">
+                        <div class="year-divider-line">
+                            <span class="year-text">2025</span>
+                        </div>
+                    </div>
+
                     <!-- VQR-001: ノスタルジア -->
                     <article class="release-card">
                         <div class="release-jacket">
@@ -646,7 +700,6 @@
                         <div class="release-info">
                             <div class="release-header">
                                 <span class="catalog-number">VQR-001</span>
-                                <span class="release-year">2024</span>
                             </div>
                             <h3 class="release-title">ノスタルジア</h3>
                             <p class="release-artist">Rhyn's Luminous Path</p>
@@ -661,7 +714,7 @@
                                 </div>
                                 <div class="meta-item">
                                     <span class="meta-label">Released</span>
-                                    <span class="meta-value">Dec 24, 2024</span>
+                                    <span class="meta-value">Dec 24, 2025</span>
                                 </div>
                             </div>
                             <div class="release-actions">
@@ -673,6 +726,13 @@
                         </div>
                     </article>
 
+                    <!-- 2022年 -->
+                    <div class="year-divider">
+                        <div class="year-divider-line">
+                            <span class="year-text">2022</span>
+                        </div>
+                    </div>
+
                     <!-- VQR-000: 風 吹く限り -->
                     <article class="release-card">
                         <div class="release-jacket">
@@ -681,7 +741,6 @@
                         <div class="release-info">
                             <div class="release-header">
                                 <span class="catalog-number">VQR-000</span>
-                                <span class="release-year">2022</span>
                             </div>
                             <h3 class="release-title">風 吹く限り</h3>
                             <p class="release-artist">黒薔薇王国</p>
