@@ -87,13 +87,13 @@
     .main-header { 
         padding: 15px 0; 
         text-align: center; 
-        position: sticky; /* fixedからstickyに変更 */
+        position: sticky; /* PCでのズレ修正: stickyに変更 */
         top: 0; 
-        /* width: 100%; stickyなので自動で幅確保されますが、念のため残すか削除しても可 */
-        background-color: rgba(253, 250, 246, 0.95); /* 透明度を他ページと統一 */
-        backdrop-filter: blur(10px); /* ぼかし量を他ページと統一 */
+        width: 100%; /* 幅確保 */
+        background-color: rgba(253, 250, 246, 0.95); 
+        backdrop-filter: blur(10px); 
         -webkit-backdrop-filter: blur(10px); 
-        z-index: 1000; 
+        z-index: 100; 
         border-bottom: 1px solid #f0e9dd; 
     }
     nav a { 
@@ -1047,6 +1047,23 @@
     }
 
     @media (max-width: 480px) {
+        .container {
+            padding: 0 10px; /* 余白をさらに狭く */
+        }
+        .content-card {
+            margin: 20px 0; /* 左右マージン削除 */
+            padding: 30px 15px; /* パディング縮小 */
+            width: 100%;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+        .pricing-card {
+            margin: 15px 0; /* 左右マージン削除 */
+            padding: 30px 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
         .urgent-title {
             font-size: 1.8rem;
         }
@@ -1054,51 +1071,41 @@
             font-size: 1rem;
         }
         .hero-lead {
-            font-size: 1.2rem;
-            padding: 0 15px;
+            font-size: 1.1rem;
+            padding: 0 5px;
         }
         .hero-strong {
-            font-size: 1.7rem;
-            margin: 25px 15px;
+            font-size: 1.5rem;
+            margin: 25px 5px;
         }
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
         }
         .chapter-title {
-            font-size: 1.9rem;
+            font-size: 1.7rem;
         }
         .chapter-content {
             font-size: 1rem;
         }
         .experience-quote {
-            font-size: 1.4rem;
-            padding: 30px 20px;
+            font-size: 1.3rem;
+            padding: 25px 15px;
         }
         .cta-title {
-            font-size: 2.4rem;
-        }
-        .content-card {
-            padding: 30px 20px;
-            margin: 15px;
-            background: rgba(255, 255, 255, 0.5);
-        }
-        .pricing-card {
-            padding: 30px 20px;
-            margin: 15px 5px;
-            background: rgba(255, 255, 255, 0.5);
+            font-size: 2.2rem;
         }
         .faq-item {
             background: rgba(255, 255, 255, 0.5);
         }
         .pricing-price {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
         }
         .super-course-description {
-            padding: 15px;
+            padding: 15px 10px;
             margin: 10px 0;
         }
         .super-course-description .step {
-            padding: 10px;
+            padding: 10px 8px;
             margin-bottom: 12px;
         }
         .super-course-description .step-number {
@@ -1120,10 +1127,10 @@
         .approach-grid {
             grid-template-columns: 1fr !important;
             gap: 15px !important;
-            margin: 25px 5px !important;
+            margin: 25px 0 !important;
         }
         .approach-grid > div {
-            padding: 20px 15px !important;
+            padding: 20px 10px !important;
         }
         .approach-grid h4 {
             font-size: 1rem !important;
@@ -1131,10 +1138,10 @@
         .changes-grid {
             grid-template-columns: 1fr !important;
             gap: 15px !important;
-            margin: 25px 5px !important;
+            margin: 25px 0 !important;
         }
         .changes-grid > div {
-            padding: 20px 15px !important;
+            padding: 20px 10px !important;
         }
         .changes-grid h4 {
             font-size: 1rem !important;
@@ -1146,10 +1153,10 @@
         .comparison-grid {
             grid-template-columns: 1fr !important;
             gap: 15px !important;
-            margin: 25px 5px !important;
+            margin: 25px 0 !important;
         }
         .comparison-grid > div {
-            padding: 20px 15px !important;
+            padding: 20px 10px !important;
             font-size: 0.9rem;
         }
         .comparison-grid h4 {
@@ -1162,12 +1169,12 @@
             line-height: 1.4 !important;
         }
         .condition-list {
-            padding: 25px 20px;
-            margin: 25px 5px;
+            padding: 25px 15px;
+            margin: 25px 0;
             background: rgba(44, 62, 80, 0.3);
         }
         .congratulations {
-            margin: 25px 5px;
+            margin: 25px 0;
             padding: 20px 15px;
             font-size: 1.1rem;
         }
