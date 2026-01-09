@@ -316,6 +316,12 @@
             gap: 16px;
         }
         
+        .release-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* 元のgapを維持 */
+        }
+
         .release-header {
             display: flex;
             align-items: center;
@@ -398,8 +404,8 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-top: 10px; /* プレーヤーとの距離 */
-            margin-bottom: 20px; /* キャッチコピーとの距離 */
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
         
         .release-link-button {
@@ -468,8 +474,8 @@
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15); /* ゴールドの薄い影を追加 */
-            border: 1px solid rgba(212, 175, 55, 0.2); /* 薄いゴールドの枠線 */
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             background: #fff;
         }
 
@@ -559,39 +565,54 @@
         @media (min-width: 1024px) {
             .release-info.has-player {
                 display: grid;
-                /* 幅を320pxに広げて横スクロール防止 */
                 grid-template-columns: 1fr 320px; 
-                column-gap: 30px;
-                grid-template-areas: 
-                    "header player"
-                    "title player"
-                    "artist player"
-                    "desc player"
-                    "meta ." 
-                    "action .";
-                align-content: start;
+                column-gap: 40px;
+                /* 行の高さをコンテンツに合わせて自動調整 */
+                grid-auto-rows: min-content; 
+                align-items: start;
             }
 
-            .release-info.has-player .release-header { grid-area: header; }
-            .release-info.has-player .release-title { grid-area: title; }
-            .release-info.has-player .release-artist { grid-area: artist; }
-            .release-info.has-player .release-catchphrase { grid-area: desc; }
-            .release-info.has-player .release-meta { grid-area: meta; margin-top: auto; }
-            .release-info.has-player .release-actions { grid-area: action; margin: 0; }
-            
-            .release-info.has-player .preview-section { 
-                grid-area: player; 
-                margin-top: 0;
-                align-self: start; /* 上揃え */
+            /* テキストグループ（タイトル等）は左上、詰めて配置 */
+            .release-text-group {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            /* ボタン類はタイトルの下 */
+            .release-actions {
+                grid-column: 1;
+                grid-row: 2;
+                margin-top: 20px;
+            }
+
+            /* キャッチコピーはその下 */
+            .release-catchphrase {
+                grid-column: 1;
+                grid-row: 3;
+                margin-top: 15px;
+            }
+
+            /* メタ情報は一番下（または余白埋め） */
+            .release-meta {
+                grid-column: 1;
+                grid-row: 4;
+                margin-top: 20px;
             }
             
-            .release-info.has-player .apple-music-embed {
+            /* プレーヤーは右側全体に配置 */
+            .preview-section { 
+                grid-column: 2;
+                grid-row: 1 / span 5; /* 縦に長く確保 */
+                margin-top: 0;
+            }
+            
+            .apple-music-embed {
                 margin: 0;
                 box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
             }
 
-            /* 追加: PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
-            .release-info.has-player .apple-music-embed iframe {
+            /* PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
+            .apple-music-embed iframe {
                 height: 480px !important;
             }
         }
@@ -619,6 +640,9 @@
             .release-info {
                 padding: 20px 24px;
                 gap: 10px;
+            }
+            .release-text-group {
+                gap: 8px; /* スマホでは間隔を狭く */
             }
             .release-meta {
                 flex-direction: column;
@@ -732,11 +756,14 @@
                             <div class="coming-soon-overlay">Coming Soon</div>
                         </div>
                         <div class="release-info">
-                            <div class="release-header">
-                                <span class="catalog-number">VQR-003</span>
+                            <div class="release-text-group">
+                                <div class="release-header">
+                                    <span class="catalog-number">VQR-003</span>
+                                </div>
+                                <h3 class="release-title">最強ウィルス</h3>
+                                <p class="release-artist">甘音 メル</p>
                             </div>
-                            <h3 class="release-title">最強ウィルス</h3>
-                            <p class="release-artist">甘音 メル</p>
+                            
                             <p class="release-catchphrase">
                                 可愛さと狂気の境界線を破壊する、デジタルノイズの暴走。<br>
                                 Code: RED_BERRY — 感染したら、もう戻れない。
@@ -766,11 +793,14 @@
                         </div>
                         <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
-                            <div class="release-header">
-                                <span class="catalog-number">VQR-002</span>
+                            <!-- グループ化: タイトル類 -->
+                            <div class="release-text-group">
+                                <div class="release-header">
+                                    <span class="catalog-number">VQR-002</span>
+                                </div>
+                                <h3 class="release-title">白紙の文</h3>
+                                <p class="release-artist">柚蘭</p>
                             </div>
-                            <h3 class="release-title">白紙の文</h3>
-                            <p class="release-artist">柚蘭</p>
                             
                             <!-- Apple Music Embed -->
                             <div class="preview-section">
@@ -826,11 +856,13 @@
                         </div>
                         <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
-                            <div class="release-header">
-                                <span class="catalog-number">VQR-001</span>
+                            <div class="release-text-group">
+                                <div class="release-header">
+                                    <span class="catalog-number">VQR-001</span>
+                                </div>
+                                <h3 class="release-title">ノスタルジア</h3>
+                                <p class="release-artist">Rhyn's Luminous Path</p>
                             </div>
-                            <h3 class="release-title">ノスタルジア</h3>
-                            <p class="release-artist">Rhyn's Luminous Path</p>
 
                             <!-- Apple Music Embed -->
                             <div class="preview-section">
@@ -886,11 +918,13 @@
                         </div>
                         <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
-                            <div class="release-header">
-                                <span class="catalog-number">VQR-000</span>
+                            <div class="release-text-group">
+                                <div class="release-header">
+                                    <span class="catalog-number">VQR-000</span>
+                                </div>
+                                <h3 class="release-title">風 吹く限り</h3>
+                                <p class="release-artist">黒薔薇王国</p>
                             </div>
-                            <h3 class="release-title">風 吹く限り</h3>
-                            <p class="release-artist">黒薔薇王国</p>
 
                             <!-- Apple Music Embed -->
                             <div class="preview-section">
