@@ -213,8 +213,12 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
-            border-top: 1px solid #f0e9dd;
-            border-bottom: 1px solid #f0e9dd;
+            
+            /* --- 区切り線の強化 --- */
+            border-top: 3px double #d4af37; /* 二重線で強調 */
+            border-bottom: 3px double #d4af37; /* 二重線で強調 */
+            margin-bottom: 60px; /* 作品間の距離を広げる */
+            
             position: relative;
             display: grid;
             grid-template-columns: 360px 1fr;
@@ -236,7 +240,7 @@
         .release-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-            border-color: rgba(212, 175, 55, 0.3);
+            border-color: #d4af37; /* ホバー時はさらに強調 */
         }
         
         .release-card:hover::before {
@@ -474,8 +478,8 @@
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15); /* ゴールドの薄い影を追加 */
+            border: 1px solid rgba(212, 175, 55, 0.2); /* 薄いゴールドの枠線 */
             background: #fff;
         }
 
@@ -498,7 +502,7 @@
         /* --- 年区切り --- */
         .year-divider {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px; /* 余白を少し増やす */
             position: relative;
             background: #fdfaf6;
         }
@@ -565,6 +569,7 @@
         @media (min-width: 1024px) {
             .release-info.has-player {
                 display: grid;
+                /* 幅を320pxに広げて横スクロール防止 */
                 grid-template-columns: 1fr 320px; 
                 column-gap: 40px;
                 /* 行の高さをコンテンツに合わせて自動調整 */
@@ -611,8 +616,8 @@
                 box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
             }
 
-            /* PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
-            .apple-music-embed iframe {
+            /* 追加: PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
+            .release-info.has-player .apple-music-embed iframe {
                 height: 480px !important;
             }
         }
@@ -632,6 +637,8 @@
             .release-card {
                 grid-template-columns: 240px 1fr;
                 min-height: 240px;
+                /* スマホでも区切り線を適用 */
+                margin-bottom: 40px;
             }
             .release-jacket {
                 width: 240px;
