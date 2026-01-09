@@ -554,6 +554,18 @@
             }
         }
         
+        @media (min-width: 1024px) {
+            /* PC表示時の調整: プレーヤー幅を少し絞り、右カラムのバランスを整える */
+            .apple-music-embed {
+                max-width: 500px; /* 横幅いっぱいにならないように制限 */
+                margin-top: 15px;
+                margin-bottom: 25px;
+            }
+            .release-info {
+                gap: 12px; /* 縦の間隔を少し詰める */
+            }
+        }
+
         @media (max-width: 768px) {
             .label-hero {
                 padding: 60px 20px;
