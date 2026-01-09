@@ -252,7 +252,7 @@
             flex-shrink: 0;
         }
 
-        /* --- 追加: Coming Soon オーバーレイのスタイル --- */
+        /* Coming Soon オーバーレイ */
         .coming-soon-overlay {
             position: absolute;
             top: 0;
@@ -460,6 +460,16 @@
         .release-badge i {
             font-size: 0.7rem;
         }
+
+        /* --- Apple Music Embed Style --- */
+        .apple-music-embed {
+            margin-top: 25px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: #fafafa;
+        }
         
         /* --- 年区切り --- */
         .year-divider {
@@ -511,41 +521,17 @@
                 grid-template-columns: 320px 1fr;
                 min-height: 320px;
             }
-            
             .release-jacket {
                 width: 320px;
                 height: 320px;
             }
-            
             .release-info {
                 padding: 30px 35px;
                 gap: 14px;
             }
-            
-            .release-title {
-                font-size: 1.8rem;
-            }
-            
-            .release-artist {
-                font-size: 1.1rem;
-            }
-            
-            .release-catchphrase {
-                font-size: 0.95rem;
-            }
-            
-            .release-meta {
-                gap: 25px;
-            }
-            
             .label-logo {
                 font-size: 2.5rem;
             }
-            
-            .year-text {
-                font-size: 1.6rem;
-            }
-            
             .coming-soon-overlay {
                 font-size: 1.6rem;
             }
@@ -555,114 +541,41 @@
             .label-hero {
                 padding: 60px 20px;
             }
-            
             .label-logo {
                 font-size: 2rem;
                 letter-spacing: 2px;
             }
-            
-            .label-tagline {
-                font-size: 1.1rem;
-            }
-            
-            .label-description {
-                font-size: 0.95rem;
-            }
-            
-            .label-manifesto {
-                font-size: 0.85rem;
-                margin-top: 25px;
-                padding-top: 25px;
-            }
-            
             .section-title {
                 font-size: 1.7rem;
                 margin-bottom: 35px;
             }
-            
-            .releases-grid {
-                gap: 0;
-                padding: 0;
-            }
-            
             .release-card {
                 grid-template-columns: 240px 1fr;
                 min-height: 240px;
             }
-            
             .release-jacket {
                 width: 240px;
                 height: 240px;
             }
-            
             .release-info {
                 padding: 20px 24px;
                 gap: 10px;
             }
-            
-            .release-title {
-                font-size: 1.4rem;
-            }
-            
-            .release-artist {
-                font-size: 0.95rem;
-            }
-            
-            .release-catchphrase {
-                font-size: 0.85rem;
-                margin: 6px 0;
-                padding-left: 10px;
-            }
-            
             .release-meta {
                 flex-direction: column;
                 gap: 8px;
                 padding: 10px 0;
             }
-            
             .meta-item {
-                display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                align-items: center;
             }
-            
-            .meta-label {
-                font-size: 0.65rem;
-            }
-            
-            .meta-value {
-                font-size: 0.85rem;
-            }
-            
             .release-actions {
-                flex-direction: row;
                 flex-wrap: wrap;
-                gap: 10px;
             }
-            
-            .release-link-button {
-                padding: 11px 22px;
-                font-size: 0.85rem;
-                gap: 8px;
+            .apple-music-embed {
+                margin-top: 20px;
             }
-            
-            .release-badge {
-                padding: 6px 12px;
-                font-size: 0.6rem;
-            }
-            
-            nav a {
-                margin: 0 5px;
-                font-size: 0.8rem;
-                padding: 6px 10px;
-            }
-            
-            .year-text {
-                font-size: 1.4rem;
-                letter-spacing: 3px;
-            }
-            
             .coming-soon-overlay {
                 font-size: 1.2rem;
                 letter-spacing: 2px;
@@ -670,104 +583,22 @@
         }
         
         @media (max-width: 480px) {
-            .label-hero {
-                padding: 50px 15px;
-            }
-            
             .label-logo {
                 font-size: 1.6rem;
                 letter-spacing: 1.5px;
             }
-            
-            .label-tagline {
-                font-size: 1rem;
-            }
-            
-            .label-description {
-                font-size: 0.9rem;
-            }
-            
-            .label-manifesto {
-                font-size: 0.8rem;
-                margin-top: 20px;
-                padding-top: 20px;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                letter-spacing: 2px;
-            }
-            
-            .releases-grid {
-                padding: 0;
-                gap: 0;
-            }
-            
             .release-card {
                 grid-template-columns: 1fr;
                 min-height: auto;
             }
-            
             .release-jacket {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 1/1;
             }
-            
             .release-info {
                 padding: 25px 20px;
-                gap: 8px;
             }
-            
-            .catalog-number {
-                font-size: 0.6rem;
-                padding: 4px 10px;
-            }
-            
-            .release-title {
-                font-size: 1.2rem;
-            }
-            
-            .release-artist {
-                font-size: 0.9rem;
-            }
-            
-            .release-catchphrase {
-                font-size: 0.8rem;
-                margin: 5px 0;
-                padding-left: 8px;
-                border-left-width: 2px;
-            }
-            
-            .release-meta {
-                gap: 5px;
-                padding: 6px 0;
-            }
-            
-            .meta-label {
-                font-size: 0.55rem;
-            }
-            
-            .meta-value {
-                font-size: 0.75rem;
-            }
-            
-            .release-link-button {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-                gap: 7px;
-            }
-            
-            .release-badge {
-                font-size: 0.55rem;
-                padding: 5px 10px;
-            }
-            
-            .year-text {
-                font-size: 1.2rem;
-                letter-spacing: 2px;
-            }
-
             .coming-soon-overlay {
                 font-size: 1.8rem;
             }
@@ -804,7 +635,6 @@
             <div class="label-hero-content">
                 <h1 class="label-logo">VERIQUEST RECORDS</h1>
                 <p class="label-tagline">— 真実を探求する音楽レーベル —</p>
-                <!-- 更新: Rhynプロデュース文 -->
                 <p class="label-description">
                     Rhynが代表・プロデュースを務めるVeriquest Records。<br>
                     音楽を通じて真理を追究する。私たちは表層的な流行ではなく、本質的な探求心を持つアーティストの作品を世に送り出します。
@@ -832,11 +662,10 @@
                         </div>
                     </div>
                     
-                    <!-- VQR-003: 最強ウィルス (オーバーレイ追加・ボタン削除) -->
+                    <!-- VQR-003: 最強ウィルス -->
                     <article class="release-card">
                         <div class="release-jacket">
                             <img src="VQR-003.jpg" alt="甘音 メル - 最強ウィルス ジャケット" loading="lazy" width="600" height="600">
-                            <!-- 追加 -->
                             <div class="coming-soon-overlay">Coming Soon</div>
                         </div>
                         <div class="release-info">
@@ -863,7 +692,6 @@
                                     <span class="meta-value">Coming Soon</span>
                                 </div>
                             </div>
-                            <!-- ボタン類削除 -->
                         </div>
                     </article>
                     
@@ -901,6 +729,10 @@
                                     <i class="fas fa-external-link-alt"></i>
                                     <span>各配信ストアへ</span>
                                 </a>
+                            </div>
+                            <!-- Apple Music Embed -->
+                            <div class="apple-music-embed">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1867145042"></iframe>
                             </div>
                         </div>
                     </article>
@@ -946,6 +778,10 @@
                                     <i class="fas fa-external-link-alt"></i>
                                     <span>各配信ストアへ</span>
                                 </a>
+                            </div>
+                            <!-- Apple Music Embed -->
+                            <div class="apple-music-embed">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1863646127"></iframe>
                             </div>
                         </div>
                     </article>
@@ -995,6 +831,10 @@
                                     <i class="fas fa-star"></i>
                                     <span>Pre-Label Era</span>
                                 </div>
+                            </div>
+                            <!-- Apple Music Embed -->
+                            <div class="apple-music-embed">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1632010697"></iframe>
                             </div>
                         </div>
                     </article>
