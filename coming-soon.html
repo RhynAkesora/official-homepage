@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>準備中 - Rhyn皇太子 Official</title>
 
-    <link rel="stylesheet" href="style.css">
-    
     <!-- 検索エンジンから除外 -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="準備中のページです。まもなく公開予定です。">
@@ -32,6 +30,153 @@
       gtag('js', new Date());
       gtag('config', 'G-2NEMCZHXCD');
     </script>
+    
+    <style>
+        /* --- 基本スタイル --- */
+        body { 
+            margin: 0; 
+            font-family: 'Noto Serif JP', serif; 
+            background-color: #fdfaf6; 
+            color: #4a3728; 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        
+        /* --- ヘッダー & ナビゲーション --- */
+        .main-header { 
+            padding: 15px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            background-color: rgba(253, 250, 246, 0.95); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            z-index: 100; 
+            border-bottom: 1px solid #f0e9dd; 
+        }
+        
+        nav a { 
+            margin: 0 10px; 
+            padding: 8px 12px; 
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            transition: all 0.3s; 
+            border-radius: 5px; 
+        }
+        
+        nav a:hover { 
+            color: #d4af37; 
+            background-color: rgba(212, 175, 55, 0.1); 
+        }
+
+        /* --- メインコンテンツ --- */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .coming-soon-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 60px 40px;
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0e9dd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #f8e47b, #d4af37);
+        }
+
+        .coming-soon-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #3b2a1e;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .coming-soon-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #6a5543;
+            margin-bottom: 40px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #3b2a1e, #5a4538);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 42, 30, 0.3);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #d4af37, #f8e47b);
+            color: #3b2a1e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- フッター --- */
+        .footer { 
+            padding: 40px 20px; 
+            font-size: 0.9rem; 
+            color: #aaa; 
+            text-align: center; 
+            border-top: 1px solid #f0e9dd;
+            background: #fdfaf6;
+        }
+
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 768px) {
+            .coming-soon-title {
+                font-size: 2.5rem;
+            }
+            .coming-soon-container {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon-title {
+                font-size: 2rem;
+            }
+            .coming-soon-container {
+                padding: 30px 20px;
+            }
+            .coming-soon-text {
+                font-size: 0.95rem;
+            }
+            
+            /* 追加: スマホ表示時のナビゲーション最適化 */
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8rem;
+                padding: 6px 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -40,7 +185,7 @@
             <a href="index.html#links">Links</a>
             <a href="index.html#media">Media</a>
             <a href="index.html#about">About Me</a>
-            <a href="lebel.html">Label</a>
+            <a href="label.html">Label</a>
             <a href="history.html">History</a>
             <a href="index.html#advanced">Advanced</a>
             <a href="contact.html">Contact</a>
@@ -58,6 +203,3 @@
     </footer>
 </body>
 </html>
-
-
-
