@@ -149,7 +149,6 @@
     <style>
         /* --- 基本スタイル --- */
         body { margin: 0; font-family: 'Noto Serif JP', serif; background-color: #fdfaf6; color: #4a3728; overflow-x: hidden; scroll-behavior: smooth; }
-        /* <<< 修正: コンテンツ幅を他のページと統一 */
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         a { text-decoration: none; color: inherit; }
         a:focus, button:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
@@ -594,8 +593,7 @@
         .music-embed-container { 
             position: relative; 
             width: 100%; 
-            /* height: 152px; Spotify用 */
-            height: 450px; /* Apple Music用: リストが見えるように高さを拡張 */
+            height: 450px;
             border-radius: 15px; 
             overflow: hidden; 
             background-color: #eee; 
@@ -613,7 +611,7 @@
         .youtube-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px; /* 縦並びの際の間隔を少し広めに調整 */
+            gap: 40px;
         }
 
         .media-subtitle {
@@ -692,7 +690,7 @@
                 margin-bottom: 25px;
             }
             .music-embed-container {
-                height: 450px; /* PC版もApple Music用に調整 */
+                height: 450px;
             }
             
             /* Apple MusicのみPCで2カラムにする (YouTubeは縦並び維持) */
@@ -711,7 +709,174 @@
                 padding: 50px;
             }
             .music-embed-container {
-                height: 450px; /* Large PC版もApple Music用に調整 */
+                height: 450px;
+            }
+        }
+
+        /* --- レーベルセクション（Veriquest Records） --- */
+        .label-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 60px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .label-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f8e47b, #d4af37);
+        }
+
+        .label-icon {
+            font-size: 4rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .label-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .label-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .label-description {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .label-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f8e47b);
+            color: #2c3e50;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .label-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .label-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+            color: #1a252f;
+        }
+
+        .label-button:hover::before {
+            left: 100%;
+        }
+
+        .label-button i {
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .label-section {
+                padding: 45px 30px;
+                margin: 0 12px;
+            }
+
+            .label-icon {
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+
+            .label-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .label-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .label-description {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .label-button {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .label-section {
+                padding: 40px 25px;
+            }
+
+            .label-icon {
+                font-size: 2.5rem;
+            }
+
+            .label-title {
+                font-size: 1.8rem;
+            }
+
+            .label-subtitle {
+                font-size: 1rem;
+            }
+
+            .label-description {
+                font-size: 0.95rem;
+            }
+
+            .label-button {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+                letter-spacing: 1px;
             }
         }
 
@@ -990,7 +1155,6 @@
         }
 
         /* --- About Me セクション --- */
-        /* <<< 修正: 幅が広くなりすぎないように最大幅を設定 */
         .about-section { 
             background: #f4f0e9; 
             padding: 40px; 
@@ -1712,6 +1876,7 @@
             <a href="#links">Links</a>
             <a href="#media">Media</a>
             <a href="#about">About Me</a>
+            <a href="rebel.html">Label</a>
             <a href="history.html">History</a>
             <a href="#advanced">Advanced</a>
             <a href="contact.html">Contact</a>
@@ -1739,7 +1904,6 @@
                     @ 名古屋 Heart Cafe<br/>
                     Open 18:00  ¥4,000<br/>
             
-                    <!-- フライヤー画像サムネイル追加 -->
                     <div style="margin-top: 15px; text-align: center;">
                         <img src="NewYearLive2026.jpg" 
                              alt="新年会ライブフライヤー" 
@@ -1886,20 +2050,17 @@
                 <h2 class="section-title"><i class="fas fa-play-circle"></i>Media</h2>
             </div>
             <div class="media-grid">
-                <!-- YouTube セクション (統合) -->
                 <div class="media-item">
                     <h3 class="media-title"><i class="fab fa-youtube" style="margin-right: 8px;"></i>Featured Videos</h3>
                     <p class="media-subtitle">黒薔薇王国 / Live & MV</p>
                     
                     <div class="youtube-grid">
-                        <!-- Video 1 -->
                         <div>
                             <h4 class="video-item-title">2017.05.14 @ Kawasaki CLUB CITTA', Kanagawa</h4>
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/QrdOVVmjFrk" width="100%" height="100%" title="Rhyn皇太子(リン皇太子)Live Performance at CLUB CITTA'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
                         </div>
-                        <!-- Video 2 -->
                         <div>
                             <h4 class="video-item-title">黒薔薇王国 / Black Roses</h4>
                             <div class="video-container">
@@ -1909,14 +2070,11 @@
                     </div>
                 </div>
                 
-                <!-- Apple Music セクション -->
                 <div class="media-item apple-music-section">
-                    <!-- タイトルを変更: Apple Music限定感をなくす -->
                     <h3 class="media-title"><i class="fas fa-headphones" style="margin-right: 8px;"></i>Digital Streaming</h3>
                     <p class="media-subtitle">Rhyn's Luminous Path / 黒薔薇王国</p>
                     
                     <div class="apple-music-grid">
-                        <!-- 曲1: Nostalgia -->
                         <div>
                             <div class="music-embed-container">
                                 <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/nostalgia-single/1863646127"></iframe>
@@ -1929,7 +2087,6 @@
                             </div>
                         </div>
 
-                        <!-- 曲2: 風 吹く限り -->
                         <div>
                             <div class="music-embed-container">
                                 <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/%E9%A2%A8-%E5%90%B9%E3%81%8F%E9%99%90%E3%82%8A-single/1632010697"></iframe>
@@ -1944,6 +2101,27 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- 新規追加：Veriquest Records レーベルセクション -->
+        <section id="label" class="section">
+            <a href="rebel.html" style="text-decoration: none;">
+                <div class="label-section">
+                    <div class="label-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <h2 class="label-title">Veriquest Records</h2>
+                    <p class="label-subtitle">真実を探求する音楽レーベル</p>
+                    <p class="label-description">
+                        Rhyn's Luminous Path、甘音メル、そして様々なアーティストへの楽曲提供。<br/>
+                        全ての音源がここから生まれる。
+                    </p>
+                    <div class="label-button">
+                        <i class="fas fa-music"></i>
+                        ディスコグラフィーを見る
+                    </div>
+                </div>
+            </a>
         </section>
         
         <section id="about" class="about-section section">
@@ -1973,13 +2151,11 @@
             </a>
         </section>
 
-        <!-- 新規追加: note記事表示セクション (Words & Philosophy) -->
         <section id="words" class="section">
             <h2 class="section-title"><i class="fas fa-pen-nib"></i>Words & Philosophy</h2>
             <p class="media-subtitle">note / 思考の断片と哲学的考察</p>
             
             <div class="note-grid">
-                <!-- 記事カード 1 -->
                 <a href="https://note.com/rhyn/n/n381926ab80cc" target="_blank" rel="noopener noreferrer" class="note-card">
                     <div class="note-content">
                         <span class="note-date">Neuroscience & Martial Arts</span>
@@ -1989,7 +2165,6 @@
                     </div>
                 </a>
 
-                <!-- 記事カード 2 -->
                 <a href="https://note.com/rhyn/n/n7c492956709c" target="_blank" rel="noopener noreferrer" class="note-card">
                     <div class="note-content">
                         <span class="note-date">Philosophy of Mind</span>
@@ -1999,7 +2174,6 @@
                     </div>
                 </a>
 
-                <!-- 記事カード 3 -->
                 <a href="https://note.com/rhyn/n/n3753964c9482" target="_blank" rel="noopener noreferrer" class="note-card">
                     <div class="note-content">
                         <span class="note-date">Social Commentary</span>
@@ -2100,7 +2274,6 @@
         </section>
     </main>
 
-    <!-- モーダルオーバーレイ -->
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">
@@ -2129,7 +2302,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // ESCキーでモーダルを閉じる
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
