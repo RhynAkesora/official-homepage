@@ -438,21 +438,31 @@
             }
             
             .release-card {
-                grid-template-columns: 160px 1fr;
-                height: 160px;
+                grid-template-columns: 180px 1fr;
+                height: 180px;
             }
             
             .release-jacket {
-                width: 160px;
-                height: 160px;
+                width: 180px;
+                height: 180px;
             }
             
             .release-info {
-                padding: 12px 15px;
+                padding: 14px 16px;
+                justify-content: space-between;
+            }
+            
+            .release-header {
+                margin-bottom: 8px;
+            }
+            
+            .catalog-number {
+                font-size: 0.65rem;
+                padding: 4px 11px;
             }
             
             .release-title {
-                font-size: 1.2rem;
+                font-size: 1.25rem;
                 margin-bottom: 4px;
             }
             
@@ -463,9 +473,13 @@
             
             .release-meta {
                 gap: 12px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 padding: 6px 0;
                 margin-bottom: 10px;
+            }
+            
+            .meta-item {
+                min-width: 0;
             }
             
             .meta-label {
@@ -474,6 +488,9 @@
             
             .meta-value {
                 font-size: 0.75rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .release-actions {
@@ -541,35 +558,22 @@
             }
             
             .release-card {
-                grid-template-columns: 140px 1fr;
-                height: 140px;
+                grid-template-columns: 160px 1fr;
+                height: 160px;
             }
             
             .release-jacket {
-                width: 140px;
-                height: 140px;
+                width: 160px;
+                height: 160px;
             }
             
             .release-info {
-                padding: 10px 12px;
+                padding: 12px 14px;
+                justify-content: space-between;
             }
             
             .release-header {
                 margin-bottom: 6px;
-            }
-            
-            .release-title {
-                font-size: 1.05rem;
-                margin-bottom: 3px;
-            }
-            
-            .release-artist {
-                font-size: 0.75rem;
-                margin-bottom: 8px;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
             }
             
             .catalog-number {
@@ -577,28 +581,51 @@
                 padding: 4px 10px;
             }
             
+            .release-title {
+                font-size: 1.1rem;
+                margin-bottom: 3px;
+            }
+            
+            .release-artist {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
             .release-meta {
                 gap: 8px;
                 padding: 5px 0;
                 margin-bottom: 8px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
+            }
+            
+            .meta-item {
+                min-width: 0;
+                flex: 1;
             }
             
             .meta-label {
-                font-size: 0.5rem;
+                font-size: 0.55rem;
             }
             
             .meta-value {
-                font-size: 0.65rem;
+                font-size: 0.7rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .release-actions {
                 gap: 6px;
+                flex-wrap: wrap;
             }
             
             .release-link-button {
-                padding: 6px 12px;
-                font-size: 0.6rem;
+                padding: 7px 14px;
+                font-size: 0.65rem;
                 gap: 6px;
             }
             
@@ -607,7 +634,7 @@
             }
             
             .release-badge {
-                font-size: 0.5rem;
+                font-size: 0.55rem;
                 padding: 4px 8px;
             }
             
@@ -627,25 +654,21 @@
         
         @media (max-width: 380px) {
             .release-card {
-                grid-template-columns: 120px 1fr;
-                height: 120px;
+                grid-template-columns: 140px 1fr;
+                height: 140px;
             }
             
             .release-jacket {
-                width: 120px;
-                height: 120px;
+                width: 140px;
+                height: 140px;
             }
             
             .release-info {
-                padding: 8px 10px;
+                padding: 10px 12px;
             }
             
-            .release-title {
-                font-size: 0.95rem;
-            }
-            
-            .release-artist {
-                font-size: 0.7rem;
+            .release-header {
+                margin-bottom: 5px;
             }
             
             .catalog-number {
@@ -653,17 +676,33 @@
                 padding: 3px 8px;
             }
             
+            .release-title {
+                font-size: 1rem;
+                margin-bottom: 3px;
+            }
+            
+            .release-artist {
+                font-size: 0.75rem;
+                margin-bottom: 7px;
+            }
+            
+            .release-meta {
+                gap: 6px;
+                padding: 4px 0;
+                margin-bottom: 7px;
+            }
+            
             .meta-label {
-                font-size: 0.45rem;
+                font-size: 0.5rem;
             }
             
             .meta-value {
-                font-size: 0.6rem;
+                font-size: 0.65rem;
             }
             
             .release-link-button {
-                padding: 5px 10px;
-                font-size: 0.55rem;
+                padding: 6px 12px;
+                font-size: 0.6rem;
                 gap: 4px;
             }
             
@@ -672,7 +711,7 @@
             }
             
             .release-badge {
-                font-size: 0.45rem;
+                font-size: 0.5rem;
                 padding: 3px 6px;
             }
             
