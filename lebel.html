@@ -558,7 +558,8 @@
         @media (min-width: 1024px) {
             .release-info.has-player {
                 display: grid;
-                grid-template-columns: 1fr 270px; /* 左：テキスト群、右：プレーヤー */
+                /* 幅を320pxに広げて横スクロール防止 */
+                grid-template-columns: 1fr 320px; 
                 column-gap: 30px;
                 grid-template-areas: 
                     "header player"
