@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veriquest Records - 真実を探求する音楽レーベル | Rhyn皇太子</title>
 
-    <!-- Google Search Console 認証 -->
     <meta name="google-site-verification" content="D09wmZtN0SqhAxDPPklqV6Q0fhPSVPH863PoOOGelq4" />
     
-    <!-- SEO最適化されたメタタグ -->
     <meta name="description" content="Veriquest Records - 真実を探求する音楽レーベル。Rhyn's Luminous Path、黒薔薇王国などのディスコグラフィーをご紹介。">
     <meta name="keywords" content="Veriquest Records,音楽レーベル,Rhyn皇太子,黒薔薇王国,Rhyn's Luminous Path,インディーズレーベル">
     
@@ -19,7 +17,6 @@
     <meta property="og:image" content="https://rhyn.jp/VQR-001.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -30,7 +27,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- 基本スタイル --- */
         * {
             margin: 0;
             padding: 0;
@@ -53,7 +49,6 @@
         a:focus, button:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
         .section { padding: 80px 0; }
 
-        /* --- ヘッダー & ナビゲーション --- */
         .main-header { 
             padding: 15px 0;
             text-align: center; 
@@ -81,7 +76,6 @@
             transform: translateY(-1px);
         }
 
-        /* --- レーベルヒーローセクション --- */
         .label-hero {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #2a2a2a 70%, #1a1a1a 100%);
             color: #fff;
@@ -165,7 +159,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- リリース一覧 --- */
         .releases-section {
             padding: 60px 0;
             background: linear-gradient(180deg, #fdfaf6 0%, #f8f4e6 100%);
@@ -213,7 +206,6 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             
-            /* --- 区切り線の強化 --- */
             border-top: 3px double #d4af37;
             border-bottom: 3px double #d4af37;
             margin-bottom: 60px;
@@ -255,7 +247,6 @@
             flex-shrink: 0;
         }
 
-        /* Coming Soon オーバーレイ */
         .coming-soon-overlay {
             position: absolute;
             top: 0;
@@ -381,7 +372,6 @@
             border-top: 1px solid #f0e9dd;
             border-bottom: 1px solid #f0e9dd;
             margin: 8px 0;
-            /* Layout Fix: 項目追加による崩れを防ぐため折り返しを許可 */
             flex-wrap: wrap; 
         }
         
@@ -473,7 +463,6 @@
             font-size: 0.7rem;
         }
 
-        /* --- Apple Music Embed Style --- */
         .apple-music-embed {
             margin: 10px 0 10px 0;
             width: 100%;
@@ -500,7 +489,6 @@
             font-size: 0.9rem;
         }
         
-        /* --- 年区切り --- */
         .year-divider {
             text-align: center;
             padding: 40px 20px;
@@ -534,7 +522,6 @@
             padding: 0 20px;
         }
 
-        /* --- フッター --- */
         .footer { 
             padding: 40px 20px;
             font-size: 0.85rem; 
@@ -544,7 +531,6 @@
             background: #fdfaf6;
         }
 
-        /* --- レスポンシブ対応 --- */
         @media (max-width: 1024px) {
             .release-card {
                 grid-template-columns: 320px 1fr;
@@ -566,7 +552,6 @@
             }
         }
         
-        /* --- PC表示時のレイアウト変更（2カラム化） --- */
         @media (min-width: 1024px) {
             .release-info.has-player {
                 display: grid;
@@ -695,15 +680,6 @@
             }
         }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NEMCZHXCD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2NEMCZHXCD');
-    </script>
 </head>
 <body>
 
@@ -721,7 +697,6 @@
     </header>
 
     <main>
-        <!-- レーベルヒーローセクション -->
         <section class="label-hero">
             <div class="label-hero-content">
                 <h1 class="label-logo">VERIQUEST RECORDS</h1>
@@ -736,7 +711,6 @@
             </div>
         </section>
 
-        <!-- リリース一覧 -->
         <section class="releases-section">
             <div class="container">
                 <h2 class="section-title">
@@ -746,14 +720,12 @@
                 
                 <div class="releases-grid">
                     
-                    <!-- 2026年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2026</span>
                         </div>
                     </div>
                     
-                    <!-- VQR-003: 最強ウィルス -->
                     <article class="release-card">
                         <div class="release-jacket">
                             <img src="VQR-003.jpg" alt="甘音 メル - 最強ウィルス ジャケット" loading="lazy" width="600" height="600">
@@ -790,7 +762,6 @@
                         </div>
                     </article>
                     
-                    <!-- VQR-002: 白紙の文 -->
                     <article class="release-card">
                         <div class="release-jacket">
                             <img src="VQR-002.jpg" alt="柚蘭 - 白紙の文 ジャケット" loading="lazy" width="600" height="600">
@@ -838,7 +809,6 @@
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2026/01/13</span>
                                 </div>
-                                <!-- Fixed Illustration Credit (Text only) -->
                                 <div class="meta-item">
                                     <span class="meta-label">Illustration</span>
                                     <span class="meta-value">荻原 敦</span>
@@ -847,14 +817,12 @@
                         </div>
                     </article>
 
-                    <!-- 2025年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2025</span>
                         </div>
                     </div>
 
-                    <!-- VQR-001: ノスタルジア -->
                     <article class="release-card">
                         <div class="release-jacket">
                             <img src="VQR-001.jpg" alt="Rhyn's Luminous Path - ノスタルジア ジャケット" loading="lazy" width="600" height="600">
@@ -906,14 +874,12 @@
                         </div>
                     </article>
 
-                    <!-- 2022年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2022</span>
                         </div>
                     </div>
 
-                    <!-- VQR-000: 風 吹く限り -->
                     <article class="release-card">
                         <div class="release-jacket">
                             <img src="VQR-000.jpg" alt="黒薔薇王国 - 風 吹く限り ジャケット" loading="lazy" width="600" height="600">
