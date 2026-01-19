@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veriquest Records - 真実を探求する音楽レーベル | Rhyn皇太子</title>
 
-    <!-- Verification -->
+    <!-- Google Search Console 認証 -->
     <meta name="google-site-verification" content="D09wmZtN0SqhAxDPPklqV6Q0fhPSVPH863PoOOGelq4" />
     
-    <!-- SEO Metadata -->
+    <!-- SEO最適化されたメタタグ -->
     <meta name="description" content="Veriquest Records - 真実を探求する音楽レーベル。Rhyn's Luminous Path、黒薔薇王国などのディスコグラフィーをご紹介。">
     <meta name="keywords" content="Veriquest Records,音楽レーベル,Rhyn皇太子,黒薔薇王国,Rhyn's Luminous Path,インディーズレーベル">
     
-    <!-- OGP Configuration -->
     <meta property="og:title" content="Veriquest Records - 真実を探求する音楽レーベル">
     <meta property="og:description" content="Veriquest Records公式ディスコグラフィーページ。真実を探求する音楽レーベル。">
     <meta property="og:type" content="website">
@@ -20,7 +19,7 @@
     <meta property="og:image" content="https://rhyn.jp/VQR-001.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Assets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -31,55 +30,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- Design Tokens / Variables --- */
-        :root {
-            /* Palette */
-            --color-primary: #d4af37;
-            --color-primary-light: #f8e47b;
-            --color-primary-dark: #8b7355;
-            --color-text-main: #2a1f16;
-            --color-text-body: #4a3728;
-            --color-text-muted: #6a5543;
-            --color-bg-base: #fdfaf6;
-            --color-bg-paper: #fff;
-            --color-bg-dark: #1a1a1a;
-            --color-border: #f0e9dd;
-            
-            /* Gradients */
-            --gradient-gold: linear-gradient(135deg, var(--color-primary), var(--color-primary-light), var(--color-primary));
-            --gradient-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #2a2a2a 70%, #1a1a1a 100%);
-            
-            /* Typography */
-            --font-serif: 'Noto Serif JP', serif;
-            --font-display: 'Playfair Display', serif;
-            --font-accent: 'Cinzel', serif;
-            --font-quote: 'Cormorant Garamond', serif;
+        /* --- 基本スタイル --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        /* --- Global Reset & Base --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             margin: 0; 
-            font-family: var(--font-serif); 
-            background-color: var(--color-bg-base); 
-            color: var(--color-text-body); 
+            font-family: 'Noto Serif JP', serif; 
+            background-color: #fdfaf6; 
+            color: #4a3728; 
             overflow-x: hidden; 
             scroll-behavior: smooth;
             line-height: 1.6;
         }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container-full { max-width: 100%; margin: 0 auto; padding: 0; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        
-        a:focus, button:focus { 
-            outline: 2px solid var(--color-primary); 
-            outline-offset: 2px; 
-        }
+        a:focus, button:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
+        .section { padding: 80px 0; }
 
-        /* --- Header --- */
+        /* --- ヘッダー & ナビゲーション --- */
         .main-header { 
-            padding: 15px 0; 
+            padding: 15px 0;
             text-align: center; 
             position: sticky; 
             top: 0; 
@@ -87,7 +63,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px); 
             z-index: 100; 
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid #f0e9dd;
         }
         
         nav a { 
@@ -100,14 +76,14 @@
         }
         
         nav a:hover { 
-            color: var(--color-primary); 
+            color: #d4af37; 
             background-color: rgba(212, 175, 55, 0.1); 
             transform: translateY(-1px);
         }
 
-        /* --- Hero Section --- */
+        /* --- レーベルヒーローセクション --- */
         .label-hero {
-            background: var(--gradient-hero);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #2a2a2a 70%, #1a1a1a 100%);
             color: #fff;
             text-align: center;
             padding: 80px 20px;
@@ -118,7 +94,10 @@
         .label-hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: 
                 radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
@@ -139,12 +118,12 @@
         }
         
         .label-logo {
-            font-family: var(--font-accent);
+            font-family: 'Cinzel', serif;
             font-size: 3rem;
             font-weight: 800;
             letter-spacing: 4px;
             margin-bottom: 20px;
-            background: var(--gradient-gold);
+            background: linear-gradient(135deg, #d4af37 0%, #f8e47b 50%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -158,9 +137,9 @@
         }
         
         .label-tagline {
-            font-family: var(--font-quote);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.3rem;
-            color: var(--color-primary);
+            color: #d4af37;
             margin-bottom: 25px;
             font-weight: 600;
             font-style: italic;
@@ -186,19 +165,24 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- Releases Section --- */
+        /* --- リリース一覧 --- */
         .releases-section {
             padding: 60px 0;
             background: linear-gradient(180deg, #fdfaf6 0%, #f8f4e6 100%);
         }
         
+        .releases-section .container {
+            padding: 0;
+            max-width: 100%;
+        }
+        
         .section-title {
-            font-family: var(--font-display);
+            font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             text-align: center;
             margin-bottom: 40px;
             padding: 0 20px;
-            color: var(--color-text-main);
+            color: #2a1f16;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -207,7 +191,7 @@
         }
         
         .section-title i {
-            color: var(--color-primary);
+            color: #d4af37;
             margin-right: 15px;
             font-size: 1.8rem;
         }
@@ -221,92 +205,69 @@
             padding: 0;
         }
         
-        /* --- Release Card Component (Refined) --- */
         .release-card {
-            background: var(--color-bg-paper);
+            background: #fff;
             border-radius: 0;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Visual Separation */
             border: none;
-            border-top: 3px double var(--color-primary);
-            border-bottom: 3px double var(--color-primary);
+            
+            /* --- 区切り線の強化 --- */
+            border-top: 3px double #d4af37;
+            border-bottom: 3px double #d4af37;
             margin-bottom: 60px;
             
             position: relative;
-            /* Default: Vertical stack for mobile */
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            min-height: 360px;
         }
         
-        /* Desktop/Tablet Layout: Horizontal Wide Card (Breakpoint lowered to 768px to match original) */
-        @media (min-width: 768px) {
-            .release-card {
-                flex-direction: row;
-                align-items: stretch;
-                min-height: 300px;
-            }
-            
-            .release-jacket {
-                width: 300px; /* Reduced slightly for tablet fit */
-                height: auto;
-                min-height: 300px;
-                flex-shrink: 0;
-            }
-            
-            .release-info {
-                flex-grow: 1;
-                width: auto;
-            }
-        }
-
-        /* Large Desktop */
-        @media (min-width: 1024px) {
-            .release-jacket {
-                width: 360px;
-                min-height: 360px;
-            }
-            .release-card {
-                min-height: 360px;
-            }
-        }
-
         .release-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
-            background: var(--gradient-gold);
+            background: linear-gradient(90deg, #d4af37, #f8e47b, #d4af37);
             opacity: 0;
             transition: opacity 0.4s ease;
-            z-index: 5;
         }
         
         .release-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            border-color: #d4af37;
         }
         
-        .release-card:hover::before { opacity: 1; }
+        .release-card:hover::before {
+            opacity: 1;
+        }
         
         .release-jacket {
             position: relative;
-            background: #000;
+            width: 360px;
+            height: 360px;
             overflow: hidden;
+            background: #000;
+            flex-shrink: 0;
         }
 
+        /* Coming Soon オーバーレイ */
         .coming-soon-overlay {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.65);
-            color: var(--color-primary);
+            color: #d4af37;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-accent);
+            font-family: 'Cinzel', serif;
             font-size: 2rem;
             font-weight: 700;
             letter-spacing: 4px;
@@ -319,15 +280,31 @@
 
         .release-card:hover .coming-soon-overlay {
             background: rgba(0, 0, 0, 0.5);
-            color: var(--color-primary-light);
+            color: #f8e47b;
             font-size: 2.1rem;
         }
         
+        .release-jacket::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .release-card:hover .release-jacket::after {
+            opacity: 1;
+        }
+        
         .release-jacket img {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block;
         }
         
         .release-card:hover .release-jacket img {
@@ -336,30 +313,29 @@
         }
         
         .release-info {
-            padding: 30px;
+            padding: 35px 40px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            gap: 15px;
+            gap: 16px;
         }
         
         .release-text-group {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 16px;
         }
 
         .release-header {
             display: flex;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         
         .catalog-number {
             display: inline-block;
             background: linear-gradient(135deg, #000, #2a2a2a);
-            color: var(--color-primary);
-            padding: 6px 14px;
+            color: #d4af37;
+            padding: 7px 16px;
             border-radius: 25px;
             font-size: 0.75rem;
             font-weight: 700;
@@ -369,10 +345,10 @@
         }
         
         .release-title {
-            font-family: var(--font-display);
+            font-family: 'Playfair Display', serif;
             font-size: 2rem;
-            font-weight: 900;
-            color: var(--color-text-main);
+            font-weight: 700;
+            color: #2a1f16;
             margin: 0;
             line-height: 1.2;
             letter-spacing: 0.5px;
@@ -380,38 +356,39 @@
         
         .release-artist {
             font-size: 1.15rem;
-            color: var(--color-text-muted);
+            color: #6a5543;
             margin: 0;
             font-weight: 600;
             letter-spacing: 0.3px;
         }
         
         .release-catchphrase {
-            font-family: var(--font-quote);
-            font-size: 1.05rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             color: #8a7563;
             font-style: italic;
-            line-height: 1.7;
-            margin: 10px 0;
-            padding-left: 15px;
-            border-left: 3px solid var(--color-primary);
+            line-height: 1.6;
+            margin: 8px 0;
+            padding-left: 12px;
+            border-left: 3px solid #d4af37;
             font-weight: 400;
         }
         
         .release-meta {
             display: flex;
-            gap: 20px;
-            padding: 15px 0;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            margin: 10px 0;
+            gap: 30px;
+            padding: 14px 0;
+            border-top: 1px solid #f0e9dd;
+            border-bottom: 1px solid #f0e9dd;
+            margin: 8px 0;
+            /* Layout Fix: 項目追加による崩れを防ぐため折り返しを許可 */
             flex-wrap: wrap; 
         }
         
         .meta-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
         
         .meta-label {
@@ -423,17 +400,17 @@
         }
         
         .meta-value {
-            font-size: 0.9rem;
-            color: var(--color-text-body);
+            font-size: 0.95rem;
+            color: #4a3728;
             font-weight: 600;
         }
         
         .release-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             margin-top: 10px;
-            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
         
         .release-link-button {
@@ -441,11 +418,11 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 12px 30px;
+            padding: 14px 32px;
             background: linear-gradient(135deg, #000, #2a2a2a);
-            color: var(--color-primary);
+            color: #d4af37;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 1px;
             transition: all 0.3s ease;
@@ -458,17 +435,21 @@
         .release-link-button::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
             transition: left 0.5s ease;
         }
         
-        .release-link-button:hover::before { left: 100%; }
+        .release-link-button:hover::before {
+            left: 100%;
+        }
         
         .release-link-button:hover {
             background: linear-gradient(135deg, #2a2a2a, #000);
-            color: var(--color-primary-light);
+            color: #f8e47b;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
@@ -477,7 +458,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            background: linear-gradient(135deg, #d4af37, #f8e47b);
             color: #000;
             padding: 7px 16px;
             border-radius: 25px;
@@ -488,36 +469,38 @@
             letter-spacing: 0.8px;
         }
         
-        .release-badge i { font-size: 0.7rem; }
-
-        /* --- Apple Music Embed Style --- */
-        .preview-section {
-            margin: 10px 0;
-            width: 100%;
+        .release-badge i {
+            font-size: 0.7rem;
         }
 
+        /* --- Apple Music Embed Style --- */
         .apple-music-embed {
+            margin: 10px 0 10px 0;
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
             border: 1px solid rgba(212, 175, 55, 0.2);
             background: #fff;
         }
 
         .preview-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 8px;
+            color: #d4af37;
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         
-        /* --- Year Divider --- */
+        .preview-label i {
+            font-size: 0.9rem;
+        }
+        
+        /* --- 年区切り --- */
         .year-divider {
             text-align: center;
             padding: 40px 20px;
@@ -537,74 +520,179 @@
             content: '';
             flex: 1;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
             max-width: 200px;
         }
         
         .year-text {
-            font-family: var(--font-accent);
+            font-family: 'Cinzel', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--color-primary);
+            color: #d4af37;
             letter-spacing: 4px;
             text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
             padding: 0 20px;
         }
 
-        /* --- Footer --- */
+        /* --- フッター --- */
         .footer { 
             padding: 40px 20px;
             font-size: 0.85rem; 
             color: #aaa; 
             text-align: center;
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid #f0e9dd;
             background: #fdfaf6;
         }
 
-        /* --- Responsive Tweaks --- */
-        @media (max-width: 767px) {
-            .label-logo { font-size: 2rem; letter-spacing: 2px; }
-            .section-title { font-size: 1.7rem; margin-bottom: 35px; }
-            
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 1024px) {
             .release-card {
-                flex-direction: column; /* Force stack on mobile */
-                min-height: auto;
+                grid-template-columns: 320px 1fr;
+                min-height: 320px;
+            }
+            .release-jacket {
+                width: 320px;
+                height: 320px;
+            }
+            .release-info {
+                padding: 30px 35px;
+                gap: 14px;
+            }
+            .label-logo {
+                font-size: 2.5rem;
+            }
+            .coming-soon-overlay {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* --- PC表示時のレイアウト変更（2カラム化） --- */
+        @media (min-width: 1024px) {
+            .release-info.has-player {
+                display: grid;
+                grid-template-columns: 1fr 320px; 
+                column-gap: 40px;
+                grid-auto-rows: min-content; 
+                align-items: start;
+            }
+
+            .release-text-group {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .release-actions {
+                grid-column: 1;
+                grid-row: 2;
+                margin-top: 20px;
+            }
+
+            .release-catchphrase {
+                grid-column: 1;
+                grid-row: 3;
+                margin-top: 15px;
+            }
+
+            .release-meta {
+                grid-column: 1;
+                grid-row: 4;
+                margin-top: 20px;
+            }
+            
+            .preview-section { 
+                grid-column: 2;
+                grid-row: 1 / span 5;
+                margin-top: 0;
+            }
+            
+            .apple-music-embed {
+                margin: 0;
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            }
+
+            .release-info.has-player .apple-music-embed iframe {
+                height: 450px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .label-hero {
+                padding: 60px 20px;
+            }
+            .label-logo {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            .section-title {
+                font-size: 1.7rem;
+                margin-bottom: 35px;
+            }
+            .release-card {
+                grid-template-columns: 240px 1fr;
+                min-height: 240px;
                 margin-bottom: 40px;
+            }
+            .release-jacket {
+                width: 240px;
+                height: 240px;
+            }
+            .release-info {
+                padding: 20px 24px;
+                gap: 10px;
+            }
+            .release-text-group {
+                gap: 8px;
+            }
+            .release-meta {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px 0;
+            }
+            .meta-item {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .release-actions {
+                flex-wrap: wrap;
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+            .apple-music-embed {
+                margin: 10px 0 5px 0;
+                box-shadow: none;
+                border: none;
+            }
+            .coming-soon-overlay {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .label-logo {
+                font-size: 1.6rem;
+                letter-spacing: 1.5px;
+            }
+            .release-card {
+                grid-template-columns: 1fr;
+                min-height: auto;
             }
             .release-jacket {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 1/1;
             }
-            .release-info { padding: 25px 20px; gap: 10px; }
-            .release-text-group { gap: 8px; }
-            .release-title { font-size: 1.6rem; }
-            
-            .release-meta {
-                flex-direction: column;
-                gap: 8px;
-                padding: 10px 0;
+            .release-info {
+                padding: 25px 20px;
             }
-            .meta-item { flex-direction: row; justify-content: space-between; }
-            
-            .release-actions {
-                flex-wrap: wrap;
-                margin-top: 10px;
-                margin-bottom: 15px;
+            .coming-soon-overlay {
+                font-size: 1.8rem;
             }
-            
-            .apple-music-embed {
-                margin: 10px 0 5px 0;
-                box-shadow: none;
-                border: none;
+
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8rem;
+                padding: 6px 8px;
             }
-            .coming-soon-overlay { font-size: 1.5rem; }
-            
-            nav a { margin: 0 5px; font-size: 0.8rem; padding: 6px 8px; }
-        }
-        
-        @media (max-width: 480px) {
-            .label-logo { font-size: 1.6rem; letter-spacing: 1.5px; }
         }
     </style>
 
@@ -633,7 +721,7 @@
     </header>
 
     <main>
-        <!-- Label Hero -->
+        <!-- レーベルヒーローセクション -->
         <section class="label-hero">
             <div class="label-hero-content">
                 <h1 class="label-logo">VERIQUEST RECORDS</h1>
@@ -648,7 +736,7 @@
             </div>
         </section>
 
-        <!-- Releases -->
+        <!-- リリース一覧 -->
         <section class="releases-section">
             <div class="container">
                 <h2 class="section-title">
@@ -658,17 +746,17 @@
                 
                 <div class="releases-grid">
                     
-                    <!-- 2026 -->
+                    <!-- 2026年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2026</span>
                         </div>
                     </div>
                     
-                    <!-- VQR-003 -->
+                    <!-- VQR-003: 最強ウィルス -->
                     <article class="release-card">
                         <div class="release-jacket">
-                            <img src="VQR-003.jpg" alt="甘音 メル - 最強ウィルス ジャケット" loading="lazy">
+                            <img src="VQR-003.jpg" alt="甘音 メル - 最強ウィルス ジャケット" loading="lazy" width="600" height="600">
                             <div class="coming-soon-overlay">Coming Soon</div>
                         </div>
                         <div class="release-info">
@@ -702,12 +790,12 @@
                         </div>
                     </article>
                     
-                    <!-- VQR-002 -->
+                    <!-- VQR-002: 白紙の文 -->
                     <article class="release-card">
                         <div class="release-jacket">
-                            <img src="VQR-002.jpg" alt="柚蘭 - 白紙の文 ジャケット" loading="lazy">
+                            <img src="VQR-002.jpg" alt="柚蘭 - 白紙の文 ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <div class="release-info">
+                        <div class="release-info has-player">
                             <div class="release-text-group">
                                 <div class="release-header">
                                     <span class="catalog-number">VQR-002</span>
@@ -716,6 +804,22 @@
                                 <p class="release-artist">柚蘭</p>
                             </div>
                             
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1867145042"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="release-actions">
+                                <a href="https://linkco.re/TezPuRHe" target="_blank" rel="noopener noreferrer" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
+                            </div>
+
                             <p class="release-catchphrase">
                                 何も書かれていない白紙の手紙が、最も多くを語る。<br>
                                 言葉にできない想いを、音に託した祈りの歌。
@@ -734,47 +838,50 @@
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2026/01/13</span>
                                 </div>
+                                <!-- Fixed Illustration Credit (Text only) -->
                                 <div class="meta-item">
                                     <span class="meta-label">Illustration</span>
                                     <span class="meta-value">荻原 敦</span>
                                 </div>
                             </div>
-
-                            <div class="preview-section">
-                                <div class="preview-label"><i class="fas fa-play-circle"></i> PREVIEW</div>
-                                <div class="apple-music-embed">
-                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1867145042"></iframe>
-                                </div>
-                            </div>
-
-                            <div class="release-actions">
-                                <a href="https://linkco.re/TezPuRHe" target="_blank" rel="noopener noreferrer" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
-                            </div>
                         </div>
                     </article>
 
-                    <!-- 2025 -->
+                    <!-- 2025年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2025</span>
                         </div>
                     </div>
 
-                    <!-- VQR-001 -->
+                    <!-- VQR-001: ノスタルジア -->
                     <article class="release-card">
                         <div class="release-jacket">
-                            <img src="VQR-001.jpg" alt="Rhyn's Luminous Path - ノスタルジア ジャケット" loading="lazy">
+                            <img src="VQR-001.jpg" alt="Rhyn's Luminous Path - ノスタルジア ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <div class="release-info">
+                        <div class="release-info has-player">
                             <div class="release-text-group">
                                 <div class="release-header">
                                     <span class="catalog-number">VQR-001</span>
                                 </div>
                                 <h3 class="release-title">ノスタルジア</h3>
                                 <p class="release-artist">Rhyn's Luminous Path</p>
+                            </div>
+
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1863646127"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="release-actions">
+                                <a href="https://linkco.re/Mu1qNh6C" target="_blank" rel="noopener noreferrer" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
                             </div>
 
                             <p class="release-catchphrase">
@@ -796,42 +903,48 @@
                                     <span class="meta-value">2025/12/24</span>
                                 </div>
                             </div>
-
-                            <div class="preview-section">
-                                <div class="preview-label"><i class="fas fa-play-circle"></i> PREVIEW</div>
-                                <div class="apple-music-embed">
-                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1863646127"></iframe>
-                                </div>
-                            </div>
-
-                            <div class="release-actions">
-                                <a href="https://linkco.re/Mu1qNh6C" target="_blank" rel="noopener noreferrer" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
-                            </div>
                         </div>
                     </article>
 
-                    <!-- 2022 -->
+                    <!-- 2022年 -->
                     <div class="year-divider">
                         <div class="year-divider-line">
                             <span class="year-text">2022</span>
                         </div>
                     </div>
 
-                    <!-- VQR-000 -->
+                    <!-- VQR-000: 風 吹く限り -->
                     <article class="release-card">
                         <div class="release-jacket">
-                            <img src="VQR-000.jpg" alt="黒薔薇王国 - 風 吹く限り ジャケット" loading="lazy">
+                            <img src="VQR-000.jpg" alt="黒薔薇王国 - 風 吹く限り ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <div class="release-info">
+                        <div class="release-info has-player">
                             <div class="release-text-group">
                                 <div class="release-header">
                                     <span class="catalog-number">VQR-000</span>
                                 </div>
                                 <h3 class="release-title">風 吹く限り</h3>
                                 <p class="release-artist">黒薔薇王国</p>
+                            </div>
+
+                            <div class="preview-section">
+                                <div class="preview-label">
+                                    <i class="fas fa-play-circle"></i> PREVIEW
+                                </div>
+                                <div class="apple-music-embed">
+                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1632010697"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="release-actions">
+                                <a href="https://linkco.re/dPZxEv3M" target="_blank" rel="noopener noreferrer" class="release-link-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>各配信ストアへ</span>
+                                </a>
+                                <div class="release-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>Pre-Label Era</span>
+                                </div>
                             </div>
 
                             <p class="release-catchphrase">
@@ -851,24 +964,6 @@
                                 <div class="meta-item">
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2022/07/02</span>
-                                </div>
-                            </div>
-
-                            <div class="preview-section">
-                                <div class="preview-label"><i class="fas fa-play-circle"></i> PREVIEW</div>
-                                <div class="apple-music-embed">
-                                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/album/1632010697"></iframe>
-                                </div>
-                            </div>
-
-                            <div class="release-actions">
-                                <a href="https://linkco.re/dPZxEv3M" target="_blank" rel="noopener noreferrer" class="release-link-button">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>各配信ストアへ</span>
-                                </a>
-                                <div class="release-badge">
-                                    <i class="fas fa-star"></i>
-                                    <span>Pre-Label Era</span>
                                 </div>
                             </div>
                         </div>
