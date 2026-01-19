@@ -53,18 +53,17 @@
         a:focus, button:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
         .section { padding: 80px 0; }
 
-        /* --- ヘッダー & ナビゲーション (修正箇所) --- */
+        /* --- ヘッダー & ナビゲーション --- */
         .main-header { 
-            padding: 15px 0; /* 12pxから15pxへ変更し、他ページと統一 */
+            padding: 15px 0;
             text-align: center; 
             position: sticky; 
             top: 0; 
-            background-color: rgba(253, 250, 246, 0.95); /* 透明度も他ページと統一 */
-            backdrop-filter: blur(10px); /* ぼかし量も統一 */
+            background-color: rgba(253, 250, 246, 0.95);
+            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px); 
             z-index: 100; 
             border-bottom: 1px solid #f0e9dd;
-            /* box-shadowは他ページにはないため削除して統一 */
         }
         
         nav a { 
@@ -215,9 +214,9 @@
             border: none;
             
             /* --- 区切り線の強化 --- */
-            border-top: 3px double #d4af37; /* 二重線で強調 */
-            border-bottom: 3px double #d4af37; /* 二重線で強調 */
-            margin-bottom: 60px; /* 作品間の距離を広げる */
+            border-top: 3px double #d4af37;
+            border-bottom: 3px double #d4af37;
+            margin-bottom: 60px;
             
             position: relative;
             display: grid;
@@ -240,7 +239,7 @@
         .release-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-            border-color: #d4af37; /* ホバー時はさらに強調 */
+            border-color: #d4af37;
         }
         
         .release-card:hover::before {
@@ -323,7 +322,7 @@
         .release-text-group {
             display: flex;
             flex-direction: column;
-            gap: 16px; /* 元のgapを維持 */
+            gap: 16px;
         }
 
         .release-header {
@@ -382,6 +381,8 @@
             border-top: 1px solid #f0e9dd;
             border-bottom: 1px solid #f0e9dd;
             margin: 8px 0;
+            /* Layout Fix: 項目追加による崩れを防ぐため折り返しを許可 */
+            flex-wrap: wrap; 
         }
         
         .meta-item {
@@ -478,8 +479,8 @@
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15); /* ゴールドの薄い影を追加 */
-            border: 1px solid rgba(212, 175, 55, 0.2); /* 薄いゴールドの枠線 */
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             background: #fff;
         }
 
@@ -569,45 +570,38 @@
         @media (min-width: 1024px) {
             .release-info.has-player {
                 display: grid;
-                /* 幅を320pxに広げて横スクロール防止 */
                 grid-template-columns: 1fr 320px; 
                 column-gap: 40px;
-                /* 行の高さをコンテンツに合わせて自動調整 */
                 grid-auto-rows: min-content; 
                 align-items: start;
             }
 
-            /* テキストグループ（タイトル等）は左上、詰めて配置 */
             .release-text-group {
                 grid-column: 1;
                 grid-row: 1;
             }
 
-            /* ボタン類はタイトルの下 */
             .release-actions {
                 grid-column: 1;
                 grid-row: 2;
                 margin-top: 20px;
             }
 
-            /* キャッチコピーはその下 */
             .release-catchphrase {
                 grid-column: 1;
                 grid-row: 3;
                 margin-top: 15px;
             }
 
-            /* メタ情報は一番下（または余白埋め） */
             .release-meta {
                 grid-column: 1;
                 grid-row: 4;
                 margin-top: 20px;
             }
             
-            /* プレーヤーは右側全体に配置 */
             .preview-section { 
                 grid-column: 2;
-                grid-row: 1 / span 5; /* 縦に長く確保 */
+                grid-row: 1 / span 5;
                 margin-top: 0;
             }
             
@@ -616,7 +610,6 @@
                 box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
             }
 
-            /* 追加: PC表示時はプレーヤーの高さを増やしてスクロールを防ぐ */
             .release-info.has-player .apple-music-embed iframe {
                 height: 450px !important;
             }
@@ -637,7 +630,6 @@
             .release-card {
                 grid-template-columns: 240px 1fr;
                 min-height: 240px;
-                /* スマホでも区切り線を適用 */
                 margin-bottom: 40px;
             }
             .release-jacket {
@@ -649,7 +641,7 @@
                 gap: 10px;
             }
             .release-text-group {
-                gap: 8px; /* スマホでは間隔を狭く */
+                gap: 8px;
             }
             .release-meta {
                 flex-direction: column;
@@ -672,7 +664,6 @@
             }
             .coming-soon-overlay {
                 font-size: 1.2rem;
-                letter-spacing: 2px;
             }
         }
         
@@ -697,7 +688,6 @@
                 font-size: 1.8rem;
             }
 
-            /* index.htmlに合わせたナビゲーションスタイル */
             nav a {
                 margin: 0 5px;
                 font-size: 0.8rem;
@@ -782,7 +772,7 @@
                                 可愛さと狂気の境界線を破壊する、デジタルノイズの暴走。<br>
                                 Code: RED_BERRY — 感染したら、もう戻れない。
                             </p>
-                            <!-- プレーヤーなし -->
+                            
                             <div class="release-meta">
                                 <div class="meta-item">
                                     <span class="meta-label">Genre</span>
@@ -805,9 +795,7 @@
                         <div class="release-jacket">
                             <img src="VQR-002.jpg" alt="柚蘭 - 白紙の文 ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
-                            <!-- グループ化: タイトル類 -->
                             <div class="release-text-group">
                                 <div class="release-header">
                                     <span class="catalog-number">VQR-002</span>
@@ -816,7 +804,6 @@
                                 <p class="release-artist">柚蘭</p>
                             </div>
                             
-                            <!-- Apple Music Embed -->
                             <div class="preview-section">
                                 <div class="preview-label">
                                     <i class="fas fa-play-circle"></i> PREVIEW
@@ -826,7 +813,6 @@
                                 </div>
                             </div>
 
-                            <!-- ボタンをここへ移動 (スマホ対応) -->
                             <div class="release-actions">
                                 <a href="https://linkco.re/TezPuRHe" target="_blank" rel="noopener noreferrer" class="release-link-button">
                                     <i class="fas fa-external-link-alt"></i>
@@ -852,6 +838,11 @@
                                     <span class="meta-label">Released</span>
                                     <span class="meta-value">2026/01/13</span>
                                 </div>
+                                <!-- Fixed Illustration Credit (Text only) -->
+                                <div class="meta-item">
+                                    <span class="meta-label">Illustration</span>
+                                    <span class="meta-value">荻原 敦</span>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -868,7 +859,6 @@
                         <div class="release-jacket">
                             <img src="VQR-001.jpg" alt="Rhyn's Luminous Path - ノスタルジア ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
                             <div class="release-text-group">
                                 <div class="release-header">
@@ -878,7 +868,6 @@
                                 <p class="release-artist">Rhyn's Luminous Path</p>
                             </div>
 
-                            <!-- Apple Music Embed -->
                             <div class="preview-section">
                                 <div class="preview-label">
                                     <i class="fas fa-play-circle"></i> PREVIEW
@@ -888,7 +877,6 @@
                                 </div>
                             </div>
 
-                            <!-- ボタンをここへ移動 (スマホ対応) -->
                             <div class="release-actions">
                                 <a href="https://linkco.re/Mu1qNh6C" target="_blank" rel="noopener noreferrer" class="release-link-button">
                                     <i class="fas fa-external-link-alt"></i>
@@ -930,7 +918,6 @@
                         <div class="release-jacket">
                             <img src="VQR-000.jpg" alt="黒薔薇王国 - 風 吹く限り ジャケット" loading="lazy" width="600" height="600">
                         </div>
-                        <!-- has-playerクラスを追加 -->
                         <div class="release-info has-player">
                             <div class="release-text-group">
                                 <div class="release-header">
@@ -940,7 +927,6 @@
                                 <p class="release-artist">黒薔薇王国</p>
                             </div>
 
-                            <!-- Apple Music Embed -->
                             <div class="preview-section">
                                 <div class="preview-label">
                                     <i class="fas fa-play-circle"></i> PREVIEW
@@ -950,7 +936,6 @@
                                 </div>
                             </div>
 
-                            <!-- ボタンをここへ移動 (スマホ対応) -->
                             <div class="release-actions">
                                 <a href="https://linkco.re/dPZxEv3M" target="_blank" rel="noopener noreferrer" class="release-link-button">
                                     <i class="fas fa-external-link-alt"></i>
