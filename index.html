@@ -8,12 +8,12 @@
     <!-- Google Search Console 認証 -->
     <meta name="google-site-verification" content="D09wmZtN0SqhAxDPPklqV6Q0fhPSVPH863PoOOGelq4" />
     
-    <!-- SEO最適化されたメタタグ -->
-    <meta name="description" content="Rhyn皇太子(リン皇太子)公式HP。黒薔薇王国のボーカリスト。名古屋のミュージシャン・作家・哲学研究家。楽曲制作・ウェブデザイン・オンラインサロン『解脱しか勝たん！』主宰。音楽と真理の探求者。別名義：明空凛">
-    <meta name="keywords" content="Rhyn皇太子,リン皇太子,リン,黒薔薇王国,Black Roses,Candy Drugers,明空凛,あけそらりん,名古屋,ミュージシャン,楽曲制作,ウェブデザイン,アーティスト,哲学,作家,ボーカリスト,オンラインサロン">
+    <!-- SEO最適化されたメタタグ（検索対策用調整） -->
+    <meta name="description" content="Rhyn皇太子(リン皇太子)公式HP。ソロプロジェクト「Rhyn's Luminous Path」始動。元・黒薔薇王国ボーカリスト。名古屋のミュージシャン・作家・哲学研究家。楽曲制作・ウェブデザイン・オンラインサロン『解脱しか勝たん！』主宰。">
+    <meta name="keywords" content="Rhyn皇太子,リン皇太子,Rhyn's Luminous Path,黒薔薇王国,Black Roses,明空凛,名古屋,ミュージシャン,シンフォニックメタル,楽曲制作,ウェブデザイン,アーティスト,哲学,作家,オンラインサロン">
     
     <meta property="og:title" content="Rhyn皇太子 - 歌と、言葉と、真理の探求者。">
-    <meta property="og:description" content="Rhyn皇太子(リン皇太子)公式HP。黒薔薇王国のボーカリスト。名古屋のミュージシャン・作家・哲学研究家。楽曲制作・ウェブデザイン・オンラインサロン『解脱しか勝たん！』主宰。音楽と真理の探求者。">
+    <meta property="og:description" content="Rhyn皇太子(リン皇太子)公式HP。ソロプロジェクト「Rhyn's Luminous Path」始動。元・黒薔薇王国ボーカリスト。名古屋のミュージシャン・作家・哲学研究家。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rhyn.jp">
     <meta property="og:image" content="https://rhyn.jp/Rhyn01.JPG">
@@ -26,54 +26,28 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
 
-    <!-- 統合された構造化データ -->
+    <!-- 統合された構造化データ (JSON-LD: 正しいタグ定義への修正) -->
     <script type="application/ld+json">
     [
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Rhyn皇太子",
-        "alternateName": ["リン皇太子", "リン", "明空凛", "あけそら りん", "あけそらりん"],
-        "additionalName": {
-          "@type": "Text",
-          "@value": "明空凛(あけそら りん)"
-        },
+        "alternateName": ["リン皇太子", "Rhyn", "明空凛", "あけそら りん"],
         "url": "https://rhyn.jp",
         "image": "https://rhyn.jp/Rhyn01.JPG",
-        "jobTitle": "Vocalist",
+        "jobTitle": ["Vocalist", "Musician", "Author", "Web Designer"],
         "description": "Rhyn皇太子(リン皇太子)は耽美派ボーカリスト、ミュージシャン、作家、武術気功研究家、ウェブデザイナー。慶應義塾大学哲学徒。オンラインサロン『解脱しか勝たん！』を主宰。別名義：明空凛(あけそら りん)",
         "knowsAbout": ["Music", "Philosophy", "Qigong", "Martial Arts", "Writing", "Game Development", "Web Design"],
-        "hasOccupation": [
-          {
-            "@type": "Occupation",
-            "name": "Vocalist"
-          },
-          {
-            "@type": "Occupation", 
-            "name": "Musician"
-          },
-          {
-            "@type": "Occupation",
-            "name": "Author"
-          },
-          {
-            "@type": "Occupation",
-            "name": "Web Designer"
-          }
-        ],
+        "memberOf": {
+            "@type": "MusicGroup",
+            "name": "黒薔薇王国",
+            "dissolutionDate": "2024",
+            "description": "Past musical activity"
+        },
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "慶應義塾大学"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "名古屋市",
-          "addressRegion": "愛知県",
-          "addressCountry": "JP"
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://rhyn.jp"
         },
         "sameAs": [
           "https://twitter.com/rhyn_blackroses",
@@ -85,9 +59,23 @@
       },
       {
         "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Rhyn's Luminous Path",
+        "founder": {
+            "@type": "Person",
+            "name": "Rhyn皇太子"
+        },
+        "genre": "Symphonic Metal",
+        "location": {
+            "@type": "City",
+            "name": "Nagoya"
+        },
+        "description": "Rhyn皇太子によるソロプロジェクト"
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Rhyn皇太子",
-        "alternateName": ["リン皇太子", "明空凛"],
         "description": "Rhyn皇太子(リン皇太子)の名古屋を拠点とする楽曲制作・ウェブサイト制作サービス",
         "address": {
           "@type": "PostalAddress",
@@ -96,14 +84,8 @@
           "addressCountry": "JP"
         },
         "areaServed": [
-          {
-            "@type": "City",
-            "name": "名古屋市"
-          },
-          {
-            "@type": "State",
-            "name": "愛知県"
-          }
+          { "@type": "City", "name": "名古屋市" },
+          { "@type": "State", "name": "愛知県" }
         ],
         "serviceType": [
           "楽曲制作",
@@ -111,35 +93,8 @@
           "ウェブサイト制作",
           "デジタルコンテンツ制作"
         ],
-        "url": "https://rhyn.jp",
-        "image": "https://rhyn.jp/Rhyn01.JPG",
-        "sameAs": [
-          "https://twitter.com/rhyn_blackroses",
-          "https://www.instagram.com/r__i__nn/",
-          "https://www.youtube.com/@rhyn2094"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "音楽・ウェブ制作サービス",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "楽曲制作",
-                "description": "オリジナル楽曲の作曲・編曲・ミックス・マスタリング"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "ウェブサイト制作",
-                "description": "アーティスト・クリエイター向けウェブサイトの企画・デザイン・開発"
-              }
-            }
-          ]
-        }
+        "priceRange": "¥4,000 - ¥50,000",
+        "url": "https://rhyn.jp"
       }
     ]
     </script>
@@ -2285,7 +2240,8 @@
     </div>
 
     <footer class="footer">
-        <p>© 2025 Rhyn皇太子. The Revolution has begun.</p>
+        <!-- フッター年号: 静的更新 -->
+        <p>© 2025 - 2026 Rhyn皇太子. The Revolution has begun.</p>
     </footer>
 
     <script>
@@ -2312,9 +2268,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
