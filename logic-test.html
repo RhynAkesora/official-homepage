@@ -147,10 +147,11 @@
     pointer-events: none;
   }
 
-  /* Primary Action Button (Start / Next) - VIVID */
+  /* Primary Action Button (Start / Next / Restart) - ABSOLUTE WHITE TEXT FORCE */
   .btn-primary {
     background: linear-gradient(135deg, #2979ff, #00b0ff); /* Vivid Gradient */
-    color: #ffffff;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
     border: none;
     text-align: center;
     font-weight: 800;
@@ -159,6 +160,7 @@
     font-size: 16px;
     box-shadow: 0 4px 20px rgba(41, 121, 255, 0.5);
     letter-spacing: 0.05em;
+    opacity: 1 !important;
   }
 
   .btn-primary:active {
@@ -169,8 +171,8 @@
   /* Share Button (X) - ABSOLUTE WHITE TEXT FORCE */
   .btn-share {
     background-color: #000000;
-    color: #ffffff !important; /* Force override */
-    -webkit-text-fill-color: #ffffff !important; /* iOS override */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
     border: 2px solid var(--accent-primary);
     text-align: center;
     font-weight: 700;
@@ -183,7 +185,7 @@
     z-index: 102;
     box-shadow: 0 0 15px var(--accent-glow);
     text-decoration: none;
-    opacity: 1 !important; /* Ensure no transparency */
+    opacity: 1 !important;
   }
   
   .btn-share:hover, .btn-share:visited, .btn-share:active {
@@ -204,9 +206,9 @@
   /* Home Button - ABSOLUTE WHITE TEXT & BORDER FORCE */
   .btn-home {
     background-color: transparent;
-    color: #ffffff !important; /* Force override */
-    -webkit-text-fill-color: #ffffff !important; /* iOS override */
-    border: 2px solid #ffffff !important; /* Force White Border */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 2px solid #ffffff !important;
     text-align: center;
     font-weight: 700;
     margin-top: 20px;
@@ -238,7 +240,7 @@
   .x-icon {
     width: 18px;
     height: 18px;
-    fill: #ffffff !important; /* Force White Icon */
+    fill: #ffffff !important;
   }
 
   /* Progress Bar */
@@ -282,16 +284,24 @@
   .fade-wrapper { transition: opacity 0.2s ease; }
   .fading-out { opacity: 0; }
 
-  /* Result Screen */
+  /* Result Screen - Force White */
   .result-header {
     text-align: center;
     margin-bottom: 30px;
   }
 
+  .result-header .label {
+    font-size: 13px;
+    color: #ffffff !important; /* Force White */
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+
   .score-display {
     font-size: 64px;
     font-weight: 900;
-    color: #ffffff;
+    color: #ffffff !important; /* Force White */
     margin: 8px 0;
     line-height: 1;
     text-shadow: 0 0 20px var(--accent-glow);
@@ -308,13 +318,13 @@
   .feedback-text {
     text-align: left;
     font-size: 15px;
-    color: #e0e0e0;
+    color: #ffffff !important; /* Force White */
     line-height: 1.7;
     margin-bottom: 20px;
     background: #1a1a1a;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #444;
+    border: 1px solid #ffffff !important; /* Force White Border */
   }
 
   /* Review Section */
@@ -396,7 +406,7 @@
   <div id="view-result" class="view">
     <div class="card">
       <div class="result-header">
-        <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 8px; font-weight: bold; letter-spacing: 0.1em;">DIAGNOSIS RESULT</div>
+        <div class="label">DIAGNOSIS RESULT</div>
         <div id="score-display" class="score-display">0/5</div>
         <div id="rank-display" class="rank-display">-</div>
       </div>
@@ -508,7 +518,7 @@
     },
     {
       q: "宝くじ売り場で「この売り場から1等がたくさん出ています！」と宣伝していました。\nこの売り場で買うと、当たりやすいと言える？",
-      options: ["言える。運気が良い場所だから。", "言える。実績があるから。", "言えない。単に販売枚数が多いだけかもしれない。", "言えない。次は出ないから。"],
+      options: ["言える. 運気が良い場所だから。", "言える. 実績があるから。", "言えない. 単に販売枚数が多いだけかもしれない。", "言えない. 次は出ないから。"],
       correct: 2,
       explanation: "たくさん売っている店なら、当たりが含まれる数も自然と増えます。1枚あたりの当選確率はどこで買っても変わりません。"
     },
