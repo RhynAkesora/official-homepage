@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja" prefix="og: http://ogp.me/ns#">
+<html lang="ja" prefix="og: [http://ogp.me/ns#](http://ogp.me/ns#)">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>論理的思考力診断ゲーム | Rhyn.jp</title>
-<meta name="description" content="知識不要・地頭力のみで挑む論理的思考力診断。直感の罠を抜け出し、科学的な思考力を測定します。">
+<title>バイアス退散！ - 論理的思考力診断 | Rhyn.jp</title>
+<meta name="description" content="知識不要・地頭力のみで挑む論理的思考力診断。直感の罠（悪霊）を抜け出し、科学的な思考力を測定します。">
 
 <!-- OGP Configuration -->
-<meta property="og:title" content="論理的思考力診断ゲーム" />
+<meta property="og:title" content="バイアス退散！" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://rhyn.jp/logic-test.html" />
+<meta property="og:url" content="[https://rhyn.jp/logic-test.html](https://rhyn.jp/logic-test.html)" />
 <meta property="og:description" content="知識は一切不要。あなたの純粋な論理処理能力をS〜Cランクで測定します。" />
 <meta property="og:site_name" content="Rhyn.jp" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -81,7 +81,7 @@
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 24px;
     color: var(--text-main);
     text-align: center;
@@ -375,7 +375,7 @@
   <!-- Intro Screen -->
   <div id="view-intro" class="view active">
     <div class="card">
-      <h1>論理的思考力診断ゲーム</h1>
+      <h1><span style="text-decoration: line-through; opacity: 0.7; font-size: 0.8em; margin-right: 5px;">悪霊</span>バイアス退散！</h1>
       <p>
         あなたの思考の「切れ味」を試してみましょう。<br><br>
         難しい知識は一切不要。パズルのように、目の前の情報だけを使って論理的に正しい答えを導き出してください。<br><br>
@@ -424,7 +424,7 @@
       <button id="btn-restart" class="btn btn-primary">別の問題に挑戦する</button>
 
       <!-- Home Link -->
-      <a href="https://rhyn.jp/" target="_blank" rel="noopener noreferrer" class="btn btn-home">
+      <a href="[https://rhyn.jp/](https://rhyn.jp/)" target="_blank" rel="noopener noreferrer" class="btn btn-home">
         Rhyn.jp (トップページ) へ戻る
       </a>
 
@@ -1038,14 +1038,14 @@
 
     // Hybrid Share Function: Updates HREF + OnClick Fallback
     shareToX: function(e) {
-      const text = `論理的思考力診断ゲームで【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
+      const text = `「バイアス退散！」で【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
       
       let currentUrl = window.location.href;
       if (!currentUrl.startsWith('http')) {
-          currentUrl = 'https://rhyn.jp/logic-test.html';
+          currentUrl = '[https://rhyn.jp/logic-test.html](https://rhyn.jp/logic-test.html)';
       }
 
-      const hashtags = "論理的思考力診断,地頭力";
+      const hashtags = "バイアス退散,論理的思考力診断,Rhyn";
       const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
       
       // Fallback if href wasn't updated or clicked
@@ -1056,14 +1056,14 @@
     },
 
     updateShareLink: function() {
-      const text = `論理的思考力診断ゲームで【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
+      const text = `「バイアス退散！」で【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
       
       let currentUrl = window.location.href;
       if (!currentUrl.startsWith('http')) {
-          currentUrl = 'https://rhyn.jp/logic-test.html';
+          currentUrl = '[https://rhyn.jp/logic-test.html](https://rhyn.jp/logic-test.html)';
       }
 
-      const hashtags = "論理的思考力診断,地頭力";
+      const hashtags = "バイアス退散,論理的思考力診断,Rhyn";
       const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
       
       // Directly update the anchor tag
