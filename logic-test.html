@@ -107,6 +107,8 @@
     transition: all 0.2s ease;
     text-decoration: none;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
   }
 
   .btn:hover:not(.disabled) {
@@ -153,6 +155,8 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    pointer-events: auto; /* Ensure clickable */
   }
   
   .btn-share:hover {
@@ -168,6 +172,8 @@
     font-weight: bold;
     margin-top: 12px;
     font-size: 14px;
+    cursor: pointer;
+    pointer-events: auto; /* Ensure clickable */
   }
 
   .btn-home:hover {
@@ -413,7 +419,7 @@ const questionPool = [
     explanation: "今日は「昨日の明日」です。"
   },
   {
-    q: "Aの父親はBですが、BはAの父親ではありません。\nBはAの何？",
+    q: "Aの親はBですが、BはAの父親ではありません。\nBはAの何？",
     options: ["祖父", "母親", "兄", "他人"],
     correct: 1,
     explanation: "親は父か母です。父でないなら母です。"
