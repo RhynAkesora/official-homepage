@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論理的思考力診断ゲーム | Rhyn.jp</title>
+<meta name="description" content="知識不要・地頭力のみで挑む論理的思考力診断。直感の罠を抜け出し、科学的な思考力を測定します。">
+
+<!-- OGP Configuration -->
+<meta property="og:title" content="論理的思考力診断ゲーム" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rhyn.jp/logic-test.html" />
+<meta property="og:description" content="知識は一切不要。あなたの純粋な論理処理能力をS〜Cランクで測定します。" />
+<meta property="og:site_name" content="Rhyn.jp" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<style>
+  :root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #f0f0f0;
+    --text-sub: #aaaaaa;
+    --accent-primary: #8ab4f8;
+    --accent-success: #81c995;
+    --accent-warning: #fbbc04;
+    --accent-danger: #f28b82;
+    --btn-bg: #2d2d2d;
+    --btn-hover: #383838;
+    --border-radius: 12px;
+  }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 640px;
+    width: 92%;
+    margin: 20px auto;
+    padding-top: 40px; /* Space for home button on mobile if needed */
+  }
+
+  /* Home Button */
+  .home-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+    transition: all 0.2s ease;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: 1px solid #333;
+    backdrop-filter: blur(4px);
+  }
+
+  .home-link:hover {
+    color: var(--text-main);
+    background: rgba(50, 50, 50, 0.9);
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+
+  .home-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  /* Views */
+  .view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .view.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Card Component */
+  .card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 30px 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 24px;
+    color: var(--text-main);
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-sub);
+    margin-bottom: 30px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: var(--btn-bg);
+    color: var(--text-main);
+    border: 1px solid #444;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  .btn:hover:not(.disabled) {
+    background-color: var(--btn-hover);
+    border-color: var(--accent-primary);
+    transform: translateX(4px);
+  }
+
+  .btn.selected {
+    background-color: #3d4e6b;
+    border-color: var(--accent-primary);
+    color: #fff;
+    pointer-events: none;
+  }
+  
+  .btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-primary);
+    color: #000;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.1);
+    transform: none;
+  }
+
+  .btn-share {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .btn-share:hover {
+    background-color: #e6e6e6;
+    transform: none;
+  }
+  
+  .x-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Quiz UI */
+  .progress-container {
+    height: 4px;
+    background-color: #333;
+    width: 100%;
+    margin-bottom: 24px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background-color: var(--accent-primary);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  .question-meta {
+    font-size: 13px;
+    color: var(--accent-primary);
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .question-text {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    min-height: 60px;
+  }
+
+  .fade-wrapper {
+    transition: opacity 0.2s ease;
+  }
+  .fading-out { opacity: 0; }
+
+  /* Result UI */
+  .result-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .score-display {
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin: 10px 0;
+    line-height: 1;
+  }
+
+  .rank-display {
+    font-size: 20px;
+    color: var(--accent-primary);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .feedback-text {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-sub);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    background: #252525;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  /* Review UI */
+  .review-section {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+
+  .review-title {
+    font-size: 16px;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+
+  .review-item {
+    background-color: #252525;
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid transparent;
+  }
+
+  .review-item.correct { border-left-color: var(--accent-success); }
+  .review-item.incorrect { border-left-color: var(--accent-danger); }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .status-label.correct { color: var(--accent-success); }
+  .status-label.incorrect { color: var(--accent-danger); }
+
+  .review-q { font-size: 14px; margin-bottom: 10px; color: var(--text-main); font-weight: bold; }
+  .review-exp { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+
+</style>
+</head>
+<body>
+
+<!-- Home Button -->
+<a href="https://rhyn.jp/" class="home-link" aria-label="トップページに戻る">
+  <svg class="home-icon" viewBox="0 0 24 24">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  </svg>
+  <span>Rhyn.jp</span>
+</a>
+
+<div class="container">
+
+  <!-- Intro Screen -->
+  <div id="view-intro" class="view active">
+    <div class="card">
+      <h1>論理的思考力診断ゲーム</h1>
+      <p>
+        思考の「切れ味」を試してみましょう。<br><br>
+        難しい知識は一切不要。パズルのように、目の前の情報だけを使って論理的に正しい答えを導き出してください。<br><br>
+        直感や思い込み（バイアス）を排除し、純粋な思考力を測定します。
+      </p>
+      <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 24px; padding: 15px; background: #252525; border-radius: 8px;">
+        ・出題：ランダムに5問（全70問以上から抽出）<br>
+        ・時間：無制限
+      </div>
+      <button class="btn btn-primary" onclick="app.start()">診断をスタート</button>
+    </div>
+  </div>
+
+  <!-- Quiz Screen -->
+  <div id="view-quiz" class="view">
+    <div class="card">
+      <div class="progress-container"><div id="progress-bar" class="progress-bar"></div></div>
+      
+      <div id="quiz-content" class="fade-wrapper">
+        <div id="question-meta">Q1</div>
+        <div id="question-text" class="question-text">Loading...</div>
+        <div id="options-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="view-result" class="view">
+    <div class="card">
+      <div class="result-header">
+        <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 5px;">RESULT</div>
+        <div id="score-display" class="score-display">0/5</div>
+        <div id="rank-display" class="rank-display">-</div>
+      </div>
+
+      <div id="feedback-text" class="feedback-text"></div>
+
+      <a id="share-link" href="#" target="_blank" class="btn btn-share">
+        <svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+        </svg>
+        結果をXでシェア
+      </a>
+
+      <button class="btn btn-primary" onclick="app.reset()">別の問題に挑戦する</button>
+
+      <div class="review-section">
+        <div class="review-title">解説と振り返り</div>
+        <div id="review-list"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/**
+ * 70+ Questions Pool
+ * Logic, Probability, Bias, Lateral Thinking
+ */
+const questionPool = [
+  // --- 1. Logic & Deduction ---
+  {
+    q: "「雨が降れば、必ず地面が濡れる」ことが分かっています。\nいま、「地面が濡れていない」としたら、確実に言えることは？",
+    options: ["雨は降っていない。", "雨が降っている。", "誰かが拭いた。", "何も分からない。"],
+    correct: 0,
+    explanation: "対偶の論理です。「AならB」が真なら、「BでないならAでない」も必ず真になります。"
+  },
+  {
+    q: "ある村の住人は「正直者」か「嘘つき」のどちらかです。\n住人Aが「私は嘘つきだ」と言いました。\n論理的に考えて、Aの正体は？",
+    options: ["正直者", "嘘つき", "正直者でも嘘つきでもない（あり得ない）", "正直者だがふざけている"],
+    correct: 2,
+    explanation: "正直者なら嘘は言わず、嘘つきなら本当のこと（自分は嘘つき）を言いません。論理的に矛盾しています。"
+  },
+  {
+    q: "3つの箱があり、1つだけに当たりが入っています。\n「この箱には当たりが入っている」と書かれた箱を開けたら、ハズレでした。\nこの箱に書かれていたことは嘘だったことになります。では、当たりはどこにある？",
+    options: ["この箱の中", "残りの2つの箱のどちらか", "どこにもない", "分からない"],
+    correct: 1,
+    explanation: "「ここにある」が嘘なので、ここにはありません。消去法で残りになります。"
+  },
+  {
+    q: "「全てのカラスは黒い」という説が間違っていることを証明するために、見つけるべきものは？",
+    options: ["黒いカラスを1羽", "黒くないカラスを1羽", "黒くない白鳥を1羽", "全てのカラスを捕まえる"],
+    correct: 1,
+    explanation: "たった1羽の例外（黒くないカラス）が見つかれば、全称命題は否定されます。"
+  },
+  {
+    q: "Aさんは「私はBさんよりも背が高い」と言い、Bさんは「私はCさんよりも背が高い」と言っています。\nこの時、一番背が高いのは誰？",
+    options: ["Aさん", "Bさん", "Cさん", "全員同じ"],
+    correct: 0,
+    explanation: "推移律です。A > B かつ B > C なので、A > C となります。"
+  },
+  {
+    q: "ある部屋にいる全員が「眼鏡をかけている」とします。\nそこへ眼鏡をかけた人がもう一人入ってきました。\nこの時、部屋にいる「眼鏡をかけていない人」の人数は？",
+    options: ["1人", "0人", "増える", "分からない"],
+    correct: 1,
+    explanation: "全員かけている状態に、かけている人が加わっても、かけていない人は0人のままです。"
+  },
+  {
+    q: "「昨日は明日だった」と言えるのは、いつ？",
+    options: ["今日", "昨日", "明日", "そんな日は来ない"],
+    correct: 0,
+    explanation: "今日は「昨日の明日」です。"
+  },
+  {
+    q: "Aの父親はBですが、BはAの父親ではありません。\nBはAの何？",
+    options: ["祖父", "母親", "兄", "他人"],
+    correct: 1,
+    explanation: "親は父か母です。父でないなら母です。"
+  },
+  {
+    q: "マラソンで2位の人を追い抜きました。\nいま、あなたは何位？",
+    options: ["1位", "2位", "3位", "分からない"],
+    correct: 1,
+    explanation: "2位の人を抜くと、あなたがその位置（2位）に入ります。"
+  },
+  {
+    q: "「この文は間違いである」\nこの文が正しいと仮定すると、どうなる？",
+    options: ["文は正しいことになる。", "文は間違いということになる。", "意味が通じない。", "何も起きない。"],
+    correct: 1,
+    explanation: "自己言及のパラドックスです。正しいと仮定すると、内容は「間違い」なので矛盾します。"
+  },
+
+  // --- 2. Probability & Intuition ---
+  {
+    q: "コインを投げて5回連続で「表」が出ました。\n次に投げるとき、「表」と「裏」、どちらが出る確率が高い？",
+    options: ["表（勢いがあるから）", "裏（そろそろ出るから）", "確率は同じ（半々）", "分からない"],
+    correct: 2,
+    explanation: "コインに記憶はありません（独立事象）。確率は常に50%です。"
+  },
+  {
+    q: "「100人に1人がかかる病気」の検査で「陽性」が出ました。\nこの検査は99%正確ですが、健康な人でも1%の確率で間違って「陽性」が出てしまいます。\nあなたが本当に病気である確率は？（直感で答えてください）",
+    options: ["99%くらい", "50%くらい", "100%", "低い（50%以下）"],
+    correct: 3,
+    explanation: "健康な人の母数が大きいため、偽陽性の数が真陽性の数と同程度かそれ以上になり、確率は下がります。"
+  },
+  {
+    q: "宝くじ売り場で「この売り場から1等がたくさん出ています！」と宣伝していました。\nこの売り場で買うと、当たりやすいと言える？",
+    options: ["言える。運気が良い場所だから。", "言える。実績があるから。", "言えない。単に販売枚数が多いだけかもしれない。", "言えない。次は出ないから。"],
+    correct: 2,
+    explanation: "販売数が多い店は当選数も多いですが、1枚あたりの当選確率は変わりません。"
+  },
+  {
+    q: "サイコロを振って「1」が出る確率は1/6です。\n6回振れば、必ず1回は「1」が出る？",
+    options: ["必ず出る。", "出ないこともある。", "3回は出る。", "運によるので分からない。"],
+    correct: 1,
+    explanation: "確率はあくまで見込みです。6回振って一度も出ない確率は約33%もあります。"
+  },
+  {
+    q: "ある野球選手の打率が3割です。\n「今日は既に2回凡退しているから、次の打席は打つ確率が高い」と言える？",
+    options: ["言える（確率の収束）。", "言えない。", "調子が悪いので打てない。", "相手投手による。"],
+    correct: 1,
+    explanation: "ギャンブラーの誤謬です。過去の結果は次の打席の確率に（直接的には）影響しません。"
+  },
+  {
+    q: "平均年収が500万円の会社があります。\n「従業員のほとんどが500万円もらっている」と言える？",
+    options: ["言える。", "言えない（一部の高給取りが釣り上げているかも）。", "半分はもらっている。", "だいたい合っている。"],
+    correct: 1,
+    explanation: "平均値は極端な値に引っ張られます。社長が10億円もらっていれば、他は低賃金でも平均は上がります。"
+  },
+
+  // --- 3. Cognitive Biases ---
+  {
+    q: "映画を見に行きましたが、開始30分でとてもつまらないと分かりました。\nチケット代1800円は払ってしまっています。\n損をしないための、最も合理的な判断は？",
+    options: ["最後まで見る（元を取るため）", "寝て過ごす", "映画館を出て、好きなことをする", "文句を言いに行く"],
+    correct: 2,
+    explanation: "サンクコスト（埋没費用）です。お金は戻らないので、時間まで無駄にするのが最大の損です。"
+  },
+  {
+    q: "「あの人はB型だから、性格がマイペースなんだ」と言う人がいます。\nこの考え方の弱点は？",
+    options: ["B型でもマイペースじゃない人のことを無視している。", "血液型の分類が間違っている。", "マイペースは良いことだから問題ない。", "科学的に証明されている。"],
+    correct: 0,
+    explanation: "確証バイアスです。自分の思い込みに合う事例だけを集め、合わない事例を無視しています。"
+  },
+  {
+    q: "「このサプリメントは天然成分100%だから、化学薬品より安全です」という宣伝。\nこれは論理的に正しい？",
+    options: ["正しい。天然のものは体に優しい。", "正しい。化学薬品は副作用がある。", "間違い。天然でも毒（トリカブト等）はある。", "間違い。値段が高いから。"],
+    correct: 2,
+    explanation: "自然に訴える論証です。天然か人工かと、安全かどうかは無関係です。"
+  },
+  {
+    q: "ある議論で、相手が「その意見は間違っている。なぜなら、あなたは昔テストで0点を取ったことがあるからだ」と言いました。\nこの反論は有効？",
+    options: ["有効。頭の悪い人の意見は間違うから。", "無効。昔の失敗と、今の意見の正しさは関係ない。", "有効。信頼できないから。", "無効。0点は嘘かもしれないから。"],
+    correct: 1,
+    explanation: "対人論証（アド・ホミネム）です。主張の中身ではなく、人格を攻撃して論点をずらしています。"
+  },
+  {
+    q: "生存した戦闘機のデータを見ると、翼に弾痕が集中していました。\n撃墜されないために補強すべき場所は？",
+    options: ["弾痕が多い「翼」", "弾痕がない「エンジンや操縦席」", "全体を均等に", "分からない"],
+    correct: 1,
+    explanation: "生存者バイアスです。帰ってこられなかった機体は、弾痕がない箇所（急所）を撃たれたのです。"
+  },
+  {
+    q: "「幽霊がいないことは証明されていない。だから幽霊は存在する」という主張。\nこれは論理的に正しい？",
+    options: ["正しい。", "間違い。「分からない」ことは「存在する」理由にならない。", "間違い。幽霊は科学で証明されている。", "正しい。目撃者がいるから。"],
+    correct: 1,
+    explanation: "悪魔の証明（無知に訴える論証）です。証明されていないことは、存在の証明にはなりません。"
+  },
+  {
+    q: "「私は晴れ男だ。私が旅行に行くといつも晴れる」\nこの人が忘れている可能性が高いのは？",
+    options: ["雨が降った旅行のこと。", "旅行に行った回数。", "天気の予報。", "一緒に行った人のこと。"],
+    correct: 0,
+    explanation: "確証バイアスです。自分の説に合わない「雨の日の記憶」を無意識に忘れています。"
+  },
+  {
+    q: "「みんなが買っているから、これは良い商品に違いない」\nこの心理を何という？",
+    options: ["バンドワゴン効果（同調）", "アンカリング効果", "希少性", "一貫性の原理"],
+    correct: 0,
+    explanation: "多数派の意見や行動に、自分の判断を委ねてしまう心理です。"
+  },
+
+  // --- 4. Everyday Logic ---
+  {
+    q: "「成功した人はみんな努力している。だから努力すれば必ず成功する」\nこの理屈は正しい？",
+    options: ["正しい。", "間違い。努力しても成功しなかった人が含まれていない。", "間違い。運が必要だから。", "正しい。努力は裏切らない。"],
+    correct: 1,
+    explanation: "逆は必ずしも真ならず。「成功者⊂努力家」であっても、「努力家＝成功者」ではありません。"
+  },
+  {
+    q: "「私が雨乞いをすると、必ず一ヶ月以内に雨が降る。だから私には雨を降らせる力がある」\nこの主張の問題点は？",
+    options: ["一ヶ月は長すぎる。", "雨乞いしなくても、一ヶ月あれば自然に雨は降る。", "雨乞いのやり方が間違っている。", "問題はない。すごい能力だ。"],
+    correct: 1,
+    explanation: "自然現象（当たり前のこと）を、自分の行動の結果だと誤認しています（前後即因果の誤謬）。"
+  },
+  {
+    q: "アンケートで「あなたは平均より運転が上手いですか？」と聞くと、80%以上の人が「はい」と答える傾向があります。\nこれは何を意味している？",
+    options: ["みんな本当に運転が上手い。", "運転免許試験が簡単すぎる。", "多くの人が自分の能力を過大評価している。", "平均の計算が間違っている。"],
+    correct: 2,
+    explanation: "平均より上なのは本来50%です。自己評価が高くなるバイアス（優越の錯覚）です。"
+  },
+  {
+    q: "「この壺を買えば運気が上がります。買わなかった人は不幸になっています」\nこの商法の論理的な怪しさは？",
+    options: ["壺のデザインが悪い。", "「運気」や「不幸」の定義が曖昧で、何とでも言える。", "値段が高すぎる。", "本当に効果があるかもしれない。"],
+    correct: 1,
+    explanation: "反証不可能です。定義が曖昧な言葉は、後からどうとでも言い訳できます。"
+  },
+  {
+    q: "A「スマホは子供に悪影響だ」\nB「じゃあ、子供から全ての電子機器を取り上げて、原始時代のような生活をさせろと言うのか！」\nBさんの反論の問題点は？",
+    options: ["言い方が乱暴。", "Aさんの意見を極端にねじ曲げている。", "原始時代の生活も悪くない。", "スマホは便利だから。"],
+    correct: 1,
+    explanation: "藁人形論法（ストローマン）です。相手の意見を極端に変形させ、それを攻撃しています。"
+  },
+  {
+    q: "「早起きは三文の徳と言う。だから夜勤の人は損をしている」\nこの理屈は正しい？",
+    options: ["正しい。", "間違い。ことわざは科学的な法則ではない。", "間違い。三文は安いから。", "正しい。体内時計が狂うから。"],
+    correct: 1,
+    explanation: "ことわざや慣用句を、論理的な証拠として扱うことはできません。"
+  },
+  {
+    q: "「私が嘘をついていないことは、友人のCさんが証明してくれる。Cさんは嘘をつかない正直な人だからだ」\nこの説明の弱点は？",
+    options: ["Cさんが嘘をつかないという保証がない（循環している）。", "友人は味方をするものだ。", "証明には時間がかかる。", "Cさんを知らないから。"],
+    correct: 0,
+    explanation: "循環論法です。Cさんが正しいという根拠が示されていません。"
+  },
+
+  // --- 5. Lateral Thinking & Riddles ---
+  {
+    q: "トラックの運転手が一方通行の道を逆走していましたが、警察官は彼を止めませんでした。\nなぜ？",
+    options: ["警察官が見ていなかった。", "運転手は歩いていた。", "緊急車両だった。", "警察官が知り合いだった。"],
+    correct: 1,
+    explanation: "「トラックの運転手」という職業の人が、トラックを運転しているとは限りません。"
+  },
+  {
+    q: "ある月には28日あります。その月はどれ？",
+    options: ["2月だけ。", "うるう年以外の2月。", "全ての月。", "存在しない。"],
+    correct: 2,
+    explanation: "どの月にも少なくとも28日はあります。"
+  },
+  {
+    q: "カゴの中にリンゴが5つあります。5人の子供に1つずつ配りましたが、カゴの中にまだリンゴが1つ残っています。\nどうして？",
+    options: ["計算間違い。", "1人はカゴごとリンゴをもらった。", "リンゴが増えた。", "1人が食べなかった。"],
+    correct: 1,
+    explanation: "最後の1人は、リンゴが入ったままのカゴを受け取ったのです。"
+  },
+  {
+    q: "医者が言いました。「あなたは私の息子だが、私はあなたの父親ではない」\n医者は誰？",
+    options: ["幽霊", "母親", "祖父", "嘘をついている"],
+    correct: 1,
+    explanation: "「医者＝男性」という固定観念（バイアス）による引っかけです。"
+  },
+  {
+    q: "水が満杯に入ったコップがあります。こぼさずに、水を底のほうから飲むにはどうすればいい？",
+    options: ["ストローを使う。", "凍らせる。", "スポイトを使う。", "逆立ちする。"],
+    correct: 0,
+    explanation: "物理的な解決策です。"
+  },
+  {
+    q: "何も書かれていない真っ白な紙があります。虫眼鏡で見ると何が見える？",
+    options: ["紙の繊維。", "文字。", "何も見えない。", "自分の目。"],
+    correct: 0,
+    explanation: "「何も書かれていない」だけで、物質としての紙（繊維）は存在します。"
+  },
+  {
+    q: "破れば破るほど、役に立つものは？",
+    options: ["約束", "記録", "卵", "沈黙"],
+    correct: 2,
+    explanation: "卵は殻を割らないと料理に使えません。"
+  },
+  {
+    q: "落ちてくるのに、決して壊れないものは？",
+    options: ["雨", "ガラス", "スマホ", "夢"],
+    correct: 0,
+    explanation: "雨粒は落ちてきますが、「壊れる」という概念が当てはまりません（分裂するだけ）。"
+  },
+  {
+    q: "走っているのに足がなく、唸るのに口がないものは？",
+    options: ["風", "川", "車", "幽霊"],
+    correct: 0,
+    explanation: "比喩表現のなぞなぞです。"
+  },
+  {
+    q: "あなたは暗い部屋にいます。マッチが1本だけあります。\nランプ、ストーブ、ろうそくがあります。最初に何に火をつける？",
+    options: ["ランプ", "ストーブ", "ろうそく", "マッチ"],
+    correct: 3,
+    explanation: "まずマッチ自体に火をつけないと、他には火を移せません。"
+  }
+];
+
+// --- Application Logic ---
+const app = {
+  questions: [],
+  currentIdx: 0,
+  score: 0,
+  userAnswers: [],
+  isProcessing: false,
+  rankResult: "", 
+
+  // Initialization
+  start: function() {
+    // Fisher-Yates Shuffle for true randomness
+    const pool = [...questionPool];
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    
+    // Pick first 5 unique questions
+    this.questions = pool.slice(0, 5);
+    
+    this.currentIdx = 0;
+    this.score = 0;
+    this.userAnswers = [];
+    this.isProcessing = false;
+    this.rankResult = "";
+
+    this.switchView('view-quiz');
+    // Slight delay to ensure DOM is ready
+    setTimeout(() => this.renderQuestion(), 100);
+  },
+
+  reset: function() {
+    this.switchView('view-intro');
+  },
+
+  switchView: function(id) {
+    document.querySelectorAll('.view').forEach(el => {
+      el.classList.remove('active');
+      if (el.id !== id) setTimeout(() => el.style.display = 'none', 400);
+    });
+    const target = document.getElementById(id);
+    target.style.display = 'block';
+    setTimeout(() => target.classList.add('active'), 50);
+  },
+
+  renderQuestion: function() {
+    const qData = this.questions[this.currentIdx];
+    const content = document.getElementById('quiz-content');
+    
+    content.classList.remove('fading-out');
+    
+    const progress = (this.currentIdx / this.questions.length) * 100;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+    document.getElementById('question-meta').textContent = `Q${this.currentIdx + 1} / 5`;
+    document.getElementById('question-text').textContent = qData.q;
+
+    const optsContainer = document.getElementById('options-container');
+    optsContainer.innerHTML = '';
+
+    // Shuffle options for display only (keep track of correct one)
+    const optionsWithIdx = qData.options.map((opt, i) => ({ text: opt, originalIdx: i }));
+    // Simple shuffle for options
+    optionsWithIdx.sort(() => 0.5 - Math.random());
+
+    optionsWithIdx.forEach((optObj) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = optObj.text;
+      // Pass the *original* index to check correctness
+      btn.onclick = (e) => this.handleAnswer(optObj.originalIdx, e.target);
+      optsContainer.appendChild(btn);
+    });
+
+    this.isProcessing = false;
+  },
+
+  handleAnswer: function(originalChoiceIdx, btnEl) {
+    if (this.isProcessing) return;
+    this.isProcessing = true;
+
+    btnEl.classList.add('selected');
+    document.querySelectorAll('.btn').forEach(b => {
+      if (b !== btnEl) b.classList.add('disabled');
+    });
+
+    const qData = this.questions[this.currentIdx];
+    const isCorrect = (originalChoiceIdx === qData.correct);
+    
+    if (isCorrect) this.score++;
+    
+    this.userAnswers.push({
+      question: qData,
+      isCorrect: isCorrect
+    });
+
+    setTimeout(() => {
+      if (this.currentIdx < this.questions.length - 1) {
+        document.getElementById('quiz-content').classList.add('fading-out');
+        this.currentIdx++;
+        setTimeout(() => this.renderQuestion(), 300);
+      } else {
+        this.showResult();
+      }
+    }, 600);
+  },
+
+  showResult: function() {
+    this.switchView('view-result');
+    
+    const percentage = (this.score / this.questions.length) * 100;
+    document.getElementById('score-display').textContent = `${this.score}/5`;
+    
+    let rank, msg;
+    if (percentage === 100) {
+      rank = "RANK S";
+      msg = "完璧です。あなたの論理回路は極めてクリアで、バイアスに惑わされていません。";
+    } else if (percentage >= 80) {
+      rank = "RANK A";
+      msg = "素晴らしい思考力です。論理的な推論が正確に機能しています。";
+    } else if (percentage >= 60) {
+      rank = "RANK B";
+      msg = "標準的です。直感に頼らず、一歩踏み込んで考える癖をつけましょう。";
+    } else {
+      rank = "RANK C";
+      msg = "直感や感情が先行しがちです。「なぜそう言えるのか？」を問う練習を推奨します。";
+    }
+
+    this.rankResult = rank;
+    document.getElementById('rank-display').textContent = rank;
+    document.getElementById('feedback-text').textContent = msg;
+
+    const list = document.getElementById('review-list');
+    list.innerHTML = '';
+    
+    this.userAnswers.forEach((ans, i) => {
+      const item = document.createElement('div');
+      item.className = `review-item ${ans.isCorrect ? 'correct' : 'incorrect'}`;
+      item.innerHTML = `
+        <div class="review-header">
+          <span>Q${i+1}</span>
+          <span class="status-label ${ans.isCorrect ? 'correct' : 'incorrect'}">${ans.isCorrect ? '正解' : '不正解'}</span>
+        </div>
+        <div class="review-q">${ans.question.q}</div>
+        <div class="review-exp"><strong>解説：</strong>${ans.question.explanation}</div>
+      `;
+      list.appendChild(item);
+    });
+
+    this.updateShareLink();
+  },
+
+  updateShareLink: function() {
+    const text = `論理的思考力診断ゲームで【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
+    
+    // Auto-detect URL or fallback
+    let currentUrl = window.location.href;
+    if (!currentUrl.startsWith('http')) {
+        currentUrl = 'https://rhyn.jp/logic-test.html';
+    }
+
+    const hashtags = "論理的思考力診断,地頭力";
+    const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
+    
+    const linkEl = document.getElementById('share-link');
+    linkEl.href = intentUrl;
+  }
+};
+</script>
+
+</body>
+</html>
