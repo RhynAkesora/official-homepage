@@ -46,6 +46,8 @@
     max-width: 640px;
     width: 92%;
     margin: 20px auto;
+    position: relative;
+    z-index: 10; /* Container stays above background */
   }
 
   /* Views */
@@ -73,6 +75,8 @@
     padding: 30px 24px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     border: 1px solid #333;
+    position: relative;
+    z-index: 20;
   }
 
   h1 {
@@ -91,7 +95,7 @@
     margin-bottom: 30px;
   }
 
-  /* Buttons */
+  /* Buttons - FORCE CLICKABLE */
   .btn {
     display: block;
     width: 100%;
@@ -108,7 +112,8 @@
     text-decoration: none;
     box-sizing: border-box;
     position: relative;
-    z-index: 1;
+    z-index: 100; /* Ensure button is on top */
+    pointer-events: auto !important; /* Force enable clicks */
   }
 
   .btn:hover:not(.disabled) {
@@ -121,12 +126,11 @@
     background-color: #3d4e6b;
     border-color: var(--accent-primary);
     color: #fff;
-    pointer-events: none;
+    /* Allow pointer events for layout but logic prevents re-click */
   }
   
   .btn.disabled {
     opacity: 0.5;
-    pointer-events: none;
     cursor: default;
   }
 
@@ -137,6 +141,7 @@
     text-align: center;
     font-weight: bold;
     margin-top: 20px;
+    z-index: 101;
   }
 
   .btn-primary:hover {
@@ -144,6 +149,7 @@
     transform: none;
   }
 
+  /* Share Button */
   .btn-share {
     background-color: #fff;
     color: #000;
@@ -156,7 +162,7 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    pointer-events: auto; /* Ensure clickable */
+    z-index: 102;
   }
   
   .btn-share:hover {
@@ -164,16 +170,17 @@
     transform: none;
   }
 
+  /* Home Button */
   .btn-home {
     background-color: transparent;
     color: var(--text-sub);
     border: 1px solid #444;
     text-align: center;
     font-weight: bold;
-    margin-top: 12px;
+    margin-top: 16px;
     font-size: 14px;
     cursor: pointer;
-    pointer-events: auto; /* Ensure clickable */
+    z-index: 103;
   }
 
   .btn-home:hover {
@@ -346,7 +353,8 @@
 
       <div id="feedback-text" class="feedback-text"></div>
 
-      <a id="share-link" href="#" target="_blank" class="btn btn-share">
+      <!-- X Share Button (Hybrid: href + onclick) -->
+      <a id="share-link" href="#" target="_blank" class="btn btn-share" onclick="app.shareToX(event)">
         <svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
         </svg>
@@ -355,7 +363,7 @@
 
       <button class="btn btn-primary" onclick="app.reset()">別の問題に挑戦する</button>
 
-      <!-- Home Link: Result Screen Only -->
+      <!-- Home Link: Result Screen Only (Static) -->
       <a href="https://rhyn.jp/" target="_blank" rel="noopener noreferrer" class="btn btn-home">
         Rhyn.jp (Top) へ戻る
       </a>
@@ -784,10 +792,10 @@ const app = {
     this.updateShareLink();
   },
 
-  updateShareLink: function() {
+  // Hybrid Share Function: Updates HREF + OnClick Fallback
+  shareToX: function(e) {
     const text = `論理的思考力診断ゲームで【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
     
-    // Auto-detect URL or fallback
     let currentUrl = window.location.href;
     if (!currentUrl.startsWith('http')) {
         currentUrl = 'https://rhyn.jp/logic-test.html';
@@ -796,8 +804,29 @@ const app = {
     const hashtags = "論理的思考力診断,地頭力";
     const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
     
+    // Fallback if href wasn't updated or clicked
+    if (e && e.target.href === "#") {
+        window.open(intentUrl, '_blank');
+        e.preventDefault();
+    }
+  },
+
+  updateShareLink: function() {
+    const text = `論理的思考力診断ゲームで【${this.rankResult}】を獲得しました。\n正解数: ${this.score}/5問\n\n知識不要の地頭力テストに挑戦しよう。`;
+    
+    let currentUrl = window.location.href;
+    if (!currentUrl.startsWith('http')) {
+        currentUrl = 'https://rhyn.jp/logic-test.html';
+    }
+
+    const hashtags = "論理的思考力診断,地頭力";
+    const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
+    
+    // Directly update the anchor tag
     const linkEl = document.getElementById('share-link');
-    linkEl.href = intentUrl;
+    if (linkEl) {
+        linkEl.href = intentUrl;
+    }
   }
 };
 </script>
