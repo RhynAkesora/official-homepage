@@ -1,0 +1,233 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Music } from 'lucide-react';
+
+/**
+ * Lyrics Data Structure
+ * 設計意図: データと表示ロジックを分離し、将来的な曲追加時の保守性を確保。
+ */
+const SONGS = [
+  {
+    id: 'vanilla',
+    title: 'Vanilla',
+    lyrics: `[Intro]
+(Guitar & Drum Fill)
+
+[Chorus]
+V-A-N-I-L-L-A　バニラ
+V-A-N-I-L-L-A　バニラ
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　高収入
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　でアルバイト
+
+[Verse]
+即日体入　求人バニラ
+今すぐ稼げる　お仕事バニラ
+バニラ　バニラ　即日体入
+バニラ　即日高収入
+バニラ　バニラ　体験入店
+今すぐ稼げる　アルバイト
+
+[Bridge]
+(Guitar Solo & Harmony)
+
+[Chorus]
+V-A-N-I-L-L-A　バニラ
+V-A-N-I-L-L-A　バニラ
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　高収入
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　でアルバイト
+
+[Outro]
+(End)`
+  },
+  {
+    id: 'under-insanity',
+    title: 'Under Insanity',
+    lyrics: `Have I gone mad?
+It is so, and goes mad
+It shouts in the basement The key is not found
+In this space to which evil hangs it The dark is held
+
+Breaking down!!
+Bad trip 半狂乱で感じろ
+Bad delight 警告だらけの快楽
+Bad drug 特攻薬すら効かねー
+Bad feeling 自業自得の結末
+
+job!
+Beat up oneself It is as for internal organs
+
+Bad trip 半狂乱で感じろ
+Bad delight 警告だらけの悦楽
+Bad drug 特攻薬すら効かねー
+Bad feeling 自業自得の結末
+
+job!
+Strike, turn, and vomit
+I want to dance the dance on someone's hand  under insanity
+
+Breaking down!!`
+  },
+  {
+    id: 'anger',
+    title: 'Anger',
+    lyrics: `My heart is hurting
+In an abrupt event
+I got confused
+Strong emotion
+Everyting is own sin
+Truth of the universe
+Fool who does not notice it
+Repeat the same sin many times
+
+Kiss my ass! Eyesore!
+Should I kill you?
+But that
+Negative chain
+Not move forward from here
+
+Dark wilderness
+Deep labyrinth
+Night desert
+Emotions of darkness
+
+Living proof
+Meaning that exists
+The way to go
+The truth is only one
+What is wrath against anger?
+
+Get out of this spiral
+There is no value in the world where I do not exist
+Burn those who hinder my way with this hand
+Convert anger into force
+
+Nobody can understand me
+A lone road
+Do not give me your values
+Clear heart collapses
+That's why I keep on fighting
+
+Humans who can not understand this ability are not worth
+Those who orders to me will be buried in hell with this hand`
+  }
+];
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState(SONGS[0].id);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Smooth scroll to section
+  const scrollToSong = (id) => {
+    setActiveTab(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-200 font-sans selection:bg-indigo-900 selection:text-white">
+      {/* Navigation Header */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
+        <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2 font-bold text-neutral-100">
+            <Music className="w-5 h-5 text-indigo-500" />
+            <span>Lyrics Archive</span>
+          </div>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex gap-1">
+            {SONGS.map((song) => (
+              <button
+                key={song.id}
+                onClick={() => scrollToSong(song.id)}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  activeTab === song.id
+                    ? 'bg-neutral-800 text-white shadow-[0_0_10px_rgba(99,102,241,0.2)]'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900'
+                }`}
+              >
+                {song.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-neutral-400 hover:text-white"
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {/* Mobile Nav Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-neutral-800 bg-neutral-950">
+            {SONGS.map((song) => (
+              <button
+                key={song.id}
+                onClick={() => scrollToSong(song.id)}
+                className="block w-full text-left px-6 py-4 text-sm font-medium text-neutral-300 hover:bg-neutral-900 border-b border-neutral-900 last:border-0"
+              >
+                {song.title}
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* Main Content */}
+      <main className="pt-24 pb-20 px-4 md:px-8 max-w-3xl mx-auto space-y-24">
+        {SONGS.map((song) => (
+          <section 
+            key={song.id} 
+            id={song.id} 
+            className="scroll-mt-28 animate-in fade-in duration-700"
+          >
+            <div className="mb-8 border-l-4 border-indigo-500 pl-4">
+              <h2 className="text-3xl font-bold tracking-tight text-white mb-1">
+                {song.title}
+              </h2>
+              <p className="text-neutral-500 text-sm font-mono">
+                ID: {song.id.toUpperCase()}
+              </p>
+            </div>
+
+            <div className="bg-neutral-900/30 rounded-xl p-6 md:p-10 border border-neutral-800 shadow-xl backdrop-blur-sm">
+              <pre className="whitespace-pre-wrap font-sans text-base md:text-lg leading-relaxed text-neutral-300 tracking-wide">
+                {song.lyrics.split('\n').map((line, i) => {
+                  // セクションヘッダー（[...]）の強調表示
+                  if (line.trim().startsWith('[') && line.trim().endsWith(']')) {
+                    return (
+                      <span key={i} className="block mt-6 mb-2 text-xs font-bold text-indigo-400 tracking-widest uppercase opacity-80">
+                        {line}
+                      </span>
+                    );
+                  }
+                  // 空行の処理
+                  if (line.trim() === '') {
+                    return <br key={i} />;
+                  }
+                  return (
+                    <div key={i} className="min-h-[1.5em]">
+                      {line}
+                    </div>
+                  );
+                })}
+              </pre>
+            </div>
+          </section>
+        ))}
+      </main>
+
+      <footer className="py-8 text-center text-neutral-600 text-xs font-mono border-t border-neutral-900">
+        VOID LOGIC ARCHIVE // STATUS: NORMAL
+      </footer>
+    </div>
+  );
+}
