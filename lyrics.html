@@ -1,15 +1,77 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Music } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Archive | Rhyn</title>
+    <!-- Tailwind CSS (Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Scrollbar for Void Aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-indigo-900 selection:text-white antialiased min-h-screen flex flex-col">
 
-/**
- * Lyrics Data Structure
- * 設計意図: データと表示ロジックを分離し、将来的な曲追加時の保守性を確保。
- */
-const SONGS = [
-  {
-    id: 'vanilla',
-    title: 'Vanilla',
-    lyrics: `[Intro]
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
+        <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-bold text-neutral-100">
+                <i data-lucide="music" class="w-5 h-5 text-indigo-500"></i>
+                <span>Lyrics Archive</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex gap-1" id="desktop-nav">
+                <!-- Nav items injected by JS -->
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-neutral-400 hover:text-white transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-800 bg-neutral-950">
+            <!-- Mobile nav items injected by JS -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="lyrics-container" class="flex-grow pt-24 pb-20 px-4 md:px-8 max-w-3xl mx-auto space-y-24 w-full">
+        <!-- Lyrics sections injected by JS -->
+    </main>
+
+    <footer class="py-8 text-center text-neutral-600 text-xs font-mono border-t border-neutral-900">
+        VOID LOGIC ARCHIVE // STATUS: NORMAL
+    </footer>
+
+    <!-- Logic -->
+    <script>
+        /**
+         * Data Source
+         * 管理者用データ定義
+         */
+        const SONGS = [
+            {
+                id: 'vanilla',
+                title: 'Vanilla',
+                lyrics: `[Intro]
 (Guitar & Drum Fill)
 
 [Chorus]
@@ -41,11 +103,11 @@ V-A-N-I-L-L-A　バニラ
 
 [Outro]
 (End)`
-  },
-  {
-    id: 'under-insanity',
-    title: 'Under Insanity',
-    lyrics: `Have I gone mad?
+            },
+            {
+                id: 'under-insanity',
+                title: 'Under Insanity',
+                lyrics: `Have I gone mad?
 It is so, and goes mad
 It shouts in the basement The key is not found
 In this space to which evil hangs it The dark is held
@@ -69,11 +131,11 @@ Strike, turn, and vomit
 I want to dance the dance on someone's hand  under insanity
 
 Breaking down!!`
-  },
-  {
-    id: 'anger',
-    title: 'Anger',
-    lyrics: `My heart is hurting
+            },
+            {
+                id: 'anger',
+                title: 'Anger',
+                lyrics: `My heart is hurting
 In an abrupt event
 I got confused
 Strong emotion
@@ -112,122 +174,112 @@ That's why I keep on fighting
 
 Humans who can not understand this ability are not worth
 Those who orders to me will be buried in hell with this hand`
-  }
-];
+            }
+        ];
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState(SONGS[0].id);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+        // --- Core Logic ---
 
-  // Smooth scroll to section
-  const scrollToSong = (id) => {
-    setActiveTab(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    setIsMobileMenuOpen(false);
-  };
+        const desktopNav = document.getElementById('desktop-nav');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const lyricsContainer = document.getElementById('lyrics-container');
+        let isMobileMenuOpen = false;
 
-  return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-200 font-sans selection:bg-indigo-900 selection:text-white">
-      {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
-        <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-neutral-100">
-            <Music className="w-5 h-5 text-indigo-500" />
-            <span>Lyrics Archive</span>
-          </div>
+        // 1. Render Navigation & Content
+        function render() {
+            // Render Nav Items
+            SONGS.forEach(song => {
+                // Desktop
+                const btn = document.createElement('button');
+                btn.className = 'nav-item px-4 py-2 rounded-md text-sm font-medium text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-200';
+                btn.textContent = song.title;
+                btn.dataset.target = song.id;
+                btn.onclick = () => scrollToSection(song.id);
+                desktopNav.appendChild(btn);
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex gap-1">
-            {SONGS.map((song) => (
-              <button
-                key={song.id}
-                onClick={() => scrollToSong(song.id)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                  activeTab === song.id
-                    ? 'bg-neutral-800 text-white shadow-[0_0_10px_rgba(99,102,241,0.2)]'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900'
-                }`}
-              >
-                {song.title}
-              </button>
-            ))}
-          </div>
+                // Mobile
+                const mobBtn = document.createElement('button');
+                mobBtn.className = 'block w-full text-left px-6 py-4 text-sm font-medium text-neutral-300 hover:bg-neutral-900 border-b border-neutral-900 last:border-0';
+                mobBtn.textContent = song.title;
+                mobBtn.onclick = () => scrollToSection(song.id);
+                mobileMenu.appendChild(mobBtn);
+            });
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-neutral-400 hover:text-white"
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
+            // Render Lyrics Content
+            SONGS.forEach(song => {
+                const section = document.createElement('section');
+                section.id = song.id;
+                section.className = 'scroll-mt-28 opacity-0 transition-opacity duration-700'; // Initial opacity 0 for fade-in
 
-        {/* Mobile Nav Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-neutral-800 bg-neutral-950">
-            {SONGS.map((song) => (
-              <button
-                key={song.id}
-                onClick={() => scrollToSong(song.id)}
-                className="block w-full text-left px-6 py-4 text-sm font-medium text-neutral-300 hover:bg-neutral-900 border-b border-neutral-900 last:border-0"
-              >
-                {song.title}
-              </button>
-            ))}
-          </div>
-        )}
-      </nav>
+                // Format Lyrics
+                const formattedLyrics = song.lyrics.split('\n').map(line => {
+                    const trimmed = line.trim();
+                    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+                        return `<span class="block mt-6 mb-2 text-xs font-bold text-indigo-400 tracking-widest uppercase opacity-80">${trimmed}</span>`;
+                    }
+                    if (trimmed === '') {
+                        return '<br>';
+                    }
+                    return `<div class="min-h-[1.5em]">${line}</div>`;
+                }).join('');
 
-      {/* Main Content */}
-      <main className="pt-24 pb-20 px-4 md:px-8 max-w-3xl mx-auto space-y-24">
-        {SONGS.map((song) => (
-          <section 
-            key={song.id} 
-            id={song.id} 
-            className="scroll-mt-28 animate-in fade-in duration-700"
-          >
-            <div className="mb-8 border-l-4 border-indigo-500 pl-4">
-              <h2 className="text-3xl font-bold tracking-tight text-white mb-1">
-                {song.title}
-              </h2>
-              <p className="text-neutral-500 text-sm font-mono">
-                ID: {song.id.toUpperCase()}
-              </p>
-            </div>
-
-            <div className="bg-neutral-900/30 rounded-xl p-6 md:p-10 border border-neutral-800 shadow-xl backdrop-blur-sm">
-              <pre className="whitespace-pre-wrap font-sans text-base md:text-lg leading-relaxed text-neutral-300 tracking-wide">
-                {song.lyrics.split('\n').map((line, i) => {
-                  // セクションヘッダー（[...]）の強調表示
-                  if (line.trim().startsWith('[') && line.trim().endsWith(']')) {
-                    return (
-                      <span key={i} className="block mt-6 mb-2 text-xs font-bold text-indigo-400 tracking-widest uppercase opacity-80">
-                        {line}
-                      </span>
-                    );
-                  }
-                  // 空行の処理
-                  if (line.trim() === '') {
-                    return <br key={i} />;
-                  }
-                  return (
-                    <div key={i} className="min-h-[1.5em]">
-                      {line}
+                section.innerHTML = `
+                    <div class="mb-8 border-l-4 border-indigo-500 pl-4">
+                        <h2 class="text-3xl font-bold tracking-tight text-white mb-1">${song.title}</h2>
+                        <p class="text-neutral-500 text-sm font-mono">ID: ${song.id.toUpperCase()}</p>
                     </div>
-                  );
-                })}
-              </pre>
-            </div>
-          </section>
-        ))}
-      </main>
+                    <div class="bg-neutral-900/30 rounded-xl p-6 md:p-10 border border-neutral-800 shadow-xl backdrop-blur-sm">
+                        <pre class="whitespace-pre-wrap font-sans text-base md:text-lg leading-relaxed text-neutral-300 tracking-wide">${formattedLyrics}</pre>
+                    </div>
+                `;
+                lyricsContainer.appendChild(section);
 
-      <footer className="py-8 text-center text-neutral-600 text-xs font-mono border-t border-neutral-900">
-        VOID LOGIC ARCHIVE // STATUS: NORMAL
-      </footer>
-    </div>
-  );
-}
+                // Simple Fade-in Observer
+                requestAnimationFrame(() => section.classList.remove('opacity-0'));
+            });
+        }
+
+        // 2. Interaction Handlers
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateActiveState(id);
+            }
+            if (isMobileMenuOpen) toggleMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i'); // Get icon element
+            // Update icon (using Lucide logic)
+            mobileMenuBtn.innerHTML = ''; // Clear current icon
+            const iconName = isMobileMenuOpen ? 'x' : 'menu';
+            const newIcon = document.createElement('i');
+            newIcon.setAttribute('data-lucide', iconName);
+            mobileMenuBtn.appendChild(newIcon);
+            lucide.createIcons(); // Refresh icons
+        }
+
+        function updateActiveState(activeId) {
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                if (btn.dataset.target === activeId) {
+                    btn.className = 'nav-item px-4 py-2 rounded-md text-sm font-medium bg-neutral-800 text-white shadow-[0_0_10px_rgba(99,102,241,0.2)] transition-all duration-200';
+                } else {
+                    btn.className = 'nav-item px-4 py-2 rounded-md text-sm font-medium text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-200';
+                }
+            });
+        }
+
+        // 3. Initialization
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Initialize
+        render();
+        lucide.createIcons();
+        updateActiveState(SONGS[0].id);
+
+    </script>
+</body>
+</html>
