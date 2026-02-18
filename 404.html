@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - ページが見つかりません | Rhyn (Rhyn皇太子) Official</title>
+
+    <!-- Search Engine Instructions -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="お探しのページは見つかりませんでした。">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NEMCZHXCD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2NEMCZHXCD');
+    </script>
+
+    <style>
+        /* --- Page-Specific Variables --- */
+        :root {
+            --gradient-gold-line: linear-gradient(90deg, #d4af37, #f8e47b, #d4af37);
+            --gradient-btn-dark: linear-gradient(45deg, #3b2a1e, #5a4538);
+            --gradient-btn-hover: linear-gradient(45deg, #d4af37, #f8e47b);
+            --border-radius-lg: 25px;
+            --shadow-text: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* --- Page-Specific Base Extensions --- */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { transition: all 0.3s ease; }
+
+        /* --- Main Content --- */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 60px 40px;
+            background: var(--bg-card);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold-line);
+        }
+
+        .error-code {
+            font-family: var(--font-cinzel);
+            font-size: 6rem;
+            font-weight: 900;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-family: var(--font-cinzel);
+            font-size: 1.8rem;
+            color: var(--color-heading-text);
+            margin-bottom: 20px;
+            text-shadow: var(--shadow-text);
+        }
+
+        .error-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-secondary-text);
+            margin-bottom: 40px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .back-button,
+        .home-button {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .back-button {
+            background: var(--gradient-btn-dark);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(59, 42, 30, 0.3);
+        }
+
+        .back-button:hover {
+            background: var(--gradient-btn-hover);
+            color: var(--color-heading-text);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .home-button {
+            background: transparent;
+            color: var(--color-secondary-text);
+            border: 2px solid var(--border-color);
+        }
+
+        .home-button:hover {
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        /* --- Footer (extends common.css) --- */
+        .footer {
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-body);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 4.5rem;
+            }
+            .error-title {
+                font-size: 1.5rem;
+            }
+            .error-container {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 3.5rem;
+            }
+            .error-title {
+                font-size: 1.3rem;
+            }
+            .error-container {
+                padding: 30px 20px;
+            }
+            .error-text {
+                font-size: 0.95rem;
+            }
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .back-button,
+            .home-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav role="navigation" aria-label="メインナビゲーション">
+            <a href="index.html">Home</a>
+            <a href="index.html#links">Links</a>
+            <a href="index.html#media">Media</a>
+            <a href="index.html#about">About Me</a>
+            <a href="label.html">Label</a>
+            <a href="history.html">History</a>
+            <a href="index.html#advanced">Advanced</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-text">お探しのページは存在しないか、<br>移動した可能性があります。</p>
+            <div class="button-group">
+                <a href="#" id="backButton" class="back-button">前のページに戻る</a>
+                <a href="index.html" class="home-button">トップページへ</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 - 2026 Rhyn皇太子 / Veriquest. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function() {
+            const backButton = document.getElementById('backButton');
+
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // referrerがあれば戻る、なければトップへ
+                    if (document.referrer && document.referrer.includes(location.hostname)) {
+                        history.back();
+                    } else {
+                        location.href = 'index.html';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
