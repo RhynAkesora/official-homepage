@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年会ライブ2026 特設ページ | Rhyn皇太子</title>
+
+    <!-- Verification -->
+    <meta name="google-site-verification" content="D09wmZtN0SqhAxDPPklqV6Q0fhPSVPH863PoOOGelq4" />
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="2026年1月31日(土) Rhyn皇太子 新年会ライブ開催。現地参戦（名古屋Heart Cafe）とオンライン配信のチケット販売中。武術気功体験や交流会も。">
+    
+    <!-- OGP Configuration -->
+    <meta property="og:title" content="Rhyn皇太子 新年会ライブ2026">
+    <meta property="og:description" content="2026年、幕開けはRhynと共に！歌とエンタメの新年会ライブ。現地＆オンライン同時開催。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rhyn.jp/newyear-live-2026.html">
+    <meta property="og:image" content="https://rhyn.jp/images/newyear-live-2026-2.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Assets -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+        /* --- Design Tokens --- */
+        :root {
+            /* Palette */
+            --color-primary: #d4af37;
+            --color-primary-light: #f8e47b;
+            --color-primary-dark: #8b7355;
+            --color-accent: #e74c3c;
+            --color-accent-light: #ff7675;
+            --color-accent-dark: #c0392b;
+            
+            --color-text-main: #3b2a1e;
+            --color-text-body: #4a3728;
+            --color-text-muted: #6a5543;
+            
+            --color-bg-base: #fdfaf6;
+            --color-bg-paper: #fff;
+            --color-border: #f0e9dd;
+            --color-border-card: #e8dcc6;
+
+            /* Gradients */
+            --gradient-gold: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            --gradient-btn-real: linear-gradient(135deg, var(--color-text-main), #5a4538);
+            --gradient-btn-real-hover: linear-gradient(135deg, #5a4538, #7d6150);
+            --gradient-btn-online: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent));
+            --gradient-btn-online-hover: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+
+            /* Typography */
+            --font-serif: 'Noto Serif JP', serif;
+            --font-display: 'Playfair Display', serif;
+            --font-accent: 'Cinzel', serif;
+        }
+
+        /* --- Page-Specific Base Extensions --- */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container { flex: 1; }
+
+        a { transition: all 0.3s ease; }
+
+        nav a { display: inline-block; }
+
+        /* --- Main Content --- */
+        .main-content {
+            padding: 40px 0 80px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-sub {
+            font-family: var(--font-accent);
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--color-text-main);
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 30px auto;
+            line-height: 2;
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Flyer Image --- */
+        .flyer-container {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .flyer-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* --- Section Styling --- */
+        .section-box {
+            background: var(--color-bg-paper);
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-box.transparent {
+            background-color: var(--color-bg-base);
+            border: none;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-text-main);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-gold);
+        }
+
+        /* --- Ticket Cards --- */
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ticket-card {
+            background: var(--color-bg-base);
+            border-radius: 20px;
+            padding: 35px 25px;
+            border: 1px solid var(--color-border-card);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--color-primary);
+        }
+
+        .card-type {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding: 5px 15px;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+        
+        .real-type { background: var(--color-primary); color: white; }
+        .online-type { background: var(--color-accent); color: white; }
+
+        .card-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--color-text-main);
+        }
+
+        .card-price {
+            font-family: var(--font-accent);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-text-main);
+            margin-bottom: 20px;
+        }
+        
+        .card-price span { font-size: 1rem; font-weight: normal; }
+
+        .ticket-feature-list {
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .ticket-feature-list li i.primary { color: var(--color-primary); margin-right: 8px; }
+        .ticket-feature-list li i.accent { color: var(--color-accent); margin-right: 8px; }
+
+        .ticket-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: auto;
+        }
+        
+        .btn-real {
+            background: var(--gradient-btn-real);
+            color: #fff;
+        }
+        .btn-real:hover {
+            background: var(--gradient-btn-real-hover);
+            box-shadow: 0 8px 25px rgba(59, 42, 30, 0.3);
+        }
+        
+        .btn-online {
+            background: var(--gradient-btn-online);
+            color: #fff;
+        }
+        .btn-online:hover {
+            background: var(--gradient-btn-online-hover);
+            box-shadow: 0 8px 25px rgba(192, 57, 43, 0.3);
+        }
+
+        /* --- Detail List --- */
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 15px;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .detail-label {
+            width: 100px;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+        }
+        
+        .detail-content {
+            flex: 1;
+        }
+        
+        .detail-link {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        /* --- Highlights --- */
+        .highlight-box {
+            background: var(--color-bg-base);
+            border: 1px solid var(--color-primary);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        
+        .highlight-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .highlight-title i { margin-right: 8px; }
+        
+        .highlight-text { margin: 0 0 10px; }
+        .highlight-text:last-child { margin: 0; }
+        
+        .caution-list {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: 20px;
+            color: var(--color-text-body);
+        }
+
+        /* --- Timetable --- */
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .timetable th, .timetable td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timetable th {
+            width: 80px;
+            color: var(--color-primary);
+            font-family: var(--font-accent);
+            font-weight: 700;
+        }
+        
+        .timetable tr:last-child th, .timetable tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .tt-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+        
+        .bg-cs { background-color: #FF6B6B; color: white; }
+        .bg-yt { background-color: #FF0000; color: white; }
+        
+        .tt-desc { font-size: 0.9rem; color: #666; }
+        .tt-highlight { color: var(--color-primary); font-weight: 700; }
+
+        /* --- Archive Note --- */
+        .archive-note {
+            text-align: center;
+            background: var(--color-text-main);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-weight: 700;
+        }
+
+        /* --- Footer (extends common.css) --- */
+        .footer {
+            border-top: 1px solid var(--color-border);
+            margin-top: auto;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .ticket-grid { grid-template-columns: 1fr; gap: 40px; }
+            .section-box { padding: 30px 20px; }
+            .event-title { font-size: 2rem; }
+            .detail-item { flex-direction: column; }
+            .detail-label { width: 100%; margin-bottom: 5px; }
+            .timetable th { width: 60px; font-size: 0.9rem; }
+            .timetable td { font-size: 0.95rem; }
+            
+            nav a { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav role="navigation" aria-label="メインナビゲーション">
+            <a href="index.html">Home</a>
+            <a href="index.html#links">Links</a>
+            <a href="index.html#media">Media</a>
+            <a href="index.html#about">About Me</a>
+            <a href="label.html">Label</a>
+            <a href="history.html">History</a>
+            <a href="index.html#advanced">Advanced</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container main-content">
+        
+        <div class="event-header">
+            <div class="event-sub">NEW YEAR LIVE 2026</div>
+            <h1 class="event-title">Rhyn皇太子 新年会ライブ</h1>
+            <div class="intro-text">
+                <p><strong>2026年、幕開けはRhynと共に！</strong></p>
+                <p>Rhyn皇太子がお届けする、歌とエンタメの新年会ライブへようこそ。<br>
+                名古屋の隠れ家「Heart Cafe」を貸し切って、食べて・飲んで・騒げるスペシャルな夜をご用意しました。</p>
+            </div>
+        </div>
+
+        <div class="flyer-container">
+            <img src="images/newyear-live-2026-2.jpg" alt="Rhyn皇太子 新年会ライブ2026 フライヤー" class="flyer-image">
+        </div>
+
+        <section id="tickets" class="section-box transparent">
+            <div class="ticket-grid">
+                <!-- Real Ticket -->
+                <article class="ticket-card">
+                    <span class="card-type real-type">Real Live</span>
+                    <h3 class="card-name">現地参戦チケット</h3>
+                    <div class="card-price">¥4,000 <span>(税込)</span></div>
+                    <ul class="ticket-feature-list">
+                        <li><i class="fas fa-music primary"></i>迫力のライブステージ</li>
+                        <li><i class="fas fa-hand-sparkles primary"></i>武術気功プチ体験</li>
+                        <li><i class="fas fa-glass-cheers primary"></i>終演後交流会</li>
+                        <li><i class="fas fa-video primary"></i>1週間のアーカイブ視聴付</li>
+                    </ul>
+                    <a href="https://rhyn-newyear2026.peatix.com" target="_blank" rel="noopener noreferrer" class="ticket-btn btn-real">
+                        現地参戦チケットを購入する
+                    </a>
+                </article>
+
+                <!-- Online Ticket -->
+                <article class="ticket-card">
+                    <span class="card-type online-type">Online</span>
+                    <h3 class="card-name">オンライン配信チケット</h3>
+                    <div class="card-price">¥2,000 <span>(税込)</span></div>
+                    <ul class="ticket-feature-list">
+                        <li><i class="fas fa-microphone-alt accent"></i>第1部: ColorSingバラエティ</li>
+                        <li><i class="fab fa-youtube accent"></i>第2部: YouTube高画質ライブ</li>
+                        <li><i class="fas fa-history accent"></i>1週間のアーカイブ視聴付</li>
+                        <li><i class="fas fa-comments accent"></i>チャットで参加！</li>
+                    </ul>
+                    <a href="https://rhyn-newyear2026-online.peatix.com" target="_blank" rel="noopener noreferrer" class="ticket-btn btn-online">
+                        オンライン視聴チケットを購入する
+                    </a>
+                </article>
+            </div>
+            
+            <div class="archive-note">
+                <i class="fas fa-info-circle"></i> 現地・オンライン共に、ライブ終了後「1週間」何度でもアーカイブ映像をご視聴いただけます。
+            </div>
+        </section>
+
+        <section id="real-info" class="section-box">
+            <h2 class="section-title">現地参戦について</h2>
+            
+            <ul class="detail-list">
+                <li class="detail-item">
+                    <span class="detail-label">日時</span>
+                    <div class="detail-content">
+                        <strong>2026年1月31日(土)</strong><br>
+                        18:00 OPEN / START （22:00終了予定）
+                    </div>
+                </li>
+                <li class="detail-item">
+                    <span class="detail-label">会場</span>
+                    <div class="detail-content">
+                        <strong>Heart Cafe 【ハートカフェ】</strong><br>
+                        〒460-0012 名古屋市中区千代田５丁目１１−２２<br>
+                        <a href="https://www.google.com/maps?q=愛知県名古屋市中区千代田5丁目11-22" target="_blank" rel="noopener noreferrer" class="detail-link"><i class="fas fa-map-marker-alt"></i> 地図を見る</a>
+                    </div>
+                </li>
+                <li class="detail-item">
+                    <span class="detail-label">料金</span>
+                    <div class="detail-content">4,000円（全席自由）</div>
+                </li>
+            </ul>
+
+            <div class="highlight-box">
+                <div class="highlight-title"><i class="fas fa-star"></i> イベント内容</div>
+                <p class="highlight-text">
+                    <strong>🎤 Main: 迫力のライブステージ</strong><br>
+                    カフェという距離感の近い空間で、Rhynのボーカルを全身で浴びてください。オケを使用した迫力のサウンドで、最高にエキサイティングな時間をお約束します。
+                </p>
+                <p class="highlight-text">
+                    <strong>👐 Special: 謎の！？武術気功体験コーナー</strong><br>
+                    「気功って何？」「本当に効くの？」そんな疑問をお持ちの方も、ぜひご自身の体で体感してみてください。
+                </p>
+                <p class="highlight-text">
+                    <strong>🥂 After: 交流会</strong><br>
+                    ライブの後は、美味しいドリンクを片手にリラックスした交流タイム。音楽の話、不思議な話、ただの雑談……肩肘張らずに楽しみましょう。
+                </p>
+            </div>
+        </section>
+
+        <section id="online-info" class="section-box">
+            <h2 class="section-title">オンライン配信について</h2>
+            <p style="text-align: center; margin-bottom: 30px;">
+                遠方で会場にお越しになれない方も、特等席でライブをお楽しみいただけます！<br>
+                本イベントは2部構成ですが、チケットのメインコンテンツは「第2部」の高画質配信となります。
+            </p>
+
+            <table class="timetable">
+                <tbody>
+                    <tr>
+                        <th>18:30</th>
+                        <td>
+                            <strong>第1部：カバー＆バラエティ</strong> <span class="tt-badge bg-cs">ColorSing</span><br>
+                            <span class="tt-desc">アプリ「ColorSing」を使用し、JOYSOUND音源でのカバー曲をお届けします。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>19:30</th>
+                        <td>
+                            <strong>第2部：Rhynオリジナル・ライブショー</strong> <span class="tt-badge bg-yt">YouTube限定</span><br>
+                            <span class="tt-highlight">★本チケットの対象コンテンツ★</span><br>
+                            <span class="tt-desc">Rhynの真骨頂であるオリジナル楽曲を、オケを使用した迫力のサウンドでお届けします。チケット購入者様限定URLにて視聴可能。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>21:00</th>
+                        <td>配信終了（第3部の現地交流会は配信されません）</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <div class="highlight-title"><i class="fas fa-exclamation-circle"></i> 視聴方法・注意事項</div>
+                <ul class="caution-list">
+                    <li>イベント当日までに、Peatixの「視聴ページ」またはメッセージ機能にて、YouTubeの配信URLをお送りいたします。</li>
+                    <li>こちらは「オンライン視聴専用」のチケットです。現地での参加チケットではありません。</li>
+                    <li>第1部（ColorSing）の視聴には別途アプリのダウンロードが必要ですが、第2部（YouTube）のみのご視聴も大歓迎です。</li>
+                    <li>配信機材トラブル等により映像が中断した場合、後日完全版の動画URLをお送りするなどの対応をさせていただきます。</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 - 2026 Rhyn皇太子 / Veriquest. All rights reserved.</p>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NEMCZHXCD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2NEMCZHXCD');
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- トップページ -->
+    <url>
+        <loc>https://rhyn.jp/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- レーベル -->
+    <url>
+        <loc>https://rhyn.jp/label.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 活動履歴 -->
+    <url>
+        <loc>https://rhyn.jp/history.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- 過去のイベント -->
+    <url>
+        <loc>https://rhyn.jp/past-events.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- お問い合わせ -->
+    <url>
+        <loc>https://rhyn.jp/contact.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 音楽制作 -->
+    <url>
+        <loc>https://rhyn.jp/music-production.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Webデザイン -->
+    <url>
+        <loc>https://rhyn.jp/website-design.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- オンラインサロン -->
+    <url>
+        <loc>https://rhyn.jp/online-salon.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ニューイヤーライブ 2026 -->
+    <url>
+        <loc>https://rhyn.jp/newyear-live-2026.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- BIAS退散 -->
+    <url>
+        <loc>https://rhyn.jp/bias-taisan.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- 歌詞アーカイブ -->
+    <url>
+        <loc>https://rhyn.jp/lyrics.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>

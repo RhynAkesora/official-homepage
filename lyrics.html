@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+    <title>Lyrics Archive | Rhyn</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Void Aesthetic Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+        
+        /* Utility for Lyrics Layout */
+        .lyric-line {
+            min-height: 1.5em;
+        }
+        
+        /* Hide scrollbar for horizontal nav but allow functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-indigo-900 selection:text-white antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/90 backdrop-blur-md border-b border-neutral-800">
+        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-bold text-neutral-100 flex-shrink-0">
+                <i data-lucide="music" class="w-5 h-5 text-indigo-500"></i>
+                <span class="hidden sm:inline">Lyrics Archive</span>
+                <span class="sm:hidden">Archive</span>
+            </div>
+
+            <!-- Desktop Nav (Scrollable) -->
+            <div class="hidden md:flex gap-1 overflow-x-auto no-scrollbar mx-4" id="desktop-nav">
+                <!-- Nav items injected by JS -->
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-neutral-400 hover:text-white transition-colors flex-shrink-0">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-800 bg-neutral-950 max-h-[70vh] overflow-y-auto shadow-2xl">
+            <!-- Mobile nav items injected by JS -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="lyrics-container" class="flex-grow pt-24 pb-32 px-4 md:px-8 max-w-4xl mx-auto space-y-32 w-full">
+        <!-- Lyrics sections injected by JS -->
+    </main>
+
+    <footer class="py-8 text-center text-neutral-600 text-xs font-mono border-t border-neutral-900">
+        VOID LOGIC ARCHIVE // STATUS: NORMAL
+    </footer>
+
+    <!-- Logic -->
+    <script>
+        /**
+         * Data Source
+         * 管理者用データ定義 (日本語ロケール適用)
+         */
+        const SONGS = [
+            {
+                id: 'vanilla',
+                title: 'Vanilla (Metal Ver.)',
+                artist: 'Rhyn皇太子',
+                duration: '3:14',
+                lyrics: `[Intro]
+(Guitar & Drum Fill)
+
+[Chorus]
+V-A-N-I-L-L-A　バニラ
+V-A-N-I-L-L-A　バニラ
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　高収入
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　でアルバイト
+
+[Verse]
+即日体入　求人バニラ
+今すぐ稼げる　お仕事バニラ
+バニラ　バニラ　即日体入
+バニラ　即日高収入
+バニラ　バニラ　体験入店
+今すぐ稼げる　アルバイト
+
+[Bridge]
+(Guitar Solo & Harmony)
+
+[Chorus]
+V-A-N-I-L-L-A　バニラ
+V-A-N-I-L-L-A　バニラ
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　高収入
+バーニラ　バニラ　バーニラ求人
+バーニラ　バニラ　でアルバイト
+
+[Outro]
+(End)`
+            },
+            {
+                id: 'destruction',
+                title: 'Destruction and Creation',
+                artist: '黒薔薇王国',
+                duration: '3:16',
+                lyrics: `[システム通知]
+- 省略 -`
+            },
+            {
+                id: 'sample-1',
+                title: 'サンプル曲タイトル',
+                artist: 'アーティスト名',
+                duration: '0:00',
+                lyrics: `[Verse 1]
+ここに歌詞の1番を入力してください
+改行で行を分けることができます
+
+[Chorus]
+ここにサビの歌詞を入力してください
+
+[Verse 2]
+ここに歌詞の2番を入力してください
+
+[Outro]
+ここにアウトロの歌詞を入力してください`
+            }
+        ];
+
+        // --- Core Logic ---
+
+        const desktopNav = document.getElementById('desktop-nav');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const lyricsContainer = document.getElementById('lyrics-container');
+        let isMobileMenuOpen = false;
+
+        // 1. Render Navigation & Content
+        function render() {
+            // Render Nav Items
+            SONGS.forEach(song => {
+                // Desktop
+                const btn = document.createElement('button');
+                btn.className = 'nav-item whitespace-nowrap px-4 py-2 rounded-md text-sm font-medium text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-200 flex-shrink-0';
+                btn.textContent = song.title;
+                btn.dataset.target = song.id;
+                btn.onclick = () => scrollToSection(song.id);
+                desktopNav.appendChild(btn);
+
+                // Mobile
+                const mobBtn = document.createElement('button');
+                mobBtn.className = 'block w-full text-left px-6 py-4 text-sm font-medium text-neutral-300 hover:bg-neutral-900 border-b border-neutral-900 last:border-0';
+                mobBtn.textContent = song.title;
+                mobBtn.onclick = () => scrollToSection(song.id);
+                mobileMenu.appendChild(mobBtn);
+            });
+
+            // Render Lyrics Content
+            SONGS.forEach(song => {
+                const section = document.createElement('section');
+                section.id = song.id;
+                section.className = 'scroll-mt-28 opacity-0 transition-opacity duration-700';
+
+                // Format Lyrics
+                const formattedLyrics = song.lyrics.split('\n').map(line => {
+                    const trimmed = line.trim();
+                    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+                        return `<span class="block mt-8 mb-3 text-xs font-bold text-indigo-400 tracking-widest uppercase opacity-80 border-b border-indigo-900/30 pb-1 w-max">${trimmed}</span>`;
+                    }
+                    if (trimmed === '') {
+                        return '<br>';
+                    }
+                    return `<div class="lyric-line">${line}</div>`;
+                }).join('');
+
+                section.innerHTML = `
+                    <div class="mb-6 border-l-4 border-indigo-500 pl-4">
+                        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-1">${song.title}</h2>
+                        <div class="flex flex-wrap items-center gap-3 text-neutral-500 text-xs md:text-sm font-mono mt-2">
+                            <span class="bg-neutral-900 px-2 py-1 rounded border border-neutral-800">${song.artist}</span>
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> ${song.duration}</span>
+                            <span class="uppercase">ID: ${song.id}</span>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900/30 rounded-xl p-6 md:p-10 border border-neutral-800 shadow-xl backdrop-blur-sm">
+                        <pre class="whitespace-pre-wrap font-sans text-base md:text-lg leading-relaxed text-neutral-300 tracking-wide">${formattedLyrics}</pre>
+                    </div>
+                `;
+                lyricsContainer.appendChild(section);
+
+                // Fade-in Observer
+                requestAnimationFrame(() => section.classList.remove('opacity-0'));
+            });
+        }
+
+        // 2. Interaction Handlers
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateActiveState(id);
+            }
+            if (isMobileMenuOpen) toggleMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.innerHTML = '';
+            const iconName = isMobileMenuOpen ? 'x' : 'menu';
+            const newIcon = document.createElement('i');
+            newIcon.setAttribute('data-lucide', iconName);
+            mobileMenuBtn.appendChild(newIcon);
+            lucide.createIcons();
+        }
+
+        function updateActiveState(activeId) {
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                if (btn.dataset.target === activeId) {
+                    btn.className = 'nav-item whitespace-nowrap px-4 py-2 rounded-md text-sm font-medium bg-neutral-800 text-white shadow-[0_0_10px_rgba(99,102,241,0.2)] transition-all duration-200 flex-shrink-0';
+                } else {
+                    btn.className = 'nav-item whitespace-nowrap px-4 py-2 rounded-md text-sm font-medium text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-200 flex-shrink-0';
+                }
+            });
+        }
+
+        // 3. Initialization
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        render();
+        lucide.createIcons();
+        updateActiveState(SONGS[0].id);
+
+    </script>
+</body>
+</html>

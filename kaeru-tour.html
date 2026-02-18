@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+    <title>皇太子と行くカエル館ツアー - 参加者専用ページ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Serif JP', serif;
+            background: linear-gradient(135deg, #2e7d3a 0%, #4caf50 50%, #66bb6a 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .password-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(46, 125, 58, 0.9), rgba(76, 175, 80, 0.9));
+        }
+
+        .password-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .frog-icon {
+            font-size: 4rem;
+            color: #2e7d3a;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .password-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2e7d3a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .password-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .password-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        .password-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2e7d3a, #4caf50);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .password-button:hover {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .main-page-button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #17a2b8;
+            color: white;
+        }
+
+        .main-page-button:hover {
+            background: #138496;
+            transform: translateY(-1px);
+            color: white;
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .main-content {
+            display: none;
+            min-height: 100vh;
+            background: #fdfaf6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2e7d3a, #4caf50);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0e9dd;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2e7d3a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #4caf50;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2e7d3a, #4caf50);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #4caf50;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: #2e7d3a;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: #2e7d3a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item i {
+            color: #4caf50;
+            font-size: 1.2rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0, #ffeaa7);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-title {
+            font-weight: 700;
+            color: #f57c00;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .board-section {
+            background: #f8f8f8;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .board-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2e7d3a;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .board-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .board-placeholder {
+            background: white;
+            border: 2px dashed #ccc;
+            border-radius: 15px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .board-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .form-section, .posts-section {
+            margin-bottom: 40px;
+        }
+
+        .form-title, .posts-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2e7d3a;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .form-title i, .posts-title i {
+            color: #4caf50;
+        }
+
+        .form-container, .posts-container {
+            background: white;
+            border-radius: 15px;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-container iframe, .posts-container iframe {
+            border-radius: 10px;
+        }
+
+        .posts-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .disqus-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            margin-top: 20px;
+        }
+
+        #disqus_thread {
+            min-height: 400px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2e7d3a;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .password-card {
+                padding: 30px 20px;
+                margin: 0 auto;
+                width: 85%;
+                max-width: 350px;
+            }
+
+            .password-input {
+                max-width: 280px;
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .password-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .navigation-buttons {
+                margin-top: 20px;
+                gap: 8px;
+            }
+
+            .main-page-button {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 25px;
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                top: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .form-title, .posts-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .board-section {
+                padding: 20px 10px;
+                margin: 20px 5px;
+                border-radius: 15px;
+            }
+
+            .disqus-container {
+                padding: 15px;
+                margin: 15px -5px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .password-card {
+                padding: 25px 15px;
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .password-input {
+                max-width: 250px;
+                padding: 10px;
+                font-size: 0.95rem;
+                letter-spacing: 2px;
+            }
+
+            .password-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            .frog-icon {
+                font-size: 3rem;
+            }
+
+            .password-title {
+                font-size: 1.5rem;
+            }
+
+            .password-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .navigation-buttons {
+                margin-top: 18px;
+                gap: 6px;
+            }
+
+            .main-page-button {
+                padding: 7px 12px;
+                font-size: 0.75rem;
+                gap: 4px;
+            }
+
+            .header-title {
+                font-size: 1.8rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            .form-title, .posts-title {
+                font-size: 1.1rem;
+            }
+
+            .board-section {
+                padding: 15px 5px;
+                margin: 15px 2px;
+                border-radius: 12px;
+            }
+
+            .disqus-container {
+                padding: 10px;
+                margin: 10px -2px;
+                border-radius: 8px;
+            }
+
+            .posts-description {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- パスワード入力画面 -->
+    <div class="password-screen" id="passwordScreen">
+        <div class="password-card">
+            <div class="frog-icon">🔮</div>
+            <h1 class="password-title">カエル館ツアー</h1>
+            <p class="password-subtitle">参加者専用ページです。<br>皇太子から伝えられたパスワードを入力してください。</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="パスワードを入力" maxlength="6">
+            <button class="password-button" onclick="checkPassword()">
+                <i class="fas fa-unlock"></i> 入室する
+            </button>
+            <div class="error-message" id="errorMessage">
+                パスワードが正しくありません。もう一度お試しください。
+            </div>
+            
+            <!-- 戻るボタンを追加 -->
+            <div class="navigation-buttons">
+                <a href="index.html" class="main-page-button">
+                    <i class="fas fa-home"></i> メインページに戻る
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="main-content" id="mainContent">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> メインページに戻る
+        </a>
+
+        <header class="header">
+            <h1 class="header-title">🔮 皇太子と行くカエル館ツアー</h1>
+            <p class="header-subtitle">2025年10月18日（土） - 参加者専用情報ページ</p>
+        </header>
+
+        <div class="container">
+            <!-- ツアー概要 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    ツアー概要
+                </h2>
+                <p><strong>目的地：</strong>茶臼山高原両生類研究所（カエル館） - 長野県根羽村</p>
+                <p><strong>主な目的：</strong>カエル館のパワースポット体験とビリビリ苔石などの不思議現象の探求</p>
+                <p><strong>参加費：</strong>5,000円（交通費・入館料込み、食事代は各自負担）</p>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">🔬 科学的に検証されたパワースポット</div>
+                    <p>椙山女学院大学の山根一郎教授による科学的調査で、館内北東の隅で「ぽかぽか感」や「ピリピリ感」を50-60％の確率で体感できることが確認されています。サーモグラフィによる測定では体温が2℃上昇した実験結果もあります。</p>
+                </div>
+            </section>
+
+            <!-- タイムスケジュール -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    当日のスケジュール
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">11:00</div>
+                        <div class="timeline-content">名古屋市・星が丘駅集合・出発</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">13:00頃</div>
+                        <div class="timeline-content">茶臼山高原到着・昼食（茶臼山高原の食事処）</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">14:00-17:00</div>
+                        <div class="timeline-content">
+                            <strong>カエル館探求時間</strong><br>
+                            ・館内パワースポット体験<br>
+                            ・ビリビリ苔石トレッキング<br>
+                            ・湧水汲み体験<br>
+                            ・新種ネバタゴガエル見学
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">17:00</div>
+                        <div class="timeline-content">カエル館出発・名古屋へ向けて移動開始</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">19:00頃</div>
+                        <div class="timeline-content">名古屋到着・食事会</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">21:00頃</div>
+                        <div class="timeline-content">解散</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 持ち物・服装 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-backpack"></i>
+                    持ち物・服装について
+                </h2>
+                
+                <div class="highlight-box">
+                    <div class="highlight-title">👕 服装（必須）</div>
+                    <div class="items-grid">
+                        <div class="item">
+                            <i class="fas fa-tshirt"></i>
+                            動きやすい服装
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-running"></i>
+                            歩きやすい靴（スニーカーなど）
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-backpack"></i>
+                            手をふさがないカバン（リュック推奨）
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-title">🎒 持参推奨品</div>
+                    <div class="items-grid">
+                        <div class="item">
+                            <i class="fas fa-pills"></i>
+                            酔い止め薬（長距離移動のため）
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-tint"></i>
+                            湧水用容器（ペットボトルなど）
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 注意事項 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    重要な注意事項
+                </h2>
+                
+                <div class="warning-box">
+                    <div class="warning-title">
+                        <i class="fas fa-signal"></i>
+                        通信環境について
+                    </div>
+                    <p>茶臼山は山間部のため、<strong>スマホの電波がほとんど入りません</strong>。緊急時以外は通信できないことを予めご了承ください。</p>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">
+                        <i class="fas fa-mountain"></i>
+                        山岳地帯での活動
+                    </div>
+                    <p>標高1200m前後の高原での活動となります。天候の変化に注意し、必要に応じて防寒具をお持ちください。</p>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-title">
+                        <i class="fas fa-walking"></i>
+                        徒歩での移動
+                    </div>
+                    <p>ビリビリ苔石までは館から徒歩1分程度の林間です。足元が不安定な場合がありますので、歩きやすい靴は必須です。</p>
+                </div>
+            </section>
+
+            <!-- 掲示板セクション -->
+            <div class="board-section">
+                <h2 class="board-title">
+                    <i class="fas fa-comments"></i>
+                    参加者専用掲示板
+                </h2>
+                <p class="board-description">
+                    ツアーに関する質問や情報共有、当日の連絡事項などはこちらでやり取りしましょう。<br>
+                    X(Twitter)、Facebook、Google等のアカウントでログインして投稿できます。リアルタイムで更新されます。
+                </p>
+                
+                <!-- Disqus掲示板 -->
+                <div class="disqus-container">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                        this.page.url = 'https://rhyn.jp/kaeru-tour.html';
+                        this.page.identifier = 'kaeru-tour-participants';
+                        };
+                        (function() {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://rhyn.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>
+                        JavaScript を有効にしてください。
+                        <a href="https://disqus.com/?ref_noscript">Disqus による掲示板</a>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SHA-256ハッシュ化関数
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // ハッシュ済みパスワード（平文をソースに残さない）
+        const CORRECT_HASH = '2a8adc3402b9245930ff449debbefa0d7b4cc251796cce9e0692f633517c55b1';
+
+        async function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const errorMsg = document.getElementById('errorMessage');
+            const passwordScreen = document.getElementById('passwordScreen');
+            const mainContent = document.getElementById('mainContent');
+
+            const inputHash = await sha256(input.value);
+
+            if (inputHash === CORRECT_HASH) {
+                passwordScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+                errorMsg.style.display = 'none';
+            } else {
+                errorMsg.style.display = 'block';
+                input.value = '';
+                input.focus();
+
+                // 入力フィールドを赤く点滅
+                input.style.borderColor = '#f44336';
+                setTimeout(() => {
+                    input.style.borderColor = '#e0e0e0';
+                }, 1000);
+            }
+        }
+        
+        // Enterキーでパスワードチェック
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // ページロード時にパスワード入力欄にフォーカス
+        window.addEventListener('load', function() {
+            document.getElementById('passwordInput').focus();
+        });
+    </script>
+</body>
+</html>
